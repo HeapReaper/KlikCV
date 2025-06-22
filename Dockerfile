@@ -14,8 +14,6 @@ RUN mkdir -p tmp
 
 RUN node ace migration:run --force
 
-RUN npm prune --production
-
 EXPOSE 3333
 
 CMD ["node", "build/bin/server.js"]
