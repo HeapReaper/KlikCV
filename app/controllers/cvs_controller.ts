@@ -1,6 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import puppeteer from 'puppeteer'
 import fs from 'fs/promises'
+import env from '#start/env'
 
 export default class CvsController {
   public async show({ view }: HttpContext) {
@@ -80,6 +81,10 @@ export default class CvsController {
       educations: educations,
       skillSet: skillSet
     })
+
+    if (env.get('ENVIRONMENT')) {
+      return html
+    }
 
     const browser = await puppeteer.launch({
       headless: true,
