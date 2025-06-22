@@ -76,7 +76,6 @@ export default class CvsController {
       skillSet: skillSet
     })
 
-    return html
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
 
