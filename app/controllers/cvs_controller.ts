@@ -9,7 +9,8 @@ export default class CvsController {
 
   public async generate({ request, response, view }: HttpContext) {
     let photoBase64 = null
-    console.log('RAW request all:', request.all())
+    let contentType = 'image/jpeg'
+
     const toArray = (value: any) => (Array.isArray(value) ? value : value ? [value] : [])
 
     const firstName = request.input('first_name')
@@ -35,6 +36,10 @@ export default class CvsController {
 
     const skills = toArray(request.input('skill')) ?? []
     const skillLevels = toArray(request.input('skill_level')) ?? []
+
+    if (profilePicture && profilePicture.headers && profilePicture.headers['content-type']) {
+      contentType = profilePicture.headers['content-type']
+    }
 
     if (profilePicture && profilePicture.tmpPath) {
       const fileData = await fs.readFile(profilePicture.tmpPath)
@@ -67,7 +72,7 @@ export default class CvsController {
     const html = await view.render(`pages/templates/cv_template_1`, {
       firstName: firstName,
       lastName: lastName,
-      profilePicture: photoBase64 ? `data:${profilePicture.headers['content-type']};base64,${photoBase64}` : null,
+      profilePicture: photoBase64 ? `data:${contentType};base64,${photoBase64}` : null,
       email: email,
       jobTitle: jobTitle,
       profile: profile,
