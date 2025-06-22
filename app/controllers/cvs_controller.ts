@@ -16,7 +16,7 @@ export default class CvsController {
 
     const firstName = request.input('first_name')
     const lastName = request.input('last_name')
-    const birthday = request.input('birthday')
+    const birthdate = request.input('birthdate')
     const city = request.input('city')
     const phone = request.input('phone')
     const email = request.input('email')
@@ -76,7 +76,7 @@ export default class CvsController {
     const html = await view.render(`pages/templates/cv_template_1`, {
       firstName: firstName,
       lastName: lastName,
-      birthday: birthday,
+      birthdate: birthdate,
       city: city,
       phone: phone,
       profilePicture: photoBase64 ? `data:${contentType};base64,${photoBase64}` : null,

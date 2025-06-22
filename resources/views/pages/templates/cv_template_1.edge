@@ -20,7 +20,9 @@
         <img src="{{ profilePicture }}" alt="Profile Picture" class="rounded-full w-36 h-36 object-cover" />
         @endif
 
-        <p>{{ birthday }}</p>
+        @if (birthdate)
+          <p>{{ birthdate }}</p>
+        @endif
 
         <p class="text-purple-700 font-semibold text-1xl">{{ jobTitle }}</p>
         <div class="text-gray-600 space-y-1">
