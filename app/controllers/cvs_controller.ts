@@ -82,9 +82,11 @@ export default class CvsController {
       skillSet: skillSet
     })
 
-    if (env.get('ENVIRONMENT')) {
+    if (env.get('ENVIRONMENT') === 'development') {
       return html
     }
+    console.log('f')
+    return html
 
     const browser = await puppeteer.launch({
       headless: true,
