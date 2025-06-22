@@ -41,47 +41,15 @@
           <div class="flex flex-wrap justify-center gap-6">
             <!-- Template 1 -->
             <label
-              class="cursor-pointer bg-purple-700 rounded-lg shadow-md w-full sm:w-64 p-4 flex flex-col items-center text-center relative"
+              class="cursor-pointer bg-purple-700 rounded-lg shadow-md w-full sm:w-64 p-4 flex flex-col items-center text-center relative h-auto"
               :class="selectedTemplate === 1 ? 'ring-4 ring-blue-500' : ''"
             >
-              <img src="/images/template1-preview.jpg" alt="Template 1" class="rounded-md mb-3 w-full h-40 object-cover bg-purple-600" />
+              <img src="/images/template-previews/template_1.png" alt="Template 1" class="rounded-md mb-3 w-full h-60 object-cover bg-purple-600" />
               <h3 class="text-lg font-semibold mb-2">Strak</h3>
               <input
                 type="radio"
                 name="template"
                 value="1"
-                class="absolute bottom-4 right-4 w-6 h-6 accent-blue-600"
-                x-model="selectedTemplate"
-              />
-            </label>
-
-            <!-- Template 2 -->
-            <label
-              class="cursor-pointer bg-purple-700 rounded-lg shadow-md w-full sm:w-64 p-4 flex flex-col items-center text-center relative"
-              :class="selectedTemplate === 2 ? 'ring-4 ring-blue-500' : ''"
-            >
-              <img src="/images/template2-preview.jpg" alt="Template 2" class="rounded-md mb-3 w-full h-40 object-cover bg-purple-600" />
-              <h3 class="text-lg font-semibold mb-2">Creatief</h3>
-              <input
-                type="radio"
-                name="template"
-                value="2"
-                class="absolute bottom-4 right-4 w-6 h-6 accent-blue-600"
-                x-model="selectedTemplate"
-              />
-            </label>
-
-            <!-- Template 3 -->
-            <label
-              class="cursor-pointer bg-purple-700 rounded-lg shadow-md w-full sm:w-64 p-4 flex flex-col items-center text-center relative"
-              :class="selectedTemplate === 3 ? 'ring-4 ring-blue-500' : ''"
-            >
-              <img src="/images/template3-preview.jpg" alt="Template 3" class="rounded-md mb-3 w-full h-40 object-cover bg-purple-600" />
-              <h3 class="text-lg font-semibold mb-2">Modern</h3>
-              <input
-                type="radio"
-                name="template"
-                value="3"
                 class="absolute bottom-4 right-4 w-6 h-6 accent-blue-600"
                 x-model="selectedTemplate"
               />

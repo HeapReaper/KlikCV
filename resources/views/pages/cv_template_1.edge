@@ -1,86 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV Template</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 text-gray-900">
-  <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-8 mt-10">
+<html lang="nl" class="bg-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CV met kolommen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Header -->
-    <div class="text-center border-b pb-6">
-      <h1 class="text-4xl font-bold">{{ name }}</h1>
-      <p class="text-lg text-gray-600">{{ jobTitle }}</p>
-      <div class="mt-2 text-sm text-gray-500">
-        johndoe@example.com • +31 612 345 678 • Amsterdam, NL
-      </div>
-    </div>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @stack('dumper')
+  </head>
+  <body class="font-sans text-gray-900">
+    <div class="max-w-5xl mx-auto bg-white shadow-md rounded-lg p-8 mt-10 mb-10 flex flex-col md:flex-row gap-8">
 
-    <!-- About Me -->
-    <div class="mt-6">
-      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Over mij</h2>
-      <p class="text-sm text-gray-700">
-        {{ aboutMe }}
-      </p>
-    </div>
+      <aside class="md:w-1/4 flex flex-col items-center text-center space-y-6 border-r border-gray-200 pr-6">
+        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Foto Jan Jansen" class="rounded-full w-36 h-36 object-cover shadow-md" />
 
-    <!-- Experience -->
-    <div class="mt-6">
-      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Ervaring</h2>
-      <div class="space-y-4">
-        <div>
-          <h3 class="font-semibold">Senior Developer - TechCorp</h3>
-          <p class="text-sm text-gray-500">Jan 2022 – Present | Amsterdam, NL</p>
-          <ul class="list-disc pl-5 text-sm text-gray-700">
-            <li>Built scalable REST APIs with AdonisJS</li>
-            <li>Led migration to Tailwind-based UI system</li>
-            <li>Mentored junior developers</li>
-          </ul>
+        <h1 class="text-3xl font-bold">Jan Jansen</h1>
+        <p class="text-purple-700 font-semibold">Frontend Developer</p>
+        <div class="text-gray-600 space-y-1">
+          <p>jan.jansen@email.com</p>
+          <p>Amsterdam, Nederland</p>
         </div>
-        <div>
-          <h3 class="font-semibold">Web Developer - DevSolutions</h3>
-          <p class="text-sm text-gray-500">Mar 2019 – Dec 2021 | Rotterdam, NL</p>
-          <ul class="list-disc pl-5 text-sm text-gray-700">
-            <li>Maintained Laravel and Vue.js-based client portals</li>
-            <li>Integrated third-party APIs (Stripe, SendGrid)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+      </aside>
 
-    <!-- Education -->
-    <div class="mt-6">
-      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Education</h2>
-      <div>
-        <h3 class="font-semibold">BSc Computer Science - TU Delft</h3>
-        <p class="text-sm text-gray-500">2015 – 2019</p>
-      </div>
-    </div>
+      <main class="md:w-2/3 space-y-8">
+        <section>
+          <h2 class="text-2xl font-semibold border-b-2 border-purple-600 pb-1 mb-4">Profiel</h2>
+          <p>
+            Enthousiaste frontend developer met 5 jaar ervaring in het bouwen van responsieve websites en webapplicaties. Sterk in HTML, CSS (TailwindCSS), JavaScript en Vue.js. Passie voor gebruiksvriendelijke en toegankelijke interfaces.
+          </p>
+        </section>
 
-    <!-- Skills -->
-    <div class="mt-6">
-      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Skills</h2>
-      <div class="flex flex-wrap gap-2 text-sm">
-        <span class="bg-gray-200 px-2 py-1 rounded">JavaScript</span>
-        <span class="bg-gray-200 px-2 py-1 rounded">AdonisJS</span>
-        <span class="bg-gray-200 px-2 py-1 rounded">TailwindCSS</span>
-        <span class="bg-gray-200 px-2 py-1 rounded">PostgreSQL</span>
-        <span class="bg-gray-200 px-2 py-1 rounded">Docker</span>
-        <span class="bg-gray-200 px-2 py-1 rounded">React</span>
-      </div>
-    </div>
+        <section>
+          <h2 class="text-2xl font-semibold border-b-2 border-purple-600 pb-1 mb-4">Werkervaring</h2>
 
-    <!-- Languages -->
-    <div class="mt-6">
-      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Languages</h2>
-      <ul class="text-sm text-gray-700 list-disc pl-5">
-        <li>Dutch (native)</li>
-        <li>English (fluent)</li>
-      </ul>
-    </div>
+          <div class="mb-4">
+            <div class="flex justify-between text-gray-600">
+              <h3 class="text-xl font-bold">Junior Webdeveloper</h3>
+              <p class="text-sm text-gray-500 mb-2">Aug 2018 - Dec 2020</p>
+            </div>
+            <p class="italic text-gray-600">Web Solutions — Utrecht</p>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Bouwen en onderhouden van klantwebsites.</li>
+              <li>Ondersteunen bij frontend ontwikkeling met HTML, CSS en JavaScript.</li>
+              <li>Testen en debuggen van websites.</li>
+            </ul>
+          </div>
+          <div>
+            <div class="flex justify-between text-gray-600">
+              <h3 class="text-xl font-bold">Junior Webdeveloper</h3>
+              <p class="text-sm text-gray-500 mb-2">Aug 2018 - Dec 2020</p>
+            </div>
+              <p class="italic text-gray-600">Web Solutions — Utrecht</p>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Bouwen en onderhouden van klantwebsites.</li>
+              <li>Ondersteunen bij frontend ontwikkeling met HTML, CSS en JavaScript.</li>
+              <li>Testen en debuggen van websites.</li>
+            </ul>
+          </div>
+        </section>
 
-  </div>
-</body>
+        <section>
+          <h2 class="text-2xl font-semibold border-b-2 border-purple-600 pb-1 mb-4">Opleidingen</h2>
+
+          <div class="mb-6">
+            <div class="flex justify-between text-gray-600">
+              <h3 class="text-xl font-bold">Elektrotechniek</h3>
+              <p class="text-sm text-gray-500">jan xxxx - dec xxxx</p>
+            </div>
+
+            <p class="italic">Twickel college</p>
+
+          </div>
+        </section>
+
+        <!-- Vaardigheden -->
+        <section>
+          <h2 class="text-2xl font-semibold border-b-2 border-purple-600 pb-1 mb-4">Vaardigheden</h2>
+          <div class="space-y-4 max-w-md">
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>HTML & CSS</span>
+                <span>★★★★☆</span>
+              </div>
+              <div class="w-full bg-gray-300 rounded h-3">
+                <div class="bg-purple-600 h-3 rounded" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>JavaScript</span>
+                <span>★★★☆☆</span>
+              </div>
+              <div class="w-full bg-gray-300 rounded h-3">
+                <div class="bg-purple-600 h-3 rounded" style="width: 60%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Vue.js</span>
+                <span>★★★☆☆</span>
+              </div>
+              <div class="w-full bg-gray-300 rounded h-3">
+                <div class="bg-purple-600 h-3 rounded" style="width: 60%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>TailwindCSS</span>
+                <span>★★★★☆</span>
+              </div>
+              <div class="w-full bg-gray-300 rounded h-3">
+                <div class="bg-purple-600 h-3 rounded" style="width: 85%"></div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </main>
+
+    </div>
+  </body>
 </html>
