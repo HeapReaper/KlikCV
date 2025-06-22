@@ -201,6 +201,78 @@
 
       <fieldset
         x-data="{
+    educations: [
+      { degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' }
+    ],
+    addEducation() {
+      this.educations.push({ degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' });
+    },
+    removeEducation(index) {
+      this.educations.splice(index, 1);
+    }
+  }"
+        class="border border-purple-700 rounded-md p-4 space-y-4"
+      >
+        <legend class="text-xl font-semibold mb-4">Opleiding</legend>
+
+        <template x-for="(education, index) in educations" :key="index">
+          <div class="space-y-4 border border-purple-600 p-4 rounded-md relative bg-purple-700">
+
+            <button
+              type="button"
+              x-show="educations.length > 1"
+              @click="removeEducation(index)"
+              class="absolute top-2 right-2 text-red-400 hover:text-red-600"
+              title="Verwijder deze opleiding"
+            >
+              🗑️
+            </button>
+
+            <div>
+              <label class="block text-sm font-medium text-white mb-1">Opleidingstitel</label>
+              <input type="text" x-model="education.degree" name="degree[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-white mb-1">Instelling</label>
+                <input type="text" x-model="education.institution" name="institution[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-white mb-1">Locatie</label>
+                <input type="text" x-model="education.location" name="location_edu[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+              </div>
+              <div class="flex space-x-2">
+                <div class="flex-1">
+                  <label class="block text-sm font-medium text-white mb-1">Startdatum</label>
+                  <input type="month" x-model="education.start_date" name="start_date_edu[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+                </div>
+                <div class="flex-1">
+                  <label class="block text-sm font-medium text-white mb-1">Einddatum</label>
+                  <input type="month" x-model="education.end_date" name="end_date_edu[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-white mb-1">Beschrijving</label>
+              <textarea x-model="education.description" name="description_edu[]" rows="3" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none resize-none"></textarea>
+            </div>
+          </div>
+        </template>
+
+        <button
+          type="button"
+          @click="addEducation"
+          class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
+        >
+          Opleiding toevoegen
+        </button>
+      </fieldset>
+
+
+      <fieldset
+        x-data="{
           skills: [
             { name: '', level: 0 }
           ],
