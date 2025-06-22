@@ -1,5 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import puppeteer from 'puppeteer'
+import puppeteer, {Browser} from 'puppeteer'
 import fs from 'fs/promises'
 import env from '#start/env'
 
@@ -16,6 +16,9 @@ export default class CvsController {
 
     const firstName = request.input('first_name')
     const lastName = request.input('last_name')
+    const birthday = request.input('birthday')
+    const city = request.input('city')
+    const phone = request.input('phone')
     const email = request.input('email')
     const jobTitle = request.input('job_title')
     const profile = request.input('profile')
@@ -73,6 +76,9 @@ export default class CvsController {
     const html = await view.render(`pages/templates/cv_template_1`, {
       firstName: firstName,
       lastName: lastName,
+      birthday: birthday,
+      city: city,
+      phone: phone,
       profilePicture: photoBase64 ? `data:${contentType};base64,${photoBase64}` : null,
       email: email,
       jobTitle: jobTitle,
@@ -82,13 +88,11 @@ export default class CvsController {
       skillSet: skillSet
     })
 
-    if (env.get('ENVIRONMENT') === 'development') {
+    if (env.get('NODE_ENV') === 'development') {
       return html
     }
-    console.log('f')
-    return html
 
-    const browser = await puppeteer.launch({
+    const browser: Browser = await puppeteer.launch({
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     })

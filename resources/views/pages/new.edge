@@ -35,7 +35,7 @@
     <form class="max-w-3xl mx-auto p-6 bg-purple-800 rounded-lg shadow-md space-y-8" method="POST" action="/generate" enctype="multipart/form-data">
       {{ csrfField() }}
       <fieldset class="border border-purple-700 rounded-md p-4">
-        <legend class="text-xl font-semibold mb-4">Templaat</legend>
+        <legend class="text-xl font-semibold mb-4">Templaten</legend>
 
         <div class="max-w-3xl mx-auto px-6" x-data="{ selectedTemplate: 1 }">
           <div class="flex flex-wrap justify-center gap-6">
@@ -45,7 +45,7 @@
               :class="selectedTemplate === 1 ? 'ring-4 ring-blue-500' : ''"
             >
               <img src="/images/template-previews/template_1.png" alt="Template 1" class="rounded-md mb-3 w-full h-60 object-cover bg-purple-600" />
-              <h3 class="text-lg font-semibold mb-2">Strak</h3>
+              <h3 class="text-lg font-semibold mt-2">Simpel</h3>
               <input
                 type="radio"
                 name="template"
@@ -61,7 +61,7 @@
 
       <fieldset class="border border-purple-700 rounded-md p-4">
         <legend class="text-xl font-semibold mb-4">Persoonlijke info</legend>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md ">
           <div>
             <label for="first_name" class="block text-sm font-medium text-white mb-1">Voornaam</label>
             <input type="text" id="first_name" name="first_name" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
@@ -73,8 +73,18 @@
           </div>
 
           <div>
-            <label for="photo" class="block text-sm font-medium text-white mb-1">Foto</label>
-            <input type="file" id="photo" name="photo" accept="image/*" class="w-full text-white file:bg-purple-700 file:text-white file:border-0 file:px-3 file:py-1.5 file:rounded-md file:cursor-pointer">
+            <label for="birthday" class="block text-sm font-medium text-white mb-1">Geboortedatum</label>
+            <input type="date" id="birthday" name="birthday" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
+          </div>
+
+          <div>
+            <label for="city" class="block text-sm font-medium text-white mb-1">Woonplaats</label>
+            <input type="text" id="city" name="city" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-medium text-white mb-1">Mobiele telefoon</label>
+            <input type="text" id="phone" name="phone" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
           </div>
 
           <div>
@@ -82,17 +92,28 @@
             <input type="email" id="email" name="email" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
           </div>
 
-          <div class="md:col-span-2">
-            <label for="job_title" class="block text-sm font-medium text-white mb-1">Werk titel</label>
-            <input type="text" id="job_title" name="job_title" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none">
+          <div>
+            <label for="photo" class="block text-sm font-medium text-white mb-1">Foto</label>
+            <input type="file" id="photo" name="photo" accept="image/*" class="w-full text-white file:bg-purple-700 file:text-white file:border-0 file:px-3 file:py-1.5 file:rounded-md file:cursor-pointer">
           </div>
+
         </div>
       </fieldset>
 
       <fieldset class="border border-purple-700 rounded-md p-4">
         <legend class="text-xl font-semibold mb-4">Profiel</legend>
         <div class="relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-2">
-          <textarea id="profile" name="profile" rows="5" placeholder="Schrijf een korte alinia over jezelf" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none resize-none"></textarea>
+
+          <div class="md:col-span-2">
+            <label for="job_title" class="block text-sm font-medium text-white mb-1">Werk titel</label>
+            <input type="text" id="job_title" name="job_title" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none">
+          </div>
+
+          <div class="md:col-span-2">
+            <label for="job_title" class="block text-sm font-medium text-white mb-1">Je beschrijving</label>
+            <textarea id="profile" name="profile" rows="5" placeholder="Schrijf een korte alinia over jezelf" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none resize-none"></textarea>
+
+          </div>
         </div>
       </fieldset>
 
