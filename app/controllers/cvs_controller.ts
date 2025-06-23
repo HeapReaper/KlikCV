@@ -156,7 +156,7 @@ export default class CvsController {
       email: demoData.email,
       jobTitle: demoData.jobTitle,
       profile: demoData.profile,
-      profilePicture: 'https://placehold.co/80x80/png',
+      profilePicture: 'https://randomuser.me/api/portraits/men/75.jpg',
       workExperience,
       educations,
       skillSet,
