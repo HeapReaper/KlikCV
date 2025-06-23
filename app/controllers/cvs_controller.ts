@@ -27,6 +27,9 @@ export default class CvsController {
     let profile = request.input('profile')
     let profilePicture = request.file('photo')
 
+    let hobbyNames = request.input('hobby') ?? []
+    let hobbyDescriptions = request.input('hobby_description') ?? []
+
     let positions = toArray(request.input('position')) ?? []
     let companies = toArray(request.input('company')) ?? []
     let locations = toArray(request.input('location')) ?? []
@@ -52,6 +55,11 @@ export default class CvsController {
       const fileData = await fs.readFile(profilePicture.tmpPath)
       photoBase64 = fileData.toString('base64')
     }
+
+    const hobbies = hobbyNames.map((name: any, index: number) => ({
+      name: name.trim(),
+      description: hobbyDescriptions[index]?.trim() || '',
+    }))
 
     const workExperiences = positions.map((_, index) => ({
       position: positions[index],
@@ -86,6 +94,7 @@ export default class CvsController {
       email: email,
       jobTitle: jobTitle,
       profile: profile,
+      hobbies: hobbies,
       workExperience: workExperiences,
       educations: educations,
       skillSet: skillSet
@@ -127,6 +136,11 @@ export default class CvsController {
     console.log(template)
     const demoData = await this.demoData()
 
+    const hobbies = demoData.hobbyNames.map((name: any, index: number) => ({
+      name: name.trim(),
+      description: demoData.hobbyDescriptions[index]?.trim() || '',
+    }))
+
     const workExperience = demoData.positions.map((_, i) => ({
       position: demoData.positions[i],
       company: demoData.companies[i],
@@ -160,6 +174,7 @@ export default class CvsController {
       jobTitle: demoData.jobTitle,
       profile: demoData.profile,
       profilePicture: 'https://randomuser.me/api/portraits/men/75.jpg',
+      hobbies: hobbies,
       workExperience,
       educations,
       skillSet,
@@ -178,7 +193,8 @@ export default class CvsController {
       email: 'john.doe@example.com',
       jobTitle: 'Software Engineer',
       profile: 'Passionate developer with 10+ years of experience in web development.',
-
+      hobbyNames: ['RC'],
+      hobbyDescriptions: ['Flying RC planes'],
       positions: ['Frontend Developer'],
       companies: ['Tech Corp'],
       locations: ['Amsterdam'],

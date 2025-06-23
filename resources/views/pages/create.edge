@@ -88,6 +88,68 @@
 
       <fieldset
         x-data="{
+    hobbies: [
+      { name: '', description: '' }
+    ],
+    addHobby() {
+      this.hobbies.push({ name: '', description: '' });
+    },
+    removeHobby(index) {
+      this.hobbies.splice(index, 1);
+    }
+  }"
+        class="border border-purple-700 rounded-md p-4 space-y-4"
+      >
+        <legend class="text-xl font-semibold mb-4">Hobby's & Interesses</legend>
+
+        <template x-for="(hobby, index) in hobbies" :key="index">
+          <div class="space-y-4 border border-purple-600 p-4 rounded-md relative bg-purple-700">
+
+            <button
+              type="button"
+              x-show="hobbies.length > 1"
+              @click="removeHobby(index)"
+              class="absolute top-2 right-2 text-red-400 hover:text-red-600"
+              title="Verwijder deze hobby"
+            >
+              🗑️
+            </button>
+
+            <div>
+              <label class="block text-sm font-medium text-white mb-1">Hobby of interesse</label>
+              <input
+                type="text"
+                x-model="hobby.name"
+                name="hobby[]"
+                placeholder="Bijv. Programmeren, Gamen, Wandelen"
+                class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-white mb-1">Beschrijving</label>
+              <textarea
+                x-model="hobby.description"
+                name="hobby_description[]"
+                rows="3"
+                placeholder="Vertel iets over deze hobby of interesse"
+                class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none resize-none"
+              ></textarea>
+            </div>
+          </div>
+        </template>
+
+        <button
+          type="button"
+          @click="addHobby"
+          class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
+        >
+          Hobby toevoegen
+        </button>
+      </fieldset>
+
+      <fieldset
+        x-data="{
                 experiences: [
                   { position: '', company: '', location: '', start_date: '', end_date: '', description: '' }
                 ],
@@ -273,7 +335,7 @@
               <div class="md:flex-1 mt-4 md:mt-0">
                 <label class="block text-sm font-medium text-white mb-1">Level</label>
                 <div class="flex items-center space-x-2">
-                  <template x-for="lvl in 4" :key="lvl">
+                  <template x-for="lvl in 5" :key="lvl">
                     <button
                       type="button"
                       @click="setLevel(skill, lvl)"
