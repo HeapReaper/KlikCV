@@ -1,7 +1,6 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import puppeteer, {Browser} from 'puppeteer'
 import fs from 'fs/promises'
-import env from '#start/env'
 
 export default class CvsController {
   public async index({ view }: HttpContext) {
