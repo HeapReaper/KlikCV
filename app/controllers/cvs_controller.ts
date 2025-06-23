@@ -132,11 +132,13 @@ export default class CvsController {
       case '2':
         template = 'cv_template_2'
         break
+      case '3':
+        template = 'cv_template_3'
+        break
       default:
         return 'Not found!' // TODO do decent error codes
     }
 
-    console.log(template)
     const demoData = await this.demoData()
 
     const hobbies = demoData.hobbyNames.map((name: any, index: number) => ({
@@ -167,6 +169,7 @@ export default class CvsController {
       level: demoData.skillLevels[i],
     }))
 
+    console.log(educations)
     const html = await view.render(`pages/templates/${template}`, {
       firstName: demoData.firstName,
       lastName: demoData.lastName,
@@ -203,7 +206,7 @@ export default class CvsController {
       locations: ['Amsterdam'],
       startDates: ['2020-01'],
       endDates: ['2023-06'],
-      descriptions: ['Worked on frontend features and improved performance.'],
+      descriptions: ['- Worked on frontend features and improved performance.'],
 
       degrees: ['BSc Computer Science'],
       institutions: ['University of Amsterdam'],
@@ -212,7 +215,7 @@ export default class CvsController {
       endDateEdus: ['2014-06'],
       descriptionEdus: ['Studied algorithms, data structures, and web technologies.'],
 
-      skills: ['JavaScript', 'TypeScript', 'Vue.js'],
+      skills: ['JavaScript', 'TypeScript', 'PHP'],
       skillLevels: [3, 1, 4],
     }
   }
