@@ -1,6 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import puppeteer, {Browser} from 'puppeteer'
 import fs from 'fs/promises'
+import { DateTime } from 'luxon'
 
 export default class CvsController {
   public async index({ view }: HttpContext) {
@@ -19,7 +20,7 @@ export default class CvsController {
 
     let firstName = request.input('first_name')
     let lastName = request.input('last_name')
-    let birthdate = request.input('birthdate')
+    let birthdate = DateTime.fromISO(request.input('birthdate')).toFormat('dd-MM-yyyy')
     let city = request.input('city')
     let phone = request.input('phone')
     let email = request.input('email')
@@ -169,7 +170,7 @@ export default class CvsController {
     const html = await view.render(`pages/templates/${template}`, {
       firstName: demoData.firstName,
       lastName: demoData.lastName,
-      birthdate: demoData.birthdate,
+      birthdate: DateTime.fromISO(demoData.birthdate).toFormat('dd-MM-yyyy'),
       city: demoData.city,
       phone: demoData.phone,
       email: demoData.email,
@@ -189,7 +190,7 @@ export default class CvsController {
     return {
       firstName: 'John',
       lastName: 'Doe',
-      birthdate: '1990-01-01',
+      birthdate: '1990-12-31',
       city: 'Amsterdam',
       phone: '+31 6 12345678',
       email: 'john.doe@example.com',
