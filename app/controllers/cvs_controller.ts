@@ -13,6 +13,7 @@ export default class CvsController {
   }
 
   public async generate({ request, response, view }: HttpContext) {
+    const selectedTemplate = request.input('template')
     let photoBase64 = null
     let contentType = 'image/jpeg'
 
@@ -47,6 +48,23 @@ export default class CvsController {
 
     let skills = toArray(request.input('skill')) ?? []
     let skillLevels = toArray(request.input('skill_level')) ?? []
+
+    console.log(selectedTemplate)
+
+    let template = ''
+    switch (selectedTemplate) {
+      case '1':
+        template = 'cv_template_1'
+        break
+      case '2':
+        template = 'cv_template_2'
+        break
+      case '3':
+        template = 'cv_template_3'
+        break
+      default:
+        return 'Not found!' // TODO do decent error codes
+    }
 
     if (profilePicture && profilePicture.headers && profilePicture.headers['content-type']) {
       contentType = profilePicture.headers['content-type']
@@ -87,7 +105,8 @@ export default class CvsController {
       level: skillLevels[index],
     }))
 
-    const html = await view.render(`pages/templates/cv_template_1`, {
+    console.log(template)
+    const html = await view.render(`pages/templates/${template}`, {
       firstName: firstName,
       lastName: lastName,
       birthdate: birthdate,
@@ -169,8 +188,7 @@ export default class CvsController {
       level: demoData.skillLevels[i],
     }))
 
-    console.log(educations)
-    const html = await view.render(`pages/templates/${template}`, {
+    return await view.render(`pages/templates/${template}`, {
       firstName: demoData.firstName,
       lastName: demoData.lastName,
       birthdate: DateTime.fromISO(demoData.birthdate).toFormat('dd-MM-yyyy'),
@@ -185,8 +203,6 @@ export default class CvsController {
       educations,
       skillSet,
     })
-
-    return html
   }
 
   demoData() {
@@ -219,5 +235,4 @@ export default class CvsController {
       skillLevels: [3, 1, 4],
     }
   }
-
 }
