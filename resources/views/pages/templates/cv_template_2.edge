@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="nl" class="bg-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @stack('dumper')
+  </head>
+
+  <body class="font-sans text-gray-900">
+    <div class="flex h-screen">
+      <div class="absolute top-0 left-0 w-full bg-gray-900" style="height:8%;">
+
+      </div>
+      <div class="relative z-10">
+        <div class="h-24 bg-gray-900 clip-v-shape"></div>
+      </div>
+      <div class="w-1/4 bg-blue-500">
+
+      </div>
+      <div class="w-3/4 bg-white">
+
+      </div>
+    </div>
+
+    <style>
+      .clip-v-shape {
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+        min-height: 20px;
+      }
+    </style>
+  </body>
+</html>

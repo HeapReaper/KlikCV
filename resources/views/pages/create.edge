@@ -1,38 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KlikCV</title>
-
-  <link rel="preconnect" href="https://fonts.bunny.net" />
-  <link
-    href="https://fonts.bunny.net/css?family=instrument-sans:400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet"
-  />
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
-  @stack('dumper')
-</head>
-
-<body class="min-h-screen w-screen font-sans bg-purple-900 text-white">
-  <header class="bg-purple-800 border-b border-purple-700 shadow-md">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-lg font-bold text-white">KlikCV <span class="text-purple-300">door Kelvin de Reus</span></h1>
-      <nav class="space-x-4">
-        <a href="#" class="text-purple-200 hover:text-white transition">Home</a>
-      </nav>
-    </div>
-  </header>
-
-  <div
-    class="fixed xl:absolute left-8 right-8 top-0 bottom-0 xl:inset-0 max-w-screen-xl mx-auto pointer-events-none before:content-[''] before:[background:repeating-linear-gradient(0deg,var(--sand-5)_0_4px,transparent_0_8px)] before:absolute before:top-0 before:left-0 before:h-full before:w-px after:content-[''] after:[background:repeating-linear-gradient(0deg,var(--sand-5)_0_4px,transparent_0_8px)] after:absolute after:top-0 after:right-0 after:h-full after:w-px"
-  >
-  </div>
-
+@layout.main({ title: "Home"})
+  @slot('main')
   <div class="pt-4 h-full flex flex-col mt-8 ">
-    <form class="max-w-3xl mx-auto p-6 bg-purple-800 rounded-lg shadow-md space-y-8" method="POST" action="/generate" enctype="multipart/form-data">
+    <form class="max-w-3xl mx-auto p-6 bg-purple-800 rounded-lg shadow-md space-y-8" data-turbo="false" method="POST" action="/generate" enctype="multipart/form-data">
       {{ csrfField() }}
       <fieldset class="border border-purple-700 rounded-md p-4">
         <legend class="text-xl font-semibold mb-4">Templaten</legend>
@@ -119,16 +88,16 @@
 
       <fieldset
         x-data="{
-          experiences: [
-            { position: '', company: '', location: '', start_date: '', end_date: '', description: '' }
-          ],
-          addExperience() {
-            this.experiences.push({ position: '', company: '', location: '', start_date: '', end_date: '', description: '' });
-          },
-          removeExperience(index) {
-            this.experiences.splice(index, 1);
-          }
-        }"
+                experiences: [
+                  { position: '', company: '', location: '', start_date: '', end_date: '', description: '' }
+                ],
+                addExperience() {
+                  this.experiences.push({ position: '', company: '', location: '', start_date: '', end_date: '', description: '' });
+                },
+                removeExperience(index) {
+                  this.experiences.splice(index, 1);
+                }
+              }"
         class="border border-purple-700 rounded-md p-4 space-y-4"
       >
         <legend class="text-xl font-semibold mb-4">Werkervaring</legend>
@@ -190,16 +159,16 @@
 
       <fieldset
         x-data="{
-    educations: [
-      { degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' }
-    ],
-    addEducation() {
-      this.educations.push({ degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' });
-    },
-    removeEducation(index) {
-      this.educations.splice(index, 1);
-    }
-  }"
+          educations: [
+            { degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' }
+          ],
+          addEducation() {
+            this.educations.push({ degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' });
+          },
+          removeEducation(index) {
+            this.educations.splice(index, 1);
+          }
+        }"
         class="border border-purple-700 rounded-md p-4 space-y-4"
       >
         <legend class="text-xl font-semibold mb-4">Opleiding</legend>
@@ -262,19 +231,19 @@
 
       <fieldset
         x-data="{
-          skills: [
-            { name: '', level: 0 }
-          ],
-          addSkill() {
-            this.skills.push({ name: '', level: 0 });
-          },
-          removeSkill(index) {
-            if (this.skills.length > 1) this.skills.splice(index, 1);
-          },
-          setLevel(skill, level) {
-            skill.level = level;
-          }
-        }"
+                skills: [
+                  { name: '', level: 0 }
+                ],
+                addSkill() {
+                  this.skills.push({ name: '', level: 0 });
+                },
+                removeSkill(index) {
+                  if (this.skills.length > 1) this.skills.splice(index, 1);
+                },
+                setLevel(skill, level) {
+                  skill.level = level;
+                }
+              }"
         class="border border-purple-700 rounded-md p-4 space-y-4"
       >
         <legend class="text-xl font-semibold mb-4">Skills</legend>
@@ -309,9 +278,9 @@
                       type="button"
                       @click="setLevel(skill, lvl)"
                       :class="{
-              'bg-blue-600': skill.level >= lvl,
-              'bg-purple-900': skill.level < lvl
-            }"
+                    'bg-blue-600': skill.level >= lvl,
+                    'bg-purple-900': skill.level < lvl
+                  }"
                       class="w-8 h-4 rounded transition-colors"
                       :aria-label="'Level ' + lvl"
                     ></button>
@@ -336,13 +305,5 @@
       <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700 transition-colors">Genereer CV</button>
     </form>
   </div>
-
-  <footer class="bg-purple-800 border-t border-purple-700 py-4 mt-8">
-    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-purple-300">
-      © 2025 KlikCV. Gemaakt door Kelvin de Reus.
-    </div>
-  </footer>
-</body>
-</html>
-
-
+  @endslot
+@end

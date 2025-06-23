@@ -1,0 +1,23 @@
+<fieldset class="border border-purple-700 rounded-md p-4">
+  <legend class="text-xl font-semibold mb-4">Templaten</legend>
+
+  <div class="max-w-3xl mx-auto px-6" x-data="{ selectedTemplate: 1 }">
+    <div class="flex flex-wrap justify-center gap-6">
+      <!-- Template 1 -->
+      <label
+        class="cursor-pointer bg-purple-700 rounded-lg shadow-md w-full sm:w-64 p-4 flex flex-col items-center text-center relative h-auto"
+        :class="selectedTemplate === 1 ? 'ring-4 ring-blue-500' : ''"
+      >
+        <img src="/images/template-previews/template_1.png" alt="Template 1" class="rounded-md mb-3 w-full h-60 object-cover bg-purple-600" />
+        <h3 class="text-lg font-semibold mt-2">Simpel</h3>
+        <input
+          type="radio"
+          name="template"
+          value="1"
+          class="absolute bottom-4 right-4 w-6 h-6 accent-blue-600"
+          x-model="selectedTemplate"
+        />
+      </label>
+    </div>
+  </div>
+</fieldset>
