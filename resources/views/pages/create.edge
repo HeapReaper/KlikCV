@@ -115,6 +115,7 @@
                 name="job_title"
                 class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
                 x-model="job_title"
+                placeholder="Voor welke baan is dit? Elektromonteur? Schoonmaker?"
                 required
               />
             </div>
@@ -204,6 +205,7 @@
                   :name="`position[${index}]`"
                   class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
                   x-model="experiences[index].position"
+                  placeholder="Voorbeeld: Developer, monteur, secretaresse"
                 />
               </div>
 
@@ -215,6 +217,7 @@
                     :name="`company[${index}]`"
                     class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
                     x-model="experiences[index].company"
+                    placeholder="Voorbeeld: Albert Heijn"
                   />
                 </div>
                 <div>
@@ -224,6 +227,7 @@
                     :name="`location[${index}]`"
                     class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
                     x-model="experiences[index].location"
+                    placeholder="Voorbeeld: Amsterdam, Nederland"
                   />
                 </div>
                 <div class="flex space-x-2">
@@ -234,6 +238,7 @@
                       :name="`start_date[${index}]`"
                       class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
                       x-model="experiences[index].start_date"
+                      placeholder="Dec 2017"
                     />
                   </div>
                   <div class="flex-1">
@@ -243,6 +248,7 @@
                       :name="`end_date[${index}]`"
                       class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
                       x-model="experiences[index].end_date"
+                      placeholder="Dec 2018"
                     />
                   </div>
                 </div>
@@ -255,6 +261,7 @@
                   rows="3"
                   class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none resize-none"
                   x-model="experiences[index].description"
+                  placeholder="Voorbeeld:&#10;- Het controleren en inpakken van disinfectiemiddelen"
                 ></textarea>
               </div>
             </div>
@@ -291,6 +298,7 @@
                   :name="`degree[${index}]`"
                   class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
                   x-model="educations[index].degree"
+                  placeholder="Voorbeeld: Master of Science"
                 />
               </div>
 
@@ -302,6 +310,7 @@
                     :name="`institution[${index}]`"
                     class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
                     x-model="educations[index].institution"
+                    placeholder="Voorbeeld: Universiteit van Amsterdam"
                   />
                 </div>
                 <div>
@@ -311,6 +320,7 @@
                     :name="`location_edu[${index}]`"
                     class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
                     x-model="educations[index].location"
+                    placeholder="Voorbeeld: Amsterdam"
                   />
                 </div>
                 <div class="flex space-x-2">
@@ -342,6 +352,7 @@
                   rows="3"
                   class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none resize-none"
                   x-model="educations[index].description"
+                  placeholder="Voorbeeld:&#10;- Het leren van automatisering&#10;- Leren van probleemoplossend denken"
                 ></textarea>
               </div>
             </div>
