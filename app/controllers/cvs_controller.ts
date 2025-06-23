@@ -4,8 +4,12 @@ import fs from 'fs/promises'
 import env from '#start/env'
 
 export default class CvsController {
-  public async show({ view }: HttpContext) {
+  public async index({ view }: HttpContext) {
     return view.render('pages/home');
+  }
+
+  public async create({ view }: HttpContext) {
+    return view.render('pages/create');
   }
 
   public async generate({ request, response, view }: HttpContext) {
