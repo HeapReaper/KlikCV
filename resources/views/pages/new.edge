@@ -1,348 +1,313 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KlikCV</title>
+@layout.main({ title: "Home"})
+@slot('meta')
+<meta name="description" content="A welcome page made with EdgeJS">
+@endslot
 
-  <link rel="preconnect" href="https://fonts.bunny.net" />
-  <link
-    href="https://fonts.bunny.net/css?family=instrument-sans:400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet"
-  />
-  <script src="https://cdn.tailwindcss.com"></script>
+@slot('main')
+<div class="pt-4 h-full flex flex-col mt-8 ">
+  <form class="max-w-3xl mx-auto p-6 bg-purple-800 rounded-lg shadow-md space-y-8" method="POST" action="/generate" enctype="multipart/form-data">
+    {{ csrfField() }}
+    <fieldset class="border border-purple-700 rounded-md p-4">
+      <legend class="text-xl font-semibold mb-4">Templaten</legend>
 
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
-  @stack('dumper')
-</head>
-
-<body class="min-h-screen w-screen font-sans bg-purple-900 text-white">
-  <header class="bg-purple-800 border-b border-purple-700 shadow-md">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-lg font-bold text-white">KlikCV <span class="text-purple-300">door Kelvin de Reus</span></h1>
-      <nav class="space-x-4">
-        <a href="#" class="text-purple-200 hover:text-white transition">Home</a>
-      </nav>
-    </div>
-  </header>
-
-  <div
-    class="fixed xl:absolute left-8 right-8 top-0 bottom-0 xl:inset-0 max-w-screen-xl mx-auto pointer-events-none before:content-[''] before:[background:repeating-linear-gradient(0deg,var(--sand-5)_0_4px,transparent_0_8px)] before:absolute before:top-0 before:left-0 before:h-full before:w-px after:content-[''] after:[background:repeating-linear-gradient(0deg,var(--sand-5)_0_4px,transparent_0_8px)] after:absolute after:top-0 after:right-0 after:h-full after:w-px"
-  >
-  </div>
-
-  <div class="pt-4 h-full flex flex-col mt-8 ">
-    <form class="max-w-3xl mx-auto p-6 bg-purple-800 rounded-lg shadow-md space-y-8" method="POST" action="/generate" enctype="multipart/form-data">
-      {{ csrfField() }}
-      <fieldset class="border border-purple-700 rounded-md p-4">
-        <legend class="text-xl font-semibold mb-4">Templaten</legend>
-
-        <div class="max-w-3xl mx-auto px-6" x-data="{ selectedTemplate: 1 }">
-          <div class="flex flex-wrap justify-center gap-6">
-            <!-- Template 1 -->
-            <label
-              class="cursor-pointer bg-purple-700 rounded-lg shadow-md w-full sm:w-64 p-4 flex flex-col items-center text-center relative h-auto"
-              :class="selectedTemplate === 1 ? 'ring-4 ring-blue-500' : ''"
-            >
-              <img src="/images/template-previews/template_1.png" alt="Template 1" class="rounded-md mb-3 w-full h-60 object-cover bg-purple-600" />
-              <h3 class="text-lg font-semibold mt-2">Simpel</h3>
-              <input
-                type="radio"
-                name="template"
-                value="1"
-                class="absolute bottom-4 right-4 w-6 h-6 accent-blue-600"
-                x-model="selectedTemplate"
-              />
-            </label>
-          </div>
+      <div class="max-w-3xl mx-auto px-6" x-data="{ selectedTemplate: 1 }">
+        <div class="flex flex-wrap justify-center gap-6">
+          <!-- Template 1 -->
+          <label
+            class="cursor-pointer bg-purple-700 rounded-lg shadow-md w-full sm:w-64 p-4 flex flex-col items-center text-center relative h-auto"
+            :class="selectedTemplate === 1 ? 'ring-4 ring-blue-500' : ''"
+          >
+            <img src="/images/template-previews/template_1.png" alt="Template 1" class="rounded-md mb-3 w-full h-60 object-cover bg-purple-600" />
+            <h3 class="text-lg font-semibold mt-2">Simpel</h3>
+            <input
+              type="radio"
+              name="template"
+              value="1"
+              class="absolute bottom-4 right-4 w-6 h-6 accent-blue-600"
+              x-model="selectedTemplate"
+            />
+          </label>
         </div>
-      </fieldset>
+      </div>
+    </fieldset>
 
 
-      <fieldset class="border border-purple-700 rounded-md p-4">
-        <legend class="text-xl font-semibold mb-4">Persoonlijke info</legend>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md ">
-          <div>
-            <label for="first_name" class="block text-sm font-medium text-white mb-1">Voornaam</label>
-            <input type="text" id="first_name" name="first_name" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
-          </div>
+    <fieldset class="border border-purple-700 rounded-md p-4">
+      <legend class="text-xl font-semibold mb-4">Persoonlijke info</legend>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md ">
+        <div>
+          <label for="first_name" class="block text-sm font-medium text-white mb-1">Voornaam</label>
+          <input type="text" id="first_name" name="first_name" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
+        </div>
 
-          <div>
-            <label for="last_name" class="block text-sm font-medium text-white mb-1">Achternaam</label>
-            <input type="text" id="last_name" name="last_name" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
-          </div>
+        <div>
+          <label for="last_name" class="block text-sm font-medium text-white mb-1">Achternaam</label>
+          <input type="text" id="last_name" name="last_name" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
+        </div>
 
-          <div>
-            <label for="birthdate" class="block text-sm font-medium text-white mb-1">Geboortedatum</label>
-            <input type="date" id="birthdate" name="birthdate" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
-          </div>
+        <div>
+          <label for="birthdate" class="block text-sm font-medium text-white mb-1">Geboortedatum</label>
+          <input type="date" id="birthdate" name="birthdate" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
+        </div>
 
-          <div>
-            <label for="city" class="block text-sm font-medium text-white mb-1">Woonplaats</label>
-            <input type="text" id="city" name="city" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
-          </div>
+        <div>
+          <label for="city" class="block text-sm font-medium text-white mb-1">Woonplaats</label>
+          <input type="text" id="city" name="city" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
+        </div>
 
-          <div>
-            <label for="phone" class="block text-sm font-medium text-white mb-1">Mobiele telefoon</label>
-            <input type="text" id="phone" name="phone" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
-          </div>
+        <div>
+          <label for="phone" class="block text-sm font-medium text-white mb-1">Mobiele telefoon</label>
+          <input type="text" id="phone" name="phone" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
+        </div>
 
-          <div>
-            <label for="email" class="block text-sm font-medium text-white mb-1">Email adres</label>
-            <input type="email" id="email" name="email" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
-          </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-white mb-1">Email adres</label>
+          <input type="email" id="email" name="email" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
+        </div>
 
-          <div>
-            <label for="photo" class="block text-sm font-medium text-white mb-1">Foto</label>
-            <input type="file" id="photo" name="photo" accept="image/*" class="w-full text-white file:bg-purple-700 file:text-white file:border-0 file:px-3 file:py-1.5 file:rounded-md file:cursor-pointer">
-          </div>
+        <div>
+          <label for="photo" class="block text-sm font-medium text-white mb-1">Foto</label>
+          <input type="file" id="photo" name="photo" accept="image/*" class="w-full text-white file:bg-purple-700 file:text-white file:border-0 file:px-3 file:py-1.5 file:rounded-md file:cursor-pointer">
+        </div>
+
+      </div>
+    </fieldset>
+
+    <fieldset class="border border-purple-700 rounded-md p-4">
+      <legend class="text-xl font-semibold mb-4">Profiel</legend>
+      <div class="relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-2">
+
+        <div class="md:col-span-2">
+          <label for="job_title" class="block text-sm font-medium text-white mb-1">Werk titel</label>
+          <input type="text" id="job_title" name="job_title" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
+        </div>
+
+        <div class="md:col-span-2">
+          <label for="job_title" class="block text-sm font-medium text-white mb-1">Je beschrijving</label>
+          <textarea id="profile" name="profile" rows="5" placeholder="Schrijf een korte alinia over jezelf" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none resize-none" required></textarea>
 
         </div>
-      </fieldset>
+      </div>
+    </fieldset>
 
-      <fieldset class="border border-purple-700 rounded-md p-4">
-        <legend class="text-xl font-semibold mb-4">Profiel</legend>
+    <fieldset
+      x-data="{
+              experiences: [
+                { position: '', company: '', location: '', start_date: '', end_date: '', description: '' }
+              ],
+              addExperience() {
+                this.experiences.push({ position: '', company: '', location: '', start_date: '', end_date: '', description: '' });
+              },
+              removeExperience(index) {
+                this.experiences.splice(index, 1);
+              }
+            }"
+      class="border border-purple-700 rounded-md p-4 space-y-4"
+    >
+      <legend class="text-xl font-semibold mb-4">Werkervaring</legend>
+
+      <template x-for="(experience, index) in experiences" :key="index">
+        <div class="space-y-4 border border-purple-600 p-4 rounded-md relative bg-purple-700">
+
+          <button
+            type="button"
+            x-show="experiences.length > 1"
+            @click="removeExperience(index)"
+            class="absolute top-2 right-2 text-red-400 hover:text-red-600"
+            title="Verwijder deze werkervaring"
+          >
+            🗑️
+          </button>
+
+          <div>
+            <label class="block text-sm font-medium text-white mb-1">Positie</label>
+            <input type="text" x-model="experience.position" name="position[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-white mb-1">Bedrijf</label>
+              <input type="text" x-model="experience.company" name="company[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-white mb-1">Locatie</label>
+              <input type="text" x-model="experience.location" name="location[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+            </div>
+            <div class="flex space-x-2">
+              <div class="flex-1">
+                <label class="block text-sm font-medium text-white mb-1">Startdatum</label>
+                <input type="month" x-model="experience.start_date" name="start_date[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+              </div>
+              <div class="flex-1">
+                <label class="block text-sm font-medium text-white mb-1">Einddatum</label>
+                <input type="month" x-model="experience.end_date" name="end_date[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-white mb-1">Beschrijving</label>
+            <textarea x-model="experience.description" name="description[]" rows="3" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none resize-none"></textarea>
+          </div>
+        </div>
+      </template>
+
+      <button
+        type="button"
+        @click="addExperience"
+        class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
+      >
+        Werkervaring toevoegen
+      </button>
+    </fieldset>
+
+    <fieldset
+      x-data="{
+        educations: [
+          { degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' }
+        ],
+        addEducation() {
+          this.educations.push({ degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' });
+        },
+        removeEducation(index) {
+          this.educations.splice(index, 1);
+        }
+      }"
+      class="border border-purple-700 rounded-md p-4 space-y-4"
+    >
+      <legend class="text-xl font-semibold mb-4">Opleiding</legend>
+
+      <template x-for="(education, index) in educations" :key="index">
+        <div class="space-y-4 border border-purple-600 p-4 rounded-md relative bg-purple-700">
+
+          <button
+            type="button"
+            x-show="educations.length > 1"
+            @click="removeEducation(index)"
+            class="absolute top-2 right-2 text-red-400 hover:text-red-600"
+            title="Verwijder deze opleiding"
+          >
+            🗑️
+          </button>
+
+          <div>
+            <label class="block text-sm font-medium text-white mb-1">Opleidingstitel</label>
+            <input type="text" x-model="education.degree" name="degree[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-white mb-1">Instelling</label>
+              <input type="text" x-model="education.institution" name="institution[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-white mb-1">Locatie</label>
+              <input type="text" x-model="education.location" name="location_edu[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+            </div>
+            <div class="flex space-x-2">
+              <div class="flex-1">
+                <label class="block text-sm font-medium text-white mb-1">Startdatum</label>
+                <input type="month" x-model="education.start_date" name="start_date_edu[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+              </div>
+              <div class="flex-1">
+                <label class="block text-sm font-medium text-white mb-1">Einddatum</label>
+                <input type="month" x-model="education.end_date" name="end_date_edu[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-white mb-1">Beschrijving</label>
+            <textarea x-model="education.description" name="description_edu[]" rows="3" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none resize-none"></textarea>
+          </div>
+        </div>
+      </template>
+
+      <button
+        type="button"
+        @click="addEducation"
+        class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
+      >
+        Opleiding toevoegen
+      </button>
+    </fieldset>
+
+
+    <fieldset
+      x-data="{
+              skills: [
+                { name: '', level: 0 }
+              ],
+              addSkill() {
+                this.skills.push({ name: '', level: 0 });
+              },
+              removeSkill(index) {
+                if (this.skills.length > 1) this.skills.splice(index, 1);
+              },
+              setLevel(skill, level) {
+                skill.level = level;
+              }
+            }"
+      class="border border-purple-700 rounded-md p-4 space-y-4"
+    >
+      <legend class="text-xl font-semibold mb-4">Skills</legend>
+
+      <template x-for="(skill, index) in skills" :key="index">
         <div class="relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-2">
 
-          <div class="md:col-span-2">
-            <label for="job_title" class="block text-sm font-medium text-white mb-1">Werk titel</label>
-            <input type="text" id="job_title" name="job_title" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" required>
+          <button
+            type="button"
+            x-show="skills.length > 1"
+            @click="removeSkill(index)"
+            class="absolute top-2 right-2 text-red-400 hover:text-red-600"
+            title="Verwijder deze skill"
+          >
+            🗑️
+          </button>
+
+          <div class="flex flex-col md:flex-row md:items-center md:space-x-4">
+            <!-- Skill name input -->
+            <div class="md:flex-1">
+              <label class="block text-sm font-medium text-white mb-1">Skill</label>
+              <input type="text" x-model="skill.name" name="skill[]" placeholder="E.g. JavaScript"
+                     class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none">
+            </div>
+
+            <!-- Skill level buttons -->
+            <div class="md:flex-1 mt-4 md:mt-0">
+              <label class="block text-sm font-medium text-white mb-1">Level</label>
+              <div class="flex items-center space-x-2">
+                <template x-for="lvl in 4" :key="lvl">
+                  <button
+                    type="button"
+                    @click="setLevel(skill, lvl)"
+                    :class="{
+                  'bg-blue-600': skill.level >= lvl,
+                  'bg-purple-900': skill.level < lvl
+                }"
+                    class="w-8 h-4 rounded transition-colors"
+                    :aria-label="'Level ' + lvl"
+                  ></button>
+                </template>
+              </div>
+              <input type="hidden" name="skill_level[]" :value="skill.level">
+            </div>
           </div>
 
-          <div class="md:col-span-2">
-            <label for="job_title" class="block text-sm font-medium text-white mb-1">Je beschrijving</label>
-            <textarea id="profile" name="profile" rows="5" placeholder="Schrijf een korte alinia over jezelf" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none resize-none" required></textarea>
-
-          </div>
         </div>
-      </fieldset>
+      </template>
 
-      <fieldset
-        x-data="{
-          experiences: [
-            { position: '', company: '', location: '', start_date: '', end_date: '', description: '' }
-          ],
-          addExperience() {
-            this.experiences.push({ position: '', company: '', location: '', start_date: '', end_date: '', description: '' });
-          },
-          removeExperience(index) {
-            this.experiences.splice(index, 1);
-          }
-        }"
-        class="border border-purple-700 rounded-md p-4 space-y-4"
+      <button
+        type="button"
+        @click="addSkill"
+        class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
       >
-        <legend class="text-xl font-semibold mb-4">Werkervaring</legend>
+        Skill toevoegen
+      </button>
+    </fieldset>
 
-        <template x-for="(experience, index) in experiences" :key="index">
-          <div class="space-y-4 border border-purple-600 p-4 rounded-md relative bg-purple-700">
-
-            <button
-              type="button"
-              x-show="experiences.length > 1"
-              @click="removeExperience(index)"
-              class="absolute top-2 right-2 text-red-400 hover:text-red-600"
-              title="Verwijder deze werkervaring"
-            >
-              🗑️
-            </button>
-
-            <div>
-              <label class="block text-sm font-medium text-white mb-1">Positie</label>
-              <input type="text" x-model="experience.position" name="position[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label class="block text-sm font-medium text-white mb-1">Bedrijf</label>
-                <input type="text" x-model="experience.company" name="company[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-white mb-1">Locatie</label>
-                <input type="text" x-model="experience.location" name="location[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
-              </div>
-              <div class="flex space-x-2">
-                <div class="flex-1">
-                  <label class="block text-sm font-medium text-white mb-1">Startdatum</label>
-                  <input type="month" x-model="experience.start_date" name="start_date[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
-                </div>
-                <div class="flex-1">
-                  <label class="block text-sm font-medium text-white mb-1">Einddatum</label>
-                  <input type="month" x-model="experience.end_date" name="end_date[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-white mb-1">Beschrijving</label>
-              <textarea x-model="experience.description" name="description[]" rows="3" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none resize-none"></textarea>
-            </div>
-          </div>
-        </template>
-
-        <button
-          type="button"
-          @click="addExperience"
-          class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
-        >
-          Werkervaring toevoegen
-        </button>
-      </fieldset>
-
-      <fieldset
-        x-data="{
-    educations: [
-      { degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' }
-    ],
-    addEducation() {
-      this.educations.push({ degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' });
-    },
-    removeEducation(index) {
-      this.educations.splice(index, 1);
-    }
-  }"
-        class="border border-purple-700 rounded-md p-4 space-y-4"
-      >
-        <legend class="text-xl font-semibold mb-4">Opleiding</legend>
-
-        <template x-for="(education, index) in educations" :key="index">
-          <div class="space-y-4 border border-purple-600 p-4 rounded-md relative bg-purple-700">
-
-            <button
-              type="button"
-              x-show="educations.length > 1"
-              @click="removeEducation(index)"
-              class="absolute top-2 right-2 text-red-400 hover:text-red-600"
-              title="Verwijder deze opleiding"
-            >
-              🗑️
-            </button>
-
-            <div>
-              <label class="block text-sm font-medium text-white mb-1">Opleidingstitel</label>
-              <input type="text" x-model="education.degree" name="degree[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label class="block text-sm font-medium text-white mb-1">Instelling</label>
-                <input type="text" x-model="education.institution" name="institution[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-white mb-1">Locatie</label>
-                <input type="text" x-model="education.location" name="location_edu[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
-              </div>
-              <div class="flex space-x-2">
-                <div class="flex-1">
-                  <label class="block text-sm font-medium text-white mb-1">Startdatum</label>
-                  <input type="month" x-model="education.start_date" name="start_date_edu[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
-                </div>
-                <div class="flex-1">
-                  <label class="block text-sm font-medium text-white mb-1">Einddatum</label>
-                  <input type="month" x-model="education.end_date" name="end_date_edu[]" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none" />
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-white mb-1">Beschrijving</label>
-              <textarea x-model="education.description" name="description_edu[]" rows="3" class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none resize-none"></textarea>
-            </div>
-          </div>
-        </template>
-
-        <button
-          type="button"
-          @click="addEducation"
-          class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
-        >
-          Opleiding toevoegen
-        </button>
-      </fieldset>
-
-
-      <fieldset
-        x-data="{
-          skills: [
-            { name: '', level: 0 }
-          ],
-          addSkill() {
-            this.skills.push({ name: '', level: 0 });
-          },
-          removeSkill(index) {
-            if (this.skills.length > 1) this.skills.splice(index, 1);
-          },
-          setLevel(skill, level) {
-            skill.level = level;
-          }
-        }"
-        class="border border-purple-700 rounded-md p-4 space-y-4"
-      >
-        <legend class="text-xl font-semibold mb-4">Skills</legend>
-
-        <template x-for="(skill, index) in skills" :key="index">
-          <div class="relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-2">
-
-            <button
-              type="button"
-              x-show="skills.length > 1"
-              @click="removeSkill(index)"
-              class="absolute top-2 right-2 text-red-400 hover:text-red-600"
-              title="Verwijder deze skill"
-            >
-              🗑️
-            </button>
-
-            <div class="flex flex-col md:flex-row md:items-center md:space-x-4">
-              <!-- Skill name input -->
-              <div class="md:flex-1">
-                <label class="block text-sm font-medium text-white mb-1">Skill</label>
-                <input type="text" x-model="skill.name" name="skill[]" placeholder="E.g. JavaScript"
-                       class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none">
-              </div>
-
-              <!-- Skill level buttons -->
-              <div class="md:flex-1 mt-4 md:mt-0">
-                <label class="block text-sm font-medium text-white mb-1">Level</label>
-                <div class="flex items-center space-x-2">
-                  <template x-for="lvl in 4" :key="lvl">
-                    <button
-                      type="button"
-                      @click="setLevel(skill, lvl)"
-                      :class="{
-              'bg-blue-600': skill.level >= lvl,
-              'bg-purple-900': skill.level < lvl
-            }"
-                      class="w-8 h-4 rounded transition-colors"
-                      :aria-label="'Level ' + lvl"
-                    ></button>
-                  </template>
-                </div>
-                <input type="hidden" name="skill_level[]" :value="skill.level">
-              </div>
-            </div>
-
-          </div>
-        </template>
-
-        <button
-          type="button"
-          @click="addSkill"
-          class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
-        >
-          Skill toevoegen
-        </button>
-      </fieldset>
-
-      <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700 transition-colors">Genereer CV</button>
-    </form>
-  </div>
-
-  <footer class="bg-purple-800 border-t border-purple-700 py-4 mt-8">
-    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-purple-300">
-      © 2025 KlikCV. Gemaakt door Kelvin de Reus.
-    </div>
-  </footer>
-</body>
-</html>
-
-
+    <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700 transition-colors">Genereer CV</button>
+  </form>
+</div>
+@endslot
+@end
