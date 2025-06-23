@@ -27,8 +27,8 @@ export default class CvsController {
     let profile = request.input('profile')
     let profilePicture = request.file('photo')
 
-    let hobbyNames = request.input('hobby') ?? []
-    let hobbyDescriptions = request.input('hobby_description') ?? []
+    let hobbyNames = toArray(request.input('hobby'));
+    let hobbyDescriptions = toArray(request.input('hobby_description'));
 
     let positions = toArray(request.input('position')) ?? []
     let companies = toArray(request.input('company')) ?? []
@@ -56,10 +56,12 @@ export default class CvsController {
       photoBase64 = fileData.toString('base64')
     }
 
-    const hobbies = hobbyNames.map((name: any, index: number) => ({
-      name: name.trim(),
-      description: hobbyDescriptions[index]?.trim() || '',
-    }))
+    const hobbies = hobbyNames
+      .map((name, index) => ({
+        name: name ? name.trim() : '',
+        description: hobbyDescriptions[index] ? hobbyDescriptions[index].trim() : '',
+      }))
+      .filter(hobby => hobby.name !== '');
 
     const workExperiences = positions.map((_, index) => ({
       position: positions[index],
@@ -95,7 +97,7 @@ export default class CvsController {
       jobTitle: jobTitle,
       profile: profile,
       hobbies: hobbies,
-      workExperience: workExperiences,
+      workExperiences: workExperiences,
       educations: educations,
       skillSet: skillSet
     })
@@ -141,7 +143,7 @@ export default class CvsController {
       description: demoData.hobbyDescriptions[index]?.trim() || '',
     }))
 
-    const workExperience = demoData.positions.map((_, i) => ({
+    const workExperiences = demoData.positions.map((_, i) => ({
       position: demoData.positions[i],
       company: demoData.companies[i],
       location: demoData.locations[i],
@@ -175,7 +177,7 @@ export default class CvsController {
       profile: demoData.profile,
       profilePicture: 'https://randomuser.me/api/portraits/men/75.jpg',
       hobbies: hobbies,
-      workExperience,
+      workExperiences,
       educations,
       skillSet,
     })
