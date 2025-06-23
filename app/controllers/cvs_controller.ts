@@ -5,7 +5,7 @@ import env from '#start/env'
 
 export default class CvsController {
   public async show({ view }: HttpContext) {
-    return view.render('pages/new');
+    return view.render('pages/home');
   }
 
   public async generate({ request, response, view }: HttpContext) {
