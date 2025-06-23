@@ -414,6 +414,22 @@
           </button>
         </fieldset>
 
+
+        <fieldset class="border border-purple-700 rounded-md p-4">
+          <legend class="text-xl font-semibold mb-4">Socials</legend>
+          <div class="gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md ">
+            <div>
+              <label class="block text-sm font-medium text-white mb-1">LinkedIn</label>
+              <input type="text"
+                name="linkedIn"
+                class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
+                x-model="linkedIn"
+                placeholder="https://nl.linkedin.com/me/profile"
+              />
+            </div>
+        </fieldset>
+
+
         <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
           <button
             type="button"
@@ -449,6 +465,7 @@
           birthdate: '',
           job_title: '',
           profile: '',
+          linkedIn: '',
           template: 1,
           hobbies: [{ name: '', description: '' }],
           experiences: [{ position: '', company: '', location: '', start_date: '', end_date: '', description: '' }],
@@ -469,7 +486,8 @@
               hobbies: this.hobbies,
               experiences: this.experiences,
               educations: this.educations,
-              skills: this.skills
+              skills: this.skills,
+              linkedIn: this.linkedIn,
             }));
           },
 
@@ -490,6 +508,7 @@
             this.birthdate = '';
             this.job_title = '';
             this.profile = '';
+            this.linkedIn = '';
             this.template = 1;
             this.hobbies = [{ name: '', description: '' }];
             this.experiences = [{ position: '', company: '', location: '', start_date: '', end_date: '', description: '' }];

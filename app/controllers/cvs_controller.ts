@@ -49,7 +49,7 @@ export default class CvsController {
     let skills = toArray(request.input('skill')) ?? []
     let skillLevels = toArray(request.input('skill_level')) ?? []
 
-    console.log(selectedTemplate)
+    let linkedIn = request.input('linkedIn')
 
     let template = ''
     switch (selectedTemplate) {
@@ -105,7 +105,6 @@ export default class CvsController {
       level: skillLevels[index],
     }))
 
-    console.log(template)
     const html = await view.render(`pages/templates/${template}`, {
       firstName: firstName,
       lastName: lastName,
@@ -119,7 +118,8 @@ export default class CvsController {
       hobbies: hobbies,
       workExperiences: workExperiences,
       educations: educations,
-      skillSet: skillSet
+      skillSet: skillSet,
+      linkedIn: linkedIn,
     })
 
     const browser: Browser = await puppeteer.launch({
@@ -197,6 +197,7 @@ export default class CvsController {
       email: demoData.email,
       jobTitle: demoData.jobTitle,
       profile: demoData.profile,
+      linkedIn: demoData.linkedIn,
       profilePicture: 'https://randomuser.me/api/portraits/men/75.jpg',
       hobbies: hobbies,
       workExperiences,
@@ -215,6 +216,7 @@ export default class CvsController {
       email: 'john.doe@example.com',
       jobTitle: 'Software Engineer',
       profile: 'Passionate developer with 10+ years of experience in web development.',
+      linkedIn: 'https://nl.linkedin.com/idk',
       hobbyNames: ['RC'],
       hobbyDescriptions: ['Flying RC planes'],
       positions: ['Frontend Developer'],
