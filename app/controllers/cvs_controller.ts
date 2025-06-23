@@ -14,32 +14,32 @@ export default class CvsController {
 
     const toArray = (value: any) => (Array.isArray(value) ? value : value ? [value] : [])
 
-    const firstName = request.input('first_name')
-    const lastName = request.input('last_name')
-    const birthdate = request.input('birthdate')
-    const city = request.input('city')
-    const phone = request.input('phone')
-    const email = request.input('email')
-    const jobTitle = request.input('job_title')
-    const profile = request.input('profile')
-    const profilePicture = request.file('photo')
+    let firstName = request.input('first_name')
+    let lastName = request.input('last_name')
+    let birthdate = request.input('birthdate')
+    let city = request.input('city')
+    let phone = request.input('phone')
+    let email = request.input('email')
+    let jobTitle = request.input('job_title')
+    let profile = request.input('profile')
+    let profilePicture = request.file('photo')
 
-    const positions = toArray(request.input('position')) ?? []
-    const companies = toArray(request.input('company')) ?? []
-    const locations = toArray(request.input('location')) ?? []
-    const startDates = toArray(request.input('start_date')) ?? []
-    const endDates = toArray(request.input('end_date')) ?? []
-    const descriptions = toArray(request.input('description')) ?? []
+    let positions = toArray(request.input('position')) ?? []
+    let companies = toArray(request.input('company')) ?? []
+    let locations = toArray(request.input('location')) ?? []
+    let startDates = toArray(request.input('start_date')) ?? []
+    let endDates = toArray(request.input('end_date')) ?? []
+    let descriptions = toArray(request.input('description')) ?? []
 
-    const degrees = toArray(request.input('degree')) ?? []
-    const institutions = toArray(request.input('institution')) ?? []
-    const locationEdus = toArray(request.input('location_edu')) ?? []
-    const startDateEdus = toArray(request.input('start_date_edu')) ?? []
-    const endDateEdus = toArray(request.input('end_date_edu')) ?? []
-    const descriptionEdus = toArray(request.input('description_edu')) ?? []
+    let degrees = toArray(request.input('degree')) ?? []
+    let institutions = toArray(request.input('institution')) ?? []
+    let locationEdus = toArray(request.input('location_edu')) ?? []
+    let startDateEdus = toArray(request.input('start_date_edu')) ?? []
+    let endDateEdus = toArray(request.input('end_date_edu')) ?? []
+    let descriptionEdus = toArray(request.input('description_edu')) ?? []
 
-    const skills = toArray(request.input('skill')) ?? []
-    const skillLevels = toArray(request.input('skill_level')) ?? []
+    let skills = toArray(request.input('skill')) ?? []
+    let skillLevels = toArray(request.input('skill_level')) ?? []
 
     if (profilePicture && profilePicture.headers && profilePicture.headers['content-type']) {
       contentType = profilePicture.headers['content-type']
@@ -88,10 +88,6 @@ export default class CvsController {
       skillSet: skillSet
     })
 
-    if (env.get('NODE_ENV') === 'development') {
-      return html
-    }
-
     const browser: Browser = await puppeteer.launch({
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
@@ -109,4 +105,94 @@ export default class CvsController {
 
     return response.send(pdfBuffer)
   }
+
+  public async preview({ view, params }: HttpContext) {
+    const templateId = params.templateId
+
+    let template = ''
+    switch (templateId) {
+      case '1':
+        template = 'cv_template_1'
+        break
+      case '2':
+        template = 'cv_template_2'
+        break
+      default:
+        return 'Not found!' // TODO do decent error codes
+    }
+
+    console.log(template)
+    const demoData = await this.demoData()
+
+    const workExperience = demoData.positions.map((_, i) => ({
+      position: demoData.positions[i],
+      company: demoData.companies[i],
+      location: demoData.locations[i],
+      start_date: demoData.startDates[i],
+      end_date: demoData.endDates[i],
+      description: demoData.descriptions[i],
+    }))
+
+    const educations = demoData.degrees.map((_, i) => ({
+      degree: demoData.degrees[i],
+      institution: demoData.institutions[i],
+      location: demoData.locationEdus[i],
+      start_date: demoData.startDateEdus[i],
+      end_date: demoData.endDateEdus[i],
+      description: demoData.descriptionEdus[i],
+    }))
+
+    const skillSet = demoData.skills.map((name, i) => ({
+      name,
+      level: demoData.skillLevels[i],
+    }))
+
+    const html = await view.render(`pages/templates/${template}`, {
+      firstName: demoData.firstName,
+      lastName: demoData.lastName,
+      birthdate: demoData.birthdate,
+      city: demoData.city,
+      phone: demoData.phone,
+      email: demoData.email,
+      jobTitle: demoData.jobTitle,
+      profile: demoData.profile,
+      profilePicture: 'https://placehold.co/80x80/png',
+      workExperience,
+      educations,
+      skillSet,
+    })
+
+    return html
+  }
+
+  demoData() {
+    return {
+      firstName: 'John',
+      lastName: 'Doe',
+      birthdate: '1990-01-01',
+      city: 'Amsterdam',
+      phone: '+31 6 12345678',
+      email: 'john.doe@example.com',
+      jobTitle: 'Software Engineer',
+      profile: 'Passionate developer with 10+ years of experience in web development.',
+
+      positions: ['Frontend Developer'],
+      companies: ['Tech Corp'],
+      locations: ['Amsterdam'],
+      startDates: ['2020-01'],
+      endDates: ['2023-06'],
+      descriptions: ['Worked on frontend features and improved performance.'],
+
+      degrees: ['BSc Computer Science'],
+      institutions: ['University of Amsterdam'],
+      locationEdus: ['Amsterdam'],
+      startDateEdus: ['2010-09'],
+      endDateEdus: ['2014-06'],
+      descriptionEdus: ['Studied algorithms, data structures, and web technologies.'],
+
+      skills: ['JavaScript', 'TypeScript', 'Vue.js'],
+      skillLevels: [3, 1, 4],
+    }
+  }
+
 }
