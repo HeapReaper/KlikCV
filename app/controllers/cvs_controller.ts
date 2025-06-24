@@ -50,6 +50,10 @@ export default class CvsController {
     let skillLevels = toArray(request.input('skill_level')) ?? []
 
     let linkedIn = request.input('linkedIn')
+    let github = request.input('github')
+    let portfolio = request.input('portfolio')
+
+    let languagesRaw = toArray(request.input('languages')) ?? []
 
     let template = ''
     switch (selectedTemplate) {
@@ -105,6 +109,12 @@ export default class CvsController {
       level: skillLevels[index],
     }))
 
+    const languages = languagesRaw.map((lang: any) => ({
+        name: lang.name ? lang.name.trim() : '',
+        level: lang.level ? lang.level.trim() : '',
+      }))
+      .filter(lang => lang.name !== '');
+
     const html = await view.render(`pages/templates/${template}`, {
       firstName: firstName,
       lastName: lastName,
@@ -120,7 +130,12 @@ export default class CvsController {
       educations: educations,
       skillSet: skillSet,
       linkedIn: linkedIn,
+      github: github,
+      portolio: portfolio,
+      languages: languages,
     })
+
+    return html
 
     const browser: Browser = await puppeteer.launch({
       headless: true,
@@ -188,6 +203,11 @@ export default class CvsController {
       level: demoData.skillLevels[i],
     }))
 
+    const languages = demoData.languageNames.map((name, i) => ({
+      name,
+      level: demoData.languageLevels[i],
+    }));
+
     return await view.render(`pages/templates/${template}`, {
       firstName: demoData.firstName,
       lastName: demoData.lastName,
@@ -198,11 +218,14 @@ export default class CvsController {
       jobTitle: demoData.jobTitle,
       profile: demoData.profile,
       linkedIn: demoData.linkedIn,
+      github: demoData.github,
+      portfolio: demoData.portfolio,
       profilePicture: 'https://randomuser.me/api/portraits/men/75.jpg',
       hobbies: hobbies,
       workExperiences,
       educations,
       skillSet,
+      languages,
     })
   }
 
@@ -217,6 +240,8 @@ export default class CvsController {
       jobTitle: 'Software Engineer',
       profile: 'Passionate developer with 10+ years of experience in web development.',
       linkedIn: 'https://nl.linkedin.com/idk',
+      github: 'https://github.com/johndoe',
+      portfolio: 'https://portfolio.domain.com',
       hobbyNames: ['RC'],
       hobbyDescriptions: ['Flying RC planes'],
       positions: ['Frontend Developer'],
@@ -235,6 +260,9 @@ export default class CvsController {
 
       skills: ['JavaScript', 'TypeScript', 'PHP'],
       skillLevels: [3, 1, 4],
+
+      languageNames: ['Nederlands', 'Engels', 'Frans'],
+      languageLevels: ['Moedertaal', 'Vloeiend', 'Basis'],
     }
   }
 }
