@@ -135,8 +135,6 @@ export default class CvsController {
       languages: languages,
     })
 
-    return html
-
     const browser: Browser = await puppeteer.launch({
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
