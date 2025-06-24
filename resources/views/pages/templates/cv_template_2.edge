@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CV</title>
+    <title>
+      Curriculum Vitae
+    </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -13,25 +15,34 @@
 
   <body class="font-sans text-gray-900">
     <div class="flex h-screen">
-      <div class="absolute top-0 left-0 w-full bg-gray-900" style="height:8%;">
+      <div class="relative min-w-screen bg-blue-800">
+        <div class="absolute bottom-0 left-0 w-full h-13/15 bg-white transform skew-y-[-16deg] origin-top-right">
+        </div>
 
-      </div>
-      <div class="relative z-10">
-        <div class="h-24 bg-gray-900 clip-v-shape"></div>
-      </div>
-      <div class="w-1/4 bg-blue-500">
+        <h1 class="text-center mt-10 text-white font-bold text-6xl">
+          Anouk Janssen
+        </h1>
+        <p class="text-center text-white text-xl mt-2">
+          Not a skew specialist
+        </p>
 
-      </div>
-      <div class="w-3/4 bg-white">
+        <div class="grid grid-flow-col grid-rows-3 gap-4 mt-4">
+          <div class="row-span-3 flex flex-col items-center justify-center">
 
+            <img src="https://placehold.co/130x130" class="rounded-full border-3 border-white" />
+            <p class=" text-xl">
+              Contact
+            </p>
+          </div>
+
+          <!-- You know what side! :) -->
+          <div class="col-span-2 text-center">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-
-    <style>
-      .clip-v-shape {
-        clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
-        min-height: 20px;
-      }
-    </style>
   </body>
 </html>
