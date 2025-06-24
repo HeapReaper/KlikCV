@@ -455,6 +455,61 @@
           </div>
         </fieldset>
 
+        <fieldset class="border border-purple-700 rounded-md p-4 space-y-4">
+          <legend class="text-xl font-semibold mb-4">Talen</legend>
+
+          <template x-for="(lang, index) in languages" :key="index">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md" x-data="{ languageHelp: false }" >
+              <button
+                type="button"
+                x-show="languages.length > 1"
+                @click="languages.splice(index, 1)"
+                class="absolute top-2 right-2 text-red-400 hover:text-red-600"
+                title="Verwijder deze taal"
+              >
+                🗑️
+              </button>
+
+              <div>
+                <label class="block text-sm font-medium text-white mb-1">Taal</label>
+                <input
+                  type="text"
+                  :name="`languages[${index}][name]`"
+                  class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
+                  x-model="lang.name"
+                  placeholder="Bijv. Nederlands, Engels"
+                  :required="lang.name || lang.level"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-white mb-1">Niveau</label>
+                <select
+                  :name="`languages[${index}][level]`"
+                  class="w-full bg-purple-800 text-white border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
+                  x-model="lang.level"
+                  :required="lang.name || lang.level"
+                >
+                  <option value="" disabled selected>-- Kies niveau --</option>
+                  <option value="moedertaal">Moedertaal</option>
+                  <option value="vloeiend">Vloeiend</option>
+                  <option value="redelijk">Redelijk</option>
+                  <option value="basis">Basis</option>
+                </select>
+              </div>
+            </div>
+          </template>
+
+          <button
+            type="button"
+            @click="languages.push({ name: '', level: '' })"
+            class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
+          >
+            Taal toevoegen
+          </button>
+        </fieldset>
+
+
         <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
           <button
             type="button"
@@ -473,7 +528,7 @@
         </div>
 
         <div class="flex flex-wrap justify-center">
-          <small class="">Uw data wordt niet opgeslagen. Het blijft na de PDF generatie lokaal op uw apparaat.</small>
+          <small>Uw data wordt niet opgeslagen. Het blijft na de PDF generatie lokaal op uw apparaat.</small>
         </div>
       </form>
     </div>
@@ -496,6 +551,7 @@
           experiences: [{ position: '', company: '', location: '', start_date: '', end_date: '', description: '' }],
           educations: [{ degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' }],
           skills: [{ name: '', level: 0 }],
+          languages: [{ name: '', level: '' }],
 
           saveData() {
             localStorage.setItem('cv_data', JSON.stringify({
@@ -513,6 +569,7 @@
               educations: this.educations,
               skills: this.skills,
               linkedIn: this.linkedIn,
+              languages: this.languages,
             }));
           },
 
