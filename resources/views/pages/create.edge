@@ -16,7 +16,7 @@
         @include('partials/template_previews')
 
         <fieldset class="border border-purple-700 rounded-md p-4">
-          <legend class="text-xl font-semibold mb-4">Persoonlijke info</legend>
+          <legend class="text-xl font-semibold mb-0">Persoonlijke info</legend>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md ">
             <div>
               <label for="first_name" class="block text-sm font-medium text-white mb-1">Voornaam</label>
@@ -105,7 +105,7 @@
         </fieldset>
 
         <fieldset class="border border-purple-700 rounded-md p-4">
-          <legend class="text-xl font-semibold mb-4">Profiel</legend>
+          <legend class="text-xl font-semibold mb-0">Profiel</legend>
           <div class="relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-2">
             <div class="md:col-span-2">
               <label for="job_title" class="block text-sm font-medium text-white mb-1">Werk titel</label>
@@ -135,8 +135,8 @@
           </div>
         </fieldset>
 
-        <fieldset class="border border-purple-700 rounded-md p-4 space-y-4" x-data>
-          <legend class="text-xl font-semibold mb-4">Hobby's & Interesses</legend>
+        <fieldset class="border border-purple-700 rounded-md px-4 pb-4 space-y-4" x-data>
+          <legend class="text-xl font-semibold mb-0">Hobby's & Interesses</legend>
 
           <template x-for="(hobby, index) in hobbies" :key="index">
             <div class="space-y-4 border border-purple-600 p-4 rounded-md relative bg-purple-700">
@@ -183,8 +183,8 @@
           </button>
         </fieldset>
 
-        <fieldset class="border border-purple-700 rounded-md p-4 space-y-4" x-data>
-          <legend class="text-xl font-semibold mb-4">Werkervaring</legend>
+        <fieldset class="border border-purple-700 rounded-md px-4 pb-4 space-y-4" x-data>
+          <legend class="text-xl font-semibold mb-0">Werkervaring</legend>
 
           <template x-for="(experience, index) in experiences" :key="index">
             <div class="space-y-4 border border-purple-600 p-4 rounded-md relative bg-purple-700">
@@ -283,10 +283,10 @@
           </button>
         </fieldset>
 
-        <fieldset class="border border-purple-700 rounded-md p-4 space-y-4" x-data>
-          <legend class="text-xl font-semibold mb-4">Opleiding</legend>
+        <fieldset class="border border-purple-700 rounded-md px-4 pb-4 space-y-4" x-data>
+          <legend class="text-xl font-semibold mb-0">Opleiding</legend>
 
-          <template x-for="(education, index) in educations" :key="index">
+          <template x-for="(education, index) in educations" :key="index" class=" space-y-4">
             <div class="space-y-4 border border-purple-600 p-4 rounded-md relative bg-purple-700">
               <button
                 type="button"
@@ -380,8 +380,8 @@
           </button>
         </fieldset>
 
-        <fieldset class="border border-purple-700 rounded-md p-4 space-y-4" x-data>
-          <legend class="text-xl font-semibold mb-4">Skills</legend>
+        <fieldset class="border border-purple-700 rounded-md  px-4 pb-4 space-y-4" x-data>
+          <legend class="text-xl font-semibold mb-0 ">Skills</legend>
 
           <template x-for="(skill, index) in skills" :key="index">
             <div class="relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-2">
@@ -440,16 +440,25 @@
           </button>
         </fieldset>
 
-        <fieldset class="border border-purple-700 rounded-md p-4">
-          <legend class="text-xl font-semibold mb-4">Socials</legend>
-          <div class="gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-3">
+        <fieldset class="border border-purple-700 rounded-md px-4 pb-4" x-data="{openSocials: false}">
+          <legend
+            class="text-xl font-semibold flex items-center justify-between cursor-pointer"
+            @click="openSocials = !openSocials"
+          >
+            <span>Socials</span>
+            <svg :class="{'rotate-180': openSocials}" class="w-5 h-5 transform transition-transform text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </legend>
+
+          <div x-show="openSocials" x-transition class="gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-4 mt-4">
             <div>
               <label class="block text-sm font-medium text-white mb-1">LinkedIn</label>
               <input type="text"
-                name="linkedIn"
-                class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
-                x-model="linkedIn"
-                placeholder="Voorbeeld: https://nl.linkedin.com/me/profile"
+                     name="linkedIn"
+                     class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
+                     x-model="linkedIn"
+                     placeholder="Voorbeeld: https://nl.linkedin.com/me/profile"
               />
             </div>
 
@@ -475,58 +484,68 @@
           </div>
         </fieldset>
 
-        <fieldset class="border border-purple-700 rounded-md p-4 space-y-4">
-          <legend class="text-xl font-semibold mb-4">Talen</legend>
+        <fieldset class="border border-purple-700 rounded-md px-4 pb-4" x-data="{ openLanguages: false }">
+          <legend class="text-xl font-semibold flex items-center justify-between cursor-pointer" @click="openLanguages = !openLanguages">
+            <span>Talen</span>
+            <svg :class="{'rotate-180': openLanguages}" class="w-5 h-5 transform transition-transform text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </legend>
 
-          <template x-for="(lang, index) in languages" :key="index">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md" x-data="{ languageHelp: false }" >
-              <button
-                type="button"
-                x-show="languages.length > 1"
-                @click="languages.splice(index, 1)"
-                class="absolute top-2 right-2 text-red-400 hover:text-red-600"
-                title="Verwijder deze taal"
+          <div x-show="openLanguages" x-transition class="space-y-4">
+            <template x-for="(lang, index) in languages" :key="index">
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md"
+                x-data="{ languageHelp: false }"
               >
-                🗑️
-              </button>
-
-              <div>
-                <label class="block text-sm font-medium text-white mb-1">Taal</label>
-                <input
-                  type="text"
-                  :name="`languages[${index}][name]`"
-                  class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
-                  x-model="lang.name"
-                  placeholder="Bijv. Nederlands, Engels"
-                  :required="lang.name || lang.level"
-                />
-              </div>
-
-              <div>
-                <label class="block text-sm font-medium text-white mb-1">Niveau</label>
-                <select
-                  :name="`languages[${index}][level]`"
-                  class="w-full bg-purple-800 text-white border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
-                  x-model="lang.level"
-                  :required="lang.name || lang.level"
+                <button
+                  type="button"
+                  x-show="languages.length > 1"
+                  @click="languages.splice(index, 1)"
+                  class="absolute top-2 right-2 text-red-400 hover:text-red-600"
+                  title="Verwijder deze taal"
                 >
-                  <option value="" disabled selected>-- Kies niveau --</option>
-                  <option value="Moedertaal">Moedertaal</option>
-                  <option value="Vloeiend">Vloeiend</option>
-                  <option value="Redelijk">Redelijk</option>
-                  <option value="Basis">Basis</option>
-                </select>
-              </div>
-            </div>
-          </template>
+                  🗑️
+                </button>
 
-          <button
-            type="button"
-            @click="languages.push({ name: '', level: '' })"
-            class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
-          >
-            Taal toevoegen
-          </button>
+                <div>
+                  <label class="block text-sm font-medium text-white mb-1">Taal</label>
+                  <input
+                    type="text"
+                    :name="`languages[${index}][name]`"
+                    class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
+                    x-model="lang.name"
+                    placeholder="Bijv. Nederlands, Engels"
+                    :required="lang.name || lang.level"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-white mb-1">Niveau</label>
+                  <select
+                    :name="`languages[${index}][level]`"
+                    class="w-full bg-purple-800 text-white border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
+                    x-model="lang.level"
+                    :required="lang.name || lang.level"
+                  >
+                    <option value="" disabled selected>-- Kies niveau --</option>
+                    <option value="Moedertaal">Moedertaal</option>
+                    <option value="Vloeiend">Vloeiend</option>
+                    <option value="Redelijk">Redelijk</option>
+                    <option value="Basis">Basis</option>
+                  </select>
+                </div>
+              </div>
+            </template>
+
+            <button
+              type="button"
+              @click="languages.push({ name: '', level: '' })"
+              class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
+            >
+              Taal toevoegen
+            </button>
+          </div>
         </fieldset>
 
 
