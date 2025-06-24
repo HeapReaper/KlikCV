@@ -442,14 +442,34 @@
 
         <fieldset class="border border-purple-700 rounded-md p-4">
           <legend class="text-xl font-semibold mb-4">Socials</legend>
-          <div class="gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md ">
+          <div class="gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-3">
             <div>
               <label class="block text-sm font-medium text-white mb-1">LinkedIn</label>
               <input type="text"
                 name="linkedIn"
                 class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
                 x-model="linkedIn"
-                placeholder="https://nl.linkedin.com/me/profile"
+                placeholder="Voorbeeld: https://nl.linkedin.com/me/profile"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-white mb-1">GitHub</label>
+              <input type="text"
+                     name="github"
+                     class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
+                     x-model="github"
+                     placeholder="Voorbeeld: https://github.com/username"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-white mb-1">Portfolio</label>
+              <input type="text"
+                     name="portfolio"
+                     class="w-full bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none"
+                     x-model="portfolio"
+                     placeholder="Voorbeeld: https://portfolio.domein.nl"
               />
             </div>
           </div>
@@ -546,6 +566,8 @@
           job_title: '',
           profile: '',
           linkedIn: '',
+          github: '',
+          portfolio: '',
           template: 1,
           hobbies: [{ name: '', description: '' }],
           experiences: [{ position: '', company: '', location: '', start_date: '', end_date: '', description: '' }],
@@ -569,6 +591,8 @@
               educations: this.educations,
               skills: this.skills,
               linkedIn: this.linkedIn,
+              github: this.github,
+              portfolio: this.portfolio,
               languages: this.languages,
             }));
           },
@@ -591,6 +615,8 @@
             this.job_title = '';
             this.profile = '';
             this.linkedIn = '';
+            this.github = '';
+            this.portfolio = '';
             this.template = 1;
             this.hobbies = [{ name: '', description: '' }];
             this.experiences = [{ position: '', company: '', location: '', start_date: '', end_date: '', description: '' }];

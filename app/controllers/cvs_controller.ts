@@ -50,6 +50,8 @@ export default class CvsController {
     let skillLevels = toArray(request.input('skill_level')) ?? []
 
     let linkedIn = request.input('linkedIn')
+    let github = request.input('github')
+    let portfolio = request.input('portfolio')
 
     let languagesRaw = toArray(request.input('languages')) ?? []
 
@@ -128,6 +130,8 @@ export default class CvsController {
       educations: educations,
       skillSet: skillSet,
       linkedIn: linkedIn,
+      github: github,
+      portolio: portfolio,
       languages: languages,
     })
 
@@ -214,6 +218,8 @@ export default class CvsController {
       jobTitle: demoData.jobTitle,
       profile: demoData.profile,
       linkedIn: demoData.linkedIn,
+      github: demoData.github,
+      portfolio: demoData.portfolio,
       profilePicture: 'https://randomuser.me/api/portraits/men/75.jpg',
       hobbies: hobbies,
       workExperiences,
@@ -234,6 +240,8 @@ export default class CvsController {
       jobTitle: 'Software Engineer',
       profile: 'Passionate developer with 10+ years of experience in web development.',
       linkedIn: 'https://nl.linkedin.com/idk',
+      github: 'https://github.com/johndoe',
+      portfolio: 'https://portfolio.domain.com',
       hobbyNames: ['RC'],
       hobbyDescriptions: ['Flying RC planes'],
       positions: ['Frontend Developer'],
