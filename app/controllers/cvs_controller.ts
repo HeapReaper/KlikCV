@@ -51,6 +51,8 @@ export default class CvsController {
 
     let linkedIn = request.input('linkedIn')
 
+    let languagesRaw = toArray(request.input('languages')) ?? []
+
     let template = ''
     switch (selectedTemplate) {
       case '1':
@@ -105,6 +107,12 @@ export default class CvsController {
       level: skillLevels[index],
     }))
 
+    const languages = languagesRaw.map((lang: any) => ({
+        name: lang.name ? lang.name.trim() : '',
+        level: lang.level ? lang.level.trim() : '',
+      }))
+      .filter(lang => lang.name !== '');
+
     const html = await view.render(`pages/templates/${template}`, {
       firstName: firstName,
       lastName: lastName,
@@ -120,7 +128,10 @@ export default class CvsController {
       educations: educations,
       skillSet: skillSet,
       linkedIn: linkedIn,
+      languages: languages,
     })
+
+    return html
 
     const browser: Browser = await puppeteer.launch({
       headless: true,
@@ -188,6 +199,11 @@ export default class CvsController {
       level: demoData.skillLevels[i],
     }))
 
+    const languages = demoData.languageNames.map((name, i) => ({
+      name,
+      level: demoData.languageLevels[i],
+    }));
+
     return await view.render(`pages/templates/${template}`, {
       firstName: demoData.firstName,
       lastName: demoData.lastName,
@@ -203,6 +219,7 @@ export default class CvsController {
       workExperiences,
       educations,
       skillSet,
+      languages,
     })
   }
 
@@ -235,6 +252,9 @@ export default class CvsController {
 
       skills: ['JavaScript', 'TypeScript', 'PHP'],
       skillLevels: [3, 1, 4],
+
+      languageNames: ['Nederlands', 'Engels', 'Frans'],
+      languageLevels: ['Moedertaal', 'Vloeiend', 'Basis'],
     }
   }
 }
