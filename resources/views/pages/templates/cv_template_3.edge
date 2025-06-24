@@ -148,15 +148,16 @@
         </section>
       @endif
 
-      <!--
-      <section>
-        <h2 class="text-3xl font-semibold text-black border-b-4 border-black pb-1 mb-4">Talen</h2>
-        <ul class="list-disc list-inside space-y-1 text-gray-800 text-lg">
-          <li>Nederlands (moedertaal)</li>
-          <li>Engels (vloeiend)</li>
-        </ul>
-      </section>
-      -->
+      @if(languages && languages.length > 0)
+        <section>
+          <h2 class="text-3xl font-semibold text-black border-b-4 border-black pb-1 mb-4">Talen</h2>
+          <ul class="list-disc list-inside space-y-1 text-gray-800 text-lg">
+            @each(language in languages)
+            <li>{{ language.name }} - {{ language.level }}</li>
+            @end
+          </ul>
+        </section>
+      @endif
     </main>
 
     <footer role="contentinfo" class="mt-12 text-center text-gray-500 text-sm">
