@@ -5,4 +5,6 @@ router.get('/', [CvsController, 'index'])
 router.get('/create', [CvsController, 'create'])
 router.post('/generate', [CvsController, 'generate'])
 
+router.on('/privacy').render('pages/privacy')
+
 router.get('/preview/:templateId', [CvsController, 'preview'])
