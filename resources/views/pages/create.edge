@@ -17,7 +17,7 @@
 
         <fieldset class="border border-purple-700 rounded-md p-4">
           <legend class="text-xl font-semibold mb-0">Persoonlijke info</legend>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md ">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative rounded-md ">
             <div>
               <label for="first_name" class="block text-sm font-medium text-white mb-1">Voornaam</label>
               <input
@@ -105,8 +105,11 @@
         </fieldset>
 
         <fieldset class="border border-purple-700 rounded-md p-4">
-          <legend class="text-xl font-semibold mb-0">Profiel</legend>
-          <div class="relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-2">
+          <legend class="text-xl font-semibold mb-0">
+            Profiel
+          </legend>
+
+          <div class="relative rounded-md space-y-2">
             <div class="md:col-span-2">
               <label for="job_title" class="block text-sm font-medium text-white mb-1">Werk titel</label>
               <input
@@ -139,7 +142,7 @@
           <legend class="text-xl font-semibold mb-0">Hobby's & Interesses</legend>
 
           <template x-for="(hobby, index) in hobbies" :key="index">
-            <div class="space-y-4 border border-purple-600 p-4 rounded-md relative bg-purple-700">
+            <div class="space-y-4 border border-purple-600 p-2 rounded-md relative">
               <button
                 type="button"
                 x-show="hobbies.length > 1"
@@ -187,7 +190,7 @@
           <legend class="text-xl font-semibold mb-0">Werkervaring</legend>
 
           <template x-for="(experience, index) in experiences" :key="index">
-            <div class="space-y-4 border border-purple-600 p-4 rounded-md relative bg-purple-700">
+            <div class="space-y-4 border border-purple-600 p-2 rounded-md relative ">
               <button
                 type="button"
                 x-show="experiences.length > 1"
@@ -287,7 +290,7 @@
           <legend class="text-xl font-semibold mb-0">Opleiding</legend>
 
           <template x-for="(education, index) in educations" :key="index" class=" space-y-4">
-            <div class="space-y-4 border border-purple-600 p-4 rounded-md relative bg-purple-700">
+            <div class="space-y-4 border border-purple-600 p-2 rounded-md relative">
               <button
                 type="button"
                 x-show="educations.length > 1"
@@ -384,7 +387,7 @@
           <legend class="text-xl font-semibold mb-0 ">Skills</legend>
 
           <template x-for="(skill, index) in skills" :key="index">
-            <div class="relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-2">
+            <div class="relative border border-purple-600 p-2 rounded-md space-y-2">
               <button
                 type="button"
                 x-show="skills.length > 1"
@@ -451,7 +454,7 @@
             </svg>
           </legend>
 
-          <div x-show="openSocials" x-transition class="gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md space-y-4 mt-4">
+          <div x-show="openSocials" x-transition class="gap-4 relative border border-purple-600 p-2 rounded-md space-y-4 mt-4">
             <div>
               <label class="block text-sm font-medium text-white mb-1">LinkedIn</label>
               <input type="text"
@@ -495,7 +498,7 @@
           <div x-show="openLanguages" x-transition class="space-y-4">
             <template x-for="(lang, index) in languages" :key="index">
               <div
-                class="grid grid-cols-1 md:grid-cols-2 gap-4 relative bg-purple-700 border border-purple-600 p-4 rounded-md"
+                class="grid grid-cols-1 md:grid-cols-2 gap-4 relative border border-purple-600 p-2 rounded-md"
                 x-data="{ languageHelp: false }"
               >
                 <button
