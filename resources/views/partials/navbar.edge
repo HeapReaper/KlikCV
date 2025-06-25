@@ -17,21 +17,17 @@
       </svg>
     </button>
 
-    <nav id="mobileMenu"
-       class="absolute top-16 left-0 w-full bg-purple-800 md:static md:block md:w-auto md:bg-transparent md:space-x-4 text-white"
-       x-show="mobileNav"
-       x-on:click.outside="mobileNav = false"
-       x-transition
+    <nav
+      id="mobileMenu"
+      class="absolute top-16 left-0 w-full bg-purple-800 md:static md:block md:w-auto md:bg-transparent md:space-x-4 text-white"
+      x-show="mobileNav || window.innerWidth >= 768"
+      x-on:click.outside="mobileNav = false"
+      x-transition
     >
+
       <div class="flex flex-col md:flex-row md:items-center md:space-x-4 px-6 py-4 md:p-0">
         <a href="/" class="py-2 md:py-0 hover:text-purple-300 transition">
           Home
-        </a>
-        <a href="/create" class="py-2 md:py-0 hover:text-purple-300 transition">
-          CV maken
-        </a>
-        <a href="/privacy" class="py-2 md:py-0 hover:text-purple-300 transition">
-          Privacy
         </a>
 
         <div class="relative" x-data="{ open: false }" @click.away="open = false">
@@ -49,17 +45,21 @@
 
           <div
             x-show="open"
-            class="absolute left-0 mt-2 w-40 bg-purple-700 rounded-md shadow-lg z-20"
+            class="absolute left-0 mr-3 mt-2 w-40 bg-purple-700 rounded-md shadow-lg z-20"
             style="display: none;"
           >
             <a href="/privacy" class="block px-4 py-2 text-white hover:bg-purple-600">
               Privacy
             </a>
-            <a href="/faq" class="block px-4 py-2 text-white hover:bg-purple-600">
-              FAQ
+            <a href="/contact" class="block px-4 py-2 text-white hover:bg-purple-600">
+              Contact
             </a>
           </div>
         </div>
+
+        <a href="/create" class="py-2 md:py-0 hover:text-purple-300 transition">
+          CV maken
+        </a>
 
       </div>
     </nav>
