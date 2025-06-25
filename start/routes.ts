@@ -7,6 +7,6 @@ router.get('/create', [CvsController, 'create']).use(throttle)
 router.post('/generate', [CvsController, 'generate']).use(throttle);
 
 router.on('/privacy').render('pages/privacy').use(throttle)
-router.on('/contact').render('pages/contact').use()
+router.on('/contact').render('pages/contact').use(throttle)
 
 router.get('/preview/:templateId', [CvsController, 'preview']).use(throttle)
