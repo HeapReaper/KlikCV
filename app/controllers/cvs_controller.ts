@@ -2,6 +2,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 import puppeteer, {Browser} from 'puppeteer'
 import fs from 'fs/promises'
 import { DateTime } from 'luxon'
+import { cvValidator } from '#validators/new_cv'
 
 export default class CvsController {
   public async index({ view }: HttpContext) {
@@ -13,6 +14,8 @@ export default class CvsController {
   }
 
   public async generate({ request, response, view }: HttpContext) {
+    await request.validateUsing(cvValidator)
+
     const selectedTemplate = request.input('template')
     let photoBase64 = null
     let contentType = 'image/jpeg'
