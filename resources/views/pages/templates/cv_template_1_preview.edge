@@ -1,12 +1,11 @@
 <body class="font-sans text-gray-900" x-data="cvData()">
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <div class="max-w-5xl mx-auto p-8 mt-10 mb-10 flex flex-col md:flex-row gap-8">
   <aside
     class="md:w-1/4 flex flex-col items-center text-center space-y-6 pr-6 py-0 bg-white rounded-lg"
   >
     <h1 class="text-3xl font-bold text-gray-800">
-      <span x-text="firstName"></span> <span x-text="lastName"></span>
+      <span x-text="first_name"></span> <span x-text="last_name"></span>
     </h1>
 
     <template x-if="profilePicture">
