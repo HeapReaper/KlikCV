@@ -12,6 +12,6 @@ router.get('/preview/:templateId', [CvsController, 'preview']).use(throttle)
 
 router.on('/privacy').render('pages/privacy').use(throttle)
 
-router.get('/contact', [ContactsController, 'index']).use(throttle)
-router.post('/contact', [ContactsController, 'submit']).use(throttle)
+router.get('/contact', [ContactsController, 'index'])
+router.post('/contact-post', [ContactsController, 'submit'])
 
