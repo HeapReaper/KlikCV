@@ -1,14 +1,78 @@
-@layout.main({ title: "Privacy verklaring" })
+@layout.main({ title: "Contact" })
   @slot('meta')
-    <meta name="description" content="Privacyverklaring van KlikCV. Lees hoe wij omgaan met uw persoonsgegevens bij het genereren van een CV.">
+    <meta name="description" content="Leg contact met KlikCV!">
   @endslot
 
   @slot('main')
-    <div class="pt-4 h-full flex flex-col mt-8 min-h-screen p-3">
-      <h1 class="text-4xl font-bold text-white text-center">
-        Contact
-      </h1>
+    <div class="pt-4 h-full mt-8 min-h-screen">
+      <form
+        class="p-6 mx-auto max-w-3xl bg-purple-800 rounded-lg shadow-md space-y-8"
+        data-turbo="false"
+        method="POST"
+        action="/contact"
+      >
+        {{ csrfField() }}
 
+        <fieldset class="border border-purple-700 rounded-md p-4 space-y-6">
+          <legend class="text-white text-lg font-semibold px-2">Contactformulier</legend>
+
+          <div>
+            <label for="name" class="block mb-1">Naam</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              placeholder="Jouw naam"
+              class="w-full rounded-md border border-purple-600 bg-purple-900 text-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block mb-1">E-mail</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="voorbeeld@mail.com"
+              class="w-full rounded-md border border-purple-600 bg-purple-900 text-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+
+          <div>
+            <label for="subject" class="block mb-1">Onderwerp</label>
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              required
+              placeholder="Waar gaat het over?"
+              class="w-full rounded-md border border-purple-600 bg-purple-900 text-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block mb-1">Bericht</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              placeholder="Schrijf hier je bericht..."
+              class="w-full rounded-md border border-purple-600 bg-purple-900 text-white px-3 py-2 resize-y focus:outline-none focus:ring-2 focus:ring-purple-500"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="bg-purple-600 hover:bg-purple-700 transition-colors text-white font-semibold px-6 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+          >
+            Verstuur
+          </button>
+        </fieldset>
+
+      </form>
     </div>
   @endslot
 @end
