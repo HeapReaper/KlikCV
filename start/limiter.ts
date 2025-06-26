@@ -16,5 +16,5 @@ export const throttle = limiter.define('global', () => {
 })
 
 export const contactFormSubmitLimiter = limiter.define('global', () => {
-  return limiter.allowRequests(1).every('10 mins').blockFor('30 mins')
+  return limiter.allowRequests(3).every('10 mins')
 })
