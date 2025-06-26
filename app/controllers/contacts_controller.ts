@@ -26,7 +26,7 @@ export default class ContactsController {
         )
       })
     } catch (error) {
-      console.log(error)
+      console.error(error)
 
       session.flash('notification', {
         type: 'error',
