@@ -14,3 +14,7 @@ import limiter from '@adonisjs/limiter/services/main'
 export const throttle = limiter.define('global', () => {
   return limiter.allowRequests(20).every('1 minute')
 })
+
+export const contactFormSubmitLimiter = limiter.define('global', () => {
+  return limiter.allowRequests(1).every('10 mins').blockFor('30 mins')
+})
