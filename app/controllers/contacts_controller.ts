@@ -27,9 +27,20 @@ export default class ContactsController {
       })
     } catch (error) {
       console.log(error)
+
+      session.flash('notification', {
+        type: 'error',
+        message: 'Kon het formulier niet versturen, probeer het later nog een keer.'
+      })
+
+      return response.redirect().back()
     }
 
-    session.flash('success', 'Contact submit successfully.')
-    return response.redirect('/contact')
+    session.flash('notification', {
+      type: 'success',
+      message: 'Bedankt, we nemen zo nodig contact met u op.'
+    })
+
+    return response.redirect().back()
   }
 }
