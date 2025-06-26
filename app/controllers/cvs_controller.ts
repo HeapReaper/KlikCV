@@ -134,7 +134,7 @@ export default class CvsController {
       skillSet: skillSet,
       linkedIn: linkedIn,
       github: github,
-      portolio: portfolio,
+      portfolio: portfolio,
       languages: languages,
     })
 
