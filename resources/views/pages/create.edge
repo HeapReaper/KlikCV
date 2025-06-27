@@ -1,4 +1,6 @@
 @layout.main({ title: "Maak je CV!" })
+  @vite('resources/js/create.js')
+
   @slot('meta')
     <meta name="description" content="Maak gratis je CV en exporteer het eenvoudig naar PDF – zonder verborgen kosten!">
   @endslot
@@ -559,6 +561,81 @@
             </div>
           </fieldset>
 
+          <fieldset class="border border-purple-700 rounded-md px-4 pb-4" x-data="{ openDesign: false }">
+            <legend class="text-xl font-semibold flex items-center justify-between cursor-pointer" @click="openDesign = !openDesign">
+              <span>Design</span>
+              <svg :class="{'rotate-180': openDesign}" class="w-5 h-5 transform transition-transform text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </legend>
+
+            <div x-show="openDesign" x-transition class="space-y-4">
+              <template x-for="(lang, index) in languages" :key="index">
+                <div
+                  class="gap-4 relative border border-purple-600 p-2 rounded-md"
+                  x-data="{ languageHelp: false }"
+                >
+                  <button
+                    type="button"
+                    x-show="languages.length > 1"
+                    @click="languages.splice(index, 1)"
+                    class="absolute top-2 right-2 text-red-400 hover:text-red-600"
+                    title="Verwijder deze taal"
+                  >
+                    🗑️
+                  </button>
+
+                  <div>
+                    <label class="block text-sm font-medium text-white mb-1">Primary kleur</label>
+                    <div x-data="colorPicker()" class="space-y-4 max-w-xs mx-auto p-4">
+                      <div class="flex space-x-2">
+                        <template x-for="color in colors" :key="color">
+                          <button
+                            :style="`background-color: ${color}`"
+                            @click="selectColor(color)"
+                            :class="selected === color ? 'ring-4 ring-offset-2 ring-indigo-500' : ''"
+                            class="w-8 h-8 rounded-full focus:outline-none"
+                            type="button"
+                            aria-label="Select color"
+                          ></button>
+                        </template>
+                      </div>
+
+                      <div>
+                        <label for="hexInput" class="block text-sm font-medium text-gray-700 mb-1">Custom Hex Color</label>
+                        <input
+                          id="hexInput"
+                          type="text"
+                          x-model="input"
+                          @input="onInputChange"
+                          placeholder="#ff0000"
+                          class="w-full border rounded px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500"
+                        />
+                      </div>
+
+                      <div class="mt-4 flex items-center space-x-4">
+                        <div
+                          class="w-16 h-16 rounded border"
+                          :style="`background-color: ${selected}`"
+                          aria-label="Selected color preview"
+                        ></div>
+                        <span x-text="selected" class="font-mono"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+              <button
+                type="button"
+                @click="languages.push({ name: '', level: '' })"
+                class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
+              >
+                Taal toevoegen
+              </button>
+            </div>
+          </fieldset>
+
 
           <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
             <button
@@ -595,127 +672,5 @@
         </div>
       </div>
     </div>
-
-    <!-- TODO: Script to own file -->
-    <script>
-      async function generatePDF() {
-        const { jsPDF } = window.jspdf;
-
-        const content = document.getElementById("pdf-preview");
-
-        const canvas = await html2canvas(content, {
-          scale: 2,
-          useCORS: true,
-          windowWidth: content.scrollWidth,
-          windowHeight: content.scrollHeight,
-        });
-
-        const imgData = canvas.toDataURL("image/png");
-
-        const pdf = new jsPDF("p", "mm", "a4");
-        const imgProps = pdf.getImageProperties(imgData);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
-        let position = 0;
-        let pageHeight = pdf.internal.pageSize.getHeight();
-
-        while (position < pdfHeight) {
-          pdf.addImage(imgData, "PNG", 0, -position, pdfWidth, pdfHeight);
-          position += pageHeight;
-          if (position < pdfHeight) pdf.addPage();
-        }
-
-        pdf.save("parallax.pdf");
-      }
-
-      function cvForm() {
-        return {
-          first_name: '',
-          last_name: '',
-          email: '',
-          city: '',
-          phone: '',
-          birthdate: '',
-          job_title: '',
-          profile: '',
-          linkedIn: '',
-          github: '',
-          portfolio: '',
-          template: 1,
-          selectedTemplate: 1,
-          hobbies: [{ name: '', description: '' }],
-          experiences: [{ position: '', company: '', location: '', start_date: '', end_date: '', description: '' }],
-          educations: [{ degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' }],
-          skills: [{ name: '', level: 0 }],
-          languages: [{ name: '', level: '' }],
-
-          saveData() {
-            localStorage.setItem('cv_data', JSON.stringify({
-              first_name: this.first_name,
-              last_name: this.last_name,
-              email: this.email,
-              city: this.city,
-              phone: this.phone,
-              birthdate: this.birthdate,
-              job_title: this.job_title,
-              profile: this.profile,
-              template: this.template,
-              hobbies: this.hobbies,
-              experiences: this.experiences,
-              educations: this.educations,
-              skills: this.skills,
-              linkedIn: this.linkedIn,
-              github: this.github,
-              portfolio: this.portfolio,
-              languages: this.languages,
-              selectedTemplate: 1,
-            }));
-          },
-
-          loadData() {
-            const data = JSON.parse(localStorage.getItem('cv_data'));
-            if (data) {
-              Object.assign(this, data);
-            }
-          },
-
-          clearData() {
-            localStorage.removeItem('cv_data');
-            this.first_name = '';
-            this.last_name = '';
-            this.email = '';
-            this.city = '';
-            this.phone = '';
-            this.birthdate = '';
-            this.job_title = '';
-            this.profile = '';
-            this.linkedIn = '';
-            this.github = '';
-            this.portfolio = '';
-            this.template = 1;
-            this.selectedTemplate = 1;
-            this.hobbies = [{ name: '', description: '' }];
-            this.experiences = [{ position: '', company: '', location: '', start_date: '', end_date: '', description: '' }];
-            this.educations = [{ degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' }];
-            this.skills = [{ name: '', level: 0 }];
-          },
-
-          fileChanged(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = e => {
-            };
-            reader.readAsDataURL(file);
-          },
-
-          previewCv() {
-            this.saveData();
-            alert('Preview functie nog implementeren');
-          }
-        };
-      }
-    </script>
   @endslot
 @end
