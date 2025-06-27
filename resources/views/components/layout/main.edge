@@ -32,4 +32,127 @@
 
     @include('partials/flash-messages')
   </body>
+
+  <script>
+    console.info('Running create.js file...')
+
+    function cvForm() {
+      return {
+        first_name: '',
+        last_name: '',
+        email: '',
+        city: '',
+        phone: '',
+        birthdate: '',
+        job_title: '',
+        profile: '',
+        linkedIn: '',
+        github: '',
+        portfolio: '',
+        template: 1,
+        selectedTemplate: 1,
+        hobbies: [{ name: '', description: '' }],
+        experiences: [{ position: '', company: '', location: '', start_date: '', end_date: '', description: '' }],
+        educations: [{ degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' }],
+        skills: [{ name: '', level: 0 }],
+        languages: [{ name: '', level: '' }],
+
+        saveData() {
+          localStorage.setItem('cv_data', JSON.stringify({
+            first_name: this.first_name,
+            last_name: this.last_name,
+            email: this.email,
+            city: this.city,
+            phone: this.phone,
+            birthdate: this.birthdate,
+            job_title: this.job_title,
+            profile: this.profile,
+            template: this.template,
+            hobbies: this.hobbies,
+            experiences: this.experiences,
+            educations: this.educations,
+            skills: this.skills,
+            linkedIn: this.linkedIn,
+            github: this.github,
+            portfolio: this.portfolio,
+            languages: this.languages,
+            selectedTemplate: 1,
+          }));
+        },
+
+        loadData() {
+          const data = JSON.parse(localStorage.getItem('cv_data'));
+          if (data) {
+            Object.assign(this, data);
+          }
+        },
+
+        clearData() {
+          localStorage.removeItem('cv_data');
+          this.first_name = '';
+          this.last_name = '';
+          this.email = '';
+          this.city = '';
+          this.phone = '';
+          this.birthdate = '';
+          this.job_title = '';
+          this.profile = '';
+          this.linkedIn = '';
+          this.github = '';
+          this.portfolio = '';
+          this.template = 1;
+          this.selectedTemplate = 1;
+          this.hobbies = [{ name: '', description: '' }];
+          this.experiences = [{ position: '', company: '', location: '', start_date: '', end_date: '', description: '' }];
+          this.educations = [{ degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' }];
+          this.skills = [{ name: '', level: 0 }];
+        },
+
+        fileChanged(event) {
+          const file = event.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = e => {
+          };
+          reader.readAsDataURL(file);
+        },
+
+        previewCv() {
+          this.saveData();
+          alert('Preview functie nog implementeren');
+        }
+      };
+    }
+
+    function colorPicker() {
+      return {
+        colors: [
+          '#ef4444',
+          '#f97316',
+          '#eab308',
+          '#22c55e',
+          '#3b82f6',
+          '#8b5cf6',
+          '#ec4899',
+          '#374151',
+        ],
+        selected: '#3b82f6',
+        input: '#3b82f6',
+
+        selectColor(color) {
+          this.selected = color
+          this.input = color
+        },
+
+        onInputChange() {
+          const hex = this.input.trim()
+          const isValidHex = /^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})$/.test(hex)
+          if (isValidHex) {
+            this.selected = hex
+          }
+        },
+      }
+    }
+
+  </script>
 </html>
