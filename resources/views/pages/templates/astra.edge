@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uniek CV</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1E3A8A',
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-900">
+<div class="flex min-h-screen">
+  <aside class="bg-primary text-white w-16 md:w-24 flex flex-col items-center py-8 space-y-6">
+    <div class="rotate-90 text-xs md:text-sm tracking-widest font-semibold">Jouw Naam</div>
+    <div class="space-y-4 mt-4">
+      <a href="#" title="LinkedIn" class="block hover:text-blue-300">
+        <svg class="w-5 h-5 md:w-6 md:h-6 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761..."/></svg>
+      </a>
+      <a href="#" title="GitHub" class="block hover:text-blue-300">
+        <svg class="w-5 h-5 md:w-6 md:h-6 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373..."/></svg>
+      </a>
+    </div>
+  </aside>
+
+  <main class="flex-1 p-6 md:p-12 bg-white rounded-l-lg shadow-lg">
+    <div class="flex justify-center mb-6">
+      <img src="https://randomuser.me/api/portraits/women/75.jpg" class="w-32 h-32 rounded-full border-4 border-primary" alt="Profielfoto" />
+    </div>
+
+    <section class="text-center mb-8">
+      <h1 class="text-3xl font-bold">Jouw Naam</h1>
+      <p class="text-blue-700">Frontend Developer / UI Designer</p>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-6 mb-10">
+      <div>
+        <h2 class="text-xl font-semibold border-b-2 border-blue-500 pb-1 mb-2">Contact</h2>
+        <ul class="text-sm">
+          <li><strong>Email:</strong> naam@email.com</li>
+          <li><strong>Tel:</strong> +31 6 12345678</li>
+          <li><strong>Website:</strong> www.jouwsite.nl</li>
+          <li><strong>Locatie:</strong> Rotterdam, NL</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-xl font-semibold border-b-2 border-blue-500 pb-1 mb-2">Skills</h2>
+        <ul class="flex flex-wrap gap-2 text-sm">
+          <li class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">React</li>
+          <li class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Figma</li>
+          <li class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Tailwind CSS</li>
+          <li class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">TypeScript</li>
+          <li class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Node.js</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold border-b-2 border-primary pb-1 mb-4">Werkervaring</h2>
+      <article class="mb-6">
+        <h3 class="text-lg font-semibold">Frontend Developer – DesignStudio</h3>
+        <span class="text-sm text-gray-500">2022 – heden</span>
+        <ul class="list-disc list-inside text-sm mt-2 text-gray-700">
+          <li>UX/UI implementatie in Figma en Tailwind</li>
+          <li>Performance optimalisatie voor mobile-first apps</li>
+          <li>Design systems mee opgezet in Storybook</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold border-b-2 border-primary pb-1 mb-4">Opleiding</h2>
+      <h3 class="text-lg font-semibold">CMD – Hogeschool Rotterdam</h3>
+      <span class="text-sm text-gray-500">2018 – 2022</span>
+    </section>
+  </main>
+</div>
+</body>
+</html>
