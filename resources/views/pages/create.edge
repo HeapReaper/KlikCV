@@ -561,7 +561,7 @@
             </div>
           </fieldset>
 
-          <fieldset class="border border-purple-700 rounded-md px-4 pb-4" x-data="{ openDesign: false }">
+          <fieldset class="border border-purple-700 rounded-md px-4 pb-4" x-data="{ openDesign: true }">
             <legend class="text-xl font-semibold flex items-center justify-between cursor-pointer" @click="openDesign = !openDesign">
               <span>Design</span>
               <svg :class="{'rotate-180': openDesign}" class="w-5 h-5 transform transition-transform text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -596,56 +596,29 @@
                             :class="selected === color ? 'ring-4 ring-offset-2 ring-indigo-500' : ''"
                             class="w-8 h-8 rounded-full focus:outline-none"
                             type="button"
-                            aria-label="Select color"
                           ></button>
                         </template>
                       </div>
 
                       <div>
-                        <label for="hexInput" class="block text-sm font-medium text-gray-700 mb-1">Custom Hex Color</label>
+                        <label for="hexInput" class="block text-sm font-medium mb-1">Custom Hex Color</label>
                         <input
                           id="hexInput"
                           type="text"
                           x-model="input"
                           @input="onInputChange"
                           placeholder="#ff0000"
-                          class="w-full border rounded px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500"
+                          class="bg-purple-800 text-white placeholder-gray-300 border border-purple-700 rounded-md p-2 focus:ring-2 focus:ring-purple-900 focus:outline-none""
                         />
-                      </div>
-
-                      <div class="mt-4 flex items-center space-x-4">
-                        <div
-                          class="w-16 h-16 rounded border"
-                          :style="`background-color: ${selected}`"
-                          aria-label="Selected color preview"
-                        ></div>
-                        <span x-text="selected" class="font-mono"></span>
                       </div>
                     </div>
                   </div>
                 </div>
               </template>
-
-              <button
-                type="button"
-                @click="languages.push({ name: '', level: '' })"
-                class="mt-2 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
-              >
-                Taal toevoegen
-              </button>
             </div>
           </fieldset>
 
-
           <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
-            <button
-              type="button"
-              @click="previewCv()"
-              class="w-full md:w-auto px-6 py-3 bg-blue-700 text-white rounded-md font-semibold hover:bg-blue-600 transition-colors"
-            >
-              Voorbeeld
-            </button>
-
             <button
               type="submit"
               class="w-full md:w-auto px-6 py-3 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700 transition-colors"
@@ -674,3 +647,5 @@
     </div>
   @endslot
 @end
+
+

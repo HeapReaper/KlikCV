@@ -20,6 +20,7 @@ function cvForm() {
     educations: [{ degree: '', institution: '', location: '', start_date: '', end_date: '', description: '' }],
     skills: [{ name: '', level: 0 }],
     languages: [{ name: '', level: '' }],
+    primaryColor: '#3b82f6',
 
     saveData() {
       localStorage.setItem('cv_data', JSON.stringify({
@@ -106,6 +107,7 @@ function colorPicker() {
     selectColor(color) {
       this.selected = color
       this.input = color
+      cvForm().primaryColor = color;
     },
 
     onInputChange() {
@@ -113,6 +115,7 @@ function colorPicker() {
       const isValidHex = /^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})$/.test(hex)
       if (isValidHex) {
         this.selected = hex
+        cvForm().primaryColor = hex;
       }
     },
   }
