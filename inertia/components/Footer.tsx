@@ -6,10 +6,10 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} KlikCV. Alle rechten voorbehouden.
         </div>
         <div className="space-x-4 text-gray-700">
-          <a href="#" className="hover:text-orange-600">
+          <a href="/privacy" className="hover:text-orange-600">
             Privacybeleid
           </a>
-          <a href="#" className="hover:text-orange-600">
+          <a href="/contact" className="hover:text-orange-600">
             Contact
           </a>
         </div>
