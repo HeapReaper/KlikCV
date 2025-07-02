@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title inertia></title>
+  <link rel="icon" type="image/x-icon" href="/icons/cv.png">
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=instrument-sans:400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+
+  @stack('dumper')
+  @viteReactRefresh()
+  @inertiaHead()
+  @vite(['inertia/app/app.tsx', `inertia/pages/${page.component}.tsx`])
+</head>
+
+<body class="min-h-screen w-screen font-sans " style="background: linear-gradient(to bottom, #FDFDFD 0%, #F5F7F8 33%, #EDEFF1 66%, #E4E6E8 100%);">
+  @inertia()
+</body>
+
+</html>
