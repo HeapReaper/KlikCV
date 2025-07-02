@@ -34,7 +34,7 @@ export default function Home() {
 
             <div className="space-y-4">
               <h1 className="text-5xl font-bold text-center text-orange-500 ">
-                Deze mensen gingen je voor:
+                Onze statistieken
               </h1>
               <Stats />
             </div>
@@ -45,7 +45,6 @@ export default function Home() {
               </h1>
               <FAQ setAmount={4} />
             </div>
-
           </div>
         </DefaultLayout>
       </>

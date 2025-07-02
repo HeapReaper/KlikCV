@@ -18,28 +18,19 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex space-x-4 items-center">
-            <a
-              href="/"
-              className="text-gray-700 hover:text-orange-600"
-            >
+            <a href="/" className="text-gray-700 hover:text-orange-600">
               Home
             </a>
-            <a
-              href="/builder"
-              className="text-gray-700 hover:text-orange-600"
-            >
+            <a href="/cv/bouw" className="text-gray-700 hover:text-orange-600">
               CV bouwer
             </a>
-            <a
-               href="#"
-               className="text-gray-700 hover:text-orange-600"
-            >
-              Over
+            <a href="/over-ons" className="text-gray-700 hover:text-orange-600">
+              Over ons
             </a>
-            <a
-              href="#"
-              className="text-gray-700 hover:text-orange-600"
-            >
+            <a href="/privacy" className="text-gray-700 hover:text-orange-600">
+              Privacy
+            </a>
+            <a href="/contact" className="text-gray-700 hover:text-orange-600">
               Contact
             </a>
           </div>

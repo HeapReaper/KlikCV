@@ -101,7 +101,9 @@ export default function FAQ({ setAmount }: FAQProps) {
             onClick={() => toggle(index)}
             className="flex items-center justify-between w-full text-left"
           >
-            <span className="text-lg font-semibold">{faq.question}</span>
+            <span className="text-lg font-semibold">
+              {faq.question}
+            </span>
             {openIndex === index ? (
               <ChevronUp className="h-5 w-5 text-orange-500"/>
             ) : (
@@ -109,14 +111,21 @@ export default function FAQ({ setAmount }: FAQProps) {
             )}
           </button>
           {openIndex === index && (
-            <div className="mt-3 text-gray-700">{faq.answer}</div>
+            <div className="mt-3 text-gray-700">
+              {faq.answer}
+            </div>
           )}
         </div>
       ))}
 
       {faqsToShow.length < faqData.length && (
         <p className="text-center text-sm text-gray-600 mt-4">
-          Voor alle veelgestelde vragen ga naar onze <a href="/faq" className="underline">FAQ</a>
+          Voor alle veelgestelde vragen ga naar onze
+          <a href="/faq">
+            <span className="underline decoration-2 decoration-orange-500 underline-offset-2 ml-1">
+              FAQ
+            </span>
+        </a>
         </p>
       )}
     </div>
