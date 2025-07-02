@@ -25,13 +25,17 @@ export default function Home() {
               </div>
             </div>
 
-            <TemplateSlider />
+            <div className="space-y-4 border-3 border-solid border-orange-500 rounded-lg pt-3 pb-3">
+              <h1 className="text-5xl font-bold text-center text-orange-500">
+                De leukste in-house gemaakte sjablonen
+              </h1>
+                <TemplateSlider />
+            </div>
 
             <div className="space-y-4">
               <h1 className="text-5xl font-bold text-center text-orange-500 ">
                 Deze mensen gingen je voor:
               </h1>
-
               <Stats />
             </div>
 

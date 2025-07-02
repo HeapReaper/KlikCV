@@ -95,7 +95,7 @@ export default function FAQ({ setAmount }: FAQProps) {
       {faqsToShow.map((faq, index) => (
         <div
           key={index}
-          className="border border-gray-300 rounded-xl p-4 transition hover:shadow-md bg-white"
+          className="border-3 border-solid border-orange-500 rounded-xl p-4 transition hover:shadow-md bg-white"
         >
           <button
             onClick={() => toggle(index)}
