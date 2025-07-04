@@ -13,7 +13,7 @@ export default function Stats() {
 
       <div className="flex flex-col justify-center items-center border-3 border-solid border-orange-500  rounded-lg p-6 text-xl font-bold">
         <p className="text-3xl font-bold text-orange-500">69</p>
-        <p className="text-lg text-gray-700 mt-2">Sjablonen</p>
+        <p className="text-lg text-gray-700 mt-2">Sjablonen beschikbaar</p>
       </div>
 
       <div className="flex flex-col justify-center items-center border-3 border-solid border-orange-500  rounded-lg p-6 text-xl font-bold">

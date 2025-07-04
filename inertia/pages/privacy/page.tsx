@@ -7,78 +7,76 @@ export default function Home() {
       <Head title="Privacybeleid" />
 
       <DefaultLayout>
-        <div className="pt-4 h-full flex flex-col">
-          <div className="pt-4 h-full flex flex-col mt-8 min-h-screen p-3">
-            <h1 className="text-4xl font-bold text-black text-center">
-              Privacyverklaring
-            </h1>
+        <div className="pt-4 flex flex-col mt-8 p-3">
+          <h1 className="text-4xl font-bold text-black text-center">
+            Privacyverklaring
+          </h1>
 
-            <h2 className="text-xl mt-8 font-bold">
-              1. Uw privacy is belangrijk
-            </h2>
-            <p className="mt-2">
-              Bij KlikCV hechten wij veel waarde aan uw privacy. Wij verwerken uw gegevens op een veilige, transparante
-              en minimale manier. Deze verklaring informeert u over hoe wij met uw persoonsgegevens omgaan.
-            </p>
+          <h2 className="text-xl mt-8 font-bold">
+            1. Uw privacy is belangrijk
+          </h2>
+          <p className="mt-2">
+            Bij KlikCV hechten wij veel waarde aan uw privacy. Wij verwerken uw gegevens op een veilige, transparante
+            en minimale manier. Deze verklaring informeert u over hoe wij met uw persoonsgegevens omgaan.
+          </p>
 
-            <h2 className="text-xl mt-8 font-bold">
-              2. Verwerking van uw gegevens
-            </h2>
-            <p className="mt-2">
-              Wanneer u gebruik maakt van onze service om een CV of ander document te genereren, worden uw gegevens
-              uitsluitend gebruikt voor dat specifieke doel.
-            </p>
+          <h2 className="text-xl mt-8 font-bold">
+            2. Verwerking van uw gegevens
+          </h2>
+          <p className="mt-2">
+            Wanneer u gebruik maakt van onze service om een CV of ander document te genereren, worden uw gegevens
+            uitsluitend gebruikt voor dat specifieke doel.
+          </p>
 
-            <ul className="list-disc ms-4 mt-4 space-y-2">
-              <li>
-                Uw gegevens worden tijdelijk naar onze server verzonden om een PDF-bestand te genereren.
-              </li>
-              <li>
-                Deze gegevens worden <strong>niet</strong> opgeslagen in een database of logbestand.
-              </li>
-              <li>
-                Na het genereren van het document worden uw gegevens direct uit het tijdelijke geheugen verwijderd.
-              </li>
-              <li>
-                Uw gegevens worden niet gedeeld met derden en worden niet gebruikt voor commerciële of analytische
-                doeleinden.
-              </li>
-              <li>
-                Uw IP-adres kan tijdelijk worden opgeslagen om misbruik van onze dienst te voorkomen, zoals bij het
-                toepassen van <strong>rate-limiting</strong>. Dit gebeurt automatisch en uitsluitend met als doel het
-                beschermen van de service.
-              </li>
-            </ul>
+          <ul className="list-disc ms-4 mt-4 space-y-2">
+            <li>
+              Uw gegevens worden tijdelijk naar onze server verzonden om een PDF-bestand te genereren.
+            </li>
+            <li>
+              Deze gegevens worden <strong>niet</strong> opgeslagen in een database of logbestand.
+            </li>
+            <li>
+              Na het genereren van het document worden uw gegevens direct uit het tijdelijke geheugen verwijderd.
+            </li>
+            <li>
+              Uw gegevens worden niet gedeeld met derden en worden niet gebruikt voor commerciële of analytische
+              doeleinden.
+            </li>
+            <li>
+              Uw IP-adres kan tijdelijk worden opgeslagen om misbruik van onze dienst te voorkomen, zoals bij het
+              toepassen van <strong>rate-limiting</strong>. Dit gebeurt automatisch en uitsluitend met als doel het
+              beschermen van de service.
+            </li>
+          </ul>
 
-            <h2 className="text-xl mt-8 font-bold">
-              3. Lokale opslag op uw apparaat
-            </h2>
-            <p className="mt-2">
-              Om uw gebruikservaring te verbeteren, maakt de website gebruik van <strong>lokale opslag</strong> op uw
-              apparaat. Hiermee kunnen eerder ingevulde velden worden onthouden, zodat u deze niet opnieuw hoeft in te
-              voeren.
-            </p>
-            <p className="mt-2">
-              Deze gegevens worden enkel lokaal opgeslagen op uw browser en zijn <strong>niet zichtbaar</strong> voor
-              ons of anderen.
-            </p>
+          <h2 className="text-xl mt-8 font-bold">
+            3. Lokale opslag op uw apparaat
+          </h2>
+          <p className="mt-2">
+            Om uw gebruikservaring te verbeteren, maakt de website gebruik van <strong>lokale opslag</strong> op uw
+            apparaat. Hiermee kunnen eerder ingevulde velden worden onthouden, zodat u deze niet opnieuw hoeft in te
+            voeren.
+          </p>
+          <p className="mt-2">
+            Deze gegevens worden enkel lokaal opgeslagen op uw browser en zijn <strong>niet zichtbaar</strong> voor
+            ons of anderen.
+          </p>
 
-            <h2 className="text-xl mt-8 font-bold">
-              4. Wijzigingen in deze verklaring
-            </h2>
-            <p className="mt-2">
-              Deze privacyverklaring kan van tijd tot tijd worden aangepast. Wij raden u aan deze pagina regelmatig te
-              raadplegen om op de hoogte te blijven van eventuele wijzigingen.
-            </p>
+          <h2 className="text-xl mt-8 font-bold">
+            4. Wijzigingen in deze verklaring
+          </h2>
+          <p className="mt-2">
+            Deze privacyverklaring kan van tijd tot tijd worden aangepast. Wij raden u aan deze pagina regelmatig te
+            raadplegen om op de hoogte te blijven van eventuele wijzigingen.
+          </p>
 
-            <h2 className="text-xl mt-8 font-bold">
-              5. Contact
-            </h2>
-            <p className="mt-2">
-              Heeft u vragen over deze privacyverklaring? Neem dan gerust contact met ons op via <a
-              href="mailto:info@klikcv.nl" className="text-blue-400 underline">info@klikcv.nl</a>.
-            </p>
-          </div>
+          <h2 className="text-xl mt-8 font-bold">
+            5. Contact
+          </h2>
+          <p className="mt-2">
+            Heeft u vragen over deze privacyverklaring? Neem dan gerust contact met ons op via <a
+            href="mailto:info@klikcv.nl" className="text-blue-400 underline">info@klikcv.nl</a>.
+          </p>
         </div>
       </DefaultLayout>
     </>
