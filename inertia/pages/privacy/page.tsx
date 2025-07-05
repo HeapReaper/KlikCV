@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react'
+import { Head } from "@inertiajs/react";
 import DefaultLayout from "~/components/DefaultLayout";
 
 export default function Home() {

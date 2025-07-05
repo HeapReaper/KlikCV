@@ -1,10 +1,10 @@
-import { Head } from '@inertiajs/react'
+import { Head } from "@inertiajs/react";
 import DefaultLayout from "~/components/DefaultLayout";
 
 export default function AboutUsPage() {
   return (
     <>
-      <Head title="Privacybeleid" />
+      <Head title="Over ons" />
 
       <DefaultLayout>
         <div className="pt-4 flex flex-col mt-8 p-3">
