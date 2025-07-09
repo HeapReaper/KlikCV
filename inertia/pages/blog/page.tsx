@@ -1,27 +1,6 @@
 import { Head } from "@inertiajs/react";
 import DefaultLayout from "~/components/DefaultLayout";
-
-
-const blogArticles = [
-  {
-    id: 1,
-    title: "First Blog Article",
-    excerpt: "This is a short summary of the first article.",
-    publishedAt: "2025-07-01",
-  },
-  {
-    id: 2,
-    title: "Second Blog Article",
-    excerpt: "An overview of the second blog post content.",
-    publishedAt: "2025-07-05",
-  },
-  {
-    id: 3,
-    title: "Third Blog Article",
-    excerpt: "Highlights and key points from the third article.",
-    publishedAt: "2025-07-07",
-  },
-];
+import articles from "../../../content/blog/articles.json";
 
 export default function BlogPage() {
   return (
@@ -35,10 +14,12 @@ export default function BlogPage() {
           </h1>
 
           <div className="space-y-6 mt-2">
-            {blogArticles.map(({ id, title, excerpt, publishedAt }) => (
-              <article key={id} className="border-b pb-4">
+            {articles.map(({ id, title, slug, excerpt, publishedAt }) => (
+              <article key={id} className="border-b pb-4 border-orange-500">
                 <h2 className="text-2xl font-semibold text-orange-500 underline cursor-pointer">
-                  {title}
+                  <a href={`/blog/${slug}`}>
+                    {title}
+                  </a>
                 </h2>
                 <time className="text-sm text-gray-500">{publishedAt}</time>
                 <p className="mt-2 text-gray-700">{excerpt}</p>
