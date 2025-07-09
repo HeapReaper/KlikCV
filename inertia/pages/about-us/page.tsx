@@ -7,7 +7,7 @@ export default function AboutUsPage() {
       <Head title="Over ons" />
 
       <DefaultLayout>
-        <div className="pt-4 flex flex-col mt-8 p-3">
+        <div className="pt-4 flex flex-col mt-8 p-3" >
           <h1 className="text-4xl font-bold text-black text-center">
             Over ons
           </h1>
