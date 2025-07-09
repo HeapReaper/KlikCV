@@ -8,9 +8,12 @@ export default function Home() {
       <Head title="Contact" />
 
       <DefaultLayout>
-        <div className="pt-1 h-full flex flex-col">
-          <ContactForm />
+        <div className="pt-4 flex flex-col mt-8 p-3">
+          <h1 className="text-4xl font-bold text-black text-center">
+            Contact
+          </h1>
         </div>
+        <ContactForm />
       </DefaultLayout>
     </>
   )

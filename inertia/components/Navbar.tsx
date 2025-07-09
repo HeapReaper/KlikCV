@@ -24,6 +24,9 @@ export default function Navbar() {
             <a href="/cv/bouw" className="text-gray-700 hover:text-orange-600">
               CV bouwer
             </a>
+            <a href="/blog" className="text-gray-700 hover:text-orange-600">
+              Blog
+            </a>
             <a href="/over-ons" className="text-gray-700 hover:text-orange-600">
               Over ons
             </a>
