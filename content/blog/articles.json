@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "author": "Kelvin de Reus",
     "title": "Test",
     "slug": "test",
     "excerpt": "Wow this is a fluffing test",
