@@ -1,6 +1,3 @@
-import LeftButton from "~/components/buttons/Left";
-import RightButton from "~/components/buttons/Right";
-
 export default function TemplateSlider() {
   return (
     <div className="mt-10 relative max-w-7xl mx-auto px-4">
@@ -58,9 +55,6 @@ export default function TemplateSlider() {
           </p>
         </div>
       </div>
-
-      <LeftButton />
-      <RightButton />
     </div>
   );
 }
