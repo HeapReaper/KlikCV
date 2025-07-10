@@ -9,7 +9,7 @@ const bodyParserConfig = defineConfig({
 
   /**
    * Config for the "application/x-www-form-urlencoded"
-   * content-type parser
+   * content.ts-type parser
    */
   form: {
     convertEmptyStringsToNull: true,
@@ -30,7 +30,7 @@ const bodyParserConfig = defineConfig({
   },
 
   /**
-   * Config for the "multipart/form-data" content-type parser.
+   * Config for the "multipart/form-data" content.ts-type parser.
    * File uploads are handled by the multipart parser.
    */
   multipart: {
