@@ -1,6 +1,6 @@
 import router from '@adonisjs/core/services/router'
 import {parseMarkdownFile} from "../utils/parse.js";
-import {getAllPosts} from "../utils/blog.js";
+import {getAllPosts} from "../utils/content.js";
 
 router.on('/').renderInertia('home')
 
@@ -31,10 +31,10 @@ router.get('/blog/:slug', async ({ params, inertia }) => {
 
 router.on('/faq').renderInertia('faq/page')
 router.on('/over-ons').renderInertia('about-us/page', {
-  html: parseMarkdownFile('./content/about-us.md')
+  html: parseMarkdownFile('./content/pages/about-us.md')
 })
 router.on('/privacy').renderInertia('privacy/page', {
-  html: parseMarkdownFile('./content/privacy.md')
+  html: parseMarkdownFile('./content/pages/privacy.md')
 })
 
 router.on('/contact').renderInertia('contact/page')

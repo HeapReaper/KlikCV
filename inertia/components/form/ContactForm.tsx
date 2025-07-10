@@ -7,7 +7,7 @@ import SubmitButton from "~/components/buttons/Submit";
 export default function ContactForm() {
   return (
     <form
-      className="max-w-3xl mx-auto space-y-6 bg-white p-6 rounded-2xl shadow-md border border-orange-500"
+      className="max-w-3xl mx-auto space-y-6 bg-white p-6 rounded-2xl shadow-md border border-orange-500 border-2"
     >
       <FullName />
 

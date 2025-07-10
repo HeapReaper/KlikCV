@@ -40,8 +40,8 @@ const shieldConfig = defineConfig({
   },
 
   /**
-   * Disable browsers from sniffing the content type of a
-   * response and always rely on the "content-type" header.
+   * Disable browsers from sniffing the content.ts type of a
+   * response and always rely on the "content.ts-type" header.
    */
   contentTypeSniffing: {
     enabled: true,

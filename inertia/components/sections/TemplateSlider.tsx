@@ -5,7 +5,7 @@ export default function TemplateSlider() {
   return (
     <div className="mt-10 relative max-w-7xl mx-auto px-4">
       <div className="flex space-x-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
-        <div className="min-w-[250px] snap-start rounded-xl p-4 text-orange-500 text-center border-3 border-solid border-orange-500">
+        <div className="min-w-[250px] snap-start rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
           <img
             src="https://placehold.co/250x370"
             alt="Template Toronto"
@@ -18,7 +18,7 @@ export default function TemplateSlider() {
             69 gebruikers kozen dit template
           </p>
         </div>
-        <div className="min-w-[250px] snap-start rounded-xl p-4 text-orange-500 text-center border-3 border-solid border-orange-500">
+        <div className="min-w-[250px] snap-start rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
           <img
             src="https://placehold.co/250x370"
             alt="Template Cornell"
@@ -31,7 +31,7 @@ export default function TemplateSlider() {
             69 gebruikers kozen dit template
           </p>
         </div>
-        <div className="min-w-[250px] snap-start rounded-xl p-4 text-orange-500 text-center border-3 border-solid border-orange-500">
+        <div className="min-w-[250px] snap-start rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
           <img
             src="https://placehold.co/250x370"
             alt="Template Cornell"
@@ -44,7 +44,7 @@ export default function TemplateSlider() {
             69 gebruikers kozen dit template
           </p>
         </div>
-        <div className="min-w-[250px] snap-start rounded-xl p-4 text-orange-500 text-center border-3 border-solid border-orange-500">
+        <div className="min-w-[250px] snap-start rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
           <img
             src="https://placehold.co/250x370"
             alt="Template Cornell"

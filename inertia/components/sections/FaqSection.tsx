@@ -87,15 +87,12 @@ export default function FAQ({ setAmount }: FAQProps) {
 
   const faqsToShow = setAmount ? faqData.slice(0, setAmount) : faqData;
 
-  if (faqsToShow && faqsToShow.length < faqData.length) {
-  }
-
   return (
     <div className="space-y-4">
       {faqsToShow.map((faq, index) => (
         <div
           key={index}
-          className="border-3 border-solid border-orange-500 rounded-xl p-4 transition hover:shadow-md bg-white"
+          className="border-2 border-solid border-orange-500 rounded-xl p-4 transition hover:shadow-md bg-white"
         >
           <button
             onClick={() => toggle(index)}

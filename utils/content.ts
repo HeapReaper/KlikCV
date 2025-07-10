@@ -12,16 +12,21 @@ export interface BlogPost {
   content: string;
 }
 
+export interface Faq {
+  question: string;
+  content: string;
+}
+
 export function getAllPosts(): BlogPost[] {
   const postsDirectory = path.join(process.cwd(), 'content/blog');
   const filenames = fs.readdirSync(postsDirectory);
 
-  const posts: BlogPost[] = filenames
+  return filenames
     .filter((file) => file.endsWith('.md'))
     .map((filename) => {
       const filePath = path.join(postsDirectory, filename);
       const fileContents = fs.readFileSync(filePath, 'utf8');
-      const { data, content } = matter(fileContents);
+      const {data, content} = matter(fileContents);
 
       return {
         title: data.title,
@@ -35,6 +40,4 @@ export function getAllPosts(): BlogPost[] {
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .filter((post) => !post.draft);
-
-  return posts;
 }
