@@ -1,24 +1,27 @@
 import router from '@adonisjs/core/services/router'
-import { loadMd } from "../utils/marked.js";
-// @ts-ignore
-import articles from "../content/blog/articles.json" assert { type: "json" };
+import {parseMarkdownFile} from "../utils/parse.js";
+import {getAllPosts} from "../utils/blog.js";
 
 router.on('/').renderInertia('home')
 
 // TODO: move to /routes/builder/builder.ts
 router.on('/cv/bouw').renderInertia('builder/create')
 
-router.on('/blog').renderInertia('blog/page')
-router.get('/blog/:slug', async ({ params, inertia }) => {
-  const slug = params.slug;
+router.on('/blog').renderInertia('blog/page', {
+  articles: getAllPosts(),
+});
 
-  const article = articles.find((a: any) => a.slug === slug);
+
+router.get('/blog/:slug', async ({ params, inertia }) => {
+  const slug = params.slug.replace(/[^a-zA-Z0-9-_]/g, '');
+
+  const article = getAllPosts().find((a: any) => a.slug === slug);
 
   if (!article) {
-    return inertia.render('errors/404', { slug }); // or return a redirect/abort
+    return inertia.render('errors/404', { slug });
   }
 
-  const html = await loadMd(`blog/${slug}.md`);
+  const html = parseMarkdownFile(`./content/blog/${slug}.md`);
 
   return inertia.render('blog/show', {
     article,
@@ -28,10 +31,10 @@ router.get('/blog/:slug', async ({ params, inertia }) => {
 
 router.on('/faq').renderInertia('faq/page')
 router.on('/over-ons').renderInertia('about-us/page', {
-  html: await loadMd('about-us.md')
+  html: parseMarkdownFile('./content/about-us.md')
 })
 router.on('/privacy').renderInertia('privacy/page', {
-  html: await loadMd('privacy.md')
+  html: parseMarkdownFile('./content/privacy.md')
 })
 
 router.on('/contact').renderInertia('contact/page')
