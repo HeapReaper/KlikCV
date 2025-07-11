@@ -1,4 +1,4 @@
-export default function SubmitButton({ label = "Verstuur bericht" }) {
+export default function SubmitButton({ label = "Verstuur" }) {
   return (
     <div className="text-center">
       <button
