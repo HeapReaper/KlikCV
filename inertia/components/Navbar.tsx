@@ -26,7 +26,7 @@ export default function Navbar() {
     <nav className="text-gray-700 shadow-md transition-colors duration-300 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-2">
             <a href="/" className="text-xl font-bold text-orange-500 hover:text-orange-600">
               KlikCV
             </a>
