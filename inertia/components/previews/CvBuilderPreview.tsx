@@ -1,15 +1,10 @@
 import {ReactElement} from "react";
 import Solaris from "../templates/Solaris";
+import { CvBuilderFormProps } from "../../../types/CvBuilderFormData";
 
-type CvBuilderPreviewProps = {
-  formdata: {
-    fullName: string;
-    email: string;
-  },
-  template: string;
-}
 
-export default function CvBuilderPreview({ formdata, template }: CvBuilderPreviewProps): ReactElement | null {
+// @ts-ignore TODO: fix
+export default function CvBuilderPreview({ formdata, template }: CvBuilderFormProps): ReactElement | null {
   switch (template) {
     case "Solaris":
       return <Solaris formData={formdata} />;

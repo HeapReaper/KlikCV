@@ -1,7 +1,4 @@
-type InputProps = {
-  value: string;
-  onChange: (value: string) => void;
-}
+import { InputProps } from "../../../types/inputs";
 
 export default function Email({ value, onChange }: InputProps) {
   return (

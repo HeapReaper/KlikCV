@@ -1,19 +1,8 @@
 import FullName from "~/components/input/FullName";
 import Email from "~/components/input/Email";
 import SubmitButton from "~/components/buttons/Submit";
-import React, {ReactElement} from "react";
-
-type CvBuilderFormProps = {
-  formData: {
-    fullName: string;
-    email: string;
-  };
-
-  setFormData: React.Dispatch<React.SetStateAction<{
-    fullName: string;
-    email: string
-  }>>;
-}
+import {ReactElement} from "react";
+import { CvBuilderFormProps } from "../../../types/CvBuilderFormData";
 
 export default function CvBuilderForm({ formData, setFormData }: CvBuilderFormProps): ReactElement {
   return (
