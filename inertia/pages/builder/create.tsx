@@ -8,7 +8,11 @@ export default function CreateBuilder() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
+    birthdate: new Date(),
+    city: "",
+    phone: "",
   })
+
   return (
     <>
       <Head title="Maak je CV!" />

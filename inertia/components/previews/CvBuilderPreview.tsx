@@ -7,6 +7,7 @@ import { CvBuilderFormProps } from "../../../types/CvBuilderFormData";
 export default function CvBuilderPreview({ formdata, template }: CvBuilderFormProps): ReactElement | null {
   switch (template) {
     case "Solaris":
+      // @ts-ignore
       return <Solaris formData={formdata} />;
     default:
       return null;
