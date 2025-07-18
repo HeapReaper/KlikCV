@@ -6,7 +6,7 @@ export default function Solaris({ formData }: CvBuilderFormProps): ReactElement 
     <div className="max-w-3xl mx-auto space-y-6 bg-white p-6 rounded-2xl shadow-md border border-orange-500 border-2">
       <h1 className="text-xl font-bold">{formData.fullName || "Je Naam"}</h1>
       <p>{formData.email || "E-mail"}</p>
-      <p>{formData.birthdate || "Geboortedatum"}</p>
+      <p>{(new Date(formData.birthdate)).toLocaleDateString()}</p>
       <p>{formData.city || "Woonplaats"}</p>
       <p>{formData.phone || "Telefoon"}</p>
     </div>

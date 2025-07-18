@@ -39,7 +39,6 @@ export default function CvBuilderForm({ formData, setFormData }: CvBuilderFormPr
         onChange={(value: string) => setFormData((prev) => ({ ...prev, phone: value }))}
       />
 
-
       <SubmitButton label="Genereer" />
     </form>
   );

@@ -8,9 +8,10 @@ export default function CreateBuilder() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    birthdate: new Date(),
+    birthdate: new Date(''),
     city: "",
     phone: "",
+    template: ""
   })
 
   return (
@@ -24,7 +25,7 @@ export default function CreateBuilder() {
               <CvBuilderForm formData={formData} setFormData={setFormData} />
             </div>
             <div className="hidden md:block">
-              <CvBuilderPreview formdata={formData} template="Solaris" />
+              <CvBuilderPreview formData={formData} template="Solaris" />
             </div>
           </div>
         </div>
