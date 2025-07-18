@@ -6,7 +6,11 @@ export type FormData = {
   birthdate: Date;
   city: string;
   phone: string;
+
   template: string;
+
+  title: string;
+  personDescription: string;
 }
 
 export type CvBuilderFormProps = {

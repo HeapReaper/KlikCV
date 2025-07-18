@@ -11,7 +11,7 @@ export default function FullName({ value, onChange }: InputProps) {
         id="fullName"
         name="fullName"
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={onChange ? (e) => onChange(e.target.value) : undefined}
         className="mt-1 w-full border border-orange-500 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-orange-600"
         required
       />

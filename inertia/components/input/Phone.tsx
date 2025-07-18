@@ -12,7 +12,7 @@ export default function Phone({ value, onChange }: InputProps) {
         name="phone"
         value={value}
         pattern="^(\+31|0)[1-9][0-9]{8}$"
-        onChange={(e) => onChange(e.target.value)}
+        onChange={onChange ? (e) => onChange(e.target.value) : undefined}
         className="mt-1 w-full border border-orange-500 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-orange-600"
         required
       />

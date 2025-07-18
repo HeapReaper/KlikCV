@@ -11,7 +11,9 @@ export default function CreateBuilder() {
     birthdate: new Date(''),
     city: "",
     phone: "",
-    template: ""
+    template: "",
+    title: "",
+    personDescription: "",
   })
 
   return (
