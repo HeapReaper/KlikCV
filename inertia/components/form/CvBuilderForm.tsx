@@ -1,3 +1,4 @@
+import { ReactElement, useState } from "react";
 import FullName from "~/components/input/FullName";
 import Email from "~/components/input/Email";
 import Birthdate from "~/components/input/Birthdate";
@@ -7,58 +8,100 @@ import PersonDescription from "~/components/input/PersonDescription";
 import Title from "~/components/input/Title";
 import SubmitButton from "~/components/buttons/Submit";
 
-import {ReactElement} from "react";
 import { CvBuilderFormProps } from "../../../types/CvBuilderFormData";
 
 export default function CvBuilderForm({ formData, setFormData }: CvBuilderFormProps): ReactElement {
+  const [personalInfoOpen, setPersonalInfoOpen] = useState(true);
+  const [profileOpen, setProfileOpen] = useState(false);
+
   return (
     <form
-      className="max-w-3xl mx-auto space-y-3 bg-white p-3 rounded-2xl shadow-md border border-orange-500 border-2"
+      className="max-w-3xl mx-auto space-y-3 bg-white p-3 rounded-2xl shadow-md border-orange-500 border-2"
     >
-      <h5 className="text-xl font-bold">
-        Persoonlijke info
-      </h5>
+      {/* Personal info */}
+      <div>
+        <h5
+          className="text-xl font-bold cursor-pointer select-none flex justify-between items-center"
+          onClick={() => setPersonalInfoOpen(!personalInfoOpen)}
+          aria-expanded={personalInfoOpen}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setPersonalInfoOpen(!personalInfoOpen);
+            }
+          }}
+        >
+          Persoonlijke info
+          <span className="">{personalInfoOpen ? "▲" : "▼"}</span>
+        </h5>
 
-      <FullName
-        value={formData.fullName}
-        onChange={(value: string) => setFormData((prev) => ({ ...prev, fullName: value }))}
-      />
+        {personalInfoOpen && (
+          <>
+            <FullName
+              value={formData.fullName}
+              onChange={(value: string) => setFormData((prev) => ({ ...prev, fullName: value }))}
+            />
 
-      <Email
-        value={formData.email}
-        onChange={(value: string) => setFormData((prev) => ({ ...prev, email: value }))}
-      />
+            <Email
+              value={formData.email}
+              onChange={(value: string) => setFormData((prev) => ({ ...prev, email: value }))}
+            />
 
-      <Birthdate
-        value={formData.birthdate}
-        onChange={(value: string) => setFormData((prev) => ({ ...prev, birthdate: value }))}
-      />
+            <Birthdate
+              value={formData.birthdate}
+              onChange={(value: string) => setFormData((prev) => ({ ...prev, birthdate: value }))}
+            />
 
-      <City
-        value={formData.city}
-        onChange={(value: string) => setFormData((prev) => ({ ...prev, city: value }))}
-      />
+            <City
+              value={formData.city}
+              onChange={(value: string) => setFormData((prev) => ({ ...prev, city: value }))}
+            />
 
-      <Phone
-        value={formData.phone}
-        onChange={(value: string) => setFormData((prev) => ({ ...prev, phone: value }))}
-      />
+            <Phone
+              value={formData.phone}
+              onChange={(value: string) => setFormData((prev) => ({ ...prev, phone: value }))}
+            />
+          </>
+        )}
+      </div>
 
-      <h5 className="text-xl font-bold">
-        Profiel
-      </h5>
+      {/* Profile */}
+      <div>
+        <h5
+          className="text-xl font-bold cursor-pointer select-none flex justify-between items-center"
+          onClick={() => setProfileOpen(!profileOpen)}
+          aria-expanded={profileOpen}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setProfileOpen(!profileOpen);
+            }
+          }}
+        >
+          Profiel
+          <span>{profileOpen ? "▲" : "▼"}</span>
+        </h5>
 
-      <Title
-        value={formData.title}
-        onChange={(value: string) => setFormData((prev) => ({ ...prev, title: value }))}
-      />
+        {profileOpen && (
+          <>
+            <Title
+              value={formData.title}
+              onChange={(value: string) => setFormData((prev) => ({ ...prev, title: value }))}
+            />
 
-      <PersonDescription
-        value={formData.personDescription}
-        onChange={(value: string) => setFormData((prev) => ({ ...prev, personDescription: value }))}
-      />
+            <PersonDescription
+              value={formData.personDescription}
+              onChange={(value: string) => setFormData((prev) => ({ ...prev, personDescription: value }))}
+            />
+          </>
+        )}
+      </div>
 
       <SubmitButton label="Genereer" />
     </form>
   );
-};
+}
