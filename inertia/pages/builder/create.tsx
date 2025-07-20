@@ -8,12 +8,28 @@ export default function CreateBuilder() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    birthdate: new Date(''),
+    birthdate: new Date(""),
     city: "",
     phone: "",
     template: "",
     title: "",
     personDescription: "",
+    hobbies: [
+      {
+        name: "",
+        description: "",
+      }
+    ],
+    workExperiences: [
+      {
+        position: '',
+        company: '',
+        location: '',
+        startDate: '',
+        endDate: '',
+        description: '',
+      },
+    ]
   })
 
   return (
