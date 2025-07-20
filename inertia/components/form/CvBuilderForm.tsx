@@ -34,7 +34,7 @@ export default function CvBuilderForm({ formData, setFormData }: CvBuilderFormPr
           }}
         >
           Persoonlijke info
-          <span className="">{personalInfoOpen ? "▲" : "▼"}</span>
+          <span className="text-orange-500">{personalInfoOpen ? "▲" : "▼"}</span>
         </h5>
 
         {personalInfoOpen && (
@@ -83,7 +83,7 @@ export default function CvBuilderForm({ formData, setFormData }: CvBuilderFormPr
           }}
         >
           Profiel
-          <span>{profileOpen ? "▲" : "▼"}</span>
+          <span className="text-orange-500">{profileOpen ? "▲" : "▼"}</span>
         </h5>
 
         {profileOpen && (
