@@ -2,9 +2,5 @@
 Create your resume for free with modern templates that will impress.
 
 ### Stack
-- AdonisJS
-- Inertia
-- React
-- PostgreSQL
+- Preact
 - TailwindCSS
-

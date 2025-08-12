@@ -1,7 +1,0 @@
-1. Solaris
-2. Proxima
-3. Arcadia
-4. Tatooine
-5. Vulcan
-6. Pandora
-7. Kronos
