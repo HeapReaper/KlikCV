@@ -8,7 +8,8 @@ export default function AboutUs() {
 
   useEffect(() => {
     const html = marked.parse(aboutMarkdown);
-    console.log(html);
+
+    // @ts-ignore
     setContent(DOMPurify.sanitize(html));
   }, []);
 
