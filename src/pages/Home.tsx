@@ -18,7 +18,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="space-y-4 border- 2 border-solid border-orange-500 rounded-lg pt-3 pb-3">
+        <div className="space-y-4 border-2 border-solid border-orange-500 rounded-lg pt-3 pb-3">
           <h1 className="text-5xl font-bold text-center text-orange-500">
             De leukste in-house gemaakte sjablonen
           </h1>

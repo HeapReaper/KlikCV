@@ -1,21 +1,18 @@
 import { useState, useEffect } from 'preact/hooks';
-import {  marked } from 'marked';
-import DOMPurify from 'dompurify';
-import aboutMarkdown from '../../content/about-us.md?raw';
+import { getAndParseMarkup } from '../services/getandParseMarkup';
 
 export default function AboutUs() {
   const [content, setContent] = useState('');
 
-  useEffect(() => {
-    const html = marked.parse(aboutMarkdown);
-
-    // @ts-ignore
-    setContent(DOMPurify.sanitize(html));
+  // @ts-ignore
+  useEffect( async () => {
+    const html = await getAndParseMarkup('../content/about-us.md');
+    setContent(html);
   }, []);
 
   return (
     <>
-      <div className="pt-4 flex flex-col mt-8 p-3">
+      <div className="pt-4 flex flex-col mt-8">
         <div
           className="prose prose-neutral text-black max-w-none marker:text-black"
           dangerouslySetInnerHTML={{ __html: content }}
