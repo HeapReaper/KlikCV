@@ -1,4 +1,8 @@
 import { useState, useEffect } from 'preact/hooks';
+import { Link } from 'preact-router/match';
+import { Router } from 'preact-router';
+import AboutUs from '../../pages/AboutUs';
+import Home from '../../pages/Home';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,12 +37,12 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex space-x-4 items-center">
-            <a href="/" className={isActive("/")}>Home</a>
-            <a href="/cv/bouw" className={isActive("/cv/bouw")}>CV bouwer</a>
-            <a href="/blog" className={isActive("/blog")}>Blog</a>
-            <a href="/over-ons" className={isActive("/over-ons")}>Over ons</a>
-            <a href="/privacy" className={isActive("/privacy")}>Privacy</a>
-            <a href="/contact" className={isActive("/contact")}>Contact</a>
+            <Link href="/" className={isActive("/")}>Home</Link>
+            <Link href="/cv/bouw" className={isActive("/cv/bouw")}>CV bouwer</Link>
+            <Link href="/blog" className={isActive("/blog")}>Blog</Link>
+            <Link href="/over-ons" className={isActive("/over-ons")}>Over ons</Link>
+            <Link href="/privacy" className={isActive("/privacy")}>Privacy</Link>
+            <Link href="/contact" className={isActive("/contact")}>Contact</Link>
           </div>
 
           <div className="flex items-center space-x-4">
@@ -68,11 +72,15 @@ export default function Navbar() {
         id="mobile-menu"
         className={`${menuOpen ? "block" : "hidden"} absolute top-16 left-0 w-full bg-white px-4 pb-4 md:hidden z-50 shadow-md border-b`}
       >
-        <a href="/" className={`block py-2 ${isActive("/")}`}>Home</a>
-        <a href="/cv/bouw" className={`block py-2 ${isActive("/cv/bouw")}`}>CV bouwer</a>
-        <a href="/over-ons" className={`block py-2 ${isActive("/over-ons")}`}>Over ons</a>
-        <a href="/contact" className={`block py-2 ${isActive("/contact")}`}>Contact</a>
+        <Link href="/" className={`block py-2 ${isActive("/")}`}>Home</Link>
+        <Link href="/cv/bouw" className={`block py-2 ${isActive("/cv/bouw")}`}>CV bouwer</Link>
+        <Link href="/over-ons" className={`block py-2 ${isActive("/over-ons")}`}>Over ons</Link>
+        <Link href="/contact" className={`block py-2 ${isActive("/contact")}`}>Contact</Link>
       </div>
+      <Router>
+        <Home path="/" />
+        <AboutUs path="/over-ons" />
+      </Router>
     </nav>
   );
 }

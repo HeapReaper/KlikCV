@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
+    "dompurify": "^3.2.6",
     "lucide-react": "^0.539.0",
+    "marked": "^16.1.2",
     "preact": "^10.27.0",
     "preact-hooks": "^0.0.0-0.0.0",
     "preact-iso": "^2.9.2",
