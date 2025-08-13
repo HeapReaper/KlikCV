@@ -3,6 +3,10 @@ import { Link } from 'preact-router/match';
 import { Router } from 'preact-router';
 import AboutUs from '../../pages/AboutUs';
 import Home from '../../pages/Home';
+import Privacy from '../../pages/Privacy';
+import Contact from '../../pages/Contact';
+import Blog from '../../pages/Blog';
+import CvBuilder from '../../pages/CvBuilder';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,12 +41,24 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex space-x-4 items-center">
-            <Link href="/" className={isActive("/")}>Home</Link>
-            <Link href="/cv/bouw" className={isActive("/cv/bouw")}>CV bouwer</Link>
-            <Link href="/blog" className={isActive("/blog")}>Blog</Link>
-            <Link href="/over-ons" className={isActive("/over-ons")}>Over ons</Link>
-            <Link href="/privacy" className={isActive("/privacy")}>Privacy</Link>
-            <Link href="/contact" className={isActive("/contact")}>Contact</Link>
+            <Link href="/" className={isActive("/")}>
+              Home
+            </Link>
+            <Link href="/cv/bouw" className={isActive("/cv/bouw")}>
+              CV bouwer
+            </Link>
+            <Link href="/blog" className={isActive("/blog")}>
+              Blog
+            </Link>
+            <Link href="/over-ons" className={isActive("/over-ons")}>
+              Over ons
+            </Link>
+            <Link href="/privacy" className={isActive("/privacy")}>
+              Privacy
+            </Link>
+            <Link href="/contact" className={isActive("/contact")}>
+              Contact
+            </Link>
           </div>
 
           <div className="flex items-center space-x-4">
@@ -72,14 +88,32 @@ export default function Navbar() {
         id="mobile-menu"
         className={`${menuOpen ? "block" : "hidden"} absolute top-16 left-0 w-full bg-white px-4 pb-4 md:hidden z-50 shadow-md border-b`}
       >
-        <Link href="/" className={`block py-2 ${isActive("/")}`}>Home</Link>
-        <Link href="/cv/bouw" className={`block py-2 ${isActive("/cv/bouw")}`}>CV bouwer</Link>
-        <Link href="/over-ons" className={`block py-2 ${isActive("/over-ons")}`}>Over ons</Link>
-        <Link href="/contact" className={`block py-2 ${isActive("/contact")}`}>Contact</Link>
+        <Link href="/" className={`block py-2 ${isActive("/")}`}>
+          Home
+        </Link>
+        <Link href="/cv/bouw" className={`block py-2 ${isActive("/cv/bouw")}`}>
+          CV bouwer
+        </Link>
+        <Link href="/blog" className={`block py-2 ${isActive("/blog")}`}>
+          CV bouwer
+        </Link>
+        <Link href="/over-ons" className={`block py-2 ${isActive("/over-ons")}`}>
+          Over ons
+        </Link>
+        <Link href="/privacy" className={isActive("/privacy")}>
+          Privacy
+        </Link>
+        <Link href="/contact" className={`block py-2 ${isActive("/contact")}`}>
+          Contact
+        </Link>
       </div>
       <Router>
         <Home path="/" />
+        <CvBuilder path="/cv/bouw" />
+        <Blog path="/blog" />
         <AboutUs path="/over-ons" />
+        <Privacy path="/privacy" />
+        <Contact path="contact" />
       </Router>
     </nav>
   );
