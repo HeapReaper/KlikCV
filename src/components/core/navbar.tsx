@@ -7,6 +7,7 @@ import Privacy from '../../pages/Privacy';
 import Contact from '../../pages/Contact';
 import Blog from '../../pages/Blog';
 import CvBuilder from '../../pages/CvBuilder';
+import BlogShow from '../../pages/BlogShow';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -111,6 +112,7 @@ export default function Navbar() {
         <Home path="/" />
         <CvBuilder path="/cv/bouw" />
         <Blog path="/blog" />
+        <BlogShow path="/blog/:slug" />
         <AboutUs path="/over-ons" />
         <Privacy path="/privacy" />
         <Contact path="contact" />

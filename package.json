@@ -12,6 +12,8 @@
     "@tailwindcss/cli": "^4.1.11",
     "@tailwindcss/vite": "^4.1.11",
     "dompurify": "^3.2.6",
+    "front-matter": "^4.0.2",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.539.0",
     "marked": "^16.1.2",
     "preact": "^10.27.0",
