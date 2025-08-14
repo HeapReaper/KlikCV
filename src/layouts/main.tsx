@@ -1,6 +1,5 @@
 import Navbar from '../components/core/navbar';
 import Footer from '../components/core/Footer';
-import FooterAd from '../components/ads/FooterAd';
 
 export default function MainLayout() {
   return (
@@ -9,8 +8,6 @@ export default function MainLayout() {
 
       <main class="flex-grow p-4">
       </main>
-
-      <FooterAd />
 
       <Footer />
     </div>

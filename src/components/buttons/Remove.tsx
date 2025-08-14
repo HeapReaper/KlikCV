@@ -1,0 +1,10 @@
+export default function RemoveButton() {
+  return (
+    <button
+      type="button"
+      className="w-8 h-8 flex items-center justify-center rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition"
+    >
+      ×
+    </button>
+  )
+}

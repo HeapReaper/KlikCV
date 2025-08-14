@@ -5,7 +5,6 @@ import { Router } from 'preact-router';
 import AboutUs from '../../pages/AboutUs';
 import Home from '../../pages/Home';
 import Privacy from '../../pages/Privacy';
-import Contact from '../../pages/Contact';
 import Blog from '../../pages/Blog';
 import CvBuilder from '../../pages/CvBuilder';
 import BlogShow from '../../pages/BlogShow';
@@ -63,10 +62,6 @@ export default function Navbar() {
             {/* @ts-ignore */}
             <Link href="/privacy" className={isActive("/privacy")}>
               Privacy
-            </Link>
-            {/* @ts-ignore */}
-            <Link href="/contact" className={isActive("/contact")}>
-              Contact
             </Link>
           </div>
 
@@ -136,8 +131,6 @@ export default function Navbar() {
         <AboutUs path="/over-ons" />
         {/* @ts-ignore */}
         <Privacy path="/privacy" />
-        {/* @ts-ignore */}
-        <Contact path="/contact" />
         {/* @ts-ignore */}
         <Faq path="/faq" />
       </Router>
