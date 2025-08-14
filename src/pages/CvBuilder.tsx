@@ -15,7 +15,7 @@ export default function CvBuilder() {
     <div className="grid grid-cols-2 justify-center gap-4">
       {/* Builder form */}
       <div>
-        <form className="space-y-2 bg-white p-2 rounded-2xl shadow-md border-2 border-orange-500">
+        <form className="space-y-2 bg-white p-2 rounded-2xl border-2 border-orange-500">
 
           {/* Personal info */}
           <div className="p-2 space-y-2 rounded-2xl shadow-md border-2 border-orange-500">

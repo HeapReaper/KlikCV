@@ -33,7 +33,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="text-gray-700 shadow-md transition-colors duration-300 backdrop-blur-md">
+    <nav className="text-gray-700 transition-colors duration-300 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -90,7 +90,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className={`${menuOpen ? "block" : "hidden"} absolute top-16 left-0 w-full bg-white px-4 pb-4 md:hidden z-50 shadow-md border-b`}
+        className={`${menuOpen ? "block" : "hidden"} absolute top-16 left-0 w-full bg-white px-4 pb-4 md:hidden z-50 border-b`}
       >
         {/* @ts-ignore */}
         <Link href="/" className={`block py-2 ${isActive("/")}`}>
@@ -102,7 +102,7 @@ export default function Navbar() {
         </Link>
         {/* @ts-ignore */}
         <Link href="/blog" className={`block py-2 ${isActive("/blog")}`}>
-          CV bouwer
+          Blog
         </Link>
         {/* @ts-ignore */}
         <Link href="/over-ons" className={`block py-2 ${isActive("/over-ons")}`}>
