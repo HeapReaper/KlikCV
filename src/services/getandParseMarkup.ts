@@ -1,7 +1,7 @@
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 import frontMatter from 'front-matter';
-import type { BlogProps } from '../types/Blog';
+import type { BlogType } from '../types/Blog';
 
 export async function getAndParseMarkup(filePath: string): Promise<string> {
   const module = await import('../../content/' + filePath + '?raw');
@@ -10,23 +10,16 @@ export async function getAndParseMarkup(filePath: string): Promise<string> {
   return DOMPurify.sanitize(await marked.parse(markdown));
 }
 
-export default async function getAllBlogMarkdownFiles(): Promise<BlogProps[]> {
+export default async function getAllBlogMarkdownFiles(): Promise<BlogType[]> {
   const modules = import.meta.glob(`../../content/blog/*.md`, { as: 'raw' });
 
-  const files: BlogProps[] = [];
+  const files: BlogType[] = [];
 
   for (const path in modules) {
     const load = modules[path] as () => Promise<string>;
     const markdown = await load();
 
-    const { attributes, body } = frontMatter<{
-      author: string;
-      title: string;
-      slug: string;
-      excerpt: string;
-      date: string;
-      draft?: boolean;
-    }>(markdown);
+    const { attributes, body } = frontMatter<BlogType>(markdown);
 
     // @ts-ignore
     const html = DOMPurify.sanitize(marked.parse(body));
@@ -37,6 +30,7 @@ export default async function getAllBlogMarkdownFiles(): Promise<BlogProps[]> {
         title: attributes.title,
         slug: attributes.slug,
         excerpt: attributes.excerpt,
+        draft: false,
         date: attributes.date,
         html
       });

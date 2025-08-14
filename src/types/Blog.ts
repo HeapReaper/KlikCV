@@ -1,12 +1,13 @@
-export type BlogProps = {
+export type BlogType = {
   author: string;
   title: string;
   slug: string;
   excerpt: string;
   date: string;
-  html: string;
+  draft: boolean;
+  html?: string;
 };
 
-export type BlogSlugProps = {
+export type BlogSlugType = {
   slug: string;
 }
