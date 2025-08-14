@@ -1,6 +1,6 @@
 import MakeCVButton from '../components/buttons/MakeCV';
 import FAQ from '../components/core/Faq';
-import {Link} from "preact-router/match";
+import { Link } from 'preact-router/match';
 
 export default function Home() {
   return (
@@ -115,6 +115,7 @@ export default function Home() {
           <FAQ setAmount={4} />
 
           <p className="text-center text-sm mt-2">
+            {/* @ts-ignore */}
             Voor alle vragen <Link href="/faq">klik hier</Link>
           </p>
         </div>
