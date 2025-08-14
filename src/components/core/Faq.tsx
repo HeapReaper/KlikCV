@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import getAndParseFaqs from '../../services/getAndParseFaqs';
 import type { FaqAmountType } from '../../types/Faq';
+import { Link } from 'preact-router/match';
 
 export default function FAQ({ setAmount }: FaqAmountType) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
