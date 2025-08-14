@@ -1,23 +1,23 @@
-FROM node:20-alpine AS builder
+FROM oven/bun:1 AS builder
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package*.json bun.lockb* ./
 
-RUN npm ci
+RUN bun install --frozen-lockfile
 
 COPY . .
 
-RUN npm run build
+RUN bun run build
 
-FROM node:20-alpine
+FROM oven/bun:1
 
 WORKDIR /app
 
-RUN npm install -g serve
+RUN bun add -g serve
 
 COPY --from=builder /app/dist ./dist
 
 EXPOSE 3000
 
-CMD ["serve", "-s", "dist", "-l", "3000"]
+CMD ["bunx", "serve", "-s", "dist", "-l", "3000"]
