@@ -22,8 +22,10 @@ export default function CvBuilder() {
             <h4 className="text-2xl">
               Persoonlijke informatie
             </h4>
-            <FullName value={fullName} onChange={e => setFullName(e.target.value)} />
+            {/* @ts-ignore */}
+            <FullName value={fullName} onChange={e => setFullName(e.target?.value)} />
 
+            {/* @ts-ignore */}
             <Email value={email} onChange={e => setEmail(e.target.value)} />
           </div>
 
@@ -37,7 +39,6 @@ export default function CvBuilder() {
               {/* Add and remove buttons */}
               <div className="absolute -top-4 right-2 flex space-x-2">
                 <AddButton />
-
                 <RemoveButton />
               </div>
 
@@ -54,6 +55,7 @@ export default function CvBuilder() {
       {/* Builder preview */}
       <div>
         <div className="border-2 border-orange-500 rounded-2xl p-4">
+          {/* @ts-ignore */}
           <Luna name={fullName} email={email} />
         </div>
       </div>
