@@ -12,7 +12,7 @@ export default function CvBuilder() {
   const [email, setEmail] = useState('');
 
   return (
-    <div className="grid grid-cols-2 justify-center gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-4">
       {/* Builder form */}
       <div>
         <form className="space-y-2 bg-white p-2 rounded-2xl border-2 border-orange-500">
