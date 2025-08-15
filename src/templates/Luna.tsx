@@ -153,11 +153,11 @@ export default function Luna({ name, email }: CvBuilderType) {
               Amsterdam
             </p>
 
-            <p className="italic text-gray-600 mb-2">
-              <ul className="list-disc list-inside space-y-1 text-gray-800">
-                Studied algorithms, data structures, and web technologies.
+            <div className="italic text-gray-600 mb-2">
+              <ul>
+                <li>Item 1</li>
               </ul>
-            </p>
+            </div>
           </article>
 
         </section>

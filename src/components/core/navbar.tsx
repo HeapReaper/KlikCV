@@ -72,7 +72,7 @@ export default function Navbar() {
               onClick={toggleMenu}
             >
               <svg
-                className="w-6 h-6 hover:stroke-indigo-600"
+                className="w-6 h-6 hover:stroke-orange-600"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -111,10 +111,6 @@ export default function Navbar() {
         {/* @ts-ignore */}
         <Link href="/privacy" className={isActive("/privacy")}>
           Privacy
-        </Link>
-        {/* @ts-ignore */}
-        <Link href="/contact" className={`block py-2 ${isActive("/contact")}`}>
-          Contact
         </Link>
       </div>
       <Router>
