@@ -26,7 +26,7 @@ export default function FAQ({ setAmount }: FaqAmountType) {
       {faqs.map((faq, index) => (
         <div
           key={index}
-          className="border-2 border-solid border-orange-500 rounded-xl p-4 transition hover:shadow-md bg-white"
+          className="border-2 border-solid border-orange-500 rounded-xl p-4 transition bg-white"
         >
           <button
             onClick={() => toggle(index)}

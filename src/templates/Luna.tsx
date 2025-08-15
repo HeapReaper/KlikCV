@@ -159,7 +159,6 @@ export default function Luna({ name, email }: CvBuilderType) {
               </ul>
             </div>
           </article>
-
         </section>
 
         <section>

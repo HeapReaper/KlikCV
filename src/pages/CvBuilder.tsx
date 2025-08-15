@@ -18,7 +18,7 @@ export default function CvBuilder() {
         <form className="space-y-2 bg-white p-2 rounded-2xl border-2 border-orange-500">
 
           {/* Personal info */}
-          <div className="p-2 space-y-2 rounded-2xl shadow-md border-2 border-orange-500">
+          <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
             <h4 className="text-2xl">
               Persoonlijke informatie
             </h4>
@@ -30,12 +30,12 @@ export default function CvBuilder() {
           </div>
 
           {/* Language */}
-          <div className="p-2 space-y-2 rounded-2xl shadow-md border-2 border-orange-500 relative">
+          <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500 relative">
             <h4 className="text-2xl">
               Talen
             </h4>
 
-            <div className="p-2 rounded-2xl shadow-md border-2 border-orange-500 relative">
+            <div className="p-2 rounded-2xl border-2 border-orange-500 relative">
               {/* Add and remove buttons */}
               <div className="absolute -top-4 right-2 flex space-x-2">
                 <AddButton />

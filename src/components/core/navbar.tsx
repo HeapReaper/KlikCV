@@ -93,26 +93,27 @@ export default function Navbar() {
         className={`${menuOpen ? "block" : "hidden"} absolute top-16 left-0 w-full bg-white px-4 pb-4 md:hidden z-50 border-b`}
       >
         {/* @ts-ignore */}
-        <Link href="/" className={`block py-2 ${isActive("/")}`}>
+        <Link href="/" className={`block py-2 ${isActive("/")}`} onClick={() => setMenuOpen(false)}>
           Home
         </Link>
         {/* @ts-ignore */}
-        <Link href="/cv/bouw" className={`block py-2 ${isActive("/cv/bouw")}`}>
+        <Link href="/cv/bouw" className={`block py-2 ${isActive("/cv/bouw")}`} onClick={() => setMenuOpen(false)}>
           CV bouwer
         </Link>
         {/* @ts-ignore */}
-        <Link href="/blog" className={`block py-2 ${isActive("/blog")}`}>
+        <Link href="/blog" className={`block py-2 ${isActive("/blog")}`} onClick={() => setMenuOpen(false)}>
           Blog
         </Link>
         {/* @ts-ignore */}
-        <Link href="/over-ons" className={`block py-2 ${isActive("/over-ons")}`}>
+        <Link href="/over-ons" className={`block py-2 ${isActive("/over-ons")}`} onClick={() => setMenuOpen(false)}>
           Over ons
         </Link>
         {/* @ts-ignore */}
-        <Link href="/privacy" className={isActive("/privacy")}>
+        <Link href="/privacy" className={`block py-2 ${isActive("/privacy")}`} onClick={() => setMenuOpen(false)}>
           Privacy
         </Link>
       </div>
+
       <Router>
         {/* @ts-ignore */}
         <Home path="/" />
