@@ -34,7 +34,7 @@ export default function CvBuilder() {
     { skill: '', level: '' },
   ]);
 
-  // TODO: move to utils file
+  // TODO: move to utils
   const addLanguage = () => {
     setLanguages(prev => [
       ...prev, { language: '', level: '' }
@@ -51,6 +51,7 @@ export default function CvBuilder() {
     );
 
 
+  // TODO: Move to utils
   const addSkill = () => {
     setSkills(prev => [
       ...prev, { skill: '', level: '' }
@@ -65,6 +66,8 @@ export default function CvBuilder() {
     setSkills(prev =>
       prev.map((lang, i) => i === index ? { ...lang, [field]: value } : lang)
     );
+
+  // TODO: Move to utils
 
 
   // Theme
