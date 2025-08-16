@@ -1,15 +1,26 @@
 import { useState } from 'preact/hooks';
+// Input components
 import FullName from '../components/inputs/FullName';
 import Email from '../components/inputs/Email';
+import Phone from '../components/inputs/Phone';
+import City from '../components/inputs/City';
+import Birthdate from '../components/inputs/Birthdate';
+import AboutMeDescription from '../components/inputs/aboutMeDescription';
+import ColorPicker from '../components/inputs/Color';
+
+// Templates
 import Luna from '../templates/Luna';
-import LanguageSelect from '../components/select/LanguageSelect';
-import LanguageLevelSelect from '../components/select/LanguageLevelSelect';
-import AddButton from '../components/buttons/Add';
-import RemoveButton from '../components/buttons/Remove';
 
 export default function CvBuilder() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [city, setCity] = useState('');
+  const [birthdate, setBirthdate] = useState('');
+  const [aboutMeDescription, setAboutMeDescription] = useState('');
+
+  // Theme
+  const [primaryColor, setPrimaryColor] = useState('#4169E1');
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-4">
@@ -22,33 +33,38 @@ export default function CvBuilder() {
             <h4 className="text-2xl">
               Persoonlijke informatie
             </h4>
-            {/* @ts-ignore */}
-            <FullName value={fullName} onChange={e => setFullName(e.target?.value)} />
 
-            {/* @ts-ignore */}
-            <Email value={email} onChange={e => setEmail(e.target.value)} />
+            <FullName value={fullName} onChange={setFullName} />
+
+            <Email value={email} onChange={setEmail} />
+
+            <Phone value={phone} onChange={setPhone}/>
+
+            <City value={city} onChange={setCity}/>
+
+            <Birthdate value={birthdate} onChange={setBirthdate} />
           </div>
 
-          {/* Language */}
-          <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500 relative">
+          {/* About me */}
+          <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
             <h4 className="text-2xl">
-              Talen
+              Profiel
             </h4>
 
-            <div className="p-2 rounded-2xl border-2 border-orange-500 relative">
-              {/* Add and remove buttons */}
-              <div className="absolute -top-4 right-2 flex space-x-2">
-                <AddButton />
-                <RemoveButton />
-              </div>
-
-              <div className="flex space-x-2">
-                <LanguageSelect />
-                <LanguageLevelSelect />
-              </div>
-            </div>
-
+            <AboutMeDescription
+              value={aboutMeDescription}
+              onChange={html => setAboutMeDescription(html)}
+            />
           </div>
+
+          {/* Theme */}
+          <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
+            <h4 className="text-2xl">
+              Thema
+            </h4>
+            <ColorPicker value={primaryColor} onChange={setPrimaryColor} />
+          </div>
+
         </form>
       </div>
 
@@ -56,7 +72,14 @@ export default function CvBuilder() {
       <div>
         <div className="border-2 border-orange-500 rounded-2xl p-4">
           {/* @ts-ignore */}
-          <Luna name={fullName} email={email} />
+          <Luna
+            name={fullName}
+            email={email}
+            phone={phone}
+            city={city}
+            birthdate={birthdate}
+            aboutMeDescription={aboutMeDescription}
+          />
         </div>
       </div>
     </div>

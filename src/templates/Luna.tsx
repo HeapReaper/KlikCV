@@ -1,6 +1,6 @@
 import type { CvBuilderType } from '../types/Templates.ts';
 
-export default function Luna({ name, email }: CvBuilderType) {
+export default function Luna({ name, email, phone, city, birthdate, aboutMeDescription }: CvBuilderType) {
   return (
     <>
       <header role="banner" className="pb-4">
@@ -21,7 +21,7 @@ export default function Luna({ name, email }: CvBuilderType) {
               </svg>
               <a href="tel:+31 6 12345678"
                  className=" hover:underline focus:outline-2 focus:outline-blue-600">
-                +31 6 12345678
+                {phone || "06-123456780"}
               </a>
             </p>
 
@@ -52,17 +52,17 @@ export default function Luna({ name, email }: CvBuilderType) {
             </p>
 
             <p className="flex items-center space-x-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                   className="size-4 mr-1 text-blue-700">
-                <path
-                  d="M12 .297a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.24c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.21.09 1.85 1.25 1.85 1.25 1.07 1.84 2.8 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.67 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.65-5.49 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .297Z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 mr-1 text-blue-700">
+                <path fillRule="evenodd" d="M12 2a1 1 0 0 1 1 1v2h2a1 1 0 0 1 1 1v2h-8V6a1 1 0 0 1 1-1h2V3a1 1 0 0 1 1-1zm-7 7h14a1 1 0 0 1 1 1v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a1 1 0 0 1 1-1zm3 4a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2H8z" clipRule="evenodd"/>
               </svg>
+
               <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer"
                  className=" hover:underline focus:outline-2 focus:outline-blue-600">
-                github.com/johndoe
+                {birthdate || "01-01-2000"}
               </a>
             </p>
 
+            {/*
             <p className="flex items-center space-x-2">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                    className="size-4 mr-1 text-blue-700">
@@ -75,6 +75,8 @@ export default function Luna({ name, email }: CvBuilderType) {
               </a>
             </p>
 
+            */}
+
             <p className="flex items-center space-x-2">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                    className="size-5 mr-2 text-blue-700">
@@ -83,13 +85,31 @@ export default function Luna({ name, email }: CvBuilderType) {
                 <path
                   d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z"/>
               </svg>
-              Amsterdam
+              {city || "Amsterdam"}
             </p>
           </div>
         </address>
       </header>
 
       <main role="main" className="space-y-10">
+        <section>
+          <h2 className="text-3xl font-semibold text-black border-b-4 border-black pb-1 mb-4">Over mij</h2>
+
+          <div className="flex items-center justify-center gap-8 flex-wrap">
+            <div className="flex-shrink-0">
+              <img
+                src="https://placehold.co/400"
+                alt={name || "Profielfoto"}
+                className="w-40 h-40 rounded-full object-cover border-4 border-blue-500 shadow-lg"
+              />
+            </div>
+
+            <div className="max-w-md text-gray-800">
+              <div dangerouslySetInnerHTML={{ __html: aboutMeDescription || ""}} />
+            </div>
+          </div>
+        </section>
+
         <section>
           <h2 className="text-3xl font-semibold text-black border-b-4 border-black pb-1 mb-4">Werkervaring</h2>
 
@@ -124,7 +144,6 @@ export default function Luna({ name, email }: CvBuilderType) {
               - Worked on frontend features and improved performance.
             </ul>
           </article>
-
         </section>
 
         <section>
