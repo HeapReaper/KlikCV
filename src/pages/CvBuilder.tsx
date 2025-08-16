@@ -79,6 +79,7 @@ export default function CvBuilder() {
             city={city}
             birthdate={birthdate}
             aboutMeDescription={aboutMeDescription}
+            primaryColor={primaryColor}
           />
         </div>
       </div>

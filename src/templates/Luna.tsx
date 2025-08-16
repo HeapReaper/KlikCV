@@ -1,20 +1,23 @@
 import type { CvBuilderType } from '../types/Templates.ts';
 
-export default function Luna({ name, email, phone, city, birthdate, aboutMeDescription }: CvBuilderType) {
+export default function Luna({ name, email, phone, city, birthdate, aboutMeDescription, primaryColor }: CvBuilderType) {
+
   return (
     <>
+      <style>{`:root { --primary-color: ${primaryColor}; }`}</style>
+
       <header role="banner" className="pb-4">
         <h1 className="text-6xl font-bold mt-3">
           {name || "John Doe"}
         </h1>
-        <h1 className="text-4xl text-blue-800">
+        <h1 className="text-4xl" style="color: var(--primary-color)">
           Software Engineer
         </h1>
         <address className="not-italic mt-2 text-gray-600 space-y-1 text-base">
           <div className="grid grid-cols-3 gap-4">
             <p className="flex items-center space-x-2">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                   className="size-4 mr-1 text-blue-700">
+                 className="size-4 mr-1" style="color: var(--primary-color)">
                 <path fillRule="evenodd"
                   d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
                   clipRule="evenodd"/>
@@ -27,7 +30,7 @@ export default function Luna({ name, email, phone, city, birthdate, aboutMeDescr
 
             <p className="flex items-center space-x-2">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                   className="size-4 mr-1 text-blue-700">
+                   className="size-4 mr-1" style="color: var(--primary-color)">
                 <path
                   d="M19.5 22.5a3 3 0 0 0 3-3v-8.174l-6.879 4.022 3.485 1.876a.75.75 0 1 1-.712 1.321l-5.683-3.06a1.5 1.5 0 0 0-1.422 0l-5.683 3.06a.75.75 0 0 1-.712-1.32l3.485-1.877L1.5 11.326V19.5a3 3 0 0 0 3 3h15Z"/>
                 <path
@@ -40,7 +43,7 @@ export default function Luna({ name, email, phone, city, birthdate, aboutMeDescr
             </p>
 
             <p className="flex items-center space-x-2">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-blue-700 mr-1" fill="currentColor"
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 mr-1" fill="currentColor" style="color: var(--primary-color)"
                    viewBox="0 0 24 24">
                 <path
                   d="M19 0h-14a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5v-14a5 5 0 00-5-5zm-11.667 19h-3v-9h3zm-1.5-10.271a1.726 1.726 0 110-3.451 1.726 1.726 0 010 3.451zm13.167 10.271h-3v-4.671c0-1.115-.021-2.55-1.554-2.55-1.557 0-1.794 1.216-1.794 2.472v4.749h-3v-9h2.885v1.228h.041a3.165 3.165 0 012.847-1.563c3.044 0 3.607 2.005 3.607 4.609z"/>
@@ -52,7 +55,7 @@ export default function Luna({ name, email, phone, city, birthdate, aboutMeDescr
             </p>
 
             <p className="flex items-center space-x-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 mr-1 text-blue-700">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 mr-1" style="color: var(--primary-color)">
                 <path fillRule="evenodd" d="M12 2a1 1 0 0 1 1 1v2h2a1 1 0 0 1 1 1v2h-8V6a1 1 0 0 1 1-1h2V3a1 1 0 0 1 1-1zm-7 7h14a1 1 0 0 1 1 1v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a1 1 0 0 1 1-1zm3 4a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2H8z" clipRule="evenodd"/>
               </svg>
 
@@ -79,7 +82,7 @@ export default function Luna({ name, email, phone, city, birthdate, aboutMeDescr
 
             <p className="flex items-center space-x-2">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                   className="size-5 mr-2 text-blue-700">
+                   className="size-5 mr-2" style="color: var(--primary-color)">
                 <path
                   d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z"/>
                 <path
