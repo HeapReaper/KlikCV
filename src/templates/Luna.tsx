@@ -9,7 +9,8 @@ export default function Luna({
   aboutMeDescription,
   primaryColor,
   secondaryColor,
-  fontFamily
+  fontFamily,
+  languages
 }: CvBuilderType) {
   const fontMap = {
     'font-sans': 'ui-sans-serif, system-ui, -apple-system, sans-serif',
@@ -221,9 +222,9 @@ export default function Luna({
           <section>
             <h2 className="text-3xl font-semibold text-black border-b-4 border-[var(--secondary-color)] pb-1 mb-4">Talen</h2>
             <ul className="list-disc list-inside space-y-1 text-gray-800 text-lg">
-              <li>Nederlands - Moedertaal</li>
-              <li>Engels - Vloeiend</li>
-              <li>Frans - Basis</li>
+              {Object.entries(languages).map(([, value], index) => (
+                <li key={index}>{value.language} - {value.level}</li>
+              ))}
             </ul>
           </section>
         </main>

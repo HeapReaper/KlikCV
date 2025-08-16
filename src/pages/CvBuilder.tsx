@@ -166,6 +166,7 @@ export default function CvBuilder() {
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
             fontFamily={fontFamily}
+            languages={languages}
           />
         </div>
       </div>
