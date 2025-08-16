@@ -154,7 +154,7 @@ export default function CvBuilder() {
 
       {/* Builder preview */}
       <div>
-        <div className="border-2 border-orange-500 rounded-2xl p-4">
+        <div className="border-2 border-orange-500 rounded-2xl p-4 h-[842px] overflow-auto lg:sticky lg:top-8">
           {/* @ts-ignore */}
           <Luna
             name={fullName}
