@@ -1,10 +1,10 @@
 import type { InputType } from '../../types/Input';
 
-export default function ColorPicker({ value, onChange }: InputType) {
+export default function ColorPicker({ label, value, onChange }: InputType) {
   return (
     <>
       <label htmlFor="colorPicker" className="block font-medium text-gray-700">
-        Primary kleur
+        {label}
       </label>
       <input
         type="color"

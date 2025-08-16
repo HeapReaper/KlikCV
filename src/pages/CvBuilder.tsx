@@ -7,6 +7,7 @@ import City from '../components/inputs/City';
 import Birthdate from '../components/inputs/Birthdate';
 import AboutMeDescription from '../components/inputs/aboutMeDescription';
 import ColorPicker from '../components/inputs/Color';
+import FontFamilySelect from '../components/select/FontSelect';
 
 // Templates
 import Luna from '../templates/Luna';
@@ -21,6 +22,8 @@ export default function CvBuilder() {
 
   // Theme
   const [primaryColor, setPrimaryColor] = useState('#4169E1');
+  const [secondaryColor, setSecondaryColor] = useState('#000000');
+  const [fontFamily, setFontFamily] = useState('font-sans');
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-4">
@@ -34,15 +37,30 @@ export default function CvBuilder() {
               Persoonlijke informatie
             </h4>
 
-            <FullName value={fullName} onChange={setFullName} />
+            <FullName
+              value={fullName}
+              onChange={setFullName}
+            />
 
-            <Email value={email} onChange={setEmail} />
+            <Email
+              value={email}
+               onChange={setEmail}
+            />
 
-            <Phone value={phone} onChange={setPhone}/>
+            <Phone
+              value={phone}
+             onChange={setPhone}
+            />
 
-            <City value={city} onChange={setCity}/>
+            <City
+              value={city}
+              onChange={setCity}
+            />
 
-            <Birthdate value={birthdate} onChange={setBirthdate} />
+            <Birthdate
+              value={birthdate}
+              onChange={setBirthdate}
+            />
           </div>
 
           {/* About me */}
@@ -59,10 +77,27 @@ export default function CvBuilder() {
 
           {/* Theme */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
-            <h4 className="text-2xl">
-              Thema
-            </h4>
-            <ColorPicker value={primaryColor} onChange={setPrimaryColor} />
+            <h4 className="text-2xl">Thema</h4>
+
+            <div className="space-y-4 p-4 bg-white rounded-lg shadow-md w-full max-w-sm">
+              <div className="flex gap-4">
+                <ColorPicker
+                  label="Primary kleur"
+                  value={primaryColor}
+                  onChange={setPrimaryColor}
+                />
+                <ColorPicker
+                  label="Secondary kleur"
+                  value={secondaryColor}
+                  onChange={setSecondaryColor}
+                />
+              </div>
+
+              <FontFamilySelect
+                value={fontFamily}
+                onChange={setFontFamily}
+              />
+            </div>
           </div>
 
         </form>
@@ -80,6 +115,8 @@ export default function CvBuilder() {
             birthdate={birthdate}
             aboutMeDescription={aboutMeDescription}
             primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
+            fontFamily={fontFamily}
           />
         </div>
       </div>

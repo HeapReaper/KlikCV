@@ -16,6 +16,8 @@ type AboutMeType = {
 
 type ThemeStyleType = {
   primaryColor: string;
+  secondaryColor: string;
+  fontFamily: string;
 }
 
 type LanguagesType = {
