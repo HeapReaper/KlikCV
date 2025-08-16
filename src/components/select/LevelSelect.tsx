@@ -1,32 +1,32 @@
 import type { InputType } from '../../types/Input';
 
-export default function LanguageLevelSelect({ value, onChange }: InputType) {
+export default function SkillLevelSelect({ value, onChange }: InputType) {
   return (
     <>
       <form className="max-w-sm mx-auto">
-        <label htmlFor="languageLevel" className="block font-medium text-gray-700">
+        <label htmlFor="skillLevel" className="block font-medium text-gray-700">
           Niveau
         </label>
         <select
-          name="languageLevel[]"
+          name="skillLevel"
           value={value}
           onChange={(e) => onChange((e.currentTarget as unknown as HTMLInputElement).value)}
           className="bg-white border border-solid border-orange-500 text-gray-700 text-sm rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
         >
           <option selected>
-            Selecteer een niveau...
+            Selecteer
           </option>
-          <option value="Moedertaal">
-            Moedertaal
+          <option value="Beginner">
+            Beginner
           </option>
-          <option value="Vloeiend">
-            Vloeiend
+          <option value="Gemiddeld">
+            Gemiddeld
           </option>
-          <option value="Redelijk">
-            Redelijk
+          <option value="Gevorderd">
+            Gevorderd
           </option>
-          <option value="Basis">
-            Basis
+          <option value="Expert">
+            Expert
           </option>
         </select>
       </form>

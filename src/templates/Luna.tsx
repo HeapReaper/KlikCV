@@ -10,6 +10,7 @@ export default function Luna({
   primaryColor,
   secondaryColor,
   fontFamily,
+  skills,
   languages
 }: CvBuilderType) {
   const fontMap = {
@@ -213,9 +214,9 @@ export default function Luna({
             <h2 className="text-3xl font-semibold text-black border-b-4 border-[var(--secondary-color)] pb-1 mb-4">Vaardigheden</h2>
 
             <ul className="list-disc list-inside space-y-1 text-gray-800 text-lg">
-              <li>JavaScript</li>
-              <li>TypeScript</li>
-              <li>PHP</li>
+              {Object.entries(skills).map(([, value], index) => (
+                <li key={index}>{value.skill} - {value.level}</li>
+              ))}
             </ul>
           </section>
 

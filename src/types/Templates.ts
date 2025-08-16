@@ -20,6 +20,13 @@ type ThemeStyleType = {
   fontFamily: string;
 }
 
+type SkillsType = {
+  skills: {
+    skill: string;
+    level: string;
+  }[];
+}
+
 type LanguagesType = {
   languages: {
     language: string;
@@ -31,4 +38,5 @@ export type CvBuilderType =
   PersonalInfoType &
   AboutMeType &
   ThemeStyleType &
+  SkillsType &
   LanguagesType;

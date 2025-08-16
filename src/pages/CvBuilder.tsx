@@ -15,6 +15,8 @@ import LanguageLevelSelect from '../components/select/LanguageLevelSelect';
 
 // Templates
 import Luna from '../templates/Luna';
+import TextInput from "../components/inputs/Text.tsx";
+import SkillLevelSelect from "../components/select/LevelSelect.tsx";
 
 export default function CvBuilder() {
   const [fullName, setFullName] = useState('');
@@ -26,6 +28,10 @@ export default function CvBuilder() {
 
   const [languages, setLanguages] = useState([
     { language: '', level: '' },
+  ]);
+
+  const [skills, setSkills] = useState([
+    { skill: '', level: '' },
   ]);
 
   // TODO: move to utils file
@@ -43,6 +49,23 @@ export default function CvBuilder() {
     setLanguages(prev =>
       prev.map((lang, i) => i === index ? { ...lang, [field]: value } : lang)
     );
+
+
+  const addSkill = () => {
+    setSkills(prev => [
+      ...prev, { skill: '', level: '' }
+    ]);
+  };
+
+  const removeSkills = (index: number) => {
+    setSkills(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const updateSkills = (index: number, field: 'skill' | 'level', value: string) =>
+    setSkills(prev =>
+      prev.map((lang, i) => i === index ? { ...lang, [field]: value } : lang)
+    );
+
 
   // Theme
   const [primaryColor, setPrimaryColor] = useState('#4169E1');
@@ -124,6 +147,35 @@ export default function CvBuilder() {
             </div>
           </div>
 
+          {/* Skills */}
+          <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
+            <h4 className="text-2xl">
+              Skills
+            </h4>
+
+            {skills.map((skillsObj, index) => (
+              <div key={index} className="p-1 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
+                <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
+                  <AddButton onClick={addSkill} />
+                  <RemoveButton onClick={() => removeSkills(index)} />
+                </div>
+
+                <TextInput
+                  id="skill[]"
+                  label="Naam"
+                  placeholder="Project management"
+                  value={skillsObj.skill}
+                  onChange={value => updateSkills(index, 'skill', value)}
+                />
+
+                <SkillLevelSelect
+                  value={skillsObj.level}
+                  onChange={value => updateSkills(index, 'level', value)}
+                />
+              </div>
+            ))}
+          </div>
+
           {/* Languages */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
             <h4 className="text-2xl">
@@ -149,6 +201,7 @@ export default function CvBuilder() {
               </div>
             ))}
           </div>
+
         </form>
       </div>
 
@@ -166,6 +219,7 @@ export default function CvBuilder() {
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
             fontFamily={fontFamily}
+            skills={skills}
             languages={languages}
           />
         </div>
