@@ -24,7 +24,7 @@ export default function CvBuilder() {
   const [phone, setPhone] = useState('');
   const [city, setCity] = useState('');
   const [birthdate, setBirthdate] = useState('');
-  const [aboutMeDescription, setAboutMeDescription] = useState('');
+  const [aboutMeDescription, setAboutMeDescription] = useState('...');
 
   const [languages, setLanguages] = useState([
     { language: '', level: '' },
@@ -77,6 +77,30 @@ export default function CvBuilder() {
       {/* Builder form */}
       <div>
         <form className="space-y-4 bg-white p-2 rounded-2xl border-2 border-orange-500">
+          {/* Theme */}
+          <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
+            <h4 className="text-2xl">Thema</h4>
+
+            <div className="space-y-4 p-4 bg-white rounded-lg shadow-md w-full max-w-sm">
+              <div className="flex gap-4">
+                <ColorPicker
+                  label="Primary kleur"
+                  value={primaryColor}
+                  onChange={setPrimaryColor}
+                />
+                <ColorPicker
+                  label="Secondary kleur"
+                  value={secondaryColor}
+                  onChange={setSecondaryColor}
+                />
+              </div>
+
+              <FontFamilySelect
+                value={fontFamily}
+                onChange={setFontFamily}
+              />
+            </div>
+          </div>
 
           {/* Personal info */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
@@ -120,31 +144,6 @@ export default function CvBuilder() {
               value={aboutMeDescription}
               onChange={html => setAboutMeDescription(html)}
             />
-          </div>
-
-          {/* Theme */}
-          <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
-            <h4 className="text-2xl">Thema</h4>
-
-            <div className="space-y-4 p-4 bg-white rounded-lg shadow-md w-full max-w-sm">
-              <div className="flex gap-4">
-                <ColorPicker
-                  label="Primary kleur"
-                  value={primaryColor}
-                  onChange={setPrimaryColor}
-                />
-                <ColorPicker
-                  label="Secondary kleur"
-                  value={secondaryColor}
-                  onChange={setSecondaryColor}
-                />
-              </div>
-
-              <FontFamilySelect
-                value={fontFamily}
-                onChange={setFontFamily}
-              />
-            </div>
           </div>
 
           {/* Skills */}
