@@ -21,8 +21,10 @@ type ThemeStyleType = {
 }
 
 type LanguagesType = {
-  language: string;
-  level: string;
+  languages: {
+    language: string;
+    level: string;
+  }[];
 }
 
 export type CvBuilderType =
