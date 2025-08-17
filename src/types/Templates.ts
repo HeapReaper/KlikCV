@@ -10,8 +10,23 @@ type PersonalInfoType = {
 };
 
 type AboutMeType = {
+  preferredFunction: string;
   aboutMeDescription: string;
   profilePicture: any;
+}
+
+type WorkExperienceType = {
+  workExperiences: {
+    jobTitle: string;
+    employer: string;
+    place: string;
+    startMonth: string;
+    startYear: string;
+    endMonth?: string;
+    endYear?: string;
+    current: boolean;
+    description: string;
+  }[]
 }
 
 type ThemeStyleType = {
@@ -37,6 +52,7 @@ type LanguagesType = {
 export type CvBuilderType =
   PersonalInfoType &
   AboutMeType &
+  WorkExperienceType &
   ThemeStyleType &
   SkillsType &
   LanguagesType;

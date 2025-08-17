@@ -20,7 +20,7 @@ export default function YearSelect({ label, value, onChange }: InputType) {
             Jaar
           </option>
           <option value="Huidig">
-            Huidig
+            Heden
           </option>
           {years.map((year: number) => (
             <option value={year}>{year}</option>

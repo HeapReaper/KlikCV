@@ -5,3 +5,10 @@ export type InputType = {
   value: string;
   onChange: (e: string) => void;
 }
+
+export type InputCheckboxType = {
+  id?: string;
+  label?: string;
+  checked: boolean;
+  onChange: (e: string) => void;
+}

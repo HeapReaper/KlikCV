@@ -6,12 +6,14 @@ export default function Luna({
   phone,
   city,
   birthdate,
+  preferredFunction,
   aboutMeDescription,
   primaryColor,
   secondaryColor,
   fontFamily,
   skills,
-  languages
+  languages,
+  workExperiences
 }: CvBuilderType) {
   const fontMap = {
     'font-sans': 'ui-sans-serif, system-ui, -apple-system, sans-serif',
@@ -38,7 +40,7 @@ export default function Luna({
             {name || "John Doe"}
           </h1>
           <h1 className="text-4xl text-[var(--primary-color)]">
-            Software Engineer
+            {preferredFunction || "Web Developer"}
           </h1>
           <address className="not-italic mt-2 text-gray-600 space-y-1 text-base">
             <div className="grid grid-cols-3 gap-4">
@@ -140,40 +142,53 @@ export default function Luna({
             </div>
           </section>
 
+
           <section>
             <h2 className="text-3xl font-semibold text-black border-b-4 border-[var(--secondary-color)] pb-1 mb-4">Werkervaring</h2>
+            {workExperiences.map((exp, index) => {
+              const start = `${exp.startMonth} ${exp.startYear}`;
+              const end = exp.current
+                ? "Heden"
+                : `${exp.endMonth} ${exp.endYear}`;
 
-            <article aria-labelledby="functie1-heading" className="mb-6">
-              <h3 id="functie1-heading" className="text-2xl text-black mb-1">
-                Frontend Developer
-              </h3>
-              <h3 id="functie1-heading" className="text-xl text-[var(--primary-color)] mb-1">
-                Tech Corp
-              </h3>
-              <p className="flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                     className="size-4 mr-1 text-[var(--primary-color)]">
-                  <path
-                    d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"/>
-                  <path fill-rule="evenodd"
-                        d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
-                        clip-rule="evenodd"/>
-                </svg>
-                2020-01 - 2023-06
+              return (
+                <article key={index} aria-labelledby={`functie${index}-heading`} className="mb-6">
+                  <h3 id={`functie${index}-heading`} className="text-2xl text-black mb-1">
+                    {exp.jobTitle || "Functie"}
+                  </h3>
 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                     className="size-4 mr-1 text-[var(--primary-color)]">
-                  <path fill-rule="evenodd"
-                        d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                        clip-rule="evenodd"/>
-                </svg>
-                Amsterdam
-              </p>
+                  <h3 className="text-xl text-[var(--primary-color)] mb-1">
+                    {exp.employer || "Werkgever"}
+                  </h3>
 
-              <ul className="list-disc list-inside space-y-1 text-gray-800">
-                - Worked on frontend features and improved performance.
-              </ul>
-            </article>
+                  <p className="flex items-center space-x-2 text-gray-700">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-4 mr-1 text-[var(--primary-color)]"
+                    >
+                      <path d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75..." />
+                    </svg>
+                    {start} - {end}
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-4 ml-4 mr-1 text-[var(--primary-color)]"
+                    >
+                      <path d="m11.54 22.351.07.04..." />
+                    </svg>
+                    {exp.place}
+                  </p>
+
+                  {exp.description && (
+                    <div className="prose prose-sm text-gray-800 mt-2" dangerouslySetInnerHTML={{ __html: exp.description }}/>
+                  )}
+                </article>
+              );
+            })}
           </section>
 
           <section>
