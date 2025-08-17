@@ -26,12 +26,12 @@ export default function Luna({
     <>
       <div style={{ fontFamily: fontMap[fontFamily] }}>
         <header role="banner" className="pb-4">
-          <h1 className="text-3xl font-bold mt-3">
+          <h2 className="text-4xl font-bold mt-3">
             {name || "John Doe"}
-          </h1>
-          <h1 className="text-xl" style={{ color: primaryColor }}>
+          </h2>
+          <h3 className="text-xl" style={{ color: primaryColor }}>
             {preferredFunction || "Web Developer"}
-          </h1>
+          </h3>
           <address className="not-italic mt-2 text-gray-600 space-y-1 text-sm">
             <div className="grid grid-cols-3 gap-4">
               <p className="flex items-center space-x-2">
