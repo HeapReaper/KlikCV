@@ -20,7 +20,7 @@
     "gray-matter": "^4.0.3",
     "html2canvas": "^1.4.1",
     "html2canvas-pro": "^1.5.11",
-    "html2pdf.js": "^0.9.0",
+    "html2pdf.js": "^0.10.3",
     "js-cookie": "^3.0.5",
     "jspdf": "^3.0.1",
     "lru-cache": "6.0.0",
