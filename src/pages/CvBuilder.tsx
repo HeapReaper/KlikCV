@@ -16,12 +16,14 @@ import YearSelect from '../components/select/YearSelect';
 import RichTextEditor from '../components/editors/EditorMin';
 import CheckBox from '../components/inputs/Checkbox';
 import { useCvState } from '../hooks/useCvState';
+import TextInput from '../components/inputs/Text';
+import SkillLevelSelect from '../components/select/LevelSelect';
+import { exportToPdf } from '../utils/exportToPdf';
+import TemplateSelect from '../components/select/TemplateSelect';
 
 // Templates
 import Luna from '../templates/Luna';
-import TextInput from '../components/inputs/Text';
-import SkillLevelSelect from '../components/select/LevelSelect';
-import {exportToPdf} from "../utils/exportToPdf.ts";
+import Nova from '../templates/Nova';
 
 export default function CvBuilder() {
   const [cvData, setCvData] = useCvState({
@@ -65,6 +67,7 @@ export default function CvBuilder() {
   const [primaryColor, setPrimaryColor] = useState('#4169E1');
   const [secondaryColor, setSecondaryColor] = useState('#000000');
   const [fontFamily, setFontFamily] = useState('font-sans');
+  const [template, setTemplate] = useState('Luna');
 
   const updateCvData = (field: any, value: any) => {
     setCvData((prev: any) => ({ ...prev, [field]: value }));
@@ -93,9 +96,6 @@ export default function CvBuilder() {
     }));
   };
 
-
-  console.log('Primary Color value:', primaryColor);
-
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-4">
       {/* Builder form */}
@@ -110,7 +110,11 @@ export default function CvBuilder() {
                 <ColorPicker label="Primary kleur" value={primaryColor} onChange={setPrimaryColor} />
                 <ColorPicker label="Secondary kleur" value={secondaryColor} onChange={setSecondaryColor} />
               </div>
-              <FontFamilySelect value={fontFamily} onChange={setFontFamily} />
+              <div className="flex gap-4">
+                <FontFamilySelect value={fontFamily} onChange={setFontFamily} />
+                <TemplateSelect value={template} onChange={setTemplate} />
+              </div>
+
             </div>
           </div>
 
@@ -278,23 +282,43 @@ export default function CvBuilder() {
       {/* Builder preview */}
       <div className="flex justify-center border-2 border-orange-500 rounded-xl">
         <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: '10mm' }}>
-          {/* @ts-ignore */}
-          <Luna
-            name={cvData.fullName}
-            email={cvData.email}
-            phone={cvData.phone}
-            city={cvData.city}
-            birthdate={cvData.birthdate}
-            preferredFunction={cvData.preferredFunction}
-            aboutMeDescription={cvData.aboutMeDescription}
-            primaryColor={primaryColor}
-            secondaryColor={secondaryColor}
-            fontFamily={fontFamily}
-            skills={cvData.skills}
-            workExperiences={cvData.workExperiences}
-            educations={cvData.educations}
-            languages={cvData.languages}
-          />
+          {template === 'Luna' && (
+            <Luna
+              name={cvData.fullName}
+              email={cvData.email}
+              phone={cvData.phone}
+              city={cvData.city}
+              birthdate={cvData.birthdate}
+              preferredFunction={cvData.preferredFunction}
+              aboutMeDescription={cvData.aboutMeDescription}
+              primaryColor={primaryColor}
+              secondaryColor={secondaryColor}
+              fontFamily={fontFamily}
+              skills={cvData.skills}
+              workExperiences={cvData.workExperiences}
+              educations={cvData.educations}
+              languages={cvData.languages}
+            />
+          )}
+
+          {template === 'Nova' && (
+            <Nova
+              name={cvData.fullName}
+              email={cvData.email}
+              phone={cvData.phone}
+              city={cvData.city}
+              birthdate={cvData.birthdate}
+              preferredFunction={cvData.preferredFunction}
+              aboutMeDescription={cvData.aboutMeDescription}
+              primaryColor={primaryColor}
+              secondaryColor={secondaryColor}
+              fontFamily={fontFamily}
+              skills={cvData.skills}
+              workExperiences={cvData.workExperiences}
+              educations={cvData.educations}
+              languages={cvData.languages}
+            />
+          )}
         </div>
       </div>
     </div>

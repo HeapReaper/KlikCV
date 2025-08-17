@@ -12,7 +12,6 @@ type PersonalInfoType = {
 type AboutMeType = {
   preferredFunction: string;
   aboutMeDescription: string;
-  profilePicture: any;
 }
 
 type WorkExperienceType = {

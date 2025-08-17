@@ -1,4 +1,4 @@
-import type {InputType} from '../../types/Input';
+import type { InputType } from '../../types/Input';
 
 export default function LanguageSelect({ value, onChange }: InputType) {
   return (
