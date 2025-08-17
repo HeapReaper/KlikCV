@@ -1,5 +1,4 @@
 import { useState } from 'preact/hooks';
-
 import FullName from '../components/inputs/FullName';
 import Email from '../components/inputs/Email';
 import Phone from '../components/inputs/Phone';
@@ -16,94 +15,26 @@ import MonthSelect from '../components/select/MonthSelect';
 import YearSelect from '../components/select/YearSelect';
 import RichTextEditor from '../components/editors/EditorMin';
 import CheckBox from '../components/inputs/Checkbox';
+import { useCvState } from '../hooks/useCvState';
 
 // Templates
 import Luna from '../templates/Luna';
-import TextInput from "../components/inputs/Text.tsx";
-import SkillLevelSelect from "../components/select/LevelSelect.tsx";
+import TextInput from '../components/inputs/Text';
+import SkillLevelSelect from '../components/select/LevelSelect';
+import {exportToPdf} from "../utils/exportToPdf.ts";
 
 export default function CvBuilder() {
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [city, setCity] = useState('');
-  const [birthdate, setBirthdate] = useState('');
-  const [preferredFunction, setPreferredFunction] = useState('');
-  const [aboutMeDescription, setAboutMeDescription] = useState('...');
-
-  const [languages, setLanguages] = useState([
-    { language: '', level: '' },
-  ]);
-
-  const [skills, setSkills] = useState([
-    { skill: '', level: '' },
-  ]);
-
-  const [workExperiences, setWorkExperiences] = useState([
-    {
-      jobTitle: '',
-      employer: '',
-      place: '',
-      startMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
-      startYear: new Date().getFullYear(),
-      endMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
-      endYear: new Date().getFullYear(),
-      current: false,
-      description: '',
-    },
-  ]);
-
-  const [educations, setEducations] = useState([
-    {
-      name: '',
-      institution: '',
-      place: '',
-      startMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
-      startYear: new Date().getFullYear(),
-      endMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
-      endYear: new Date().getFullYear(),
-      current: false,
-      description: '',
-    },
-  ]);
-
-  // TODO: move to utils
-  const addLanguage = () => {
-    setLanguages(prev => [
-      ...prev, { language: '', level: '' }
-    ]);
-  };
-
-  const removeLanguage = (index: number) => {
-    setLanguages(prev => prev.filter((_, i) => i !== index));
-  };
-
-  const updateLanguage = (index: number, field: 'language' | 'level', value: string) =>
-    setLanguages(prev =>
-      prev.map((lang, i) => i === index ? { ...lang, [field]: value } : lang)
-    );
-
-
-  // TODO: Move to utils
-  const addSkill = () => {
-    setSkills(prev => [
-      ...prev, { skill: '', level: '' }
-    ]);
-  };
-
-  const removeSkills = (index: number) => {
-    setSkills(prev => prev.filter((_, i) => i !== index));
-  };
-
-  const updateSkills = (index: number, field: 'skill' | 'level', value: string) =>
-    setSkills(prev =>
-      prev.map((lang, i) => i === index ? { ...lang, [field]: value } : lang)
-    );
-
-  // TODO: Move to utils
-  const addWorkExperience = () => {
-    setWorkExperiences(prev => [
-      ...prev,
+  const [cvData, setCvData] = useCvState({
+    fullName: '',
+    email: '',
+    phone: '',
+    city: '',
+    birthdate: '',
+    preferredFunction: '',
+    aboutMeDescription: '...',
+    languages: [{ language: '', level: '' }],
+    skills: [{ skill: '', level: '' }],
+    workExperiences: [
       {
         jobTitle: '',
         employer: '',
@@ -115,36 +46,8 @@ export default function CvBuilder() {
         current: false,
         description: '',
       },
-    ]);
-  };
-
-  const removeWorkExperience = (index: number) => {
-    setWorkExperiences(prev => prev.filter((_, i) => i !== index));
-  };
-
-  const updateWorkExperience = (
-    index: number,
-    field:
-      | 'jobTitle'
-      | 'employer'
-      | 'place'
-      | 'startMonth'
-      | 'startYear'
-      | 'endMonth'
-      | 'endYear'
-      | 'current'
-      | 'description',
-    value: string | number | boolean
-  ) => {
-    setWorkExperiences(prev =>
-      prev.map((exp, i) => (i === index ? { ...exp, [field]: value } : exp))
-    );
-  };
-
-  // TODO: Move to utils
-  const addEducation = () => {
-    setEducations(prev => [
-      ...prev,
+    ],
+    educations: [
       {
         name: '',
         institution: '',
@@ -156,36 +59,42 @@ export default function CvBuilder() {
         current: false,
         description: '',
       },
-    ]);
-  };
+    ],
+  });
 
-  const removeEducation = (index: number) => {
-    setEducations(prev => prev.filter((_, i) => i !== index));
-  };
-
-  const updateEducation = (
-    index: number,
-    field:
-      | 'name'
-      | 'institution'
-      | 'place'
-      | 'startMonth'
-      | 'startYear'
-      | 'endMonth'
-      | 'endYear'
-      | 'current'
-      | 'description',
-    value: string | number | boolean
-  ) => {
-    setEducations(prev =>
-      prev.map((exp, i) => (i === index ? { ...exp, [field]: value } : exp))
-    );
-  };
-
-  // Theme
   const [primaryColor, setPrimaryColor] = useState('#4169E1');
   const [secondaryColor, setSecondaryColor] = useState('#000000');
   const [fontFamily, setFontFamily] = useState('font-sans');
+
+  const updateCvData = (field: any, value: any) => {
+    setCvData((prev: any) => ({ ...prev, [field]: value }));
+  };
+
+  const updateListItem = (listName: any, index: number, field: any, value: any) => {
+    setCvData((prev: { [x: string]: any[]; }) => ({
+      ...prev,
+      [listName]: prev[listName].map((item: any, i: any) =>
+        i === index ? { ...item, [field]: value } : item
+      ),
+    }));
+  };
+
+  const addListItem = (listName: any, newItem: any) => {
+    setCvData((prev: { [x: string]: any; }) => ({
+      ...prev,
+      [listName]: [...prev[listName], newItem],
+    }));
+  };
+
+  const removeListItem = (listName: any, index: number) => {
+    setCvData((prev: { [x: string]: any[]; }) => ({
+      ...prev,
+      [listName]: prev[listName].filter((_: any, i: number) => i !== index),
+    }));
+  };
+
+
+  console.log('Primary Color value:', primaryColor);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-4">
@@ -198,279 +107,122 @@ export default function CvBuilder() {
 
             <div className="space-y-4 p-4 bg-white rounded-lg shadow-md w-full max-w-sm">
               <div className="flex gap-4">
-                <ColorPicker
-                  label="Primary kleur"
-                  value={primaryColor}
-                  onChange={setPrimaryColor}
-                />
-                <ColorPicker
-                  label="Secondary kleur"
-                  value={secondaryColor}
-                  onChange={setSecondaryColor}
-                />
+                <ColorPicker label="Primary kleur" value={primaryColor} onChange={setPrimaryColor} />
+                <ColorPicker label="Secondary kleur" value={secondaryColor} onChange={setSecondaryColor} />
               </div>
-
-              <FontFamilySelect
-                value={fontFamily}
-                onChange={setFontFamily}
-              />
+              <FontFamilySelect value={fontFamily} onChange={setFontFamily} />
             </div>
           </div>
 
           {/* Personal info */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
-            <h4 className="text-2xl">
-              Persoonlijke informatie
-            </h4>
+            <h4 className="text-2xl">Persoonlijke informatie</h4>
 
-            <FullName
-              value={fullName}
-              onChange={setFullName}
-            />
-
-            <Email
-              value={email}
-              onChange={setEmail}
-            />
-
-            <Phone
-              value={phone}
-              onChange={setPhone}
-            />
-
-            <City
-              value={city}
-              onChange={setCity}
-            />
-
-            <Birthdate
-              value={birthdate}
-              onChange={setBirthdate}
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <FullName value={cvData.fullName} onChange={value => updateCvData('fullName', value)} />
+              <Email value={cvData.email} onChange={value => updateCvData('email', value)} />
+              <Phone value={cvData.phone} onChange={value => updateCvData('phone', value)} />
+              <City value={cvData.city} onChange={value => updateCvData('city', value)} />
+              <Birthdate value={cvData.birthdate} onChange={value => updateCvData('birthdate', value)} />
+            </div>
           </div>
 
           {/* About me */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
-            <h4 className="text-2xl">
-              Profiel
-            </h4>
+            <h4 className="text-2xl">Profiel</h4>
 
-            <TextInput
-              label="Gewenste functie"
-              placeholder="Gewenste functie"
-              value={preferredFunction}
-              onChange={setPreferredFunction}
-            />
-
-            <AboutMeDescription
-              value={aboutMeDescription}
-              onChange={html => setAboutMeDescription(html)}
-            />
+            <TextInput label="Gewenste functie" placeholder="Gewenste functie" value={cvData.preferredFunction} onChange={value => updateCvData('preferredFunction', value)} />
+            <AboutMeDescription value={cvData.aboutMeDescription} onChange={html => updateCvData('aboutMeDescription', html)} />
           </div>
 
           {/* Education */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
-            <h4 className="text-2xl">
-              Opleiding
-            </h4>
-            {educations.map((education, index) => (
+            <h4 className="text-2xl">Opleiding</h4>
+            {cvData.educations.map((education: any, index: number) => (
               <div key={index} className="p-2 relative space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                 <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
-                  <AddButton onClick={addEducation} />
-                  <RemoveButton onClick={() => removeEducation(index)} />
+                  <AddButton onClick={() => addListItem('educations', { name: '', institution: '', place: '', startMonth: '', startYear: '', endMonth: '', endYear: '', current: false, description: '' })} />
+                  <RemoveButton onClick={() => removeListItem('educations', index)} />
                 </div>
+                <TextInput id="title" label="Opleiding" placeholder="Naam" value={education.name} onChange={value => updateListItem('educations', index, 'name', value)} />
 
-                <TextInput
-                  id="title"
-                  label="Opleiding"
-                  placeholder="Naam"
-                  value={education.name}
-                  onChange={value =>
-                    updateEducation(index, 'name', value)
-                  }
-                />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div className="flex space-x-4">
+                    <TextInput id="institution" label="Instituut" placeholder="School naam" value={education.institution} onChange={value => updateListItem('educations', index, 'institution', value)} />
+                    <TextInput id="Place" label="Plaats" placeholder="Plaats" value={education.place} onChange={value => updateListItem('educations', index, 'place', value)} />
+                  </div>
 
-                <div className="flex space-x-4">
-                  <TextInput
-                    id="institution"
-                    label="Instituut"
-                    placeholder="School naam.."
-                    value={education.institution}
-                    onChange={value =>
-                      updateEducation(index, 'institution', value)
-                    }
-                  />
-
-                  <TextInput
-                    id="Place"
-                    label="Plaats"
-                    placeholder="Plaats"
-                    value={education.place}
-                    onChange={value =>
-                      updateEducation(index, 'place', value)
-                    }
-                  />
-                </div>
-
-                <div className="flex space-x-4 gap-2">
-                  <div>
-                    <p className="font-medium text-gray-700">
-                      Startdatum
-                    </p>
-                    <div className="flex space-x-4 gap-2">
-                      <MonthSelect
-                        value={education.startMonth}
-                        onChange={value =>
-                          updateEducation(index, 'startMonth', value)
-                        }
-                      />
-
-                      <YearSelect
-                        value={education.startYear}
-                        onChange={value =>
-                          updateEducation(index, 'startYear', value)
-                        }
-                      />
+                  <div className="flex space-x-4 gap-2">
+                    <div>
+                      <p className="font-medium text-gray-700">Startdatum</p>
+                      <div className="flex space-x-4 gap-2">
+                        <MonthSelect value={education.startMonth} onChange={value => updateListItem('educations', index, 'startMonth', value)} />
+                        <YearSelect value={education.startYear} onChange={value => updateListItem('educations', index, 'startYear', value)} />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <p className="font-medium text-gray-700">Einddatum</p>
+                        <CheckBox label="Huidig" checked={education.current} onChange={checked => updateListItem('educations', index, 'current', checked)} />
+                      </div>
+                      <div className="flex space-x-4 gap-2">
+                        <MonthSelect value={education.endMonth} onChange={value => updateListItem('educations', index, 'endMonth', value)} />
+                        <YearSelect value={education.endYear} onChange={value => updateListItem('educations', index, 'endYear', value)} />
+                      </div>
                     </div>
                   </div>
 
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <p className="font-medium text-gray-700">Einddatum</p>
-                      <CheckBox
-                        label="Huidig"
-                        checked={education.current}
-                        onChange={checked =>
-                          updateEducation(index, 'current', checked)
-                        }
-                      />
-                    </div>
-                    <div className="flex space-x-4 gap-2">
-                      <MonthSelect
-                        value={education.endMonth}
-                        onChange={value =>
-                          updateEducation(index, 'endMonth', value)
-                        }
-                      />
-
-                      <YearSelect
-                        value={education.endYear}
-                        onChange={value =>
-                          updateEducation(index, 'endYear', value)
-                        }
-                      />
-                    </div>
-                  </div>
                 </div>
-
                 <div>
-                  <p className="font-medium text-gray-700">
-                    Omschrijving
-                  </p>
-
-                  <RichTextEditor
-                    value={education.description}
-                    onChange={val => updateEducation(index, 'description', val)}
-                  />
+                  <p className="font-medium text-gray-700">Omschrijving</p>
+                  <RichTextEditor value={education.description} onChange={val => updateListItem('educations', index, 'description', val)} />
                 </div>
               </div>
-              ))}
+            ))}
           </div>
 
           {/* Work experience */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
             <h4 className="text-2xl">Werkervaring</h4>
-            {workExperiences.map((experience, index) => (
-              <div key={index}  className="p-2 relative space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
+            {cvData.workExperiences.map((experience: any, index: number) => (
+              <div key={index} className="p-2 relative space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                 <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
-                  <AddButton onClick={addWorkExperience} />
-                  <RemoveButton onClick={() => removeWorkExperience(index)} />
+                  <AddButton onClick={() => addListItem('workExperiences', { jobTitle: '', employer: '', place: '', startMonth: '', startYear: '', endMonth: '', endYear: '', current: false, description: '' })} />
+                  <RemoveButton onClick={() => removeListItem('workExperiences', index)} />
                 </div>
 
-                <TextInput
-                  id={`function-${index}`}
-                  label="Functie"
-                  placeholder="Functie"
-                  value={experience.jobTitle}
-                  onChange={value =>
-                    updateWorkExperience(index, 'jobTitle', value)
-                  }
-                />
+                <TextInput id={`function-${index}`} label="Functie" placeholder="Functie" value={experience.jobTitle} onChange={value => updateListItem('workExperiences', index, 'jobTitle', value)} />
 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
-                <div className="flex space-x-4">
-                  <TextInput
-                    id={`employer-${index}`}
-                    label="Werkgever"
-                    placeholder="Werkgever"
-                    value={experience.employer}
-                    onChange={value =>
-                      updateWorkExperience(index, 'employer', value)
-                    }
-                  />
-                  <TextInput
-                    id={`place-${index}`}
-                    label="Plaats"
-                    placeholder="Plaats"
-                    value={experience.place}
-                    onChange={value =>
-                      updateWorkExperience(index, 'place', value)
-                    }
-                  />
-                </div>
-
-                <div className="flex space-x-4 gap-2">
-                  <div>
-                    <p className="font-medium text-gray-700">Startdatum</p>
-                    <div className="flex space-x-4 gap-2">
-                      <MonthSelect
-                        value={experience.startMonth}
-                        onChange={month =>
-                          updateWorkExperience(index, 'startMonth', month)
-                        }
-                      />
-                      <YearSelect
-                        value={experience.startYear}
-                        onChange={year =>
-                          updateWorkExperience(index, 'startYear', Number(year))
-                        }
-                      />
-                    </div>
+                  <div className="flex space-x-4">
+                    <TextInput id={`employer-${index}`} label="Werkgever" placeholder="Werkgever" value={experience.employer} onChange={value => updateListItem('workExperiences', index, 'employer', value)} />
+                    <TextInput id={`place-${index}`} label="Plaats" placeholder="Plaats" value={experience.place} onChange={value => updateListItem('workExperiences', index, 'place', value)} />
                   </div>
-
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <p className="font-medium text-gray-700">Einddatum</p>
-                      <CheckBox
-                        label="Huidig"
-                        checked={experience.current}
-                        onChange={checked => updateWorkExperience(index, 'current', checked)}
-                      />
+                  <div className="flex space-x-4 gap-2">
+                    <div>
+                      <p className="font-medium text-gray-700">Startdatum</p>
+                      <div className="flex space-x-4 gap-2">
+                        <MonthSelect value={experience.startMonth} onChange={month => updateListItem('workExperiences', index, 'startMonth', month)} />
+                        <YearSelect value={experience.startYear} onChange={year => updateListItem('workExperiences', index, 'startYear', Number(year))} />
+                      </div>
                     </div>
-
-                    <div className="flex space-x-4 gap-2">
-                      <MonthSelect
-                        value={experience.endMonth}
-                        onChange={month =>
-                          updateWorkExperience(index, 'endMonth', month)
-                        }
-                      />
-                      <YearSelect
-                        value={experience.endYear}
-                        onChange={year =>
-                          updateWorkExperience(index, 'endYear', year)
-                        }
-                      />
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <p className="font-medium text-gray-700">Einddatum</p>
+                        <CheckBox label="Huidig" checked={experience.current} onChange={checked => updateListItem('workExperiences', index, 'current', checked)} />
+                      </div>
+                      <div className="flex space-x-4 gap-2">
+                        <MonthSelect value={experience.endMonth} onChange={month => updateListItem('workExperiences', index, 'endMonth', month)} />
+                        <YearSelect value={experience.endYear} onChange={year => updateListItem('workExperiences', index, 'endYear', year)} />
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div>
                   <p className="font-medium text-gray-700">Omschrijving</p>
-                  <RichTextEditor
-                    value={experience.description}
-                    onChange={val => updateWorkExperience(index, 'description', val)}
-                  />
+                  <RichTextEditor value={experience.description} onChange={val => updateListItem('workExperiences', index, 'description', val)} />
                 </div>
               </div>
             ))}
@@ -478,81 +230,70 @@ export default function CvBuilder() {
 
           {/* Skills */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
-            <h4 className="text-2xl">
-              Skills
-            </h4>
+            <h4 className="text-2xl">Skills</h4>
 
-            {skills.map((skillsObj, index) => (
-              <div key={index} className="p-2 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
-                <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
-                  <AddButton onClick={addSkill} />
-                  <RemoveButton onClick={() => removeSkills(index)} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {cvData.skills.map((skill: any, index: number) => (
+                <div key={index} className="p-2 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
+                  <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
+                    <AddButton onClick={() => addListItem('skills', { skill: '', level: '' })} />
+                    <RemoveButton onClick={() => removeListItem('skills', index)} />
+                  </div>
+                  <TextInput id="skill[]" label="Naam" placeholder="Project management" value={skill.skill} onChange={value => updateListItem('skills', index, 'skill', value)} />
+                  <SkillLevelSelect value={skill.level} onChange={value => updateListItem('skills', index, 'level', value)} />
                 </div>
-
-                <TextInput
-                  id="skill[]"
-                  label="Naam"
-                  placeholder="Project management"
-                  value={skillsObj.skill}
-                  onChange={value => updateSkills(index, 'skill', value)}
-                />
-
-                <SkillLevelSelect
-                  value={skillsObj.level}
-                  onChange={value => updateSkills(index, 'level', value)}
-                />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Languages */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
-            <h4 className="text-2xl">
-              Talen
-            </h4>
+            <h4 className="text-2xl">Talen</h4>
 
-            {languages.map((langObj, index) => (
-              <div key={index} className="p-2 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
-                <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
-                  <AddButton onClick={addLanguage} />
-                  <RemoveButton onClick={() => removeLanguage(index)} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {cvData.languages.map((lang: any, index: number) => (
+                <div key={index} className="p-2 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
+                  <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
+                    <AddButton onClick={() => addListItem('languages', { language: '', level: '' })} />
+                    <RemoveButton onClick={() => removeListItem('languages', index)} />
+                  </div>
+                  <LanguageSelect value={lang.language} onChange={value => updateListItem('languages', index, 'language', value)} />
+                  <LanguageLevelSelect value={lang.level} onChange={value => updateListItem('languages', index, 'level', value)} />
                 </div>
+              ))}
+            </div>
 
-                <LanguageSelect
-                  value={langObj.language}
-                  onChange={value => updateLanguage(index, 'language', value)}
-                />
-
-                <LanguageLevelSelect
-                  value={langObj.level}
-                  onChange={value => updateLanguage(index, 'level', value)}
-                />
-              </div>
-            ))}
           </div>
 
+          <button
+            type="button"
+            onClick={() => exportToPdf('pdf')}
+            className="mb-4 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+          >
+            Download CV als PDF
+          </button>
         </form>
       </div>
 
       {/* Builder preview */}
-      <div>
-        <div className="border-2 border-orange-500 rounded-2xl p-4 h-[842px] overflow-auto lg:sticky lg:top-8">
+      <div className="flex justify-center p-8 border border-orange-500">
+        <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: '16mm' }}>
           {/* @ts-ignore */}
           <Luna
-            name={fullName}
-            email={email}
-            phone={phone}
-            city={city}
-            birthdate={birthdate}
-            preferredFunction={preferredFunction}
-            aboutMeDescription={aboutMeDescription}
+            name={cvData.fullName}
+            email={cvData.email}
+            phone={cvData.phone}
+            city={cvData.city}
+            birthdate={cvData.birthdate}
+            preferredFunction={cvData.preferredFunction}
+            aboutMeDescription={cvData.aboutMeDescription}
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
             fontFamily={fontFamily}
-            skills={skills}
-            workExperiences={workExperiences}
-            educations={educations}
-            languages={languages}
+            skills={cvData.skills}
+            workExperiences={cvData.workExperiences}
+            educations={cvData.educations}
+            languages={cvData.languages}
           />
         </div>
       </div>
