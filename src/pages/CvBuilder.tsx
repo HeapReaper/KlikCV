@@ -44,9 +44,9 @@ export default function CvBuilder() {
       jobTitle: '',
       employer: '',
       place: '',
-      startMonth: new Date().getMonth(),
+      startMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
       startYear: new Date().getFullYear(),
-      endMonth: new Date().getMonth(),
+      endMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
       endYear: new Date().getFullYear(),
       current: false,
       description: '',
@@ -58,9 +58,9 @@ export default function CvBuilder() {
       name: '',
       institution: '',
       place: '',
-      startMonth: new Date().getMonth(),
+      startMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
       startYear: new Date().getFullYear(),
-      endMonth: new Date().getMonth(),
+      endMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
       endYear: new Date().getFullYear(),
       current: false,
       description: '',
@@ -108,9 +108,9 @@ export default function CvBuilder() {
         jobTitle: '',
         employer: '',
         place: '',
-        startMonth: new Date().getMonth(),
+        startMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
         startYear: new Date().getFullYear(),
-        endMonth: new Date().getMonth(),
+        endMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
         endYear: new Date().getFullYear(),
         current: false,
         description: '',
@@ -149,9 +149,9 @@ export default function CvBuilder() {
         name: '',
         institution: '',
         place: '',
-        startMonth: new Date().getMonth(),
+        startMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
         startYear: new Date().getFullYear(),
-        endMonth: new Date().getMonth(),
+        endMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
         endYear: new Date().getFullYear(),
         current: false,
         description: '',
@@ -341,8 +341,8 @@ export default function CvBuilder() {
                       <CheckBox
                         label="Huidig"
                         checked={education.current}
-                        onChange={e =>
-                          updateEducation(index, 'current', e.target.checked)
+                        onChange={checked =>
+                          updateEducation(index, 'current', checked)
                         }
                       />
                     </div>
@@ -445,9 +445,7 @@ export default function CvBuilder() {
                       <CheckBox
                         label="Huidig"
                         checked={experience.current}
-                        onChange={e =>
-                          updateWorkExperience(index, 'current', e.target.checked)
-                        }
+                        onChange={checked => updateWorkExperience(index, 'current', checked)}
                       />
                     </div>
 
