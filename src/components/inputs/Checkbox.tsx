@@ -11,7 +11,7 @@ export default function CheckBox({ label, checked, onChange}: InputCheckboxType)
           <input
             type="checkbox"
             checked={checked}
-            onChange={(e) => onChange((e.currentTarget as HTMLInputElement).value)}
+            onChange={(e) => onChange((e.currentTarget.checked))}
             className="sr-only peer"
           />
           <div className="w-9 h-5 bg-gray-400 border border-orange-500 peer-focus:outline-none rounded-full peer

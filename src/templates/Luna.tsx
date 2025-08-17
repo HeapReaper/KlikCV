@@ -147,11 +147,6 @@ export default function Luna({
           <section>
             <h2 className="text-3xl font-semibold text-black border-b-4 border-[var(--secondary-color)] pb-1 mb-4">Werkervaring</h2>
             {workExperiences.map((exp, index) => {
-              const start = `${exp.startMonth} ${exp.startYear}`;
-              const end = exp.current
-                ? "Heden"
-                : `${exp.endMonth} ${exp.endYear}`;
-
               return (
                 <article key={index} aria-labelledby={`functie${index}-heading`} className="mb-6">
                   <h3 id={`functie${index}-heading`} className="text-2xl text-black mb-1">
@@ -171,7 +166,7 @@ export default function Luna({
                             d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
                             clip-rule="evenodd"/>
                     </svg>
-                    {start} - {exp.current ? 'Huidig' : end }
+                    {`${exp.startMonth}-${exp.startYear}`} - {exp.current ? 'Huidig' : `${exp.endMonth}-${exp.endYear}`}
 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                          className="size-4 mr ml-1 text-[var(--primary-color)]">
@@ -196,8 +191,8 @@ export default function Luna({
             {educations.map((edu, index: number) => {
               return (
                 <article className="mb-6" key={index}>
-                  <h3 className="text-2xl text-black mb-1">BSc Computer Science</h3>
-                  <h3 className="text-xl text-[var(--primary-color)] mb-1">University of Amsterdam</h3>
+                  <h3 className="text-2xl text-black mb-1">{edu.name || 'BSc Computer Science'}</h3>
+                  <h3 className="text-xl text-[var(--primary-color)] mb-1">{edu.institution || 'Universiteit van Amsterdam'}</h3>
                   <p className="flex items-center space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                          className="size-4 mr-1 text-[var(--primary-color)]">
@@ -207,7 +202,7 @@ export default function Luna({
                             d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
                             clip-rule="evenodd"/>
                     </svg>
-                    {edu.startMonth}-{edu.startYear} - {edu.endMonth}-{edu.endYear}
+                    {edu.startMonth}-{edu.startYear} - {edu.current ? 'Huidig' : `${edu.endMonth}-${edu.endYear}`}
 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                          className="size-4 mr ml-1 text-[var(--primary-color)]">

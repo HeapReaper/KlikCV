@@ -134,7 +134,7 @@ export default function CvBuilder() {
       | 'endYear'
       | 'current'
       | 'description',
-    value: string | number
+    value: string | number | boolean
   ) => {
     setWorkExperiences(prev =>
       prev.map((exp, i) => (i === index ? { ...exp, [field]: value } : exp))
@@ -175,7 +175,7 @@ export default function CvBuilder() {
       | 'endYear'
       | 'current'
       | 'description',
-    value: string | number
+    value: string | number | boolean
   ) => {
     setEducations(prev =>
       prev.map((exp, i) => (i === index ? { ...exp, [field]: value } : exp))
