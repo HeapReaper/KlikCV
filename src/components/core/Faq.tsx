@@ -1,0 +1,52 @@
+import { useState, useEffect } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+import getAndParseFaqs from '../../services/getAndParseFaqs';
+import type { FaqAmountType } from '../../types/Faq';
+
+export default function FAQ({ setAmount }: FaqAmountType) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [faqs, setFaqs] = useState<any[]>([]); // replace any with your Faq type
+
+  const toggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  useEffect(() => {
+    async function fetchFaqs() {
+      const allFaqs = await getAndParseFaqs();
+      setFaqs(setAmount ? allFaqs.slice(0, setAmount) : allFaqs);
+    }
+    void fetchFaqs();
+  }, [setAmount]);
+
+  if (!faqs.length) return <p>Loading FAQs...</p>;
+
+  return (
+    <div className="space-y-4">
+      {faqs.map((faq, index) => (
+        <div
+          key={index}
+          className="border-2 border-solid border-orange-500 rounded-xl p-4 transition bg-white"
+        >
+          <button
+            onClick={() => toggle(index)}
+            className="flex items-center justify-between w-full text-left"
+          >
+            <span className="text-lg font-semibold">{faq.title}</span>
+            {openIndex === index ? (
+              <ChevronUp className="h-5 w-5 text-orange-500" />
+            ) : (
+              <ChevronDown className="h-5 w-5 text-orange-500" />
+            )}
+          </button>
+          {openIndex === index && (
+            <div
+              className="prose prose-neutral text-black max-w-none marker:text-black"
+              dangerouslySetInnerHTML={{ __html: faq.content ? faq.content : '' }}
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
