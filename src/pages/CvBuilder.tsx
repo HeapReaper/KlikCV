@@ -276,8 +276,8 @@ export default function CvBuilder() {
       </div>
 
       {/* Builder preview */}
-      <div className="flex justify-center p-8 border border-orange-500">
-        <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: '16mm' }}>
+      <div className="flex justify-center border-2 border-orange-500 rounded-xl">
+        <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: '10mm' }}>
           {/* @ts-ignore */}
           <Luna
             name={cvData.fullName}
