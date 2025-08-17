@@ -53,6 +53,20 @@ export default function CvBuilder() {
     },
   ]);
 
+  const [educations, setEducations] = useState([
+    {
+      name: '',
+      institution: '',
+      place: '',
+      startMonth: new Date().getMonth(),
+      startYear: new Date().getFullYear(),
+      endMonth: new Date().getMonth(),
+      endYear: new Date().getFullYear(),
+      current: false,
+      description: '',
+    },
+  ]);
+
   // TODO: move to utils
   const addLanguage = () => {
     setLanguages(prev => [
@@ -126,6 +140,48 @@ export default function CvBuilder() {
       prev.map((exp, i) => (i === index ? { ...exp, [field]: value } : exp))
     );
   };
+
+  // TODO: Move to utils
+  const addEducation = () => {
+    setEducations(prev => [
+      ...prev,
+      {
+        name: '',
+        institution: '',
+        place: '',
+        startMonth: new Date().getMonth(),
+        startYear: new Date().getFullYear(),
+        endMonth: new Date().getMonth(),
+        endYear: new Date().getFullYear(),
+        current: false,
+        description: '',
+      },
+    ]);
+  };
+
+  const removeEducation = (index: number) => {
+    setEducations(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const updateEducation = (
+    index: number,
+    field:
+      | 'name'
+      | 'institution'
+      | 'place'
+      | 'startMonth'
+      | 'startYear'
+      | 'endMonth'
+      | 'endYear'
+      | 'current'
+      | 'description',
+    value: string | number | boolean
+  ) => {
+    setEducations(prev =>
+      prev.map((exp, i) => (i === index ? { ...exp, [field]: value } : exp))
+    );
+  };
+
 
   // Theme
   const [primaryColor, setPrimaryColor] = useState('#4169E1');
@@ -218,19 +274,21 @@ export default function CvBuilder() {
             <h4 className="text-2xl">
               Opleiding
             </h4>
-
-              <div  className="p-2 relative space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
+            {educations.map((education, index) => (
+              <div key={index} className="p-2 relative space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                 <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
-                  <AddButton onClick={addSkill} />
-                  <RemoveButton onClick={() => removeSkills(index)} />
+                  <AddButton onClick={addEducation} />
+                  <RemoveButton onClick={() => removeEducation(index)} />
                 </div>
 
                 <TextInput
                   id="title"
                   label="Opleiding"
                   placeholder="Naam"
-                  value=""
-                  onChange=""
+                  value={education.name}
+                  onChange={value =>
+                    updateEducation(index, 'name', value)
+                  }
                 />
 
                 <div className="flex space-x-4">
@@ -238,16 +296,20 @@ export default function CvBuilder() {
                     id="institution"
                     label="Instituut"
                     placeholder="School naam.."
-                    value=""
-                    onChange=""
+                    value={education.institution}
+                    onChange={value =>
+                      updateEducation(index, 'institution', value)
+                    }
                   />
 
                   <TextInput
                     id="Place"
                     label="Plaats"
                     placeholder="Plaats"
-                    value=""
-                    onChange=""
+                    value={education.place}
+                    onChange={value =>
+                      updateEducation(index, 'place', value)
+                    }
                   />
                 </div>
 
@@ -258,13 +320,17 @@ export default function CvBuilder() {
                     </p>
                     <div className="flex space-x-4 gap-2">
                       <MonthSelect
-                        value="Januari"
-                        onChange=""
+                        value={education.startMonth}
+                        onChange={value =>
+                          updateEducation(index, 'startMonth', value)
+                        }
                       />
 
                       <YearSelect
-                        value="2019"
-                        onChange=""
+                        value={education.startYear}
+                        onChange={value =>
+                          updateEducation(index, 'startYear', value)
+                        }
                       />
                     </div>
                   </div>
@@ -272,27 +338,27 @@ export default function CvBuilder() {
                   <div>
                     <div className="flex items-center justify-between">
                       <p className="font-medium text-gray-700">Einddatum</p>
-                      <div className="flex items-center space-x-2">
-                        <span className="text-sm text-gray-600">Huidig</span>
-                        <label className="inline-flex relative items-center cursor-pointer">
-                          <input type="checkbox" className="sr-only peer" />
-                          <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-300
-                        peer-checked:bg-orange-500 after:content-[''] after:absolute after:top-[2px]
-                        after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full
-                        after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-4">
-                          </div>
-                        </label>
-                      </div>
+                      <CheckBox
+                        label="Huidig"
+                        checked={education.current}
+                        onChange={e =>
+                          updateEducation(index, 'current', e.target.checked)
+                        }
+                      />
                     </div>
                     <div className="flex space-x-4 gap-2">
                       <MonthSelect
-                        value="Januari"
-                        onChange=""
+                        value={education.endMonth}
+                        onChange={value =>
+                          updateEducation(index, 'endMonth', value)
+                        }
                       />
 
                       <YearSelect
-                        value="2019"
-                        onChange=""
+                        value={education.endYear}
+                        onChange={value =>
+                          updateEducation(index, 'endYear', value)
+                        }
                       />
                     </div>
                   </div>
@@ -304,11 +370,12 @@ export default function CvBuilder() {
                   </p>
 
                   <RichTextEditor
-                    value=""
-                    onChange=""
+                    value={education.description}
+                    onChange={val => updateEducation(index, 'description', val)}
                   />
                 </div>
               </div>
+              ))}
           </div>
 
           {/* Work experience */}
@@ -487,6 +554,7 @@ export default function CvBuilder() {
             fontFamily={fontFamily}
             skills={skills}
             workExperiences={workExperiences}
+            educations={educations}
             languages={languages}
           />
         </div>

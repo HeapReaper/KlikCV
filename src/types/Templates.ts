@@ -29,6 +29,20 @@ type WorkExperienceType = {
   }[]
 }
 
+type EducationsType = {
+  educations: {
+    name: string;
+    institution: string;
+    place: string;
+    startMonth: string;
+    startYear: number;
+    endMonth?: string;
+    endYear?: number;
+    current: boolean;
+    description: string;
+  }[]
+}
+
 type ThemeStyleType = {
   primaryColor: string;
   secondaryColor: string;
@@ -53,6 +67,7 @@ export type CvBuilderType =
   PersonalInfoType &
   AboutMeType &
   WorkExperienceType &
+  EducationsType &
   ThemeStyleType &
   SkillsType &
   LanguagesType;
