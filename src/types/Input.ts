@@ -2,7 +2,12 @@ export type InputType = {
   id?: string;
   placeholder?: string;
   label?: string
-  value: string | number | boolean;
+  value: string | number;
+  onChange: (e: string) => void;
+}
+
+export type EditorType = {
+  value: string;
   onChange: (e: string) => void;
 }
 

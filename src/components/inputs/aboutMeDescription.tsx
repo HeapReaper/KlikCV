@@ -1,7 +1,7 @@
-import type { InputType } from '../../types/Input';
+import type { EditorType } from '../../types/Input';
 import RichTextEditor from '../../components/editors/EditorMin.tsx';
 
-export default function AboutMeDescription({ value, onChange }: InputType) {
+export default function AboutMeDescription({ value, onChange }: EditorType) {
   return (
     <div>
       <label
