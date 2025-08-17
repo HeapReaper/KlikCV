@@ -26,13 +26,13 @@ export default function Luna({
     <>
       <div style={{ fontFamily: fontMap[fontFamily] }}>
         <header role="banner" className="pb-4">
-          <h1 className="text-6xl font-bold mt-3">
+          <h1 className="text-3xl font-bold mt-3">
             {name || "John Doe"}
           </h1>
-          <h1 className="text-4xl" style={{ color: primaryColor }}>
+          <h1 className="text-xl" style={{ color: primaryColor }}>
             {preferredFunction || "Web Developer"}
           </h1>
-          <address className="not-italic mt-2 text-gray-600 space-y-1 text-base">
+          <address className="not-italic mt-2 text-gray-600 space-y-1 text-sm">
             <div className="grid grid-cols-3 gap-4">
               <p className="flex items-center space-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -47,20 +47,7 @@ export default function Luna({
                 </a>
               </p>
 
-              <p className="flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                     className="size-4 mr-1" style={{ color: primaryColor }}>
-                  <path
-                    d="M19.5 22.5a3 3 0 0 0 3-3v-8.174l-6.879 4.022 3.485 1.876a.75.75 0 1 1-.712 1.321l-5.683-3.06a1.5 1.5 0 0 0-1.422 0l-5.683 3.06a.75.75 0 0 1-.712-1.32l3.485-1.877L1.5 11.326V19.5a3 3 0 0 0 3 3h15Z"/>
-                  <path
-                    d="M1.5 9.589v-.745a3 3 0 0 1 1.578-2.642l7.5-4.038a3 3 0 0 1 2.844 0l7.5 4.038A3 3 0 0 1 22.5 8.844v.745l-8.426 4.926-.652-.351a3 3 0 0 0-2.844 0l-.652.351L1.5 9.589Z"/>
-                </svg>
-                <a href="mailto:john.doe@example.com"
-                   className=" hover:underline focus:outline-2" style={{ outlineColor: primaryColor }}>
-                  {email || "john.doe@example.com"}
-                </a>
-              </p>
-
+              {/*
               <p className="flex items-center space-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 mr-1" fill="currentColor"
                      viewBox="0 0 24 24" style={{ color: primaryColor }}>
@@ -72,6 +59,7 @@ export default function Luna({
                   nl.linkedin.com/idk
                 </a>
               </p>
+              */}
 
               <p className="flex items-center space-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 mr-1" style={{ color: primaryColor }}>
@@ -93,32 +81,46 @@ export default function Luna({
                 </svg>
                 {city || "Amsterdam"}
               </p>
+
+              <p className="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                     className="size-4 mr-1" style={{ color: primaryColor }}>
+                  <path
+                    d="M19.5 22.5a3 3 0 0 0 3-3v-8.174l-6.879 4.022 3.485 1.876a.75.75 0 1 1-.712 1.321l-5.683-3.06a1.5 1.5 0 0 0-1.422 0l-5.683 3.06a.75.75 0 0 1-.712-1.32l3.485-1.877L1.5 11.326V19.5a3 3 0 0 0 3 3h15Z"/>
+                  <path
+                    d="M1.5 9.589v-.745a3 3 0 0 1 1.578-2.642l7.5-4.038a3 3 0 0 1 2.844 0l7.5 4.038A3 3 0 0 1 22.5 8.844v.745l-8.426 4.926-.652-.351a3 3 0 0 0-2.844 0l-.652.351L1.5 9.589Z"/>
+                </svg>
+                <a href="mailto:john.doe@example.com"
+                   className=" hover:underline focus:outline-2" style={{ outlineColor: primaryColor }}>
+                  {email || "john.doe@example.com"}
+                </a>
+              </p>
             </div>
           </address>
         </header>
 
-        <main role="main" className="space-y-10">
+        <main role="main" className="space-y-8">
           <section>
-            <h2 className="text-3xl font-semibold text-black border-b-4 pb-1 mb-4" style={{ borderColor: secondaryColor }}>Over mij</h2>
+            <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Over mij</h2>
 
             <div className="flex gap-8 flex-wrap" >
-              <div className="max-w-md text-gray-800">
+              <div className="max-w-md text-gray-800 text-sm">
                 <div dangerouslySetInnerHTML={{ __html: aboutMeDescription || ""}} />
               </div>
             </div>
           </section>
 
           <section>
-            <h2 className="text-3xl font-semibold text-black border-b-4 pb-1 mb-4" style={{ borderColor: secondaryColor }}>Werkervaring</h2>
+            <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Werkervaring</h2>
             {workExperiences.map((exp, index) => (
-              <article key={index} aria-labelledby={`functie${index}-heading`} className="mb-6">
-                <h3 id={`functie${index}-heading`} className="text-2xl text-black mb-1">
+              <article key={index} aria-labelledby={`functie${index}-heading`} className="mb-5">
+                <h3 id={`functie${index}-heading`} className="text-xl text-black mb-1">
                   {exp.jobTitle || "Functie"}
                 </h3>
-                <h3 className="text-xl mb-1" style={{ color: primaryColor }}>
+                <h3 className="text-lg mb-1" style={{ color: primaryColor }}>
                   {exp.employer || "Werkgever"}
                 </h3>
-                <p className="flex items-center space-x-2 text-gray-700">
+                <p className="flex items-center space-x-2 text-gray-700 text-sm">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                        className="size-4 mr-1" style={{ color: primaryColor }}>
                     <path
@@ -144,12 +146,12 @@ export default function Luna({
           </section>
 
           <section>
-            <h2 className="text-3xl font-semibold text-black border-b-4 pb-1 mb-4" style={{ borderColor: secondaryColor }}>Opleiding</h2>
+            <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Opleiding</h2>
             {educations.map((edu, index: number) => (
-              <article className="mb-6" key={index}>
-                <h3 className="text-2xl text-black mb-1">{edu.name || 'BSc Computer Science'}</h3>
-                <h3 className="text-xl mb-1" style={{ color: primaryColor }}>{edu.institution || 'Universiteit van Amsterdam'}</h3>
-                <p className="flex items-center space-x-2">
+              <article className="mb-5" key={index}>
+                <h3 className="text-xl text-black mb-1">{edu.name || 'BSc Computer Science'}</h3>
+                <h3 className="text-lg mb-1" style={{ color: primaryColor }}>{edu.institution || 'Universiteit van Amsterdam'}</h3>
+                <p className="flex items-center space-x-2 text-sm">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                        className="size-4 mr-1" style={{ color: primaryColor }}>
                     <path
@@ -176,8 +178,8 @@ export default function Luna({
 
           {skills.length > 0 && skills[0].skill !== '' && (
             <section>
-              <h2 className="text-3xl font-semibold text-black border-b-4 pb-1 mb-4" style={{ borderColor: secondaryColor }}>Vaardigheden</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-800 text-lg">
+              <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Vaardigheden</h2>
+              <ul className="list-disc list-inside space-y-1 text-gray-800 text-base">
                 {Object.entries(skills).map(([, value], index) => (
                   <li key={index}>{value.skill} - {value.level}</li>
                 ))}
@@ -187,8 +189,8 @@ export default function Luna({
 
           {languages.length > 0 && languages[0].language !== '' && (
             <section>
-              <h2 className="text-3xl font-semibold text-black border-b-4 pb-1 mb-4" style={{ borderColor: secondaryColor }}>Talen</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-800 text-lg">
+              <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Talen</h2>
+              <ul className="list-disc list-inside space-y-1 text-gray-800 text-base">
                 {Object.entries(languages).map(([, value], index) => (
                   <li key={index}>{value.language} - {value.level}</li>
                 ))}
@@ -197,7 +199,7 @@ export default function Luna({
           )}
         </main>
 
-        <footer role="contentinfo" className="mt-12 text-center text-gray-500 text-sm">
+        <footer role="contentinfo" className="mt-8 text-center text-gray-500 text-xs">
           <p>CV gegenereerd door {name || "John Doe"} &copy; {new Date().getFullYear()}</p>
         </footer>
       </div>
