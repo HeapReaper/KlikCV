@@ -15,13 +15,13 @@ import MonthSelect from '../components/select/MonthSelect';
 import YearSelect from '../components/select/YearSelect';
 import RichTextEditor from '../components/editors/EditorMin';
 import CheckBox from '../components/inputs/Checkbox';
-import { exportToPdf } from '../utils/exportToPdf';
 import { useCvState } from '../hooks/useCvState';
 
 // Templates
 import Luna from '../templates/Luna';
 import TextInput from '../components/inputs/Text';
 import SkillLevelSelect from '../components/select/LevelSelect';
+import {exportToPdf} from "../utils/exportToPdf.ts";
 
 export default function CvBuilder() {
   const [cvData, setCvData] = useCvState({
@@ -93,6 +93,9 @@ export default function CvBuilder() {
     }));
   };
 
+
+  console.log('Primary Color value:', primaryColor);
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-4">
       {/* Builder form */}
@@ -115,7 +118,7 @@ export default function CvBuilder() {
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
             <h4 className="text-2xl">Persoonlijke informatie</h4>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <FullName value={cvData.fullName} onChange={value => updateCvData('fullName', value)} />
               <Email value={cvData.email} onChange={value => updateCvData('email', value)} />
               <Phone value={cvData.phone} onChange={value => updateCvData('phone', value)} />
@@ -143,7 +146,7 @@ export default function CvBuilder() {
                 </div>
                 <TextInput id="title" label="Opleiding" placeholder="Naam" value={education.name} onChange={value => updateListItem('educations', index, 'name', value)} />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <div className="flex space-x-4">
                     <TextInput id="institution" label="Instituut" placeholder="School naam" value={education.institution} onChange={value => updateListItem('educations', index, 'institution', value)} />
                     <TextInput id="Place" label="Plaats" placeholder="Plaats" value={education.place} onChange={value => updateListItem('educations', index, 'place', value)} />
@@ -190,7 +193,7 @@ export default function CvBuilder() {
 
                 <TextInput id={`function-${index}`} label="Functie" placeholder="Functie" value={experience.jobTitle} onChange={value => updateListItem('workExperiences', index, 'jobTitle', value)} />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
                   <div className="flex space-x-4">
                     <TextInput id={`employer-${index}`} label="Werkgever" placeholder="Werkgever" value={experience.employer} onChange={value => updateListItem('workExperiences', index, 'employer', value)} />
@@ -229,7 +232,7 @@ export default function CvBuilder() {
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
             <h4 className="text-2xl">Skills</h4>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {cvData.skills.map((skill: any, index: number) => (
                 <div key={index} className="p-2 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                   <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
@@ -247,7 +250,7 @@ export default function CvBuilder() {
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
             <h4 className="text-2xl">Talen</h4>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {cvData.languages.map((lang: any, index: number) => (
                 <div key={index} className="p-2 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                   <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
@@ -262,15 +265,19 @@ export default function CvBuilder() {
 
           </div>
 
-          <button onClick={() => exportToPdf('Luna', 'cv.pdf')} className="mb-4 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
+          <button
+            type="button"
+            onClick={() => exportToPdf('pdf')}
+            className="mb-4 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+          >
             Download CV als PDF
           </button>
         </form>
       </div>
 
       {/* Builder preview */}
-      <div>
-        <div id="Luna" className="border-2 border-orange-500 rounded-2xl p-4 h-[842px] overflow-auto lg:sticky lg:top-8">
+      <div className="flex justify-center p-8 border border-orange-500">
+        <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: '16mm' }}>
           {/* @ts-ignore */}
           <Luna
             name={cvData.fullName}

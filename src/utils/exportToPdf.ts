@@ -1,37 +1,36 @@
-// src/utils/exportToPdf.ts
-
-import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas-pro';
 import jsPDF from 'jspdf';
 
-export const exportToPdf = async (elementId: string, filename: string = 'cv.pdf') => {
-  const element = document.getElementById(elementId);
-  if (!element) {
-    console.error(`Element with ID "${elementId}" not found.`);
-    return;
+export const exportToPdf = async (elementId: string) => {
+  const input = document.getElementById(elementId);
+  if (!input) {
+    return console.error('Input element not found.');
   }
 
-  const canvas = await html2canvas(element, {
-    scale: 2,
+  const canvas = await html2canvas(input, {
+    scale: 1,
     useCORS: true,
   });
 
   const imgData = canvas.toDataURL('image/jpeg', 1.0);
   const pdf = new jsPDF('p', 'mm', 'a4');
-  const imgWidth = 210;
-  const pageHeight = 297;
-  const imgHeight = (canvas.height * imgWidth) / canvas.width;
-  let heightLeft = imgHeight;
+
+  const imgProps = pdf.getImageProperties(imgData);
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+  const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+  let heightLeft = pdfHeight;
   let position = 0;
 
-  pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
-  heightLeft -= pageHeight;
+  pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight);
+  heightLeft -= pdf.internal.pageSize.getHeight();
 
   while (heightLeft >= 0) {
-    position = heightLeft - imgHeight;
+    position = heightLeft - pdfHeight;
     pdf.addPage();
-    pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
-    heightLeft -= pageHeight;
+    pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight);
+    heightLeft -= pdf.internal.pageSize.getHeight();
   }
 
-  pdf.save(filename);
+  pdf.save('cv.pdf');
 };
