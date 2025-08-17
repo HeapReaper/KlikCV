@@ -2,7 +2,7 @@ export type InputType = {
   id?: string;
   placeholder?: string;
   label?: string
-  value: string;
+  value: string | number | boolean;
   onChange: (e: string) => void;
 }
 

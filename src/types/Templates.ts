@@ -21,9 +21,9 @@ type WorkExperienceType = {
     employer: string;
     place: string;
     startMonth: string;
-    startYear: string;
+    startYear: number;
     endMonth?: string;
-    endYear?: string;
+    endYear?: number;
     current: boolean;
     description: string;
   }[]

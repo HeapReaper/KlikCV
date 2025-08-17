@@ -170,7 +170,7 @@ export default function Luna({
                     >
                       <path d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75..." />
                     </svg>
-                    {start} - {end}
+                    {start} - {exp.current ? 'Huidig' : end }
 
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

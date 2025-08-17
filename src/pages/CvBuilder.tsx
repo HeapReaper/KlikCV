@@ -326,10 +326,11 @@ export default function CvBuilder() {
                   label="Functie"
                   placeholder="Functie"
                   value={experience.jobTitle}
-                  onChange={e =>
-                    updateWorkExperience(index, 'function', e.target.value)
+                  onChange={value =>
+                    updateWorkExperience(index, 'jobTitle', value)
                   }
                 />
+
 
                 <div className="flex space-x-4">
                   <TextInput
@@ -337,8 +338,8 @@ export default function CvBuilder() {
                     label="Werkgever"
                     placeholder="Werkgever"
                     value={experience.employer}
-                    onChange={e =>
-                      updateWorkExperience(index, 'employer', e.target.value)
+                    onChange={value =>
+                      updateWorkExperience(index, 'employer', value)
                     }
                   />
                   <TextInput
@@ -346,8 +347,8 @@ export default function CvBuilder() {
                     label="Plaats"
                     placeholder="Plaats"
                     value={experience.place}
-                    onChange={e =>
-                      updateWorkExperience(index, 'place', e.target.value)
+                    onChange={value =>
+                      updateWorkExperience(index, 'place', value)
                     }
                   />
                 </div>
@@ -359,7 +360,7 @@ export default function CvBuilder() {
                       <MonthSelect
                         value={experience.startMonth}
                         onChange={month =>
-                          updateWorkExperience(index, 'startMonth', Number(month))
+                          updateWorkExperience(index, 'startMonth', month)
                         }
                       />
                       <YearSelect
@@ -387,13 +388,13 @@ export default function CvBuilder() {
                       <MonthSelect
                         value={experience.endMonth}
                         onChange={month =>
-                          updateWorkExperience(index, 'endMonth', Number(month))
+                          updateWorkExperience(index, 'endMonth', month)
                         }
                       />
                       <YearSelect
                         value={experience.endYear}
                         onChange={year =>
-                          updateWorkExperience(index, 'endYear', Number(year))
+                          updateWorkExperience(index, 'endYear', year)
                         }
                       />
                     </div>
