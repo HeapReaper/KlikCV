@@ -221,24 +221,29 @@ export default function Luna({
             })}
           </section>
 
-          <section>
-            <h2 className="text-3xl font-semibold text-black border-b-4 border-[var(--secondary-color)] pb-1 mb-4">Vaardigheden</h2>
+          {skills.length > 0 && skills[0].skill !== '' && (
+            <section>
+              <h2 className="text-3xl font-semibold text-black border-b-4 border-[var(--secondary-color)] pb-1 mb-4">Vaardigheden</h2>
 
-            <ul className="list-disc list-inside space-y-1 text-gray-800 text-lg">
-              {Object.entries(skills).map(([, value], index) => (
-                <li key={index}>{value.skill} - {value.level}</li>
-              ))}
-            </ul>
-          </section>
+              <ul className="list-disc list-inside space-y-1 text-gray-800 text-lg">
+                {Object.entries(skills).map(([, value], index) => (
+                  <li key={index}>{value.skill} - {value.level}</li>
+                ))}
+              </ul>
+            </section>
+          )}
 
-          <section>
-            <h2 className="text-3xl font-semibold text-black border-b-4 border-[var(--secondary-color)] pb-1 mb-4">Talen</h2>
-            <ul className="list-disc list-inside space-y-1 text-gray-800 text-lg">
-              {Object.entries(languages).map(([, value], index) => (
-                <li key={index}>{value.language} - {value.level}</li>
-              ))}
-            </ul>
-          </section>
+          {languages.length > 0 && languages[0].language !== '' && (
+            <section>
+              <h2 className="text-3xl font-semibold text-black border-b-4 border-[var(--secondary-color)] pb-1 mb-4">Talen</h2>
+
+              <ul className="list-disc list-inside space-y-1 text-gray-800 text-lg">
+                {Object.entries(languages).map(([, value], index) => (
+                  <li key={index}>{value.language} - {value.level}</li>
+                ))}
+              </ul>
+            </section>
+          )}
         </main>
 
         <footer role="contentinfo" className="mt-12 text-center text-gray-500 text-sm">

@@ -182,7 +182,6 @@ export default function CvBuilder() {
     );
   };
 
-
   // Theme
   const [primaryColor, setPrimaryColor] = useState('#4169E1');
   const [secondaryColor, setSecondaryColor] = useState('#000000');
