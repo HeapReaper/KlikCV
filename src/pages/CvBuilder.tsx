@@ -94,12 +94,9 @@ export default function CvBuilder() {
   });
 
   const toggleSection = (section: string) => {
-    setCollapsedSections((prev: { [x: string]: any; }) => {
-      const updated = { ...prev, [section]: !prev[section] };
-      setCookie('collapsedSections', JSON.stringify(updated));
-
-      return updated;
-    });
+    const updated = { ...collapsedSections, [section]: !collapsedSections[section] };
+    setCollapsedSections(updated);
+    setCookie('collapsedSections', JSON.stringify(updated));
   };
 
   const updateCvData = (field: any, value: any) => {
