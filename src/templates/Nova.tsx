@@ -1,4 +1,4 @@
-import type { CvBuilderType } from "../types/Templates.ts";
+import type { CvBuilderType } from '../types/Templates';
 
 export default function Nova({
   name,
@@ -25,11 +25,11 @@ export default function Nova({
   return (
     <div
       style={{ fontFamily: fontMap[fontFamily] }}
-      className="grid grid-cols-3 gap-6 p-1 bg-white text-gray-800"
+      className="grid grid-cols-3 gap-7 p-1 bg-white text-gray-800"
     >
       {/* Sidebar */}
       <aside
-        className="col-span-1 bg-gray-50 rounded-2xl p-6 flex flex-col gap-6 shadow-sm"
+        className="col-span-1 bg-gray-50 rounded-2xl pl flex flex-col gap-6 shadow-sm"
         style={{ borderColor: primaryColor }}
       >
         <div className="text-center">
@@ -43,7 +43,7 @@ export default function Nova({
 
         <div className="text-sm space-y-2">
           <p>{city || "Amsterdam"}</p>
-          <p>{birthdate || "01-01-2000"}</p>
+          <p>{new Date(birthdate).toLocaleDateString('nl-NL') || "01-01-2000"}</p>
           <a
             href={`mailto:${email}`}
             className="hover:underline break-words"
@@ -89,7 +89,7 @@ export default function Nova({
       </aside>
 
       {/* Main */}
-      <main className="col-span-2 space-y-8">
+      <main className="col-span-2 space-y-3">
         <section>
           <h2
             className="text-xl font-semibold border-b pb-1 mb-3"
@@ -115,7 +115,7 @@ export default function Nova({
               <h3 className="text-lg font-medium">{exp.jobTitle || "Functie"}</h3>
               <p className="text-sm text-gray-600">{exp.employer}</p>
               <p className="text-xs text-gray-500">
-                {`${exp.startMonth}-${exp.startYear}`} → {exp.current ? "Now" : `${exp.endMonth}-${exp.endYear}`} ({exp.place})
+                {`${exp.startMonth.slice(0, 3)}-${exp.startYear}`} → {exp.current ? "Now" : `${exp.endMonth?.slice(0, 3)}-${exp.endYear}`} ({exp.place})
               </p>
               {exp.description && (
                 <div
@@ -139,7 +139,7 @@ export default function Nova({
               <h3 className="text-lg font-medium">{edu.name}</h3>
               <p className="text-sm text-gray-600">{edu.institution}</p>
               <p className="text-xs text-gray-500">
-                {`${edu.startMonth}-${edu.startYear}`} → {edu.current ? "Now" : `${edu.endMonth}-${edu.endYear}`} ({edu.place})
+                {`${edu.startMonth.slice(0, 3)}-${edu.startYear}`} → {edu.current ? "Now" : `${edu.endMonth?.slice(0, 3)}-${edu.endYear}`} ({edu.place})
               </p>
               {edu.description && (
                 <div

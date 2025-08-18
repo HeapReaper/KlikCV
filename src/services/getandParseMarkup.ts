@@ -4,14 +4,17 @@ import frontMatter from 'front-matter';
 import type { BlogType } from '../types/Blog';
 
 export async function getAndParseMarkup(filePath: string): Promise<string> {
-  const module = await import('../../content/' + filePath + '?raw');
-  const markdown: string = module.default;
+  const res = await fetch(`/content/${filePath}`);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch markdown: ${filePath}`);
+  }
 
+  const markdown = await res.text();
   return DOMPurify.sanitize(await marked.parse(markdown));
 }
 
 export default async function getAllBlogMarkdownFiles(): Promise<BlogType[]> {
-  const modules = import.meta.glob(`../../content/blog/*.md`, { as: 'raw' });
+  const modules = import.meta.glob(`../../blog/*.md`, { as: 'raw' });
 
   const files: BlogType[] = [];
 

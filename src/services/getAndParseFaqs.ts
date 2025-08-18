@@ -4,7 +4,7 @@ import frontMatter from 'front-matter';
 import type { FaqType } from '../types/Faq';
 
 export default async function getAndParseFaqs(): Promise<FaqType[]> {
-  const modules = import.meta.glob(`../../content/faq/*.md`, { as: 'raw' });
+  const modules = import.meta.glob(`../../faq/*.md`, { as: 'raw' });
 
   const files: FaqType[] = [];
 

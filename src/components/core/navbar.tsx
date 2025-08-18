@@ -25,11 +25,11 @@ export default function Navbar() {
   };
 
   const isActive = (path: string) => {
-    if (currentPath === null) return "text-gray-700 hover:text-orange-600";
+    if (currentPath === null) return 'text-gray-700 hover:text-orange-600';
 
     return currentPath === path
-      ? "text-orange-600 font-semibold"
-      : "text-gray-700 hover:text-orange-600";
+      ? 'text-orange-600 font-semibold'
+      : 'text-gray-700 hover:text-orange-600';
   };
 
   return (

@@ -9,8 +9,8 @@ export default function Footer() {
           <a href="/privacy" className="hover:text-orange-600">
             Privacybeleid
           </a>
-          <a href="/contact" className="hover:text-orange-600">
-            Contact
+          <a href="/faq" className="hover:text-orange-600">
+            FAQ
           </a>
         </div>
       </div>

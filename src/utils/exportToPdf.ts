@@ -3,37 +3,29 @@ import jsPDF from 'jspdf';
 
 export const exportToPdf = async (elementId: string) => {
   const input = document.getElementById(elementId);
-  if (!input) {
-    return console.error('Input element not found.');
-  }
+  if (!input) return console.error('Input element not found.');
 
-  const scale = 2;
-
-  const canvas = await html2canvas(input, {
-    scale: scale,
-    useCORS: true,
-  });
-
-  const imgData = canvas.toDataURL('image/jpeg', 1.0);
+  const canvas = await html2canvas(input, { scale: 2, useCORS: true });
+  const imgData: string = canvas.toDataURL('image/jpeg', 1.0);
   const pdf = new jsPDF('p', 'mm', 'a4');
 
-  const a4Width = pdf.internal.pageSize.getWidth();
-  const a4Height = pdf.internal.pageSize.getHeight();
+  const a4Width: number = pdf.internal.pageSize.getWidth();
+  const a4Height: number = pdf.internal.pageSize.getHeight();
 
-  const imgProps = pdf.getImageProperties(imgData);
-  const contentHeight = (imgProps.height * a4Width) / imgProps.width;
+  const pxPerMm: number = canvas.width / a4Width;
+  const imgWidth: number = a4Width;
+  const imgHeight: number = canvas.height / pxPerMm;
 
-  let heightLeft = contentHeight;
-  let position = 0;
+  let totalPages: number = Math.ceil(imgHeight / a4Height);
 
-  pdf.addImage(imgData, 'JPEG', 0, position, a4Width, contentHeight);
-  heightLeft -= a4Height;
+  // Hacky workaround
+  if (totalPages > 2) totalPages -= 2;
 
-  while (heightLeft > 0) {
-    position = heightLeft - contentHeight;
-    pdf.addPage();
-    pdf.addImage(imgData, 'JPEG', 0, position, a4Width, contentHeight);
-    heightLeft -= a4Height;
+  for (let i: number = 0; i < totalPages; i++) {
+    if (i > 0) pdf.addPage();
+
+    const position: number = -i * a4Height;
+    pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
   }
 
   pdf.save('cv.pdf');

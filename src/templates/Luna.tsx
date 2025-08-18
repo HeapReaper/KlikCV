@@ -67,7 +67,7 @@ export default function Luna({
                 </svg>
                 <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer"
                    className=" hover:underline focus:outline-2" style={{ outlineColor: primaryColor }}>
-                  {birthdate || "01-01-2000"}
+                  {new Date(birthdate).toLocaleDateString('nl-NL') || "1-1-2000"}
                 </a>
               </p>
 
@@ -129,7 +129,7 @@ export default function Luna({
                           d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
                           clip-rule="evenodd"/>
                   </svg>
-                  {`${exp.startMonth}-${exp.startYear}`} - {exp.current ? 'Huidig' : `${exp.endMonth}-${exp.endYear}`}
+                  {`${exp.startMonth.slice(0, 3)}-${exp.startYear}`} - {exp.current ? 'Huidig' : `${exp.endMonth?.slice(0, 3)}-${exp.endYear}`}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                        className="size-4 mr ml-1" style={{ color: primaryColor }}>
                     <path fill-rule="evenodd"
@@ -160,7 +160,7 @@ export default function Luna({
                           d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
                           clip-rule="evenodd"/>
                   </svg>
-                  {edu.startMonth}-{edu.startYear} - {edu.current ? 'Huidig' : `${edu.endMonth}-${edu.endYear}`}
+                  {edu.startMonth.slice(0, 3)}-{edu.startYear} - {edu.current ? 'Huidig' : `${edu.endMonth?.slice(0, 3)}-${edu.endYear}`}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                        className="size-4 mr ml-1" style={{ color: primaryColor }}>
                     <path fill-rule="evenodd"
@@ -178,10 +178,21 @@ export default function Luna({
 
           {skills.length > 0 && skills[0].skill !== '' && (
             <section>
-              <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Vaardigheden</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-800 text-base">
-                {Object.entries(skills).map(([, value], index) => (
-                  <li key={index}>{value.skill} - {value.level}</li>
+              <h2
+                className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3"
+                style={{ borderColor: secondaryColor }}
+              >
+                Vaardigheden
+              </h2>
+              <ul
+                className={`list-disc list-inside space-y-1 text-gray-800 text-base ${
+                  skills.length > 3 ? 'grid grid-cols-2 gap-x-4 gap-y-1 list-inside' : ''
+                }`}
+              >
+                {skills.map((skill, index) => (
+                  <li key={index}>
+                    {skill.skill} - {skill.level}
+                  </li>
                 ))}
               </ul>
             </section>
@@ -189,14 +200,26 @@ export default function Luna({
 
           {languages.length > 0 && languages[0].language !== '' && (
             <section>
-              <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Talen</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-800 text-base">
-                {Object.entries(languages).map(([, value], index) => (
-                  <li key={index}>{value.language} - {value.level}</li>
+              <h2
+                className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3"
+                style={{ borderColor: secondaryColor }}
+              >
+                Talen
+              </h2>
+              <ul
+                className={`list-disc list-inside space-y-1 text-gray-800 text-base ${
+                  languages.length > 3 ? 'grid grid-cols-2 gap-x-4 gap-y-1 list-inside' : ''
+                }`}
+              >
+                {languages.map((language, index) => (
+                  <li key={index}>
+                    {language.language} - {language.level}
+                  </li>
                 ))}
               </ul>
             </section>
           )}
+
         </main>
 
         <footer role="contentinfo" className="mt-8 text-center text-gray-500 text-xs">

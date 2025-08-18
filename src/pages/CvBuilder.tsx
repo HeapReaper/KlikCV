@@ -266,8 +266,9 @@ export default function CvBuilder() {
                 </div>
               ))}
             </div>
-
           </div>
+
+          {/* Custom section*/}
 
           <button
             type="button"
