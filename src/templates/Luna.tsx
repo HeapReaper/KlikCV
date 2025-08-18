@@ -178,10 +178,21 @@ export default function Luna({
 
           {skills.length > 0 && skills[0].skill !== '' && (
             <section>
-              <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Vaardigheden</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-800 text-base">
-                {Object.entries(skills).map(([, value], index) => (
-                  <li key={index}>{value.skill} - {value.level}</li>
+              <h2
+                className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3"
+                style={{ borderColor: secondaryColor }}
+              >
+                Vaardigheden
+              </h2>
+              <ul
+                className={`list-disc list-inside space-y-1 text-gray-800 text-base ${
+                  skills.length > 3 ? 'grid grid-cols-2 gap-x-4 gap-y-1 list-inside' : ''
+                }`}
+              >
+                {skills.map((skill, index) => (
+                  <li key={index}>
+                    {skill.skill} - {skill.level}
+                  </li>
                 ))}
               </ul>
             </section>
@@ -189,14 +200,26 @@ export default function Luna({
 
           {languages.length > 0 && languages[0].language !== '' && (
             <section>
-              <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Talen</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-800 text-base">
-                {Object.entries(languages).map(([, value], index) => (
-                  <li key={index}>{value.language} - {value.level}</li>
+              <h2
+                className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3"
+                style={{ borderColor: secondaryColor }}
+              >
+                Talen
+              </h2>
+              <ul
+                className={`list-disc list-inside space-y-1 text-gray-800 text-base ${
+                  languages.length > 3 ? 'grid grid-cols-2 gap-x-4 gap-y-1 list-inside' : ''
+                }`}
+              >
+                {languages.map((language, index) => (
+                  <li key={index}>
+                    {language.language} - {language.level}
+                  </li>
                 ))}
               </ul>
             </section>
           )}
+
         </main>
 
         <footer role="contentinfo" className="mt-8 text-center text-gray-500 text-xs">
