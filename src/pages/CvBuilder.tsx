@@ -20,6 +20,7 @@ import TextInput from '../components/inputs/Text';
 import SkillLevelSelect from '../components/select/LevelSelect';
 import { exportToPdf } from '../utils/exportToPdf';
 import TemplateSelect from '../components/select/TemplateSelect';
+import {getCookie, setCookie} from '../utils/cookies';
 
 // Templates
 import Luna from '../templates/Luna';
@@ -73,29 +74,32 @@ export default function CvBuilder() {
     ]
   });
 
-  console.log(cvData.certifications)
-
   const [primaryColor, setPrimaryColor] = useState('#4169E1');
   const [secondaryColor, setSecondaryColor] = useState('#000000');
   const [fontFamily, setFontFamily] = useState('font-sans');
   const [template, setTemplate] = useState('Luna');
 
-  const [collapsedSections, setCollapsedSections] = useState({
-    theme: false,
-    personalInfo: false,
-    aboutMe: false,
-    education: false,
-    workExperience: false,
-    certifications: false,
-    skills: false,
-    languages: false,
+  const [collapsedSections, setCollapsedSections] = useState(() => {
+    const cookie = getCookie('collapsedSections');
+    return cookie ? JSON.parse(cookie) : {
+      theme: false,
+      personalInfo: false,
+      aboutMe: false,
+      education: false,
+      workExperience: false,
+      certifications: false,
+      skills: false,
+      languages: false,
+    };
   });
 
-  console.log(collapsedSections.languages)
-
   const toggleSection = (section: string) => {
-    // @ts-ignore
-    setCollapsedSections(prev => ({ ...prev, [section]: !prev[section] }));
+    setCollapsedSections((prev: { [x: string]: any; }) => {
+      const updated = { ...prev, [section]: !prev[section] };
+      setCookie('collapsedSections', JSON.stringify(updated));
+
+      return updated;
+    });
   };
 
   const updateCvData = (field: any, value: any) => {
