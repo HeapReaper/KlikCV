@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
 import getAndParseFaqs from '../../services/getAndParseFaqs';
 import type { FaqAmountType } from '../../types/Faq';
 
@@ -35,11 +34,7 @@ export default function FAQ({ setAmount }: FaqAmountType) {
               className="flex items-center justify-between w-full text-left"
             >
               <span className="text-lg font-semibold">{faq.title}</span>
-              {isOpen ? (
-                <ChevronUp className="h-5 w-5 text-orange-500 transition-transform duration-300" />
-              ) : (
-                <ChevronDown className="h-5 w-5 text-orange-500 transition-transform duration-300" />
-              )}
+              <span className="text-orange-500">{isOpen ? '▼' : '▲'}</span>
             </button>
 
             {/* Animated content */}

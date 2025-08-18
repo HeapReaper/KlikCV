@@ -11,7 +11,7 @@ export const useCvState = (initialState: any) => {
       const storedData = Cookies.get(COOKIE_NAME);
       return storedData ? JSON.parse(storedData) : initialState;
     } catch (e) {
-      console.error("Failed to parse stored data from cookies:", e);
+      console.error('Failed to parse stored data from cookies:', e);
       return initialState;
     }
   });
@@ -21,7 +21,7 @@ export const useCvState = (initialState: any) => {
     try {
       Cookies.set(COOKIE_NAME, JSON.stringify(state), { expires: 365 });
     } catch (e) {
-      console.error("Failed to save data to cookies:", e);
+      console.error('Failed to save data to cookies:', e);
     }
   }, [state]);
 
