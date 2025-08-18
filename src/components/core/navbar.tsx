@@ -95,7 +95,7 @@ export default function Navbar() {
 
             <button
               id="menu-toggle"
-              className="text-gray-700 md:hidden focus:outline-none"
+              className="text-orange-500 hover:text-orange-700 md:hidden focus:outline-none"
               onClick={toggleMenu}
             >
               <svg
@@ -117,7 +117,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className={`${menuOpen ? "block" : "hidden"} absolute top-16 left-0 w-full bg-white dark:text-white px-4 pb-4 md:hidden z-50 border-b`}
+        className={`${menuOpen ? "block" : "hidden"} absolute top-16 left-0 w-full bg-white dark:text-white dark:bg-gray-950 px-4 pb-4 md:hidden z-50 `}
       >
         {/* @ts-ignore */}
         <Link href="/" className={`block py-2 ${isActive("/")}`} onClick={() => setMenuOpen(false)}>
