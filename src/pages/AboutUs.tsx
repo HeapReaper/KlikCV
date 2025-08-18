@@ -14,10 +14,11 @@ export default function AboutUs() {
     <>
       <div className="pt-4 flex flex-col mt-8">
         <div
-          className="prose prose-neutral text-black max-w-none marker:text-black"
+          className="prose prose-neutral text-black max-w-none marker:text-black prose-h1:text-orange-500"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>
+
     </>
   )
 }
