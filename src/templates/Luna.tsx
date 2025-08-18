@@ -98,11 +98,16 @@ export default function Luna({
 
         <main role="main" className="space-y-8">
           <section>
-            <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Over mij</h2>
+            <h2
+              className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3"
+              style={{ borderColor: secondaryColor }}
+            >
+              Over mij
+            </h2>
 
-            <div className="flex gap-8 flex-wrap items-start">
+            <div className="flex flex-wrap gap-8 items-center">
               {profilePicture && (
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 flex items-center">
                   <img
                     src={profilePicture}
                     alt="Profile"

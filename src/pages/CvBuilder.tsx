@@ -30,13 +30,17 @@ import Nova from '../templates/Nova';
 
 export default function CvBuilder() {
   const [cvData, setCvData] = useCvState({
+    primaryColor: 'F97316',
+    secondaryColor: 'F97316',
+    font: 'font-sans',
+    template: 'Luna',
     fullName: '',
     email: '',
     phone: '',
     city: '',
     birthdate: '',
     preferredFunction: '',
-    aboutMeDescription: '...',
+    aboutMeDescription: '',
     languages: [{ language: '', level: '' }],
     skills: [{ skill: '', level: '' }],
     workExperiences: [
@@ -75,11 +79,6 @@ export default function CvBuilder() {
       }
     ]
   });
-
-  const [primaryColor, setPrimaryColor] = useState('#4169E1');
-  const [secondaryColor, setSecondaryColor] = useState('#000000');
-  const [fontFamily, setFontFamily] = useState('font-sans');
-  const [template, setTemplate] = useState('Luna');
 
   const [collapsedSections, setCollapsedSections] = useState(() => {
     const cookie = getCookie('collapsedSections');
@@ -149,12 +148,12 @@ export default function CvBuilder() {
             {collapsedSections.theme && (
               <div className="space-y-4 p-4 bg-white rounded-lg shadow-md w-full max-w-sm">
                 <div className="flex gap-4">
-                  <ColorPicker label="Primary kleur" value={primaryColor} onChange={setPrimaryColor} />
-                  <ColorPicker label="Secondary kleur" value={secondaryColor} onChange={setSecondaryColor} />
+                  <ColorPicker label="Primary kleur" value={cvData.primaryColor} onChange={value => updateCvData('primaryColor', value)} />
+                  <ColorPicker label="Secondary kleur" value={cvData.secondaryColor} onChange={value => updateCvData('secondaryColor', value)} />
                 </div>
                 <div className="flex gap-4">
-                  <FontFamilySelect value={fontFamily} onChange={setFontFamily} />
-                  <TemplateSelect value={template} onChange={setTemplate} />
+                  <FontFamilySelect value={cvData.fontFamily} onChange={value => updateCvData('fontFamily', value)} />
+                  <TemplateSelect value={cvData.template} onChange={value => updateCvData('template', value)} />
                 </div>
               </div>
             )}
@@ -486,7 +485,7 @@ export default function CvBuilder() {
       {/* Builder preview */}
       <div className="flex justify-center border-2 border-orange-500 rounded-xl">
         <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: '10mm' }}>
-          {template === 'Luna' && (
+          {cvData.template === 'Luna' && (
             <Luna
               name={cvData.fullName}
               email={cvData.email}
@@ -496,9 +495,9 @@ export default function CvBuilder() {
               preferredFunction={cvData.preferredFunction}
               aboutMeDescription={cvData.aboutMeDescription}
               profilePicture={profilePicture}
-              primaryColor={primaryColor}
-              secondaryColor={secondaryColor}
-              fontFamily={fontFamily}
+              primaryColor={cvData.primaryColor}
+              secondaryColor={cvData.secondaryColor}
+              fontFamily={cvData.fontFamily}
               skills={cvData.skills}
               workExperiences={cvData.workExperiences}
               educations={cvData.educations}
@@ -507,7 +506,7 @@ export default function CvBuilder() {
             />
           )}
 
-          {template === 'Nova' && (
+          {cvData.template === 'Nova' && (
             <Nova
               name={cvData.fullName}
               email={cvData.email}
@@ -517,9 +516,9 @@ export default function CvBuilder() {
               preferredFunction={cvData.preferredFunction}
               aboutMeDescription={cvData.aboutMeDescription}
               profilePicture={profilePicture}
-              primaryColor={primaryColor}
-              secondaryColor={secondaryColor}
-              fontFamily={fontFamily}
+              primaryColor={cvData.primaryColor}
+              secondaryColor={cvData.secondaryColor}
+              fontFamily={cvData.fontFamily}
               skills={cvData.skills}
               workExperiences={cvData.workExperiences}
               educations={cvData.educations}

@@ -26,7 +26,7 @@ export default function Nova({
         className="col-span-1 bg-gray-50 rounded-2xl pl flex flex-col gap-6 shadow-sm"
         style={{ borderColor: primaryColor }}
       >
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center align-center">
           {profilePicture && (
             <img
               src={profilePicture}
