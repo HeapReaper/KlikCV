@@ -129,7 +129,7 @@ export default function Luna({
                           d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
                           clip-rule="evenodd"/>
                   </svg>
-                  {`${exp.startMonth}-${exp.startYear}`} - {exp.current ? 'Huidig' : `${exp.endMonth}-${exp.endYear}`}
+                  {`${exp.startMonth.slice(0, 3)}-${exp.startYear}`} - {exp.current ? 'Huidig' : `${exp.endMonth?.slice(0, 3)}-${exp.endYear}`}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                        className="size-4 mr ml-1" style={{ color: primaryColor }}>
                     <path fill-rule="evenodd"
@@ -160,7 +160,7 @@ export default function Luna({
                           d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
                           clip-rule="evenodd"/>
                   </svg>
-                  {edu.startMonth}-{edu.startYear} - {edu.current ? 'Huidig' : `${edu.endMonth}-${edu.endYear}`}
+                  {edu.startMonth.slice(0, 3)}-{edu.startYear} - {edu.current ? 'Huidig' : `${edu.endMonth?.slice(0, 3)}-${edu.endYear}`}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                        className="size-4 mr ml-1" style={{ color: primaryColor }}>
                     <path fill-rule="evenodd"

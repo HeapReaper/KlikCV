@@ -115,7 +115,7 @@ export default function Nova({
               <h3 className="text-lg font-medium">{exp.jobTitle || "Functie"}</h3>
               <p className="text-sm text-gray-600">{exp.employer}</p>
               <p className="text-xs text-gray-500">
-                {`${exp.startMonth}-${exp.startYear}`} → {exp.current ? "Now" : `${exp.endMonth}-${exp.endYear}`} ({exp.place})
+                {`${exp.startMonth.slice(0, 3)}-${exp.startYear}`} → {exp.current ? "Now" : `${exp.endMonth?.slice(0, 3)}-${exp.endYear}`} ({exp.place})
               </p>
               {exp.description && (
                 <div
@@ -139,7 +139,7 @@ export default function Nova({
               <h3 className="text-lg font-medium">{edu.name}</h3>
               <p className="text-sm text-gray-600">{edu.institution}</p>
               <p className="text-xs text-gray-500">
-                {`${edu.startMonth}-${edu.startYear}`} → {edu.current ? "Now" : `${edu.endMonth}-${edu.endYear}`} ({edu.place})
+                {`${edu.startMonth.slice(0, 3)}-${edu.startYear}`} → {edu.current ? "Now" : `${edu.endMonth?.slice(0, 3)}-${edu.endYear}`} ({edu.place})
               </p>
               {edu.description && (
                 <div
