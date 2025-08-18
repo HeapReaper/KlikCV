@@ -2,22 +2,8 @@ import type { CvBuilderType } from '../types/Templates';
 import { fontMap} from '../config/fonts';
 
 export default function Orion({
-  name,
-  email,
-  phone,
-  city,
-  birthdate,
-  preferredFunction,
-  aboutMeDescription,
-  profilePicture,
-  primaryColor,
-  secondaryColor,
   fontFamily,
-  skills,
-  languages,
-  workExperiences,
-  educations,
-  certifications,
+
 }: CvBuilderType) {
   return (
     <div style={{fontFamily: fontMap[fontFamily]}} className="bg-gray-100 p-4 md:p-8">
