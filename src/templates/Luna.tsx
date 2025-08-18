@@ -1,5 +1,5 @@
 import type { CvBuilderType } from '../types/Templates.ts';
-import { fontMap} from '../config/fonts';
+import { fontMap } from '../config/fonts';
 
 export default function Luna({
   name,
@@ -9,6 +9,7 @@ export default function Luna({
   birthdate,
   preferredFunction,
   aboutMeDescription,
+  profilePicture,
   primaryColor,
   secondaryColor,
   fontFamily,
@@ -86,7 +87,7 @@ export default function Luna({
                   <path
                     d="M1.5 9.589v-.745a3 3 0 0 1 1.578-2.642l7.5-4.038a3 3 0 0 1 2.844 0l7.5 4.038A3 3 0 0 1 22.5 8.844v.745l-8.426 4.926-.652-.351a3 3 0 0 0-2.844 0l-.652.351L1.5 9.589Z"/>
                 </svg>
-                <a href="mailto:john.doe@example.com"
+                <a href={`mailto:${email}`}
                    className=" hover:underline focus:outline-2" style={{ outlineColor: primaryColor }}>
                   {email || "john.doe@example.com"}
                 </a>
@@ -99,9 +100,21 @@ export default function Luna({
           <section>
             <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Over mij</h2>
 
-            <div className="flex gap-8 flex-wrap" >
-              <div className="text-gray-800 text-sm">
-                <div dangerouslySetInnerHTML={{ __html: aboutMeDescription || ""}} />
+            <div className="flex gap-8 flex-wrap items-start">
+              {profilePicture && (
+                <div className="flex-shrink-0">
+                  <img
+                    src={profilePicture}
+                    alt="Profile"
+                    className="w-32 h-32 object-cover rounded-full shadow-md"
+                  />
+                </div>
+              )}
+
+              <div className="text-gray-800 text-sm max-w-prose">
+                <div
+                  dangerouslySetInnerHTML={{ __html: aboutMeDescription || "" }}
+                />
               </div>
             </div>
           </section>

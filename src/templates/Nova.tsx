@@ -9,6 +9,7 @@ export default function Nova({
   birthdate,
   preferredFunction,
   aboutMeDescription,
+  profilePicture,
   primaryColor,
   secondaryColor,
   fontFamily,
@@ -25,7 +26,15 @@ export default function Nova({
         className="col-span-1 bg-gray-50 rounded-2xl pl flex flex-col gap-6 shadow-sm"
         style={{ borderColor: primaryColor }}
       >
-        <div className="text-center">
+        <div className="flex flex-col items-center">
+          {profilePicture && (
+            <img
+              src={profilePicture}
+              alt="profile picture"
+              className="rounded-full w-28 h-28 object-cover"
+            />
+          )}
+
           <h1 className="text-2xl font-bold" style={{ color: primaryColor }}>
             {name || "John Doe"}
           </h1>

@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useState, useEffect } from 'preact/hooks';
 import FullName from '../components/inputs/FullName';
 import Email from '../components/inputs/Email';
 import Phone from '../components/inputs/Phone';
@@ -22,7 +22,7 @@ import { exportToPdf } from '../utils/exportToPdf';
 import TemplateSelect from '../components/select/TemplateSelect';
 import { getCookie, setCookie } from '../utils/cookies';
 import FileInput from '../components/inputs/File';
-import { saveToLocalStorage } from '../utils/localStorage';
+import {loadFromLocalStorage, saveToLocalStorage} from '../utils/localStorage';
 
 // Templates
 import Luna from '../templates/Luna';
@@ -37,7 +37,6 @@ export default function CvBuilder() {
     birthdate: '',
     preferredFunction: '',
     aboutMeDescription: '...',
-    profilePicture: '',
     languages: [{ language: '', level: '' }],
     skills: [{ skill: '', level: '' }],
     workExperiences: [
@@ -129,6 +128,11 @@ export default function CvBuilder() {
     }));
   };
 
+  const [profilePicture, setProfilePicture] = useState<string | null>(null);
+  useEffect(() => {
+    setProfilePicture(loadFromLocalStorage('profilePicture'));
+  }, []);
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-4">
       {/* Builder form */}
@@ -185,8 +189,15 @@ export default function CvBuilder() {
 
             {collapsedSections.aboutMe && (
               <>
-                <TextInput label="Gewenste functie" placeholder="Gewenste functie" value={cvData.preferredFunction} onChange={value => updateCvData('preferredFunction', value)} />
-                <AboutMeDescription value={cvData.aboutMeDescription} onChange={html => updateCvData('aboutMeDescription', html)} />
+                <TextInput
+                  label="Gewenste functie"
+                  placeholder="Gewenste functie"
+                  value={cvData.preferredFunction} onChange={value => updateCvData('preferredFunction', value)}
+                />
+                <AboutMeDescription
+                  value={cvData.aboutMeDescription}
+                  onChange={html => updateCvData('aboutMeDescription', html)}
+                />
 
                 <FileInput
                   id="profilePicture"
@@ -194,9 +205,17 @@ export default function CvBuilder() {
                   accept="image/*"
                   onChange={(e: any) => {
                     const file = (e.target as HTMLInputElement).files?.[0];
-                    if (file) saveToLocalStorage('profilePicture', file);
+                    if (file) {
+                      saveToLocalStorage("profilePicture", file);
+                      const reader = new FileReader();
+                      reader.onload = () => {
+                        setProfilePicture(reader.result as string);
+                      };
+                      reader.readAsDataURL(file);
+                    }
                   }}
                 />
+
               </>
             )}
 
@@ -476,6 +495,7 @@ export default function CvBuilder() {
               birthdate={cvData.birthdate}
               preferredFunction={cvData.preferredFunction}
               aboutMeDescription={cvData.aboutMeDescription}
+              profilePicture={profilePicture}
               primaryColor={primaryColor}
               secondaryColor={secondaryColor}
               fontFamily={fontFamily}
@@ -496,6 +516,7 @@ export default function CvBuilder() {
               birthdate={cvData.birthdate}
               preferredFunction={cvData.preferredFunction}
               aboutMeDescription={cvData.aboutMeDescription}
+              profilePicture={profilePicture}
               primaryColor={primaryColor}
               secondaryColor={secondaryColor}
               fontFamily={fontFamily}
