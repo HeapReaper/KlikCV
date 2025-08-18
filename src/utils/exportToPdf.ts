@@ -19,7 +19,7 @@ export const exportToPdf = async (elementId: string) => {
   let totalPages: number = Math.ceil(imgHeight / a4Height);
 
   // Hacky workaround
-  if (totalPages > 2) totalPages -= 2;
+  if (totalPages > 2) totalPages -= 1;
 
   for (let i: number = 0; i < totalPages; i++) {
     if (i > 0) pdf.addPage();

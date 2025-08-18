@@ -48,14 +48,18 @@ export default function Nova({
           <p>{new Date(birthdate).toLocaleDateString('nl-NL') || "01-01-2000"}</p>
           <a
             href={`mailto:${email}`}
-            className="hover:underline break-words"
+            className="hover:underline block break-words"
           >
             {email || "john.doe@example.com"}
           </a>
-          <a href={`tel:${phone}`} className="hover:underline">
+          <a
+            href={`tel:${phone}`}
+            className="hover:underline block"
+          >
             {phone || "06-12345678"}
           </a>
         </div>
+
 
         {skills.length > 0 && skills[0].skill !== "" && (
           <div>
