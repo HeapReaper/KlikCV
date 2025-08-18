@@ -24,7 +24,6 @@
     "js-cookie": "^3.0.5",
     "jspdf": "^3.0.1",
     "lru-cache": "6.0.0",
-    "lucide-react": "^0.539.0",
     "marked": "^16.1.2",
     "pell": "^1.0.6",
     "preact": "^10.27.0",
