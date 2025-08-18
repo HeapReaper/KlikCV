@@ -1,4 +1,5 @@
 import type { CvBuilderType } from '../types/Templates.ts';
+import { fontMap} from '../config/fonts';
 
 export default function Luna({
   name,
@@ -17,12 +18,6 @@ export default function Luna({
   educations,
   certifications,
 }: CvBuilderType) {
-  const fontMap: any = {
-    'font-sans': 'ui-sans-serif, system-ui, -apple-system, sans-serif',
-    'font-serif': 'ui-serif, Georgia, serif',
-    'font-mono': 'ui-monospace, SFMono-Regular, monospace',
-  };
-
   return (
     <>
       <div style={{ fontFamily: fontMap[fontFamily] }}>

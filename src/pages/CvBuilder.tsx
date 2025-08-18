@@ -20,7 +20,9 @@ import TextInput from '../components/inputs/Text';
 import SkillLevelSelect from '../components/select/LevelSelect';
 import { exportToPdf } from '../utils/exportToPdf';
 import TemplateSelect from '../components/select/TemplateSelect';
-import {getCookie, setCookie} from '../utils/cookies';
+import { getCookie, setCookie } from '../utils/cookies';
+import FileInput from '../components/inputs/File';
+import { saveToLocalStorage } from '../utils/localStorage';
 
 // Templates
 import Luna from '../templates/Luna';
@@ -35,6 +37,7 @@ export default function CvBuilder() {
     birthdate: '',
     preferredFunction: '',
     aboutMeDescription: '...',
+    profilePicture: '',
     languages: [{ language: '', level: '' }],
     skills: [{ skill: '', level: '' }],
     workExperiences: [
@@ -184,6 +187,16 @@ export default function CvBuilder() {
               <>
                 <TextInput label="Gewenste functie" placeholder="Gewenste functie" value={cvData.preferredFunction} onChange={value => updateCvData('preferredFunction', value)} />
                 <AboutMeDescription value={cvData.aboutMeDescription} onChange={html => updateCvData('aboutMeDescription', html)} />
+
+                <FileInput
+                  id="profilePicture"
+                  label="Profiel foto"
+                  accept="image/*"
+                  onChange={(e: any) => {
+                    const file = (e.target as HTMLInputElement).files?.[0];
+                    if (file) saveToLocalStorage('profilePicture', file);
+                  }}
+                />
               </>
             )}
 

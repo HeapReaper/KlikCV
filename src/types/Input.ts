@@ -6,6 +6,13 @@ export type InputType = {
   onChange: (e: string) => void;
 }
 
+export type FileInputType = {
+  id?: string;
+  label: string;
+  accept: string;
+  onChange: (e: any) => void;
+}
+
 export type EditorType = {
   value: string;
   onChange: (e: string) => void;

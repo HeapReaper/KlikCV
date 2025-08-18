@@ -1,4 +1,5 @@
 import type { CvBuilderType } from '../types/Templates';
+import { fontMap} from '../config/fonts';
 
 export default function Nova({
   name,
@@ -17,17 +18,8 @@ export default function Nova({
   educations,
   certifications,
 }: CvBuilderType) {
-  const fontMap: any = {
-    "font-sans": "ui-sans-serif, system-ui, -apple-system, sans-serif",
-    "font-serif": "ui-serif, Georgia, serif",
-    "font-mono": "ui-monospace, SFMono-Regular, monospace",
-  };
-
   return (
-    <div
-      style={{ fontFamily: fontMap[fontFamily] }}
-      className="grid grid-cols-3 gap-7 p-1 bg-white text-gray-800"
-    >
+    <div style={{ fontFamily: fontMap[fontFamily] }} className="grid grid-cols-3 gap-7 p-1 bg-white text-gray-800">
       {/* Sidebar */}
       <aside
         className="col-span-1 bg-gray-50 rounded-2xl pl flex flex-col gap-6 shadow-sm"
