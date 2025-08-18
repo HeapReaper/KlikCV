@@ -1,4 +1,4 @@
-import type { CvBuilderType } from "../types/Templates.ts";
+import type { CvBuilderType } from '../types/Templates';
 
 export default function Nova({
   name,
