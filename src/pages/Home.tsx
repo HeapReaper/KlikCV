@@ -24,8 +24,9 @@ export default function Home() {
             De leukste in-house gemaakte sjablonen
           </h1>
           <div className="mt-10 relative max-w-7xl mx-auto px-4">
-            <div className="flex justify-around gap-6">
-              <div className="min-w-[250px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
+            {/* Make this div scrollable on small screens */}
+            <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent">
+              <div className="flex-shrink-0 min-w-[250px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
                 <img
                   src="/Luna.png"
                   alt="Luna template"
@@ -34,7 +35,7 @@ export default function Home() {
                 <h3 className="font-bold text-xl">Luna</h3>
               </div>
 
-              <div className="min-w-[250px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
+              <div className="flex-shrink-0 min-w-[250px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
                 <img
                   src="/Nova.png"
                   alt="Nova template"
@@ -45,6 +46,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+
 
 
         {/*
