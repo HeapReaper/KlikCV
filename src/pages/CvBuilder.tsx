@@ -22,7 +22,7 @@ import { exportToPdf } from '../utils/exportToPdf';
 import TemplateSelect from '../components/select/TemplateSelect';
 import { getCookie, setCookie } from '../utils/cookies';
 import FileInput from '../components/inputs/File';
-import {loadFromLocalStorage, saveToLocalStorage} from '../utils/localStorage';
+import { loadFromLocalStorage, saveToLocalStorage } from '../utils/localStorage';
 
 // Templates
 import Luna from '../templates/Luna';

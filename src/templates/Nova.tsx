@@ -83,7 +83,7 @@ export default function Nova({
               className="text-lg font-semibold mb-2"
               style={{ color: secondaryColor }}
             >
-              Languages
+              Talen
             </h2>
             <ul className="space-y-1 text-sm">
               {languages.map((l, i) => (
@@ -101,7 +101,7 @@ export default function Nova({
             className="text-xl font-semibold border-b pb-1 mb-3"
             style={{ borderColor: secondaryColor, color: primaryColor }}
           >
-            About Me
+            Over mij
           </h2>
           <div
             className="text-sm leading-relaxed"
@@ -115,7 +115,7 @@ export default function Nova({
             className="text-xl font-semibold border-b pb-1 mb-3"
             style={{ borderColor: secondaryColor, color: primaryColor }}
           >
-            Experience
+            Werkervaring
           </h2>
           {workExperiences.map((exp, i) => (
             <div key={i} className="mb-4">
@@ -140,7 +140,7 @@ export default function Nova({
             className="text-xl font-semibold border-b pb-1 mb-3"
             style={{ borderColor: secondaryColor, color: primaryColor }}
           >
-            Education
+            Opleiding
           </h2>
           {educations.map((edu, i) => (
             <div key={i} className="mb-4">
