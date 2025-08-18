@@ -43,7 +43,7 @@ export default function Nova({
 
         <div className="text-sm space-y-2">
           <p>{city || "Amsterdam"}</p>
-          <p>{birthdate || "01-01-2000"}</p>
+          <p>{new Date(birthdate).toLocaleDateString('nl-NL') || "01-01-2000"}</p>
           <a
             href={`mailto:${email}`}
             className="hover:underline break-words"

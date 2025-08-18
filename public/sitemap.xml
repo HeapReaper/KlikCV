@@ -12,4 +12,16 @@
     <lastmod>2025-08-15</lastmod>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://klikcv.nl/over-ons</loc>
+    <lastmod>2025-08-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://klikcv.nl/privacy</loc>
+    <lastmod>2025-08-18</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>

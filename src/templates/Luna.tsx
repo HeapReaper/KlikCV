@@ -67,7 +67,7 @@ export default function Luna({
                 </svg>
                 <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer"
                    className=" hover:underline focus:outline-2" style={{ outlineColor: primaryColor }}>
-                  {birthdate || "01-01-2000"}
+                  {new Date(birthdate).toLocaleDateString('nl-NL') || "1-1-2000"}
                 </a>
               </p>
 
