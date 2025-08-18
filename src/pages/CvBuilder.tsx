@@ -485,7 +485,7 @@ export default function CvBuilder() {
       </div>
 
       {/* Builder preview */}
-      <div className="flex justify-center border-2 border-orange-500 rounded-xl">
+      <div className="flex justify-center border-2 border-orange-500 dark:border-gray-950 rounded-xl">
         <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: '10mm' }}>
           {cvData.template === 'Luna' && (
             <Luna
