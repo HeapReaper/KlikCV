@@ -16,17 +16,23 @@ export default function LanguageLevelSelect({ value, onChange }: InputType) {
           <option selected>
             Selecteer een niveau...
           </option>
-          <option value="Moedertaal">
-            Moedertaal
+          <option value="A1">
+            A1 (Beginner)
           </option>
-          <option value="Vloeiend">
-            Vloeiend
+          <option value="A2">
+            A2 (Basis)
           </option>
-          <option value="Redelijk">
-            Redelijk
+          <option value="B1">
+            B1 (Drempelniveau)
           </option>
-          <option value="Basis">
-            Basis
+          <option value="B2">
+            B2 (Voldoende)
+          </option>
+          <option value="C1">
+            C1 (Gevorderd)
+          </option>
+          <option value="C2">
+            C2 (Beheersing)
           </option>
         </select>
       </form>

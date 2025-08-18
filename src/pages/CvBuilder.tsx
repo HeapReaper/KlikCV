@@ -25,8 +25,10 @@ import FileInput from '../components/inputs/File';
 import { loadFromLocalStorage, saveToLocalStorage } from '../utils/localStorage';
 
 // Templates
+// TODO: make it extend itself by adding files in /src/templates
 import Luna from '../templates/Luna';
 import Nova from '../templates/Nova';
+import Orion from '../templates/Orion';
 
 export default function CvBuilder() {
   const [cvData, setCvData] = useCvState({
@@ -508,6 +510,27 @@ export default function CvBuilder() {
 
           {cvData.template === 'Nova' && (
             <Nova
+              name={cvData.fullName}
+              email={cvData.email}
+              phone={cvData.phone}
+              city={cvData.city}
+              birthdate={cvData.birthdate}
+              preferredFunction={cvData.preferredFunction}
+              aboutMeDescription={cvData.aboutMeDescription}
+              profilePicture={profilePicture}
+              primaryColor={cvData.primaryColor}
+              secondaryColor={cvData.secondaryColor}
+              fontFamily={cvData.fontFamily}
+              skills={cvData.skills}
+              workExperiences={cvData.workExperiences}
+              educations={cvData.educations}
+              certifications={cvData.certifications}
+              languages={cvData.languages}
+            />
+          )}
+
+          {cvData.template === 'Orion' && (
+            <Orion
               name={cvData.fullName}
               email={cvData.email}
               phone={cvData.phone}

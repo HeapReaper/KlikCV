@@ -19,6 +19,9 @@ export default function TemplateSelect({ value, onChange }: InputType) {
           <option value="Nova">
             Nova
           </option>
+          <option value="Orion">
+            Orion
+          </option>
         </select>
       </form>
     </>
