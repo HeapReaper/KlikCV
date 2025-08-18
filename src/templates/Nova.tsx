@@ -1,4 +1,5 @@
 import type { CvBuilderType } from '../types/Templates';
+import { fontMap} from '../config/fonts';
 
 export default function Nova({
   name,
@@ -8,6 +9,7 @@ export default function Nova({
   birthdate,
   preferredFunction,
   aboutMeDescription,
+  profilePicture,
   primaryColor,
   secondaryColor,
   fontFamily,
@@ -17,23 +19,22 @@ export default function Nova({
   educations,
   certifications,
 }: CvBuilderType) {
-  const fontMap: any = {
-    "font-sans": "ui-sans-serif, system-ui, -apple-system, sans-serif",
-    "font-serif": "ui-serif, Georgia, serif",
-    "font-mono": "ui-monospace, SFMono-Regular, monospace",
-  };
-
   return (
-    <div
-      style={{ fontFamily: fontMap[fontFamily] }}
-      className="grid grid-cols-3 gap-7 p-1 bg-white text-gray-800"
-    >
+    <div style={{ fontFamily: fontMap[fontFamily] }} className="grid grid-cols-3 gap-7 p-1 bg-white text-gray-800">
       {/* Sidebar */}
       <aside
         className="col-span-1 bg-gray-50 rounded-2xl pl flex flex-col gap-6 shadow-sm"
         style={{ borderColor: primaryColor }}
       >
-        <div className="text-center">
+        <div className="flex flex-col items-center align-center">
+          {profilePicture && (
+            <img
+              src={profilePicture}
+              alt="profile picture"
+              className="rounded-full w-28 h-28 object-cover"
+            />
+          )}
+
           <h1 className="text-2xl font-bold" style={{ color: primaryColor }}>
             {name || "John Doe"}
           </h1>
@@ -47,14 +48,18 @@ export default function Nova({
           <p>{new Date(birthdate).toLocaleDateString('nl-NL') || "01-01-2000"}</p>
           <a
             href={`mailto:${email}`}
-            className="hover:underline break-words"
+            className="hover:underline block break-words"
           >
             {email || "john.doe@example.com"}
           </a>
-          <a href={`tel:${phone}`} className="hover:underline">
+          <a
+            href={`tel:${phone}`}
+            className="hover:underline block"
+          >
             {phone || "06-12345678"}
           </a>
         </div>
+
 
         {skills.length > 0 && skills[0].skill !== "" && (
           <div>

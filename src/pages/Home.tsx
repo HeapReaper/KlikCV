@@ -24,65 +24,28 @@ export default function Home() {
             De leukste in-house gemaakte sjablonen
           </h1>
           <div className="mt-10 relative max-w-7xl mx-auto px-4">
-            <div className="flex space-x-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
-              <div className="min-w-[250px] snap-start rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
+            <div className="flex justify-around gap-6">
+              <div className="min-w-[250px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
                 <img
-                  src="https://placehold.co/250x370"
-                  alt="Template Cornell"
-                  className="rounded mb-4 mx-auto"
+                  src="/Luna.png"
+                  alt="Luna template"
+                  className="rounded mb-4 mx-auto h-80 w-auto object-contain"
                 />
-                <h3 className="font-bold text-lg">
-                  Luna
-                </h3>
-                <p className="text-sm">
-                  69 gebruikers kozen dit template
-                </p>
+                <h3 className="font-bold text-xl">Luna</h3>
               </div>
 
-              <div className="min-w-[250px] snap-start rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
+              <div className="min-w-[250px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
                 <img
-                  src="https://placehold.co/250x370"
-                  alt="Template Cornell"
-                  className="rounded mb-4 mx-auto"
+                  src="/Nova.png"
+                  alt="Nova template"
+                  className="rounded mb-4 mx-auto h-80 w-auto object-contain"
                 />
-                <h3 className="font-bold text-lg">
-                  Nova
-                </h3>
-                <p className="text-sm">
-                  69 gebruikers kozen dit template
-                </p>
-              </div>
-
-              <div className="min-w-[250px] snap-start rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
-                <img
-                  src="https://placehold.co/250x370"
-                  alt="Template Toronto"
-                  className="rounded mb-4 mx-auto"
-                />
-                <h3 className="font-bold text-lg">
-                  Orion
-                </h3>
-                <p className="text-sm">
-                  69 gebruikers kozen dit template
-                </p>
-              </div>
-
-              <div className="min-w-[250px] snap-start rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
-                <img
-                  src="https://placehold.co/250x370"
-                  alt="Template Cornell"
-                  className="rounded mb-4 mx-auto"
-                />
-                <h3 className="font-bold text-lg">
-                  Solaris
-                </h3>
-                <p className="text-sm">
-                  69 gebruikers kozen dit template
-                </p>
+                <h3 className="font-bold text-xl">Nova</h3>
               </div>
             </div>
           </div>
         </div>
+
 
         {/*
         <div className="space-y-4">

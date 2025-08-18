@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useState, useEffect } from 'preact/hooks';
 import FullName from '../components/inputs/FullName';
 import Email from '../components/inputs/Email';
 import Phone from '../components/inputs/Phone';
@@ -20,7 +20,9 @@ import TextInput from '../components/inputs/Text';
 import SkillLevelSelect from '../components/select/LevelSelect';
 import { exportToPdf } from '../utils/exportToPdf';
 import TemplateSelect from '../components/select/TemplateSelect';
-import {getCookie, setCookie} from '../utils/cookies';
+import { getCookie, setCookie } from '../utils/cookies';
+import FileInput from '../components/inputs/File';
+import {loadFromLocalStorage, saveToLocalStorage} from '../utils/localStorage';
 
 // Templates
 import Luna from '../templates/Luna';
@@ -28,13 +30,17 @@ import Nova from '../templates/Nova';
 
 export default function CvBuilder() {
   const [cvData, setCvData] = useCvState({
+    primaryColor: 'F97316',
+    secondaryColor: 'F97316',
+    font: 'font-sans',
+    template: 'Luna',
     fullName: '',
     email: '',
     phone: '',
     city: '',
     birthdate: '',
     preferredFunction: '',
-    aboutMeDescription: '...',
+    aboutMeDescription: '',
     languages: [{ language: '', level: '' }],
     skills: [{ skill: '', level: '' }],
     workExperiences: [
@@ -73,11 +79,6 @@ export default function CvBuilder() {
       }
     ]
   });
-
-  const [primaryColor, setPrimaryColor] = useState('#4169E1');
-  const [secondaryColor, setSecondaryColor] = useState('#000000');
-  const [fontFamily, setFontFamily] = useState('font-sans');
-  const [template, setTemplate] = useState('Luna');
 
   const [collapsedSections, setCollapsedSections] = useState(() => {
     const cookie = getCookie('collapsedSections');
@@ -126,6 +127,11 @@ export default function CvBuilder() {
     }));
   };
 
+  const [profilePicture, setProfilePicture] = useState<string | null>(null);
+  useEffect(() => {
+    setProfilePicture(loadFromLocalStorage('profilePicture'));
+  }, []);
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-4">
       {/* Builder form */}
@@ -142,12 +148,12 @@ export default function CvBuilder() {
             {collapsedSections.theme && (
               <div className="space-y-4 p-4 bg-white rounded-lg shadow-md w-full max-w-sm">
                 <div className="flex gap-4">
-                  <ColorPicker label="Primary kleur" value={primaryColor} onChange={setPrimaryColor} />
-                  <ColorPicker label="Secondary kleur" value={secondaryColor} onChange={setSecondaryColor} />
+                  <ColorPicker label="Primary kleur" value={cvData.primaryColor} onChange={value => updateCvData('primaryColor', value)} />
+                  <ColorPicker label="Secondary kleur" value={cvData.secondaryColor} onChange={value => updateCvData('secondaryColor', value)} />
                 </div>
                 <div className="flex gap-4">
-                  <FontFamilySelect value={fontFamily} onChange={setFontFamily} />
-                  <TemplateSelect value={template} onChange={setTemplate} />
+                  <FontFamilySelect value={cvData.fontFamily} onChange={value => updateCvData('fontFamily', value)} />
+                  <TemplateSelect value={cvData.template} onChange={value => updateCvData('template', value)} />
                 </div>
               </div>
             )}
@@ -182,8 +188,33 @@ export default function CvBuilder() {
 
             {collapsedSections.aboutMe && (
               <>
-                <TextInput label="Gewenste functie" placeholder="Gewenste functie" value={cvData.preferredFunction} onChange={value => updateCvData('preferredFunction', value)} />
-                <AboutMeDescription value={cvData.aboutMeDescription} onChange={html => updateCvData('aboutMeDescription', html)} />
+                <TextInput
+                  label="Gewenste functie"
+                  placeholder="Gewenste functie"
+                  value={cvData.preferredFunction} onChange={value => updateCvData('preferredFunction', value)}
+                />
+                <AboutMeDescription
+                  value={cvData.aboutMeDescription}
+                  onChange={html => updateCvData('aboutMeDescription', html)}
+                />
+
+                <FileInput
+                  id="profilePicture"
+                  label="Profiel foto"
+                  accept="image/*"
+                  onChange={(e: any) => {
+                    const file = (e.target as HTMLInputElement).files?.[0];
+                    if (file) {
+                      saveToLocalStorage("profilePicture", file);
+                      const reader = new FileReader();
+                      reader.onload = () => {
+                        setProfilePicture(reader.result as string);
+                      };
+                      reader.readAsDataURL(file);
+                    }
+                  }}
+                />
+
               </>
             )}
 
@@ -454,7 +485,7 @@ export default function CvBuilder() {
       {/* Builder preview */}
       <div className="flex justify-center border-2 border-orange-500 rounded-xl">
         <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: '10mm' }}>
-          {template === 'Luna' && (
+          {cvData.template === 'Luna' && (
             <Luna
               name={cvData.fullName}
               email={cvData.email}
@@ -463,9 +494,10 @@ export default function CvBuilder() {
               birthdate={cvData.birthdate}
               preferredFunction={cvData.preferredFunction}
               aboutMeDescription={cvData.aboutMeDescription}
-              primaryColor={primaryColor}
-              secondaryColor={secondaryColor}
-              fontFamily={fontFamily}
+              profilePicture={profilePicture}
+              primaryColor={cvData.primaryColor}
+              secondaryColor={cvData.secondaryColor}
+              fontFamily={cvData.fontFamily}
               skills={cvData.skills}
               workExperiences={cvData.workExperiences}
               educations={cvData.educations}
@@ -474,7 +506,7 @@ export default function CvBuilder() {
             />
           )}
 
-          {template === 'Nova' && (
+          {cvData.template === 'Nova' && (
             <Nova
               name={cvData.fullName}
               email={cvData.email}
@@ -483,9 +515,10 @@ export default function CvBuilder() {
               birthdate={cvData.birthdate}
               preferredFunction={cvData.preferredFunction}
               aboutMeDescription={cvData.aboutMeDescription}
-              primaryColor={primaryColor}
-              secondaryColor={secondaryColor}
-              fontFamily={fontFamily}
+              profilePicture={profilePicture}
+              primaryColor={cvData.primaryColor}
+              secondaryColor={cvData.secondaryColor}
+              fontFamily={cvData.fontFamily}
               skills={cvData.skills}
               workExperiences={cvData.workExperiences}
               educations={cvData.educations}

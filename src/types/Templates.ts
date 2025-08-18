@@ -11,6 +11,7 @@ type PersonalInfoType = {
 
 type AboutMeType = {
   preferredFunction: string;
+  profilePicture?: any;
   aboutMeDescription: string;
 }
 

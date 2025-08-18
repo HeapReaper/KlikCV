@@ -20,7 +20,7 @@ export default function RichTextEditor({
     'strikethrough',
   ],
   className = '',
-  }: RichTextEditorProps) {
+}: RichTextEditorProps) {
   const editorRef = useRef<HTMLDivElement>(null);
   const initialized = useRef(false);
 
@@ -47,7 +47,7 @@ export default function RichTextEditor({
     );
 
     return () => {
-      editor.content.innerHTML = '';
+      editor.content.innerHTML = value;
     };
   }, [actions, onChange, value]);
 
