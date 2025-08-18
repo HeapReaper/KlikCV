@@ -23,30 +23,39 @@ export default function FAQ({ setAmount }: FaqAmountType) {
 
   return (
     <div className="space-y-4">
-      {faqs.map((faq, index) => (
-        <div
-          key={index}
-          className="border-2 border-solid border-orange-500 rounded-xl p-4 transition bg-white"
-        >
-          <button
-            onClick={() => toggle(index)}
-            className="flex items-center justify-between w-full text-left"
+      {faqs.map((faq, index) => {
+        const isOpen = openIndex === index;
+        return (
+          <div
+            key={index}
+            className="border-2 border-solid border-orange-500 rounded-xl p-4 transition bg-white"
           >
-            <span className="text-lg font-semibold">{faq.title}</span>
-            {openIndex === index ? (
-              <ChevronUp className="h-5 w-5 text-orange-500" />
-            ) : (
-              <ChevronDown className="h-5 w-5 text-orange-500" />
-            )}
-          </button>
-          {openIndex === index && (
+            <button
+              onClick={() => toggle(index)}
+              className="flex items-center justify-between w-full text-left"
+            >
+              <span className="text-lg font-semibold">{faq.title}</span>
+              {isOpen ? (
+                <ChevronUp className="h-5 w-5 text-orange-500 transition-transform duration-300" />
+              ) : (
+                <ChevronDown className="h-5 w-5 text-orange-500 transition-transform duration-300" />
+              )}
+            </button>
+
+            {/* Animated content */}
             <div
-              className="prose prose-neutral text-black max-w-none marker:text-black"
-              dangerouslySetInnerHTML={{ __html: faq.content ? faq.content : '' }}
-            />
-          )}
-        </div>
-      ))}
+              className={`overflow-hidden transition-all duration-200 ease-in-out ${
+                isOpen ? 'max-h-screen opacity-100 mt-2' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div
+                className="prose prose-neutral text-black max-w-none marker:text-black"
+                dangerouslySetInnerHTML={{ __html: faq.content || '' }}
+              />
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
