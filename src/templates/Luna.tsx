@@ -105,7 +105,7 @@ export default function Luna({
             <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Over mij</h2>
 
             <div className="flex gap-8 flex-wrap" >
-              <div className="max-w-md text-gray-800 text-sm">
+              <div className="text-gray-800 text-sm">
                 <div dangerouslySetInnerHTML={{ __html: aboutMeDescription || ""}} />
               </div>
             </div>
