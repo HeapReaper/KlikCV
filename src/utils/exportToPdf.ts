@@ -7,10 +7,8 @@ export const exportToPdf = async (elementId: string) => {
     return console.error('Input element not found.');
   }
 
-  const scale = 2;
-
   const canvas = await html2canvas(input, {
-    scale: scale,
+    scale: 2, // To improve resolution
     useCORS: true,
   });
 
@@ -20,19 +18,20 @@ export const exportToPdf = async (elementId: string) => {
   const a4Width = pdf.internal.pageSize.getWidth();
   const a4Height = pdf.internal.pageSize.getHeight();
 
-  const imgProps = pdf.getImageProperties(imgData);
-  const contentHeight = (imgProps.height * a4Width) / imgProps.width;
+  const pxPerMm = canvas.width / a4Width;
+  const imgWidth = a4Width;
+  const imgHeight = canvas.height / pxPerMm;
 
-  let heightLeft = contentHeight;
   let position = 0;
+  let heightLeft = imgHeight;
 
-  pdf.addImage(imgData, 'JPEG', 0, position, a4Width, contentHeight);
+  pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
   heightLeft -= a4Height;
 
   while (heightLeft > 0) {
-    position = heightLeft - contentHeight;
+    position -= a4Height;
     pdf.addPage();
-    pdf.addImage(imgData, 'JPEG', 0, position, a4Width, contentHeight);
+    pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
     heightLeft -= a4Height;
   }
 
