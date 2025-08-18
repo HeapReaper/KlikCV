@@ -62,7 +62,18 @@ export default function CvBuilder() {
         description: '',
       },
     ],
+    certifications: [
+      {
+        name: '',
+        month: new Date().toLocaleString('nl-NL', { month: 'long' }),
+        year: new Date().getFullYear(),
+        current: false,
+        description: '',
+      }
+    ]
   });
+
+  console.log(cvData.certifications)
 
   const [primaryColor, setPrimaryColor] = useState('#4169E1');
   const [secondaryColor, setSecondaryColor] = useState('#000000');
@@ -75,6 +86,7 @@ export default function CvBuilder() {
     aboutMe: false,
     education: false,
     workExperience: false,
+    certifications: false,
     skills: false,
     languages: false,
   });
@@ -185,7 +197,7 @@ export default function CvBuilder() {
             </button>
 
             {collapsedSections.education && (
-              <div>
+              <div className="space-y-2">
                 {cvData.educations.map((education: any, index: number) => (
                   <div key={index} className="p-2 relative space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                     <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
@@ -240,7 +252,7 @@ export default function CvBuilder() {
             </button>
 
             {collapsedSections.workExperience && (
-              <div>
+              <div className="space-y-2">
                 {cvData.workExperiences.map((experience: any, index: number) => (
                   <div key={index} className="p-2 relative space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                     <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
@@ -282,6 +294,97 @@ export default function CvBuilder() {
                       <RichTextEditor value={experience.description} onChange={val => updateListItem('workExperiences', index, 'description', val)} />
                     </div>
                   </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Certificates */}
+          <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
+            <button type="button" className="w-full text-left" onClick={() => toggleSection('certifications')}>
+              <h4 className="text-2xl">
+                Certificaten <span className="text-orange-500">{collapsedSections.certifications ? '▼' : '▲'}</span>
+              </h4>
+            </button>
+
+            {collapsedSections.certifications && (
+              <div className="space-y-2">
+                {cvData.certifications?.map((cert: any, index: number) => (
+                  <div
+                    key={index}
+                    className="p-2 relative space-y-4 rounded-2xl border-2 border-orange-500"
+                  >
+                    {/* Add / Remove Buttons */}
+                    <div className="absolute flex gap-2 -top-4 right-1">
+                      <AddButton
+                        onClick={() =>
+                          addListItem('certifications', {
+                            name: '',
+                            month: '',
+                            year: '',
+                            current: false,
+                            description: '',
+                          })
+                        }
+                      />
+                      <RemoveButton onClick={() => removeListItem('certifications', index)} />
+                    </div>
+
+                    {/* Certification Name */}
+                    <TextInput
+                      id={`cert-name-${index}`}
+                      label="Naam"
+                      placeholder="Certificaat naam"
+                      value={cert.name}
+                      onChange={value =>
+                        updateListItem('certifications', index, 'name', value)
+                      }
+                    />
+
+                    {/* Month, Year, Current */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <div className="flex space-x-4 gap-2">
+                        <div>
+                          <p className="font-medium text-gray-700">Datum</p>
+                          <div className="flex space-x-4 gap-2">
+                            <MonthSelect
+                              value={cert.month}
+                              onChange={month =>
+                                updateListItem('certifications', index, 'month', month)
+                              }
+                            />
+                            <YearSelect
+                              value={cert.year}
+                              onChange={year =>
+                                updateListItem('certifications', index, 'year', Number(year))
+                              }
+                            />
+                          </div>
+                        </div>
+                        <div className="flex items-center mt-6">
+                          <CheckBox
+                            label="Huidig"
+                            checked={cert.current}
+                            onChange={checked =>
+                              updateListItem('certifications', index, 'current', checked)
+                            }
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <div>
+                      <p className="font-medium text-gray-700">Omschrijving</p>
+                      <RichTextEditor
+                        value={cert.description}
+                        onChange={val =>
+                          updateListItem('certifications', index, 'description', val)
+                        }
+                      />
+                    </div>
+                  </div>
+
                 ))}
               </div>
             )}
@@ -365,6 +468,7 @@ export default function CvBuilder() {
               skills={cvData.skills}
               workExperiences={cvData.workExperiences}
               educations={cvData.educations}
+              certifications={cvData.certifications}
               languages={cvData.languages}
             />
           )}
@@ -384,6 +488,7 @@ export default function CvBuilder() {
               skills={cvData.skills}
               workExperiences={cvData.workExperiences}
               educations={cvData.educations}
+              certifications={cvData.certifications}
               languages={cvData.languages}
             />
           )}

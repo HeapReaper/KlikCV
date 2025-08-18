@@ -42,6 +42,16 @@ type EducationsType = {
   }[]
 }
 
+type CertificatesType = {
+  certifications: {
+    name: string;
+    month?: string;
+    year: number;
+    current: boolean;
+    description: string;
+  }[];
+}
+
 type ThemeStyleType = {
   primaryColor: string;
   secondaryColor: string;
@@ -67,6 +77,7 @@ export type CvBuilderType =
   AboutMeType &
   WorkExperienceType &
   EducationsType &
+  CertificatesType &
   ThemeStyleType &
   SkillsType &
   LanguagesType;
