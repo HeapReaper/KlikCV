@@ -15,6 +15,7 @@ export default function Nova({
   languages,
   workExperiences,
   educations,
+  certifications,
 }: CvBuilderType) {
   const fontMap: any = {
     "font-sans": "ui-sans-serif, system-ui, -apple-system, sans-serif",
@@ -103,6 +104,7 @@ export default function Nova({
           />
         </section>
 
+
         <section>
           <h2
             className="text-xl font-semibold border-b pb-1 mb-3"
@@ -127,6 +129,7 @@ export default function Nova({
           ))}
         </section>
 
+
         <section>
           <h2
             className="text-xl font-semibold border-b pb-1 mb-3"
@@ -150,6 +153,32 @@ export default function Nova({
             </div>
           ))}
         </section>
+
+
+        {certifications.length > 0 && certifications[0].name !== '' && (
+          <section>
+            <h2
+              className="text-xl font-semibold border-b pb-1 mb-3"
+              style={{ borderColor: secondaryColor, color: primaryColor }}
+            >
+              Certificaten
+            </h2>
+            {certifications.map((cert: any, index: any) => (
+              <div key={index} className="mb-4">
+                <h3 className="text-lg font-medium">{cert.name}</h3>
+                <p className="text-xs text-gray-500">
+                  {cert.current ? "Huidig" : `${cert.month?.slice(0, 3)}-${cert.year}`}
+                </p>
+                {cert.description && (
+                  <div
+                    className="text-sm mt-2"
+                    dangerouslySetInnerHTML={{ __html: cert.description }}
+                  />
+                )}
+              </div>
+            ))}
+          </section>
+        )}
       </main>
     </div>
   );
