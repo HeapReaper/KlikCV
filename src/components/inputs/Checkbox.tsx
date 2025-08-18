@@ -4,7 +4,7 @@ export default function CheckBox({ label, checked, onChange}: InputCheckboxType)
   return (
     <>
       <div className="flex items-center space-x-2">
-        <span className="text-sm text-gray-600">
+        <span className="text-sm text-gray-700 dark:text-white">
           {label}
         </span>
         <label className="inline-flex relative items-center cursor-pointer">

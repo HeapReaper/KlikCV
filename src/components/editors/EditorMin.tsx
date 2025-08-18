@@ -43,7 +43,19 @@ export default function RichTextEditor({
       'p-2',
       'border',
       'border-orange-500',
-      'rounded-md'
+      'rounded-md',
+      'dark:text-white'
+
+    );
+
+    editorRef.current.querySelector('.pell-actionbar')?.classList.add(
+      'dark:bg-gray-800',
+      'border-b',
+      'border-orange-500'
+    );
+
+    editorRef.current.querySelectorAll('.pell-button').forEach(btn =>
+      btn.classList.add('dark:text-white', 'hover:bg-orange-500', 'hover:text-black')
     );
 
     return () => {
@@ -52,6 +64,44 @@ export default function RichTextEditor({
   }, [actions, onChange, value]);
 
   return (
-    <div ref={editorRef} className={className} />
+    <>
+      <div ref={editorRef} className={className} />
+      <style>
+        {`
+          /* Override Pell editor styles */
+          .pell-content {
+            background-color: pink;
+          }
+
+          .pell-actionbar {
+            background-color: #f0f0f0;
+          }
+
+          .pell-button {
+            color: black;
+          }
+
+          /* Dark mode overrides */
+          html.dark .pell-content {
+            background-color: #1a1a1a;
+            color: white;
+          }
+
+          html.dark .pell-actionbar {
+            background-color: #2a2a2a;
+            border-bottom: 1px solid #f97316;
+          }
+
+          html.dark .pell-button {
+            color: white;
+          }
+
+          html.dark .pell-button:hover {
+            background-color: #f97316;
+            color: black;
+          }
+        `}
+      </style>
+    </>
   );
 }

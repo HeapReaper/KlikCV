@@ -1,7 +1,7 @@
 export default function Message() {
   return (
     <div>
-      <label htmlFor="message" className="block font-medium text-gray-700">
+      <label htmlFor="message" className="block font-medium text-gray-700 dark:text-white">
         Bericht
       </label>
       <textarea

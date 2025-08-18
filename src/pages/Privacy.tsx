@@ -14,7 +14,7 @@ export default function Privacy() {
     <>
       <div className="pt-4 flex items-center flex-col mt-8">
         <div
-          className="prose prose-neutral text-black max-w-4xl marker:text-black prose-h1:text-orange-500"
+          className="prose prose-neutral text-black max-w-4xl marker:text-black prose-h1:text-orange-500 dark:text-white"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>

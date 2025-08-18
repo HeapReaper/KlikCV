@@ -20,7 +20,7 @@ export default function Blog() {
             <a href={`/blog/${slug}`}>{title}</a>
           </h2>
           <AuthorAndDate author={author} date={date} />
-          <p className="mt-2 text-gray-700">{excerpt}</p>
+          <p className="mt-2 text-gray-700 dark:text-white">{excerpt}</p>
         </article>
       ))}
     </div>

@@ -3,7 +3,7 @@ import type { InputType } from '../../types/Input';
 export default function TextInput({ id, label, placeholder, value, onChange }: InputType) {
   return (
     <div>
-      <label htmlFor={id} className="block font-medium text-gray-700">
+      <label htmlFor={id} className="block font-medium text-gray-700 dark:text-white">
         {label}
       </label>
       <input

@@ -1,7 +1,7 @@
 export default function Subject() {
   return (
     <div>
-      <label htmlFor="subject" className="block font-medium text-gray-700">
+      <label htmlFor="subject" className="block font-medium text-gray-700 dark:text-white">
         Onderwerp
       </label>
       <input

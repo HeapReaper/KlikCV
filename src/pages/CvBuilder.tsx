@@ -138,7 +138,7 @@ export default function CvBuilder() {
     <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-4">
       {/* Builder form */}
       <div>
-        <form className="space-y-4 bg-white p-2 rounded-2xl border-2 border-orange-500">
+        <form className="space-y-4 ps-2 pe-2 rounded-2xl">
           {/* Theme */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
             <button type="button" className="w-full text-left" onClick={() => toggleSection('theme')}>
@@ -148,7 +148,7 @@ export default function CvBuilder() {
             </button>
 
             {collapsedSections.theme && (
-              <div className="space-y-4 p-4 bg-white rounded-lg shadow-md w-full max-w-sm">
+              <div className="space-y-4 p-4  rounded-lg shadow-md w-full max-w-sm">
                 <div className="flex gap-4">
                   <ColorPicker label="Primary kleur" value={cvData.primaryColor} onChange={value => updateCvData('primaryColor', value)} />
                   <ColorPicker label="Secondary kleur" value={cvData.secondaryColor} onChange={value => updateCvData('secondaryColor', value)} />
@@ -248,7 +248,7 @@ export default function CvBuilder() {
 
                       <div className="flex space-x-4 gap-2">
                         <div>
-                          <p className="font-medium text-gray-700">Startdatum</p>
+                          <p className="font-medium text-gray-700 dark:text-white">Startdatum</p>
                           <div className="flex space-x-4 gap-2">
                             <MonthSelect value={education.startMonth} onChange={value => updateListItem('educations', index, 'startMonth', value)} />
                             <YearSelect value={education.startYear} onChange={value => updateListItem('educations', index, 'startYear', value)} />
@@ -256,7 +256,7 @@ export default function CvBuilder() {
                         </div>
                         <div>
                           <div className="flex items-center justify-between">
-                            <p className="font-medium text-gray-700">Einddatum</p>
+                            <p className="font-medium text-gray-700 dark:text-white">Einddatum</p>
                             <CheckBox label="Huidig" checked={education.current} onChange={checked => updateListItem('educations', index, 'current', checked)} />
                           </div>
                           <div className="flex space-x-4 gap-2">
@@ -304,7 +304,7 @@ export default function CvBuilder() {
                       </div>
                       <div className="flex space-x-4 gap-2">
                         <div>
-                          <p className="font-medium text-gray-700">Startdatum</p>
+                          <p className="font-medium text-gray-700 dark:text-white">Startdatum</p>
                           <div className="flex space-x-4 gap-2">
                             <MonthSelect value={experience.startMonth} onChange={month => updateListItem('workExperiences', index, 'startMonth', month)} />
                             <YearSelect value={experience.startYear} onChange={year => updateListItem('workExperiences', index, 'startYear', Number(year))} />
@@ -312,7 +312,7 @@ export default function CvBuilder() {
                         </div>
                         <div>
                           <div className="flex items-center justify-between">
-                            <p className="font-medium text-gray-700">Einddatum</p>
+                            <p className="font-medium text-gray-700 dark:text-white">Einddatum</p>
                             <CheckBox label="Huidig" checked={experience.current} onChange={checked => updateListItem('workExperiences', index, 'current', checked)} />
                           </div>
                           <div className="flex space-x-4 gap-2">
@@ -324,7 +324,7 @@ export default function CvBuilder() {
                     </div>
 
                     <div>
-                      <p className="font-medium text-gray-700">Omschrijving</p>
+                      <p className="font-medium text-gray-700 dark:text-white">Omschrijving</p>
                       <RichTextEditor value={experience.description} onChange={val => updateListItem('workExperiences', index, 'description', val)} />
                     </div>
                   </div>
@@ -379,7 +379,7 @@ export default function CvBuilder() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <div className="flex space-x-4 gap-2">
                         <div>
-                          <p className="font-medium text-gray-700">Datum</p>
+                          <p className="font-medium text-gray-700 dark:text-white">Datum</p>
                           <div className="flex space-x-4 gap-2">
                             <MonthSelect
                               value={cert.month}
@@ -409,7 +409,7 @@ export default function CvBuilder() {
 
                     {/* Description */}
                     <div>
-                      <p className="font-medium text-gray-700">Omschrijving</p>
+                      <p className="font-medium text-gray-700 dark:text-white">Omschrijving</p>
                       <RichTextEditor
                         value={cert.description}
                         onChange={val =>

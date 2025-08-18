@@ -4,14 +4,14 @@ export default function MonthSelect({ label, value, onChange }: InputType) {
   return (
     <>
       <form className="max-w-sm mx-auto">
-        <label htmlFor="monthSelect" className="block font-medium text-gray-700">
+        <label htmlFor="monthSelect" className="block font-medium text-gray-700 dark:text-white">
           {label}
         </label>
         <select
           name="monthSelect"
           value={value}
           onChange={(e) => onChange((e.currentTarget as unknown as HTMLInputElement).value)}
-          className="bg-white border border-solid border-orange-500 text-gray-700 text-sm rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+          className="bg-white border border-solid border-orange-500 text-gray-700 dark:text-white dark:bg-gray-950 text-sm rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
         >
           <option>
             Maand
