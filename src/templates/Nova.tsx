@@ -25,11 +25,11 @@ export default function Nova({
   return (
     <div
       style={{ fontFamily: fontMap[fontFamily] }}
-      className="grid grid-cols-3 gap-6 p-1 bg-white text-gray-800"
+      className="grid grid-cols-3 gap-7 p-1 bg-white text-gray-800"
     >
       {/* Sidebar */}
       <aside
-        className="col-span-1 bg-gray-50 rounded-2xl p-6 flex flex-col gap-6 shadow-sm"
+        className="col-span-1 bg-gray-50 rounded-2xl pl flex flex-col gap-6 shadow-sm"
         style={{ borderColor: primaryColor }}
       >
         <div className="text-center">
@@ -89,7 +89,7 @@ export default function Nova({
       </aside>
 
       {/* Main */}
-      <main className="col-span-2 space-y-8">
+      <main className="col-span-2 space-y-3">
         <section>
           <h2
             className="text-xl font-semibold border-b pb-1 mb-3"
