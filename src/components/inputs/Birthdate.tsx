@@ -3,7 +3,7 @@ import type { InputType } from '../../types/Input';
 export default function City({ value, onChange }: InputType) {
   return (
     <div>
-      <label htmlFor="birthdate" className="block font-medium text-gray-700">
+      <label htmlFor="birthdate" className="block font-medium text-gray-700 dark:text-white">
         Geboortedatum
       </label>
       <input

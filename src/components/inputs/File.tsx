@@ -3,7 +3,7 @@ import type { FileInputType } from '../../types/Input';
 export default function FileInput({ id, label, accept, onChange }: FileInputType) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={id} className=" font-medium text-gray-700">
+      <label htmlFor={id} className=" font-medium text-gray-700 dark:text-white">
         {label}
       </label>
       <input
@@ -13,7 +13,7 @@ export default function FileInput({ id, label, accept, onChange }: FileInputType
         accept={accept}
         onChange={onChange}
         className="
-          block w-full text-sm text-gray-700
+          block w-full text-sm text-gray-700 dark:text-white
           file:mr-4 file:py-2 file:px-4
           file:rounded-lg file:border-0
           file:text-sm file:font-medium

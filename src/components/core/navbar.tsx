@@ -9,14 +9,27 @@ import Blog from '../../pages/Blog';
 import CvBuilder from '../../pages/CvBuilder';
 import BlogShow from '../../pages/BlogShow';
 import Faq from '../../pages/Faq';
+import { getCookie, setCookie } from '../../utils/cookies';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState<string | null>(null);
+  const [darkMode, setDarkMode] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setCurrentPath(window.location.pathname);
+    }
+
+    const modePreference = getCookie('mode');
+
+    if (modePreference !== null ) {
+      setDarkMode(modePreference === 'true');
+      document.documentElement.classList.toggle('dark', modePreference === 'true');
+    } else {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setDarkMode(prefersDark);
+      document.documentElement.classList.toggle('dark', prefersDark);
     }
   }, []);
 
@@ -24,16 +37,23 @@ export default function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
+  const toggleDarkMode = (): void => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    document.documentElement.classList.toggle('dark', newMode);
+    setCookie('darkMode', newMode.toString(), 365); // persist for 1 year
+  };
+
   const isActive = (path: string) => {
-    if (currentPath === null) return 'text-gray-700 hover:text-orange-600';
+    if (currentPath === null) return 'text-gray-700 dark:text-white hover:text-orange-600';
 
     return currentPath === path
       ? 'text-orange-600 font-semibold'
-      : 'text-gray-700 hover:text-orange-600';
+      : 'text-gray-700 hover:text-orange-600 dark:text-white';
   };
 
   return (
-    <nav className="text-gray-700 transition-colors duration-300 backdrop-blur-md">
+    <nav className="text-gray-700 dark:text-white transition-colors duration-300 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -42,7 +62,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          <div className="hidden md:flex space-x-4 items-center">
+          <div className="hidden md:flex space-x-4 items-center dark:text-white">
             {/* @ts-ignore */}
             <Link href="/" className={isActive("/")}>
               Home
@@ -65,7 +85,14 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 dark:text-white">
+            <button
+              className="p-2 rounded hover:bg-orange-500"
+              onClick={toggleDarkMode}
+            >
+              {darkMode ? '☀️' : '🌙'}
+            </button>
+
             <button
               id="menu-toggle"
               className="text-gray-700 md:hidden focus:outline-none"
@@ -90,7 +117,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className={`${menuOpen ? "block" : "hidden"} absolute top-16 left-0 w-full bg-white px-4 pb-4 md:hidden z-50 border-b`}
+        className={`${menuOpen ? "block" : "hidden"} absolute top-16 left-0 w-full bg-white dark:text-white px-4 pb-4 md:hidden z-50 border-b`}
       >
         {/* @ts-ignore */}
         <Link href="/" className={`block py-2 ${isActive("/")}`} onClick={() => setMenuOpen(false)}>

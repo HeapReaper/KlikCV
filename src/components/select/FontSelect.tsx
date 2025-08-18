@@ -3,7 +3,7 @@ import type { InputType } from '../../types/Input';
 export default function FontFamilySelect({ value, onChange }: InputType) {
   return (
     <div className="max-w-sm mx-auto">
-      <label htmlFor="fontFamily" className="block font-medium text-gray-700 mb-2">
+      <label htmlFor="fontFamily" className="block font-medium text-gray-700 dark:text-white mb-2">
         Font
       </label>
       <select
@@ -11,7 +11,7 @@ export default function FontFamilySelect({ value, onChange }: InputType) {
         name="fontFamily"
         value={value}
         onChange={(e) => onChange((e.currentTarget as unknown as HTMLInputElement).value)}
-        className="bg-white border border-solid border-orange-500 text-gray-700 text-sm rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 p-2.5"
+        className="bg-white border border-solid border-orange-500 text-gray-700 dark:text-white dark:bg-gray-950 text-sm rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 p-2.5"
       >
         <option value="font-sans" className="font-sans">
           Font Sans

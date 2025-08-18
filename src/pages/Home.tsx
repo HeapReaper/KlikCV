@@ -10,7 +10,7 @@ export default function Home() {
           <h1 className="text-5xl font-bold text-center text-orange-500">
             Bouw jouw gratis CV in enkele minuten
           </h1>
-          <p className="text-center text-gray-700">
+          <p className="text-center text-gray-700 dark:text-white">
             Vul jouw gegevens in, selecteer een template en download jouw CV direct.
           </p>
 
@@ -82,9 +82,9 @@ export default function Home() {
           </h1>
           <FAQ setAmount={4} />
 
-          <p className="text-center text-sm mt-2">
+          <p className="text-center text-sm mt-2 dark:text-white">
             {/* @ts-ignore */}
-            Voor alle vragen <Link href="/faq">klik hier</Link>
+            Voor alle vragen <Link href="/faq" className="underline decoration-orange-500">klik hier</Link>
           </p>
         </div>
       </div>

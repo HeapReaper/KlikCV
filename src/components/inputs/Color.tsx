@@ -3,7 +3,7 @@ import type { InputType } from '../../types/Input';
 export default function ColorPicker({ label, value, onChange }: InputType) {
   return (
     <>
-      <label htmlFor="colorPicker" className="block font-medium text-gray-700">
+      <label htmlFor="colorPicker" className="block font-medium text-gray-700 dark:text-white">
         {label}
       </label>
       <input

@@ -3,7 +3,7 @@ import type { InputType } from '../../types/Input';
 export default function Phone({ value, onChange }: InputType) {
   return (
     <div>
-      <label htmlFor="phone" className="block font-medium text-gray-700">
+      <label htmlFor="phone" className="block font-medium text-gray-700 dark:text-white">
         Telefoonnummer
       </label>
       <input

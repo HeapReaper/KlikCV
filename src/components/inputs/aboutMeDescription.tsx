@@ -6,7 +6,7 @@ export default function AboutMeDescription({ value, onChange }: EditorType) {
     <div>
       <label
         htmlFor="aboutMeDescription"
-        className="block font-medium text-gray-700 mb-1"
+        className="block font-medium text-gray-700 dark:text-white mb-1"
       >
         Over mij
       </label>

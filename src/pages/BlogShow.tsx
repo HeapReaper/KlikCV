@@ -17,9 +17,9 @@ export default function BlogShow({ slug }: BlogSlugType) {
   if (!article) return;
 
   return (
-    <div className="pt-4 flex flex-col mt-8">
+    <div className="pt-4 flex flex-col items-center mt-8">
       <div
-        className="prose prose-neutral text-black max-w-none marker:text-black"
+        className="prose prose-neutral text-black max-w-4xl marker:text-black prose-h1:text-orange-500 dark:text-white"
         dangerouslySetInnerHTML={{ __html: article.html ? article.html : '' }}
       />
     </div>
