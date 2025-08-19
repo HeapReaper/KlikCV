@@ -11,6 +11,8 @@ import BlogShow from '../../pages/BlogShow';
 import Faq from '../../pages/Faq';
 import { getCookie, setCookie } from '../../utils/cookies';
 
+import { motion } from 'framer-motion';
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState<string | null>(null);
@@ -95,19 +97,30 @@ export default function Navbar() {
 
             <button
               id="menu-toggle"
-              className="text-orange-500 hover:text-orange-700 md:hidden focus:outline-none"
+              className="md:hidden w-8 h-8 flex items-center justify-center"
               onClick={toggleMenu}
             >
               <svg
-                className="w-6 h-6 hover:stroke-orange-600"
+                className="w-6 h-6 text-orange-500"
+                viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                viewBox="0 0 24 24"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <path d="M4 6h16M4 12h16M4 18h16" />
+                <motion.path
+                  animate={menuOpen ? { d: "M6 18L18 6" } : { d: "M4 6h16" }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.path
+                  animate={menuOpen ? { opacity: 0 } : { d: "M4 12h16", opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.path
+                  animate={menuOpen ? { d: "M6 6L18 18" } : { d: "M4 18h16" }}
+                  transition={{ duration: 0.3 }}
+                />
               </svg>
             </button>
           </div>
@@ -115,9 +128,12 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div
+      <motion.div
         id="mobile-menu"
-        className={`${menuOpen ? "block" : "hidden"} absolute top-16 left-0 w-full bg-white dark:text-white dark:bg-gray-950 px-4 pb-4 md:hidden z-50 `}
+        initial={{ y: -20, opacity: 0 }}
+        animate={menuOpen ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="absolute top-16 left-0 w-full bg-white dark:text-white dark:bg-gray-950 px-4 pb-4 md:hidden z-50"
       >
         {/* @ts-ignore */}
         <Link href="/" className={`block py-2 ${isActive('/')}`} onClick={() => setMenuOpen(false)}>
@@ -139,7 +155,7 @@ export default function Navbar() {
         <Link href="/privacy" className={`block py-2 ${isActive('/privacy')}`} onClick={() => setMenuOpen(false)}>
           Privacy
         </Link>
-      </div>
+      </motion.div>
 
       <Router onChange={e => setCurrentPath(e.url)} >
         {/* @ts-ignore */}
