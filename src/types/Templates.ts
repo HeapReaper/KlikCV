@@ -79,6 +79,10 @@ type HobbiesType = {
   }[]
 }
 
+type SectionStatesType = {
+  hobbies: boolean;
+}
+
 export type CvBuilderType =
   PersonalInfoType &
   AboutMeType &
@@ -88,4 +92,5 @@ export type CvBuilderType =
   ThemeStyleType &
   SkillsType &
   LanguagesType &
-  HobbiesType;
+  HobbiesType &
+  SectionStatesType;

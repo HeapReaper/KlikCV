@@ -1,5 +1,6 @@
 import type { CvBuilderType } from '../types/Templates';
-import { fontMap} from '../config/fonts';
+import { fontMap } from '../config/fonts';
+import { formatDate } from '../utils/formatDate';
 
 export const settings = {
   padding: '10' as const,
@@ -50,7 +51,7 @@ export default function Nova({
 
         <div className="text-sm space-y-2">
           <p>{city || "Amsterdam"}</p>
-          <p>{new Date(birthdate).toLocaleDateString('nl-NL') || "01-01-2000"}</p>
+          <p>{formatDate(birthdate) || "01-01-2000"}</p>
           <a
             href={`mailto:${email}`}
             className="hover:underline block break-words"

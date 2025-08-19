@@ -13,7 +13,6 @@ export const useCvState = (initialState: any) => {
       const storedData = Cookies.get(COOKIE_NAME);
       if (storedData) {
         const parsed = JSON.parse(storedData);
-        // Merge defaults for missing fields
         return { ...initialState, ...parsed };
       }
       return initialState;
@@ -89,7 +88,7 @@ export const useCv = () => {
       {
         name: '',
       }
-    ]
+    ],
   });
 
   const templateComponents = getTemplates()
