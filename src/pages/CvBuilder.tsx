@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'preact/hooks';
 import FullName from '../components/inputs/FullName';
 import Email from '../components/inputs/Email';
 import Phone from '../components/inputs/Phone';
@@ -15,123 +14,27 @@ import MonthSelect from '../components/select/MonthSelect';
 import YearSelect from '../components/select/YearSelect';
 import RichTextEditor from '../components/editors/EditorMin';
 import CheckBox from '../components/inputs/Checkbox';
-import { useCvState } from '../hooks/useCvState';
 import TextInput from '../components/inputs/Text';
 import SkillLevelSelect from '../components/select/LevelSelect';
 import { exportToPdf } from '../utils/exportToPdf';
 import TemplateSelect from '../components/select/TemplateSelect';
-import { getCookie, setCookie } from '../utils/cookies';
 import FileInput from '../components/inputs/File';
-import { loadFromLocalStorage, saveToLocalStorage } from '../utils/localStorage';
-import { getTemplates } from '../utils/getTemplates';
-
-const templateComponents = getTemplates()
+import { saveToLocalStorage } from '../utils/localStorage';
+import { useCv } from '../hooks/useCvState';
 
 export default function CvBuilder() {
-  const [cvData, setCvData] = useCvState({
-    primaryColor: 'F97316',
-    secondaryColor: 'F97316',
-    font: 'font-sans',
-    template: 'Luna',
-    fullName: '',
-    email: '',
-    phone: '',
-    city: '',
-    birthdate: '',
-    preferredFunction: '',
-    aboutMeDescription: '',
-    languages: [{ language: '', level: '' }],
-    skills: [{ skill: '', level: '' }],
-    workExperiences: [
-      {
-        jobTitle: '',
-        employer: '',
-        place: '',
-        startMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
-        startYear: new Date().getFullYear(),
-        endMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
-        endYear: new Date().getFullYear(),
-        current: false,
-        description: '',
-      },
-    ],
-    educations: [
-      {
-        name: '',
-        institution: '',
-        place: '',
-        startMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
-        startYear: new Date().getFullYear(),
-        endMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
-        endYear: new Date().getFullYear(),
-        current: false,
-        description: '',
-      },
-    ],
-    certifications: [
-      {
-        name: '',
-        month: new Date().toLocaleString('nl-NL', { month: 'long' }),
-        year: new Date().getFullYear(),
-        current: false,
-        description: '',
-      }
-    ]
-  });
-
-  const SelectedTemplate = templateComponents[cvData.template];
-
-  const [collapsedSections, setCollapsedSections] = useState(() => {
-    const cookie = getCookie('collapsedSections');
-    return cookie ? JSON.parse(cookie) : {
-      theme: false,
-      personalInfo: false,
-      aboutMe: false,
-      education: false,
-      workExperience: false,
-      certifications: false,
-      skills: false,
-      languages: false,
-    };
-  });
-
-  const toggleSection = (section: string) => {
-    const updated = { ...collapsedSections, [section]: !collapsedSections[section] };
-    setCollapsedSections(updated);
-    setCookie('collapsedSections', JSON.stringify(updated));
-  };
-
-  const updateCvData = (field: any, value: any) => {
-    setCvData((prev: any) => ({ ...prev, [field]: value }));
-  };
-
-  const updateListItem = (listName: any, index: number, field: any, value: any) => {
-    setCvData((prev: { [x: string]: any[]; }) => ({
-      ...prev,
-      [listName]: prev[listName].map((item: any, i: any) =>
-        i === index ? { ...item, [field]: value } : item
-      ),
-    }));
-  };
-
-  const addListItem = (listName: any, newItem: any) => {
-    setCvData((prev: { [x: string]: any; }) => ({
-      ...prev,
-      [listName]: [...prev[listName], newItem],
-    }));
-  };
-
-  const removeListItem = (listName: any, index: number) => {
-    setCvData((prev: { [x: string]: any[]; }) => ({
-      ...prev,
-      [listName]: prev[listName].filter((_: any, i: number) => i !== index),
-    }));
-  };
-
-  const [profilePicture, setProfilePicture] = useState<string | null>(null);
-  useEffect(() => {
-    setProfilePicture(loadFromLocalStorage('profilePicture'));
-  }, []);
+  const {
+    cvData,
+    SelectedTemplate,
+    collapsedSections,
+    toggleSection,
+    updateCvData,
+    updateListItem,
+    addListItem,
+    removeListItem,
+    profilePicture,
+    setProfilePicture,
+  } = useCv();
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-4">
@@ -267,7 +170,7 @@ export default function CvBuilder() {
 
                     </div>
                     <div>
-                      <p className="font-medium text-gray-700">Omschrijving</p>
+                      <p className="font-medium text-gray-700 dark:text-white">Omschrijving</p>
                       <RichTextEditor value={education.description} onChange={val => updateListItem('educations', index, 'description', val)} />
                     </div>
                   </div>
@@ -471,7 +374,35 @@ export default function CvBuilder() {
             )}
           </div>
 
-          {/* Custom section*/}
+          {/* Hobbies section*/}
+          {/* Languages */}
+          <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
+            <button type="button" className="w-full text-left" onClick={() => toggleSection('hobbies')}>
+              <h4 className="text-2xl">
+                Hobbies <span className="text-orange-500">{collapsedSections.hobbies ? '▼' : '▲'}</span>
+              </h4>
+            </button>
+
+            {collapsedSections.hobbies && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {cvData.hobbies.map((hobby: any, index: number) => (
+                  <div key={index} className="p-2 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
+                    <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
+                      <AddButton onClick={() => addListItem('hobbies', { language: '', level: '' })} />
+                      <RemoveButton onClick={() => removeListItem('hobbies', index)} />
+                    </div>
+                    <TextInput
+                      id="hobbies[]"
+                      label="Naam"
+                      placeholder="Hobby naam"
+                      value={hobby.name}
+                      onChange={value => updateListItem('hobbies', index, 'name', value)}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
 
           <button
             type="button"
@@ -484,10 +415,10 @@ export default function CvBuilder() {
       </div>
 
       {/* Builder preview */}
-      <div className="flex justify-center border-2 border-orange-500 dark:border-gray-950 rounded-xl">
-        <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: '10mm' }}>
-          {SelectedTemplate && (
-            <SelectedTemplate
+      <div className="flex justify-center border-2 border-orange-500 dark:border-gray-950 rounded-xl -s">
+        <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: `${SelectedTemplate.settings.padding}mm` }}>
+          {SelectedTemplate.Component && (
+            <SelectedTemplate.Component
               name={cvData.fullName}
               email={cvData.email}
               phone={cvData.phone}
@@ -504,6 +435,7 @@ export default function CvBuilder() {
               educations={cvData.educations}
               certifications={cvData.certifications}
               languages={cvData.languages}
+              hobbies={cvData.hobbies}
             />
           )}
         </div>

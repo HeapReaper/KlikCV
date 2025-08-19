@@ -73,6 +73,12 @@ type LanguagesType = {
   }[];
 }
 
+type HobbiesType = {
+  hobbies: {
+    name: string;
+  }[]
+}
+
 export type CvBuilderType =
   PersonalInfoType &
   AboutMeType &
@@ -81,4 +87,5 @@ export type CvBuilderType =
   CertificatesType &
   ThemeStyleType &
   SkillsType &
-  LanguagesType;
+  LanguagesType &
+  HobbiesType;

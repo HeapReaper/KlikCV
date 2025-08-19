@@ -1,6 +1,10 @@
 import type { CvBuilderType } from '../types/Templates.ts';
 import { fontMap } from '../config/fonts';
 
+export const settings = {
+  padding: '10' as const,
+};
+
 export default function Luna({
   name,
   email,
@@ -22,7 +26,7 @@ export default function Luna({
   return (
     <>
       <div style={{ fontFamily: fontMap[fontFamily] }}>
-        <header role="banner" className="pb-4">
+        <header role="banner" className="pb-4 text-black">
           <h1 className="text-3xl font-bold mt-3">
             {name || "John Doe"}
           </h1>
@@ -105,7 +109,7 @@ export default function Luna({
               Over mij
             </h2>
 
-            <div className="flex flex-wrap gap-8 items-center">
+            <div className="flex flex-wrap gap-4 items-center">
               {profilePicture && (
                 <div className="flex-shrink-0 flex items-center">
                   <img
@@ -267,8 +271,6 @@ export default function Luna({
               </ul>
             </section>
           )}
-
-
         </main>
 
         <footer role="contentinfo" className="mt-8 text-center text-gray-500 text-xs">
