@@ -22,15 +22,17 @@ export default function Orion({
   workExperiences,
   educations,
   certifications,
+  hobbies
 }: CvBuilderType) {
   return (
     <div style={{fontFamily: fontMap[fontFamily]}} className="">
       <main className="mx-auto max-w-5xl bg-white">
-        <div className="grid md:grid-cols-[300px_1fr]">
-          <aside className="text-white p-3" style={{ backgroundColor: primaryColor }}>
+        <div className="grid md:grid-cols-[200px_1fr]">
+          <aside className="text-white p-3 " style={{ backgroundColor: primaryColor }}>
+            <img src={profilePicture || 'https://placehold.co/30x30'}
+                 alt="Profielfoto" className="h-20 w-20 rounded-full object-cover ring-4 ring-white/20"/>
             <div className="flex items-center gap-4">
-              <img src={profilePicture || 'https://placehold.co/30x30'}
-                   alt="Profielfoto" className="h-20 w-20 rounded-full object-cover ring-4 ring-white/20"/>
+
               <div className="font-semibold leading-tight">
                 <div className="text-2xl">
                   {name || 'John Doe'}
@@ -82,23 +84,25 @@ export default function Orion({
                 </ul>
               </section>
 
-              <section>
-                <h3 className="uppercase tracking-widest text-xs font-bold mb-3 opacity-90">
-                  Skills
-                </h3>
-                <ul className="list-disc list-inside space-y-1 font-medium">
-                  {skills.map((skill, index) => (
-                    <li key={index}>
-                      {skill.skill}
-                    </li>
-                  ))}
-                </ul>
-              </section>
+              {skills.length > 0 && skills[0].skill !== '' && (
+                <section>
+                  <h3 className="uppercase tracking-widest text-xs font-bold mb-3 opacity-90">
+                    Skills
+                  </h3>
+                  <ul className="list-disc list-inside space-y-1 font-medium">
+                    {skills.map((skill, index) => (
+                      <li key={index}>
+                        {skill.skill}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
               {languages.length > 0 && languages[0].language !== '' && (
                 <section>
                   <h3 className="uppercase tracking-widest text-xs font-bold mb-3 opacity-90">Talen</h3>
-                  <ul className="space-y-1 font-medium">
+                  <ul className="space-y-1 list-disc list-inside font-medium">
                     {languages.map((l, i) => (
                       <li key={i}>
                         {l.language} ({l.level})
@@ -108,17 +112,20 @@ export default function Orion({
                 </section>
               )}
 
-              {/*
-              <section>
-                <h3 className="uppercase tracking-widest text-xs font-bold mb-3 opacity-90">Hobby's</h3>
-                <ul className="space-y-1 font-medium">
-                  <li>Concerten</li>
-                  <li>Gitaar &amp; eigen muziek</li>
-                  <li>Vlogs maken</li>
-                  <li>Wielrennen</li>
-                </ul>
-              </section>
-              */}
+              {hobbies.length > 0 && hobbies[0].name !== '' && (
+                <section>
+                  <h3 className="uppercase tracking-widest text-xs font-bold mb-3 opacity-90">
+                    Hobby's
+                  </h3>
+                  <ul className="space-y-1 list-disc list-inside font-medium">
+                    {hobbies.map((hobby, i) => (
+                      <li key={i}>
+                        {hobby.name}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
               {/*
               <section>
