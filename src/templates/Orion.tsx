@@ -140,7 +140,7 @@ export default function Orion({
             <header className="flex items-start justify-between gap-6">
               <div>
                 <h1 className="text-3xl font-semibold">Cv</h1>
-                <p className="text-orange-500 font-semibold text-4xl -mt-1">
+                <p className=" font-semibold text-4xl -mt-1" style={{ color: primaryColor }}>
                   Curriculum Vitae
                 </p>
                 <h2 className="sr-only">
