@@ -1,8 +1,7 @@
 ---
 title: "Waarom ik dit gemaakt heb"
 slug: "waarom-ik-dit-gemaakt-heb"
-excerpt: "Ik heb ervaring met full stack web development maar
-om een of andere reden kreeg ik layouts niet goed bij het maken van mijn CV in Word."
+excerpt: "Ik heb ervaring met full stack web development.."
 date: 18-8-2025
 author: "Kelvin de Reus"
 draft: false
