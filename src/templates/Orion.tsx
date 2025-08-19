@@ -1,5 +1,6 @@
 import type { CvBuilderType } from '../types/Templates';
 import { fontMap} from '../config/fonts';
+import { formatDate } from '../utils/formatDate';
 
 export const settings = {
   padding: '0' as const,
@@ -82,7 +83,7 @@ export default function Orion({
                       Geboortedatum
                     </div>
                     <div className="font-medium">
-                      {new Date(birthdate).toLocaleDateString('nl-NL') || '01-01-2000'}
+                      {formatDate(birthdate) || '01-01-2000'}
                     </div>
                   </li>
                 </ul>

@@ -1,5 +1,6 @@
 import type { CvBuilderType } from '../types/Templates.ts';
 import { fontMap } from '../config/fonts';
+import { formatDate } from '../utils/formatDate';
 
 export const settings = {
   padding: '10' as const,
@@ -68,7 +69,7 @@ export default function Luna({
                 </svg>
                 <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer"
                    className=" hover:underline focus:outline-2" style={{ outlineColor: primaryColor }}>
-                  {new Date(birthdate).toLocaleDateString('nl-NL') || "1-1-2000"}
+                  {formatDate(birthdate) || "1-1-2000"}
                 </a>
               </p>
 
