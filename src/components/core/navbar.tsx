@@ -133,7 +133,8 @@ export default function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={menuOpen ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="absolute top-16 left-0 w-full bg-white dark:text-white dark:bg-gray-950 px-4 pb-4 md:hidden z-50"
+        className={`absolute top-16 left-0 w-full bg-white dark:text-white dark:bg-gray-950 px-4 pb-4 md:hidden z-50
+              ${menuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
       >
         {/* @ts-ignore */}
         <Link href="/" className={`block py-2 ${isActive('/')}`} onClick={() => setMenuOpen(false)}>

@@ -6,7 +6,7 @@ export default function Orion({
 
 }: CvBuilderType) {
   return (
-    <div style={{fontFamily: fontMap[fontFamily]}} className="bg-gray-100 p-4 md:p-8">
+    <div style={{fontFamily: fontMap[fontFamily]}} className="bg-gray-100">
       <main className="mx-auto max-w-5xl shadow-xl bg-white">
         <div className="grid md:grid-cols-[300px_1fr]">
           <aside className="bg-orange-500 text-white p-6 md:p-8">

@@ -479,13 +479,13 @@ export default function CvBuilder() {
             className="mb-4 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
           >
             Download CV als PDF
-          </button>
+          </button>]
         </form>
       </div>
 
       {/* Builder preview */}
-      <div className="flex justify-center border-2 border-orange-500 dark:border-gray-950 rounded-xl">
-        <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: '10mm' }}>
+      <div className="flex justify-center border-2 border-orange-500 dark:border-gray-950 rounded-xl -s">
+        <div id="pdf" className="bg-white " style={{ width: '210mm', minHeight: '297mm', padding: '10mm' }}>
           {SelectedTemplate && (
             <SelectedTemplate
               name={cvData.fullName}
