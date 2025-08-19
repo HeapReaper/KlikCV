@@ -25,7 +25,6 @@ import FileInput from '../components/inputs/File';
 import { loadFromLocalStorage, saveToLocalStorage } from '../utils/localStorage';
 import { getTemplates } from '../utils/getTemplates';
 
-
 const templateComponents = getTemplates()
 
 export default function CvBuilder() {

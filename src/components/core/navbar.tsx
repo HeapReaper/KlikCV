@@ -64,23 +64,23 @@ export default function Navbar() {
 
           <div className="hidden md:flex space-x-4 items-center dark:text-white">
             {/* @ts-ignore */}
-            <Link href="/" className={isActive("/")}>
+            <Link href="/" className={isActive('/')}>
               Home
             </Link>
             {/* @ts-ignore */}
-            <Link href="/cv/bouw" className={isActive("/cv/bouw")}>
+            <Link href="/cv/bouw" className={isActive('/cv/bouw')}>
               CV bouwer
             </Link>
             {/* @ts-ignore */}
-            <Link href="/blog" className={isActive("/blog")}>
+            <Link href="/blog" className={isActive('/blog')}>
               Blog
             </Link>
             {/* @ts-ignore */}
-            <Link href="/over-ons" className={isActive("/over-ons")}>
+            <Link href="/over-ons" className={isActive('/over-ons')}>
               Over ons
             </Link>
             {/* @ts-ignore */}
-            <Link href="/privacy" className={isActive("/privacy")}>
+            <Link href="/privacy" className={isActive('/privacy')}>
               Privacy
             </Link>
           </div>
@@ -120,28 +120,28 @@ export default function Navbar() {
         className={`${menuOpen ? "block" : "hidden"} absolute top-16 left-0 w-full bg-white dark:text-white dark:bg-gray-950 px-4 pb-4 md:hidden z-50 `}
       >
         {/* @ts-ignore */}
-        <Link href="/" className={`block py-2 ${isActive("/")}`} onClick={() => setMenuOpen(false)}>
+        <Link href="/" className={`block py-2 ${isActive('/')}`} onClick={() => setMenuOpen(false)}>
           Home
         </Link>
         {/* @ts-ignore */}
-        <Link href="/cv/bouw" className={`block py-2 ${isActive("/cv/bouw")}`} onClick={() => setMenuOpen(false)}>
+        <Link href="/cv/bouw" className={`block py-2 ${isActive('/cv/bouw')}`} onClick={() => setMenuOpen(false)}>
           CV bouwer
         </Link>
         {/* @ts-ignore */}
-        <Link href="/blog" className={`block py-2 ${isActive("/blog")}`} onClick={() => setMenuOpen(false)}>
+        <Link href="/blog" className={`block py-2 ${isActive('/blog')}`} onClick={() => setMenuOpen(false)}>
           Blog
         </Link>
         {/* @ts-ignore */}
-        <Link href="/over-ons" className={`block py-2 ${isActive("/over-ons")}`} onClick={() => setMenuOpen(false)}>
+        <Link href="/over-ons" className={`block py-2 ${isActive('/over-ons')}`} onClick={() => setMenuOpen(false)}>
           Over ons
         </Link>
         {/* @ts-ignore */}
-        <Link href="/privacy" className={`block py-2 ${isActive("/privacy")}`} onClick={() => setMenuOpen(false)}>
+        <Link href="/privacy" className={`block py-2 ${isActive('/privacy')}`} onClick={() => setMenuOpen(false)}>
           Privacy
         </Link>
       </div>
 
-      <Router>
+      <Router onChange={e => setCurrentPath(e.url)} >
         {/* @ts-ignore */}
         <Home path="/" />
         {/* @ts-ignore */}
