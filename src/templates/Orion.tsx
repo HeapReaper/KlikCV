@@ -28,22 +28,26 @@ export default function Orion({
     <div style={{fontFamily: fontMap[fontFamily]}} className="">
       <main className="mx-auto max-w-5xl bg-white">
         <div className="grid md:grid-cols-[200px_1fr]">
-          <aside className="text-white p-3 " style={{ backgroundColor: primaryColor }}>
-            <img src={profilePicture || 'https://placehold.co/30x30'}
-                 alt="Profielfoto" className="h-20 w-20 rounded-full object-cover ring-4 ring-white/20"/>
-            <div className="flex items-center gap-4">
+          <aside
+            className="text-white ps-3 pe-3 flex flex-col items-center justify-center gap-4"
+            style={{ backgroundColor: primaryColor }}
+          >
+            <img
+              src={profilePicture || 'https://placehold.co/30x30'}
+              alt="Profielfoto"
+              className="h-24 w-24 rounded-full object-cover ring-4 ring-white/20"
+            />
 
-              <div className="font-semibold leading-tight">
-                <div className="text-2xl">
-                  {name || 'John Doe'}
-                </div>
-                <div className="text-white/90">
-                  {preferredFunction || 'Web developer'}
-                </div>
+            <div className="font-semibold leading-tight text-center">
+              <div className="text-2xl">
+                {name || 'John Doe'}
+              </div>
+              <div className="text-white/90">
+                {preferredFunction || 'Web developer'}
               </div>
             </div>
 
-            <div className="mt-8 space-y-7 text-sm">
+            <div className="mt-4 space-y-4 text-sm">
               <section>
                 <h3 className="uppercase tracking-widest text-xs font-bold mb-3 opacity-90">
                   Personalia
@@ -140,7 +144,7 @@ export default function Orion({
             <header className="flex items-start justify-between gap-6">
               <div>
                 <h1 className="text-3xl font-semibold">Cv</h1>
-                <p className="text-orange-500 font-semibold text-4xl -mt-1">
+                <p className=" font-semibold text-4xl -mt-1" style={{ color: primaryColor }}>
                   Curriculum Vitae
                 </p>
                 <h2 className="sr-only">
