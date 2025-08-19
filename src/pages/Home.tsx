@@ -19,14 +19,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="space-y-4 border-2 border-solid border-orange-500 rounded-lg pt-3 pb-3">
+        <div className="space-y-4 rounded-lg p-4 max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
           <h1 className="text-5xl font-bold text-center text-orange-500">
             De leukste in-house gemaakte sjablonen
           </h1>
-          <div className="mt-10 relative max-w-7xl mx-auto px-4">
-            {/* Make this div scrollable on small screens */}
-            <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent">
-              <div className="flex-shrink-0 min-w-[250px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
+          <div className="mt-10 relative max-w-4xl mx-auto w-full">
+            <div className="flex gap-4 overflow-x-auto pb-4 px-2 scrollbar-thin scrollbar-thumb-orange-700 scrollbar-track-orange-200 w-full">
+              <div className="flex-shrink-0 flex-none min-w-[60%] sm:min-w-[48%] md:min-w-[280px] lg:min-w-[320px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
                 <img
                   src="/Luna.png"
                   alt="Luna template"
@@ -35,7 +34,7 @@ export default function Home() {
                 <h3 className="font-bold text-xl">Luna</h3>
               </div>
 
-              <div className="flex-shrink-0 min-w-[250px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
+              <div className="flex-shrink-0 flex-none min-w-[60%] sm:min-w-[48%] md:min-w-[280px] lg:min-w-[320px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
                 <img
                   src="/Nova.png"
                   alt="Nova template"
@@ -43,10 +42,18 @@ export default function Home() {
                 />
                 <h3 className="font-bold text-xl">Nova</h3>
               </div>
+
+              <div className="flex-shrink-0 flex-none min-w-[60%] sm:min-w-[48%] md:min-w-[280px] lg:min-w-[320px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
+                <img
+                  src="/Luna.png"
+                  alt="Luna template"
+                  className="rounded mb-4 mx-auto h-80 w-auto object-contain"
+                />
+                <h3 className="font-bold text-xl">Luna</h3>
+              </div>
             </div>
           </div>
         </div>
-
 
 
         {/*
@@ -78,15 +85,19 @@ export default function Home() {
         </div>
         */}
 
-        <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-bold text-center text-orange-500 mb-8">
+        <div className="max-w-4xl mx-auto flex flex-col items-center justify-center ">
+          <h1 className="text-5xl font-bold text-orange-500 mb-8">
             Veelgestelde vragen
           </h1>
+
           <FAQ setAmount={4} />
 
-          <p className="text-center text-sm mt-2 dark:text-white">
+          <p className="text-sm mt-2 dark:text-white">
+            Voor alle vragen{" "}
             {/* @ts-ignore */}
-            Voor alle vragen <Link href="/faq" className="underline decoration-orange-500">klik hier</Link>
+            <Link href="/faq" className="underline decoration-orange-500">
+              klik hier
+            </Link>
           </p>
         </div>
       </div>

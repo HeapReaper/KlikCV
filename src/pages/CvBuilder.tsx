@@ -23,12 +23,9 @@ import TemplateSelect from '../components/select/TemplateSelect';
 import { getCookie, setCookie } from '../utils/cookies';
 import FileInput from '../components/inputs/File';
 import { loadFromLocalStorage, saveToLocalStorage } from '../utils/localStorage';
+import { getTemplates } from '../utils/getTemplates';
 
-// Templates
-// TODO: make it extend itself by adding files in /src/templates
-import Luna from '../templates/Luna';
-import Nova from '../templates/Nova';
-import Orion from '../templates/Orion';
+const templateComponents = getTemplates()
 
 export default function CvBuilder() {
   const [cvData, setCvData] = useCvState({
@@ -81,6 +78,8 @@ export default function CvBuilder() {
       }
     ]
   });
+
+  const SelectedTemplate = templateComponents[cvData.template];
 
   const [collapsedSections, setCollapsedSections] = useState(() => {
     const cookie = getCookie('collapsedSections');
@@ -485,52 +484,10 @@ export default function CvBuilder() {
       </div>
 
       {/* Builder preview */}
-      <div className="flex justify-center border-2 border-orange-500 rounded-xl">
+      <div className="flex justify-center border-2 border-orange-500 dark:border-gray-950 rounded-xl">
         <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: '10mm' }}>
-          {cvData.template === 'Luna' && (
-            <Luna
-              name={cvData.fullName}
-              email={cvData.email}
-              phone={cvData.phone}
-              city={cvData.city}
-              birthdate={cvData.birthdate}
-              preferredFunction={cvData.preferredFunction}
-              aboutMeDescription={cvData.aboutMeDescription}
-              profilePicture={profilePicture}
-              primaryColor={cvData.primaryColor}
-              secondaryColor={cvData.secondaryColor}
-              fontFamily={cvData.fontFamily}
-              skills={cvData.skills}
-              workExperiences={cvData.workExperiences}
-              educations={cvData.educations}
-              certifications={cvData.certifications}
-              languages={cvData.languages}
-            />
-          )}
-
-          {cvData.template === 'Nova' && (
-            <Nova
-              name={cvData.fullName}
-              email={cvData.email}
-              phone={cvData.phone}
-              city={cvData.city}
-              birthdate={cvData.birthdate}
-              preferredFunction={cvData.preferredFunction}
-              aboutMeDescription={cvData.aboutMeDescription}
-              profilePicture={profilePicture}
-              primaryColor={cvData.primaryColor}
-              secondaryColor={cvData.secondaryColor}
-              fontFamily={cvData.fontFamily}
-              skills={cvData.skills}
-              workExperiences={cvData.workExperiences}
-              educations={cvData.educations}
-              certifications={cvData.certifications}
-              languages={cvData.languages}
-            />
-          )}
-
-          {cvData.template === 'Orion' && (
-            <Orion
+          {SelectedTemplate && (
+            <SelectedTemplate
               name={cvData.fullName}
               email={cvData.email}
               phone={cvData.phone}
