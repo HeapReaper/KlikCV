@@ -1,6 +1,10 @@
 import type { CvBuilderType } from '../types/Templates.ts';
 import { fontMap } from '../config/fonts';
 
+export const settings = {
+  padding: '10' as const,
+};
+
 export default function Luna({
   name,
   email,

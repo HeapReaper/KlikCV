@@ -1,6 +1,11 @@
 import type { CvBuilderType } from '../types/Templates';
 import { fontMap} from '../config/fonts';
 
+export const settings = {
+  padding: '10' as const,
+};
+
+
 export default function Nova({
   name,
   email,
@@ -61,7 +66,7 @@ export default function Nova({
         </div>
 
 
-        {skills.length > 0 && skills[0].skill !== "" && (
+        {skills.length > 0 && skills[0].skill !== '' && (
           <div>
             <h2
               className="text-lg font-semibold mb-2"
@@ -77,7 +82,7 @@ export default function Nova({
           </div>
         )}
 
-        {languages.length > 0 && languages[0].language !== "" && (
+        {languages.length > 0 && languages[0].language !== '' && (
           <div>
             <h2
               className="text-lg font-semibold mb-2"

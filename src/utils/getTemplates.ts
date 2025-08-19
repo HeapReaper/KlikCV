@@ -7,7 +7,13 @@ export function getTemplates(onlyNames: boolean = false) {
       if (onlyNames) {
         return [name];
       }
-      return [name, (module as any).default];
+      return [
+        name,
+        {
+          Component: (module as any).default,
+          settings: (module as any).settings || {},
+        },
+      ];
     })
   );
 }
