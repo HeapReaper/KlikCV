@@ -130,12 +130,14 @@ export default function Luna({
 
 
           <section>
-            <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Opleiding</h2>
+            <h2 className="text-2xl font-semibold text-black dark:text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Opleiding</h2>
             {educations.map((edu, index: number) => (
               <article className="mb-5" key={index}>
-                <h3 className="text-xl text-black mb-1">{edu.name || 'BSc Computer Science'}</h3>
-                <h3 className="text-lg mb-1" style={{ color: primaryColor }}>{edu.institution || 'Universiteit van Amsterdam'}</h3>
-                <p className="flex items-center space-x-2 text-sm">
+                <h3 className="text-xl text-black dark:text-black mb-1">{edu.name || 'BSc Computer Science'}</h3>
+                <h3 className="text-lg mb-1 dark:text-black" style={{ color: primaryColor }}>
+                  {edu.institution || 'Universiteit van Amsterdam'}
+                </h3>
+                <p className="flex items-center space-x-2 text-sm dark:text-black">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                        className="size-4 mr-1" style={{ color: primaryColor }}>
                     <path
@@ -168,7 +170,7 @@ export default function Luna({
                 <h3 id={`functie${index}-heading`} className="text-xl text-black mb-1">
                   {exp.jobTitle || "Functie"}
                 </h3>
-                <h3 className="text-lg mb-1" style={{ color: primaryColor }}>
+                <h3 className="text-lg mb-1 dark:text-black" style={{ color: primaryColor }}>
                   {exp.employer || "Werkgever"}
                 </h3>
                 <p className="flex items-center space-x-2 text-gray-700 text-sm">

@@ -377,10 +377,25 @@ export default function CvBuilder() {
           {/* Hobbies section*/}
           {/* Languages */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
-            <button type="button" className="w-full text-left" onClick={() => toggleSection('hobbies')}>
-              <h4 className="text-2xl">
+            <button
+              type="button"
+              className="w-full flex items-center justify-between text-left"
+              onClick={() => toggleSection('hobbies')}
+            >
+              <h4 className="text-2xl flex items-center gap-2">
                 Hobbies <span className="text-orange-500">{collapsedSections.hobbies ? '▼' : '▲'}</span>
               </h4>
+
+              {/*
+              <span className="text-sm">
+                <CheckBox
+                  id="section-on-off"
+                  label="Sectie aan/uit"
+                  checked={cvData.sectionStates.hobbies}
+                  onChange={value => updateListItem('sectionStates')}
+                />
+              </span>
+              */}
             </button>
 
             {collapsedSections.hobbies && (
