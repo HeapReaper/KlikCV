@@ -29,13 +29,13 @@ export default function Orion({
       <main className="mx-auto max-w-5xl bg-white">
         <div className="grid md:grid-cols-[200px_1fr]">
           <aside
-            className="text-white ps-3 pe-3 flex flex-col items-center justify-center gap-4"
+            className="text-white ps-3 pe-3 flex flex-col items-center gap-4"
             style={{ backgroundColor: primaryColor }}
           >
             <img
               src={profilePicture || 'https://placehold.co/30x30'}
               alt="Profielfoto"
-              className="h-24 w-24 rounded-full object-cover ring-4 ring-white/20"
+              className="h-24 w-24 mt-12 rounded-full object-cover ring-4 ring-white/20"
             />
 
             <div className="font-semibold leading-tight text-center">
