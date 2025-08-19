@@ -31,7 +31,9 @@ export default function Home() {
                   alt="Luna template"
                   className="rounded mb-4 mx-auto h-80 w-auto object-contain"
                 />
-                <h3 className="font-bold text-xl">Luna</h3>
+                <h3 className="font-bold text-xl">
+                  Luna
+                </h3>
               </div>
 
               <div className="flex-shrink-0 flex-none min-w-[60%] sm:min-w-[48%] md:min-w-[280px] lg:min-w-[320px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
@@ -40,16 +42,20 @@ export default function Home() {
                   alt="Nova template"
                   className="rounded mb-4 mx-auto h-80 w-auto object-contain"
                 />
-                <h3 className="font-bold text-xl">Nova</h3>
+                <h3 className="font-bold text-xl">
+                  Nova
+                </h3>
               </div>
 
               <div className="flex-shrink-0 flex-none min-w-[60%] sm:min-w-[48%] md:min-w-[280px] lg:min-w-[320px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
                 <img
-                  src="/Luna.png"
-                  alt="Luna template"
+                  src="/Orion.png"
+                  alt="Orion template"
                   className="rounded mb-4 mx-auto h-80 w-auto object-contain"
                 />
-                <h3 className="font-bold text-xl">Luna</h3>
+                <h3 className="font-bold text-xl">
+                  Orion
+                </h3>
               </div>
             </div>
           </div>
