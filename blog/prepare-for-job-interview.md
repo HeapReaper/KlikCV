@@ -2,7 +2,7 @@
 title: "Zo bereid je je voor op een sollicitatiegesprek"
 slug: "zo-prepareer-je-je-op-een-sollicitatiegesprek"
 excerpt: "Praktische tips om goed voorbereid en vol vertrouwen een sollicitatiegesprek in te gaan."
-date: 19-8-2025
+date: 20-8-2025
 author: "Kelvin de Reus"
 draft: false
 ---
