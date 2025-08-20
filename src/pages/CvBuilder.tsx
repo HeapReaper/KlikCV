@@ -134,23 +134,50 @@ export default function CvBuilder() {
                 />
 
                 {showCropper && (
-                  <div className="space-y-2 border p-2 rounded-lg">
+                  <div
+                    className="space-y-2 border border-orange-500 p-2 rounded-lg"
+                    style={{
+                      padding: '0.5rem',
+                      borderRadius: '0.5rem',
+                    }}
+                  >
                     <div ref={cropContainerRef}></div>
+
                     <button
                       type="button"
-                      className="px-4 py-2 bg-blue-600 text-white rounded"
+                      className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded"
                       onClick={async () => {
                         const cropped = await getCroppedImage();
                         if (!cropped) return;
-                        setProfilePicture(cropped); // Set cropped file
-                        saveToLocalStorage('profilePicture', cropped); // Save cropped file
-                        setShowCropper(false); // Hide cropper
+                        setProfilePicture(cropped);
+                        saveToLocalStorage('profilePicture', cropped);
+                        setShowCropper(false);
                       }}
                     >
                       Gebruik afbeelding
                     </button>
+
+                    <style>
+                      {`
+                        .cr-slider {
+                          background-color: #1F2937 !important;
+                          padding: 1px !important;
+                          border-radius: 4px !important; /* rounded track */
+                        }
+                        .cr-slider .cr-slider-fill {
+                          background-color: #F97316 !important;
+                          border-radius: 4px !important; /* rounded fill */
+                        }
+                        .cr-slider .cr-slider-handle {
+                          background-color: #F97316 !important;
+                          border-color: #F97316 !important;
+                          border-radius: 50% !important; /* make knob circular */
+                        }
+                      `}
+                    </style>
                   </div>
                 )}
+
               </>
             )}
           </div>
