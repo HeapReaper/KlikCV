@@ -21,6 +21,8 @@ import TemplateSelect from '../components/select/TemplateSelect';
 import FileInput from '../components/inputs/File';
 import { saveToLocalStorage } from '../utils/localStorage';
 import { useCv } from '../hooks/useCvState';
+import 'croppie/croppie.css';
+import { useCropper } from '../hooks/useCropper';
 
 export default function CvBuilder() {
   const {
@@ -36,6 +38,14 @@ export default function CvBuilder() {
     setProfilePicture,
   } = useCv();
 
+  const {
+    cropContainerRef,
+    setImage,
+    showCropper,
+    setShowCropper,
+    getCroppedImage,
+  } = useCropper();
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-4">
       {/* Builder form */}
@@ -50,7 +60,7 @@ export default function CvBuilder() {
             </button>
 
             {collapsedSections.theme && (
-              <div className="space-y-4 p-4  rounded-lg shadow-md w-full max-w-sm">
+              <div className="space-y-4 p-4 rounded-lg shadow-md w-full max-w-sm">
                 <div className="flex gap-4">
                   <ColorPicker label="Primary kleur" value={cvData.primaryColor} onChange={value => updateCvData('primaryColor', value)} />
                   <ColorPicker label="Secondary kleur" value={cvData.secondaryColor} onChange={value => updateCvData('secondaryColor', value)} />
@@ -82,6 +92,8 @@ export default function CvBuilder() {
             )}
           </div>
 
+
+
           {/* About me */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
             <button type="button" className="w-full text-left" onClick={() => toggleSection('aboutMe')}>
@@ -95,13 +107,15 @@ export default function CvBuilder() {
                 <TextInput
                   label="Gewenste functie"
                   placeholder="Gewenste functie"
-                  value={cvData.preferredFunction} onChange={value => updateCvData('preferredFunction', value)}
+                  value={cvData.preferredFunction}
+                  onChange={value => updateCvData('preferredFunction', value)}
                 />
                 <AboutMeDescription
                   value={cvData.aboutMeDescription}
                   onChange={html => updateCvData('aboutMeDescription', html)}
                 />
 
+                {/* File Input */}
                 <FileInput
                   id="profilePicture"
                   label="Profiel foto"
@@ -109,20 +123,65 @@ export default function CvBuilder() {
                   onChange={(e: any) => {
                     const file = (e.target as HTMLInputElement).files?.[0];
                     if (file) {
-                      saveToLocalStorage("profilePicture", file);
                       const reader = new FileReader();
                       reader.onload = () => {
-                        setProfilePicture(reader.result as string);
+                        setImage(reader.result as string);
+                        setShowCropper(true);
                       };
                       reader.readAsDataURL(file);
                     }
                   }}
                 />
 
+                {showCropper && (
+                  <div
+                    className="space-y-2 border border-orange-500 p-2 rounded-lg"
+                    style={{
+                      padding: '0.5rem',
+                      borderRadius: '0.5rem',
+                    }}
+                  >
+                    <div ref={cropContainerRef}></div>
+
+                    <button
+                      type="button"
+                      className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded"
+                      onClick={async () => {
+                        const cropped = await getCroppedImage();
+                        if (!cropped) return;
+                        setProfilePicture(cropped);
+                        saveToLocalStorage('profilePicture', cropped);
+                        setShowCropper(false);
+                      }}
+                    >
+                      Gebruik afbeelding
+                    </button>
+
+                    <style>
+                      {`
+                        .cr-slider {
+                          background-color: #1F2937 !important;
+                          padding: 1px !important;
+                          border-radius: 4px !important; /* rounded track */
+                        }
+                        .cr-slider .cr-slider-fill {
+                          background-color: #F97316 !important;
+                          border-radius: 4px !important; /* rounded fill */
+                        }
+                        .cr-slider .cr-slider-handle {
+                          background-color: #F97316 !important;
+                          border-color: #F97316 !important;
+                          border-radius: 50% !important; /* make knob circular */
+                        }
+                      `}
+                    </style>
+                  </div>
+                )}
+
               </>
             )}
-
           </div>
+
 
           {/* Education */}
           <div className="p-2 space-y-2 rounded-2xl border-2 border-orange-500">
