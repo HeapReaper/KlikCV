@@ -23,6 +23,7 @@ import { saveToLocalStorage } from '../utils/localStorage';
 import { useCv } from '../hooks/useCvState';
 import 'croppie/croppie.css';
 import { useCropper } from '../hooks/useCropper';
+import Button from '../components/buttons/Button';
 
 export default function CvBuilder() {
   const {
@@ -478,13 +479,12 @@ export default function CvBuilder() {
             )}
           </div>
 
-          <button
+          <Button
+            id="generatePDF"
+            label="Download als PDF"
             type="button"
             onClick={() => exportToPdf('pdf')}
-            className="mb-4 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
-          >
-            Download CV als PDF
-          </button>
+          />
         </form>
       </div>
 
