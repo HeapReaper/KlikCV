@@ -16,6 +16,7 @@
     "@tiptap/core": "^3.2.0",
     "@tiptap/pm": "^3.2.0",
     "@tiptap/starter-kit": "^3.2.0",
+    "croppie": "^2.6.5",
     "dompurify": "^3.2.6",
     "framer-motion": "^12.23.12",
     "front-matter": "^4.0.2",
