@@ -152,10 +152,6 @@ export default function Navbar() {
         <Link href="/over-ons" className={`block py-2 ${isActive('/over-ons')}`} onClick={() => setMenuOpen(false)}>
           Over ons
         </Link>
-        {/* @ts-ignore */}
-        <Link href="/privacy" className={`block py-2 ${isActive('/privacy')}`} onClick={() => setMenuOpen(false)}>
-          Privacy
-        </Link>
       </motion.div>
 
       <Router onChange={e => setCurrentPath(e.url)} >
