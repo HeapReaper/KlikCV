@@ -1,6 +1,7 @@
 import Navbar from '../components/core/navbar';
 import Footer from '../components/core/Footer';
 import FooterAd from '../components/ads/FooterAd';
+import CookieBanner from '../components/core/CookieBanner';
 
 export default function MainLayout() {
   return (
@@ -11,6 +12,8 @@ export default function MainLayout() {
       </main>
 
       <FooterAd />
+
+      <CookieBanner />
 
       <Footer />
     </div>
