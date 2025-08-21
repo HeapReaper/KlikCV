@@ -1,7 +1,22 @@
+import { useEffect } from 'preact/hooks';
+
 export default function FooterAd() {
+  useEffect(() => {
+    try {
+      // @ts-ignore
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error("Adsense error:", e);
+    }
+  }, []);
+
   return (
-    <div className="w-full h-32 bg-gray-200 border border-dashed border-gray-400 flex items-center justify-center text-gray-600 text-sm">
-      Advertentie
-    </div>
-  )
+    <ins className="adsbygoogle"
+         style={{ display: "block" }}
+         data-ad-format="fluid"
+         data-ad-layout-key="-fb+5w+4e-db+86"
+         data-ad-client="ca-pub-4182887018676693"
+         data-ad-slot="2439643612">
+    </ins>
+  );
 }
