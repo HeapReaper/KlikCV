@@ -23,7 +23,10 @@ export default function FooterAd({ route }: FooterAdProps) {
   useEffect(() => {
     if (!consent) return;
 
-    setTimeout(() => {
+    const pushAd = () => {
+      const ins = document.querySelector('.adsbygoogle') as HTMLDivElement;
+      if (!ins) return;
+
       try {
         // @ts-ignore
         (window.adsbygoogle = window.adsbygoogle || []).push(
@@ -32,7 +35,10 @@ export default function FooterAd({ route }: FooterAdProps) {
       } catch (e) {
         console.error('Adsense error:', e);
       }
-    }, 200);
+    };
+
+    // wait for DOM complete render
+    requestAnimationFrame(pushAd);
   }, [consent, route]);
 
   if (!consent) return null;
