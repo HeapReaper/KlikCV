@@ -37,9 +37,10 @@ export default function FooterAd({ route }: FooterAdProps) {
       }
     };
 
-    // wait for DOM complete render
+    // Wait on DOM
     requestAnimationFrame(pushAd);
   }, [consent, route]);
+
 
   if (!consent) return null;
 
