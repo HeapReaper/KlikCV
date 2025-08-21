@@ -55,104 +55,106 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="text-gray-700 dark:text-white transition-colors duration-300 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <a href="/" className="text-xl font-bold text-orange-500 hover:text-orange-600">
-              KlikCV
-            </a>
-          </div>
+    <>
+      <nav className="text-gray-700 dark:text-white transition-colors duration-300 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex items-center">
+              <a href="/" className="text-xl font-bold text-orange-500 hover:text-orange-600">
+                KlikCV
+              </a>
+            </div>
 
-          <div className="hidden md:flex space-x-4 items-center dark:text-white">
-            {/* @ts-ignore */}
-            <Link href="/" className={isActive('/')}>
-              Home
-            </Link>
-            {/* @ts-ignore */}
-            <Link href="/cv/bouw" className={isActive('/cv/bouw')}>
-              CV bouwer
-            </Link>
-            {/* @ts-ignore */}
-            <Link href="/blog" className={isActive('/blog')}>
-              Blog
-            </Link>
-            {/* @ts-ignore */}
-            <Link href="/over-ons" className={isActive('/over-ons')}>
-              Over ons
-            </Link>
-            {/* @ts-ignore */}
-            <Link href="/privacy" className={isActive('/privacy')}>
-              Privacy
-            </Link>
-          </div>
+            <div className="hidden md:flex space-x-4 items-center dark:text-white">
+              {/* @ts-ignore */}
+              <Link href="/" className={isActive('/')}>
+                Home
+              </Link>
+              {/* @ts-ignore */}
+              <Link href="/cv/bouw" className={isActive('/cv/bouw')}>
+                CV bouwer
+              </Link>
+              {/* @ts-ignore */}
+              <Link href="/blog" className={isActive('/blog')}>
+                Blog
+              </Link>
+              {/* @ts-ignore */}
+              <Link href="/over-ons" className={isActive('/over-ons')}>
+                Over ons
+              </Link>
+              {/* @ts-ignore */}
+              <Link href="/privacy" className={isActive('/privacy')}>
+                Privacy
+              </Link>
+            </div>
 
-          <div className="flex items-center space-x-4 dark:text-white">
-            <button
-              className="p-2 rounded hover:bg-orange-500"
-              onClick={toggleDarkMode}
-            >
-              {darkMode ? '☀️' : '🌙'}
-            </button>
-
-            <button
-              id="menu-toggle"
-              className="md:hidden w-8 h-8 flex items-center justify-center"
-              onClick={toggleMenu}
-            >
-              <svg
-                className="w-6 h-6 text-orange-500"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            <div className="flex items-center space-x-4 dark:text-white">
+              <button
+                className="p-2 rounded hover:bg-orange-500"
+                onClick={toggleDarkMode}
               >
-                <motion.path
-                  animate={menuOpen ? { d: "M6 18L18 6" } : { d: "M4 6h16" }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.path
-                  animate={menuOpen ? { opacity: 0 } : { d: "M4 12h16", opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.path
-                  animate={menuOpen ? { d: "M6 6L18 18" } : { d: "M4 18h16" }}
-                  transition={{ duration: 0.3 }}
-                />
-              </svg>
-            </button>
+                {darkMode ? '☀️' : '🌙'}
+              </button>
+
+              <button
+                id="menu-toggle"
+                className="md:hidden w-8 h-8 flex items-center justify-center"
+                onClick={toggleMenu}
+              >
+                <svg
+                  className="w-6 h-6 text-orange-500"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <motion.path
+                    animate={menuOpen ? { d: "M6 18L18 6" } : { d: "M4 6h16" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <motion.path
+                    animate={menuOpen ? { opacity: 0 } : { d: "M4 12h16", opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <motion.path
+                    animate={menuOpen ? { d: "M6 6L18 18" } : { d: "M4 18h16" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      <motion.div
-        id="mobile-menu"
-        initial={{ y: -20, opacity: 0 }}
-        animate={menuOpen ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className={`absolute top-16 left-0 w-full bg-white dark:text-white dark:bg-gray-950 px-4 pb-4 md:hidden z-50
+        {/* Mobile Menu */}
+        <motion.div
+          id="mobile-menu"
+          initial={{ y: -20, opacity: 0 }}
+          animate={menuOpen ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className={`absolute top-16 left-0 w-full bg-white dark:text-white dark:bg-gray-950 px-4 pb-4 md:hidden z-50
               ${menuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
-      >
-        {/* @ts-ignore */}
-        <Link href="/" className={`block py-2 ${isActive('/')}`} onClick={() => setMenuOpen(false)}>
-          Home
-        </Link>
-        {/* @ts-ignore */}
-        <Link href="/cv/bouw" className={`block py-2 ${isActive('/cv/bouw')}`} onClick={() => setMenuOpen(false)}>
-          CV bouwer
-        </Link>
-        {/* @ts-ignore */}
-        <Link href="/blog" className={`block py-2 ${isActive('/blog')}`} onClick={() => setMenuOpen(false)}>
-          Blog
-        </Link>
-        {/* @ts-ignore */}
-        <Link href="/over-ons" className={`block py-2 ${isActive('/over-ons')}`} onClick={() => setMenuOpen(false)}>
-          Over ons
-        </Link>
-      </motion.div>
+        >
+          {/* @ts-ignore */}
+          <Link href="/" className={`block py-2 ${isActive('/')}`} onClick={() => setMenuOpen(false)}>
+            Home
+          </Link>
+          {/* @ts-ignore */}
+          <Link href="/cv/bouw" className={`block py-2 ${isActive('/cv/bouw')}`} onClick={() => setMenuOpen(false)}>
+            CV bouwer
+          </Link>
+          {/* @ts-ignore */}
+          <Link href="/blog" className={`block py-2 ${isActive('/blog')}`} onClick={() => setMenuOpen(false)}>
+            Blog
+          </Link>
+          {/* @ts-ignore */}
+          <Link href="/over-ons" className={`block py-2 ${isActive('/over-ons')}`} onClick={() => setMenuOpen(false)}>
+            Over ons
+          </Link>
+        </motion.div>
+      </nav>
 
       <Router onChange={e => setCurrentPath(e.url)} >
         {/* @ts-ignore */}
@@ -171,6 +173,6 @@ export default function Navbar() {
         {/* @ts-ignore */}
         <Faq path="/faq" />
       </Router>
-    </nav>
+    </>
   );
 }
