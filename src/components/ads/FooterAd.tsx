@@ -23,15 +23,16 @@ export default function FooterAd({ route }: FooterAdProps) {
   useEffect(() => {
     if (!consent) return;
 
-    try {
-      // Reload ad on page reload
-      // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push(
-        consent === 'non-personalized' ? { params: { npa: 1 } } : {}
-      );
-    } catch (e) {
-      console.error('Adsense error:', e);
-    }
+    setTimeout(() => {
+      try {
+        // @ts-ignore
+        (window.adsbygoogle = window.adsbygoogle || []).push(
+          consent === 'non-personalized' ? { params: { npa: 1 } } : {}
+        );
+      } catch (e) {
+        console.error('Adsense error:', e);
+      }
+    }, 200);
   }, [consent, route]);
 
   if (!consent) return null;
