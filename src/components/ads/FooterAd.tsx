@@ -33,14 +33,16 @@ export default function FooterAd({ route }: { route: string }) {
   if (!consent) return null;
 
   return (
-    <ins
-      key={route} // forceer nieuwe mount per page
-      className="adsbygoogle"
-      style={{ display: "block" }}
-      data-ad-format="fluid"
-      data-ad-layout-key="-fb+5w+4e-db+86"
-      data-ad-client="ca-pub-4182887018676693"
-      data-ad-slot="2439643612"
-    />
+    <div className="mt-2">
+      <ins
+        key={route}
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-format="fluid"
+        data-ad-layout-key="-fb+5w+4e-db+86"
+        data-ad-client="ca-pub-4182887018676693"
+        data-ad-slot="2439643612"
+      />
+    </div>
   );
 }
