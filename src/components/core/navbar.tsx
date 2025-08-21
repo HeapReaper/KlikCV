@@ -1,28 +1,18 @@
 import { useState, useEffect } from 'preact/hooks';
 import { Link } from 'preact-router/match';
-import { Router } from 'preact-router';
-
-import AboutUs from '../../pages/AboutUs';
-import Home from '../../pages/Home';
-import Privacy from '../../pages/Privacy';
-import Blog from '../../pages/Blog';
-import CvBuilder from '../../pages/CvBuilder';
-import BlogShow from '../../pages/BlogShow';
-import Faq from '../../pages/Faq';
 import { getCookie, setCookie } from '../../utils/cookies';
 
 import { motion } from 'framer-motion';
 
-export default function Navbar() {
+interface NavbarProps {
+  currentPath: string;
+}
+
+export default function Navbar({ currentPath }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [currentPath, setCurrentPath] = useState<string | null>(null);
   const [darkMode, setDarkMode] = useState<boolean>(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setCurrentPath(window.location.pathname);
-    }
-
     const modePreference = getCookie('mode');
 
     if (modePreference !== null ) {
@@ -155,24 +145,6 @@ export default function Navbar() {
           </Link>
         </motion.div>
       </nav>
-
-      <Router onChange={e => setCurrentPath(e.url)} >
-        {/* @ts-ignore */}
-        <Home path="/" />
-        {/* @ts-ignore */}
-        <CvBuilder path="/cv/bouw" />
-        {/* @ts-ignore */}
-        <Blog path="/blog" />
-        {/* @ts-ignore */}
-        <BlogShow path="/blog/:slug" />
-
-        {/* @ts-ignore */}
-        <AboutUs path="/over-ons" />
-        {/* @ts-ignore */}
-        <Privacy path="/privacy" />
-        {/* @ts-ignore */}
-        <Faq path="/faq" />
-      </Router>
     </>
   );
 }

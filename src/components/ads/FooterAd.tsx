@@ -2,7 +2,11 @@ import { useEffect, useState } from 'preact/hooks';
 
 type Consent = 'personalized' | 'non-personalized' | null;
 
-export default function FooterAd({ route }: { route: string }) {
+interface FooterAdProps {
+  route: string;
+}
+
+export default function FooterAd({ route }: FooterAdProps) {
   const [consent, setConsent] = useState<Consent>(null);
 
   useEffect(() => {
