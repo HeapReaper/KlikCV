@@ -5,15 +5,13 @@ import DOMPurify from "isomorphic-dompurify";
 import frontMatter from "front-matter";
 import type { BlogType } from "@/app/types/blog";
 
-// Parse één Markdown bestand
-export async function getAndParseMarkup(filePath: string): Promise<string> {
-  const absPath = path.join(process.cwd(), "src", "app", "content", "blog", filePath);
+export async function getAndParse(filePath: string): Promise<string> {
+  const absPath = path.join(process.cwd(), "src", "app", "content", filePath);
   const markdown = fs.readFileSync(absPath, "utf-8");
   return DOMPurify.sanitize(await marked.parse(markdown));
 }
 
-// Haal alle blog posts op
-export default async function getAllBlogMarkdownFiles(): Promise<BlogType[]> {
+export async function getAllBlogMarkdownFiles(): Promise<BlogType[]> {
   const blogDir = path.join(process.cwd(), "src", "app", "content", "blog");
   const filenames = fs.readdirSync(blogDir);
 
