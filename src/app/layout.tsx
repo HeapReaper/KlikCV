@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/core/navbar";
-import Footer from "@/components/core/footer";
+import Navbar from "@/app/components/core/navbar";
+import Footer from "@/app/components/core/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,7 +61,6 @@ export default function RootLayout({
               `,
           }}
         />
-
         {/* Google Ads */}
         <script
           async
@@ -70,19 +69,17 @@ export default function RootLayout({
         />
         <title></title>
       </head>
-
       <body
         className={`
-          ${geistSans.variable} ${geistMono.variable} antialiased
-          bg-white text-gray-950
-          dark:bg-gray-950 dark:text-white
-        `}
+        ${geistSans.variable} ${geistMono.variable} antialiased
+        bg-white text-gray-950
+        dark:bg-gray-950 dark:text-white
+      `}
       >
         <Navbar />
 
-        <div className="mt-10 min-h-screen w-full mx-auto flex flex-col space-y-6 px-4 items-center">
-          {children}
-        </div>
+        {children}
+
         <Footer />
       </body>
     </html>

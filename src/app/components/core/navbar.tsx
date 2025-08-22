@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { getCookie, setCookie } from "@/utils/cookies";
+import { getCookie, setCookie } from "../../utils/cookies";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {

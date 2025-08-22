@@ -1,6 +1,6 @@
-import getAndParseFaqs from "@/utils/getAndParseFaqs";
-import type { FaqType } from "@/types/faq";
-import FAQClient from "@/components/core/faqClient";
+import getAndParseFaqs from "@/app/utils/getAndParseFaqs";
+import type { FaqType } from "@/app/types/faq";
+import FAQClient from "@/app/components/core/faqClient";
 
 interface FAQPageProps {
   searchParams?: { setAmount?: string };

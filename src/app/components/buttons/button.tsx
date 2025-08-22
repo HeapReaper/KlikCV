@@ -1,4 +1,4 @@
-import type { ButtonType } from '@/types/button';
+import type { ButtonType } from '@/app/types/button';
 
 export default function Button({ id, label, type, onClick }: ButtonType) {
   // @ts-ignore

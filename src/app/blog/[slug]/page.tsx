@@ -1,30 +1,40 @@
-import { getAllBlogMarkdownFiles } from "@/utils/getandParseMarkup";
-import type { BlogType } from "@/types/blog";
-import ShowParsed from "@/components/core/showParsed";
+import getAllBlogMarkdownFiles from "@/app/utils/getandParseMarkup";
+import type { BlogType } from "@/app/types/blog";
+import DOMPurify from "isomorphic-dompurify";
 
 interface BlogPageProps {
   params: { slug: string };
 }
 
-export async function generateStaticParams() {
-  const articles: BlogType[] = await getAllBlogMarkdownFiles();
-  return articles.map((article) => ({
-    slug: article.slug,
-  }));
-}
-
 export default async function BlogShowPage({ params }: BlogPageProps) {
-  const { slug } = params;
+  const slug = params.slug;
 
   const allArticles: BlogType[] = await getAllBlogMarkdownFiles();
-  const article = allArticles.find((a) => a.slug === slug);
+  const article = allArticles.find(a => a.slug === slug);
 
   if (!article) {
-    return <p>Blog post niet gevonden.</p>;
+    return <p>Blog post not found.</p>;
   }
+
   return (
     <div className="pt-4 flex flex-col items-center mt-8">
-      <ShowParsed html={article.html || ''} />
+      <div
+        className="
+          prose prose-neutral
+          dark:prose-blockquote:bg-gray-900
+          dark:prose-blockquote:text-white
+          dark:prose-blockquote:rounded-md
+          text-black max-w-4xl
+          dark:prose-code:text-white
+          prose-code:bg-gray-800 marker:text-black
+          prose-h1:text-orange-500 prose-h2:text-orange-500
+          prose-h3:text-orange-500 prose-strong:dark:text-white
+          dark:text-white
+        "
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(article.html || "")
+        }}
+      />
     </div>
   );
 }
