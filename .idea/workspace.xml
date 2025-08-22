@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Almost working">
+      <change afterPath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/ads/bottom.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/buttons/add.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/buttons/button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/buttons/makeCvButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/buttons/remove.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/core/faqClient.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/core/footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/core/navbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/posts/authorAndDate.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/content/about-us.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/content/blog/how-to-make-a-good-cv.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/content/blog/how-to-make-a-good-job-apply-letter.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/content/blog/prepare-for-job-interview.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/content/blog/why-i-created-this.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/content/privacy.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/faq/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/over-ons/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/privacy/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/types/blog.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/types/button.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/types/faq.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/utils/cookies.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/utils/formatDate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/utils/getAndParseFaqs.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/utils/getTemplates.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/utils/getandParseMarkup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/utils/localStorage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/how-to-make-a-good-cv.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/how-to-make-a-good-job-apply-letter.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/prepare-for-job-interview.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/why-i-created-this.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bun.lockb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/can-i-add-my-linkedin.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/content/faq/can-i-add-my-linkedin.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/can-i-edit-my-cv.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/can-i-make-multiple-cvs.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/do-i-need-to-a-account.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/do-i-need-to-have-an-selfie.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/does-klikcv-support-multiple-languages.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/how-does-this-free-cv-maker-work.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/how-does-this-website-get-paid.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/how-long-may-my-cv-be.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/is-my-data-safe.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/tips-to-improve-cv.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/what-are-the-most-common-mistakes.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/what-if-the-best-format-to-safe-cv.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq/what-info-needs-to-be-in-my-cv.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playwright.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ads.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/content/about-us.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/content/privacy.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/og-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sitemap.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/logo.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ads/FooterAd.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/Add.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/Button.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/MakeCV.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/Remove.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/Submit.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/CookieBanner.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/Faq.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/Footer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/navbar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/editors/EditorMin.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputs/Birthdate.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputs/Checkbox.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputs/City.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputs/Color.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputs/Email.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputs/File.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputs/FullName.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputs/Message.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputs/Phone.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputs/Subject.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputs/Text.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputs/aboutMeDescription.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/posts/AuthorAndDate.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/select/FontSelect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/select/LanguageLevelSelect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/select/LanguageSelect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/select/LevelSelect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/select/MonthSelect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/select/TemplateSelect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/select/YearSelect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/fonts.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useCropper.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useCvState.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/main.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AboutUs.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Blog.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/BlogShow.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CvBuilder.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Faq.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Privacy.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/getAndParseFaqs.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/getandParseMarkup.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/Luna.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/Nova.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/Orion.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/Blog.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/Button.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/Faq.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/Input.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/Modal.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/Templates.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/cookies.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/exportToPdf.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/formatDate.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/getTemplates.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/localStorage.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vite-env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hometest.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.node.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="tsconfig.json" />
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="staging" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;HeapReaper&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/HeapReaper/KlikCV.git&quot;,
+    &quot;accountId&quot;: &quot;11a90ddb-0089-4752-8ee5-dceacdf2e31a&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;HeapReaper&quot;,
+    &quot;repository&quot;: &quot;KlikCV&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2zE9Cc02fGfdQfX5BOk7woaT2ih" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;move-to-nextjs&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/aerobytes/WebstormProjects/KlikCV/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/aerobytes/WebstormProjects/KlikCV/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/pages" />
+      <recent name="$PROJECT_DIR$/src/assets" />
+      <recent name="$PROJECT_DIR$/public/icons" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/content/faq" />
+      <recent name="$PROJECT_DIR$/src/app/content" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/my-adonisjs-app" />
+      <recent name="$PROJECT_DIR$/src/components" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Next.js: server-side">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: server-side" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.27812.50" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="" />
+      <created>1751285238652</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1751285238652</updated>
+      <workItem from="1751285239793" duration="2264000" />
+      <workItem from="1751336970366" duration="241000" />
+      <workItem from="1751337242921" duration="2397000" />
+      <workItem from="1751339728851" duration="274000" />
+      <workItem from="1751355091973" duration="883000" />
+      <workItem from="1751356003412" duration="7840000" />
+      <workItem from="1751376987576" duration="2732000" />
+      <workItem from="1751380677900" duration="221000" />
+      <workItem from="1751395649385" duration="7000" />
+      <workItem from="1751439893166" duration="2028000" />
+      <workItem from="1751454631754" duration="17631000" />
+      <workItem from="1751526109425" duration="2753000" />
+      <workItem from="1751528999586" duration="2639000" />
+      <workItem from="1751561453871" duration="16000" />
+      <workItem from="1751632376582" duration="2633000" />
+      <workItem from="1751715779739" duration="7000" />
+      <workItem from="1751716705272" duration="184000" />
+      <workItem from="1751725531343" duration="19000" />
+      <workItem from="1751822980340" duration="626000" />
+      <workItem from="1752068179509" duration="4302000" />
+      <workItem from="1752077402694" duration="616000" />
+      <workItem from="1752078137265" duration="3949000" />
+      <workItem from="1752083086007" duration="943000" />
+      <workItem from="1752089321252" duration="2534000" />
+      <workItem from="1752135685726" duration="4631000" />
+      <workItem from="1752145672646" duration="4083000" />
+      <workItem from="1752159637419" duration="1717000" />
+      <workItem from="1752220691747" duration="5222000" />
+      <workItem from="1752316187086" duration="34000" />
+      <workItem from="1752316237349" duration="37000" />
+      <workItem from="1752579147934" duration="264000" />
+      <workItem from="1752580780481" duration="346000" />
+      <workItem from="1752581183159" duration="3422000" />
+      <workItem from="1752589072536" duration="2149000" />
+      <workItem from="1752832528753" duration="3301000" />
+      <workItem from="1752840600212" duration="26000" />
+      <workItem from="1752866218806" duration="59000" />
+      <workItem from="1752919071020" duration="978000" />
+      <workItem from="1752927476991" duration="197000" />
+      <workItem from="1753001351555" duration="24000" />
+      <workItem from="1753032719156" duration="4507000" />
+      <workItem from="1753082241398" duration="133000" />
+      <workItem from="1753442318387" duration="345000" />
+      <workItem from="1753444158052" duration="2454000" />
+      <workItem from="1753599106300" duration="291000" />
+      <workItem from="1753696504406" duration="534000" />
+      <workItem from="1753791558863" duration="372000" />
+      <workItem from="1753797901346" duration="7000" />
+      <workItem from="1753878283149" duration="614000" />
+      <workItem from="1753881331149" duration="57000" />
+      <workItem from="1753947715088" duration="166000" />
+      <workItem from="1754982396259" duration="66000" />
+      <workItem from="1754986750677" duration="1970000" />
+      <workItem from="1754997730421" duration="3321000" />
+      <workItem from="1755075118539" duration="8817000" />
+      <workItem from="1755159471757" duration="13522000" />
+      <workItem from="1755180424662" duration="154000" />
+      <workItem from="1755188179522" duration="4923000" />
+      <workItem from="1755200396793" duration="167000" />
+      <workItem from="1755200586545" duration="3000" />
+      <workItem from="1755240853876" duration="1115000" />
+      <workItem from="1755243371724" duration="1105000" />
+      <workItem from="1755246213192" duration="37000" />
+      <workItem from="1755246606026" duration="3428000" />
+      <workItem from="1755250599595" duration="13000" />
+      <workItem from="1755257020706" duration="35000" />
+      <workItem from="1755259349848" duration="5891000" />
+      <workItem from="1755275311760" duration="93000" />
+      <workItem from="1755283502710" duration="2489000" />
+      <workItem from="1755329757012" duration="4162000" />
+      <workItem from="1755333928260" duration="10615000" />
+      <workItem from="1755347340919" duration="2151000" />
+      <workItem from="1755353855866" duration="7761000" />
+      <workItem from="1755370729122" duration="572000" />
+      <workItem from="1755412251079" duration="12819000" />
+      <workItem from="1755425199736" duration="1288000" />
+      <workItem from="1755427750119" duration="813000" />
+      <workItem from="1755430997519" duration="51000" />
+      <workItem from="1755450788612" duration="406000" />
+      <workItem from="1755452188707" duration="1352000" />
+      <workItem from="1755455096780" duration="2057000" />
+      <workItem from="1755500578124" duration="1665000" />
+      <workItem from="1755502601891" duration="13657000" />
+      <workItem from="1755525495595" duration="2390000" />
+      <workItem from="1755527921261" duration="46000" />
+      <workItem from="1755530791514" duration="204000" />
+      <workItem from="1755538921041" duration="951000" />
+      <workItem from="1755544957244" duration="4792000" />
+      <workItem from="1755585319176" duration="4871000" />
+      <workItem from="1755590343544" duration="2193000" />
+      <workItem from="1755594581902" duration="6531000" />
+      <workItem from="1755604554458" duration="286000" />
+      <workItem from="1755607060447" duration="508000" />
+      <workItem from="1755607908369" duration="1768000" />
+      <workItem from="1755610609857" duration="73000" />
+      <workItem from="1755611273032" duration="1778000" />
+      <workItem from="1755627248427" duration="1251000" />
+      <workItem from="1755674952753" duration="13000" />
+      <workItem from="1755675347191" duration="1000" />
+      <workItem from="1755679622083" duration="4015000" />
+      <workItem from="1755684792184" duration="3342000" />
+      <workItem from="1755689968280" duration="1351000" />
+      <workItem from="1755692374576" duration="42000" />
+      <workItem from="1755692631809" duration="98000" />
+      <workItem from="1755694702987" duration="1982000" />
+      <workItem from="1755714107361" duration="6000" />
+      <workItem from="1755776870122" duration="280000" />
+      <workItem from="1755789350219" duration="7161000" />
+      <workItem from="1755807237308" duration="621000" />
+      <workItem from="1755847176344" duration="1174000" />
+      <workItem from="1755848475661" duration="22000" />
+      <workItem from="1755857378794" duration="3124000" />
+      <workItem from="1755861567038" duration="143000" />
+      <workItem from="1755861722997" duration="1663000" />
+      <workItem from="1755865383558" duration="4213000" />
+    </task>
+    <task id="LOCAL-00122" summary="Refactored exportToPdf to adjust page count calculation. Updated Nova template with new images and layout adjustments. Added Luna and Nova images to public folder.">
+      <option name="closed" value="true" />
+      <created>1755527197362</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1755527197362</updated>
+    </task>
+    <task id="LOCAL-00123" summary="Updated footer link">
+      <option name="closed" value="true" />
+      <created>1755527739942</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1755527739942</updated>
+    </task>
+    <task id="LOCAL-00124" summary="Updated text Nova">
+      <option name="closed" value="true" />
+      <created>1755530939510</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1755530939510</updated>
+    </task>
+    <task id="LOCAL-00125" summary="Updated language levels to real levels (A1, B2 etc)">
+      <option name="closed" value="true" />
+      <created>1755545299820</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1755545299820</updated>
+    </task>
+    <task id="LOCAL-00126" summary="Updated h1 to be orange">
+      <option name="closed" value="true" />
+      <created>1755545505972</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1755545505972</updated>
+    </task>
+    <task id="LOCAL-00127" summary="Updated max width">
+      <option name="closed" value="true" />
+      <created>1755545882529</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1755545882529</updated>
+    </task>
+    <task id="LOCAL-00128" summary="Added darkmode">
+      <option name="closed" value="true" />
+      <created>1755548663477</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1755548663477</updated>
+    </task>
+    <task id="LOCAL-00129" summary="Updated Orion template to remove unused props and streamline CSS application.">
+      <option name="closed" value="true" />
+      <created>1755548726096</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1755548726096</updated>
+    </task>
+    <task id="LOCAL-00130" summary="Added overflow to template preview">
+      <option name="closed" value="true" />
+      <created>1755549046350</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1755549046350</updated>
+    </task>
+    <task id="LOCAL-00131" summary="Fixed some darkmode incompatibility with frontend">
+      <option name="closed" value="true" />
+      <created>1755549575235</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1755549575235</updated>
+    </task>
+    <task id="LOCAL-00132" summary="Fixed automatic template loader">
+      <option name="closed" value="true" />
+      <created>1755587121406</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1755587121406</updated>
+    </task>
+    <task id="LOCAL-00133" summary="Fixed active nav">
+      <option name="closed" value="true" />
+      <created>1755587687524</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1755587687524</updated>
+    </task>
+    <task id="LOCAL-00134" summary="Updated styling scrollbars">
+      <option name="closed" value="true" />
+      <created>1755588730548</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1755588730548</updated>
+    </task>
+    <task id="LOCAL-00135" summary="Added animations">
+      <option name="closed" value="true" />
+      <created>1755589465071</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1755589465071</updated>
+    </task>
+    <task id="LOCAL-00136" summary="Updated bun lockfile">
+      <option name="closed" value="true" />
+      <created>1755589675341</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1755589675341</updated>
+    </task>
+    <task id="LOCAL-00137" summary="Updated button background color">
+      <option name="closed" value="true" />
+      <created>1755590473967</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1755590473968</updated>
+    </task>
+    <task id="LOCAL-00138" summary="Fixed nav">
+      <option name="closed" value="true" />
+      <created>1755591215660</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1755591215660</updated>
+    </task>
+    <task id="LOCAL-00139" summary="Fixed Luna">
+      <option name="closed" value="true" />
+      <created>1755591446412</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1755591446412</updated>
+    </task>
+    <task id="LOCAL-00140" summary="Added Nova template">
+      <option name="closed" value="true" />
+      <created>1755596923829</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1755596923829</updated>
+    </task>
+    <task id="LOCAL-00141" summary="Added hobbies, improved Orion template">
+      <option name="closed" value="true" />
+      <created>1755601411011</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1755601411011</updated>
+    </task>
+    <task id="LOCAL-00142" summary="Added testing">
+      <option name="closed" value="true" />
+      <created>1755603176205</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1755603176205</updated>
+    </task>
+    <task id="LOCAL-00143" summary="Refactored Orion template with improved styling and layout.">
+      <option name="closed" value="true" />
+      <created>1755604817346</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1755604817346</updated>
+    </task>
+    <task id="LOCAL-00144" summary="Fixed Orion template and added to frontend">
+      <option name="closed" value="true" />
+      <created>1755608236734</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1755608236734</updated>
+    </task>
+    <task id="LOCAL-00145" summary="Refactored Luna, Orion, and Nova templates with improved formatting and updated image sources.">
+      <option name="closed" value="true" />
+      <created>1755610645578</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1755610645578</updated>
+    </task>
+    <task id="LOCAL-00146" summary="Add blog articles on job interview preparation, application letter writing, and CV making">
+      <option name="closed" value="true" />
+      <created>1755612399105</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1755612399105</updated>
+    </task>
+    <task id="LOCAL-00147" summary="- Removed unused images&#10;- Updated CVBuilder component to include a toggle for the hobbies section&#10;- Enhanced styling in Luna template for dark mode compatibility">
+      <option name="closed" value="true" />
+      <created>1755628014953</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1755628014953</updated>
+    </task>
+    <task id="LOCAL-00148" summary="Added formatDate">
+      <option name="closed" value="true" />
+      <created>1755628409444</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1755628409444</updated>
+    </task>
+    <task id="LOCAL-00149" summary="Added image cropper">
+      <option name="closed" value="true" />
+      <created>1755686718071</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1755686718071</updated>
+    </task>
+    <task id="LOCAL-00150" summary="Added image cropper">
+      <option name="closed" value="true" />
+      <created>1755687430704</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1755687430704</updated>
+    </task>
+    <task id="LOCAL-00151" summary="Update blog articles and sitemap for new posts on job interview preparation and CV tips. Adjust date in blog post.">
+      <option name="closed" value="true" />
+      <created>1755690078488</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1755690078489</updated>
+    </task>
+    <task id="LOCAL-00152" summary="Removed unused privacy link from navbar">
+      <option name="closed" value="true" />
+      <created>1755692663269</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1755692663269</updated>
+    </task>
+    <task id="LOCAL-00153" summary="Fixed issue with blog layout">
+      <option name="closed" value="true" />
+      <created>1755694792963</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1755694792964</updated>
+    </task>
+    <task id="LOCAL-00154" summary="Added new Button component and refactored CvBuilder to use it.">
+      <option name="closed" value="true" />
+      <created>1755695603882</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1755695603882</updated>
+    </task>
+    <task id="LOCAL-00155" summary="Update blog article styles to include hover effect">
+      <option name="closed" value="true" />
+      <created>1755695659374</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1755695659374</updated>
+    </task>
+    <task id="LOCAL-00156" summary="Added ads.txt">
+      <option name="closed" value="true" />
+      <created>1755776969550</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1755776969550</updated>
+    </task>
+    <task id="LOCAL-00157" summary="Added Google ads">
+      <option name="closed" value="true" />
+      <created>1755789582618</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1755789582618</updated>
+    </task>
+    <task id="LOCAL-00158" summary="Refactor navbar and add footer ad component">
+      <option name="closed" value="true" />
+      <created>1755789750660</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1755789750660</updated>
+    </task>
+    <task id="LOCAL-00159" summary="Added cookie banner">
+      <option name="closed" value="true" />
+      <created>1755796503421</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1755796503421</updated>
+    </task>
+    <task id="LOCAL-00160" summary="Refactor FooterAd component to include route parameter and reload ads on page reload">
+      <option name="closed" value="true" />
+      <created>1755801727501</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1755801727502</updated>
+    </task>
+    <task id="LOCAL-00161" summary="Add margin-top to FooterAd component for better spacing">
+      <option name="closed" value="true" />
+      <created>1755801768763</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1755801768763</updated>
+    </task>
+    <task id="LOCAL-00162" summary="Refactor Navbar and FooterAd components, add router integration">
+      <option name="closed" value="true" />
+      <created>1755802340458</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1755802340458</updated>
+    </task>
+    <task id="LOCAL-00163" summary="Add Nginx configuration for static file serving and CORS settings">
+      <option name="closed" value="true" />
+      <created>1755803398591</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1755803398591</updated>
+    </task>
+    <task id="LOCAL-00164" summary="Refactor FooterAd component to ensure ads are pushed after DOM renders, add route parameter for dynamic reloading">
+      <option name="closed" value="true" />
+      <created>1755803678156</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1755803678156</updated>
+    </task>
+    <task id="LOCAL-00165" summary="Refactor FooterAd component to ensure ads are pushed after DOM renders, add route parameter for dynamic reloading">
+      <option name="closed" value="true" />
+      <created>1755803786861</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1755803786861</updated>
+    </task>
+    <task id="LOCAL-00166" summary="Refactor FooterAd component to ensure ads are pushed after DOM renders, add route parameter for dynamic reloading">
+      <option name="closed" value="true" />
+      <created>1755807247343</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1755807247343</updated>
+    </task>
+    <task id="LOCAL-00167" summary="Adding ssr">
+      <option name="closed" value="true" />
+      <created>1755857616438</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1755857616438</updated>
+    </task>
+    <task id="LOCAL-00168" summary="Almost working">
+      <option name="closed" value="true" />
+      <created>1755862109547</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1755862109547</updated>
+    </task>
+    <task id="LOCAL-00169" summary="Almost working">
+      <option name="closed" value="true" />
+      <created>1755862120824</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1755862120824</updated>
+    </task>
+    <task id="LOCAL-00170" summary="Almost working">
+      <option name="closed" value="true" />
+      <created>1755862215055</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1755862215055</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.edge" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed Orion template and added to frontend" />
+    <MESSAGE value="Refactored Luna, Orion, and Nova templates with improved formatting and updated image sources." />
+    <MESSAGE value="Add blog articles on job interview preparation, application letter writing, and CV making" />
+    <MESSAGE value="A" />
+    <MESSAGE value="- Removed unused images&#10;- Updated CVBuilder component to include a toggle for the hobbies section&#10;- Enhanced styling in Luna template for dark mode compatibility" />
+    <MESSAGE value="Added formatDate" />
+    <MESSAGE value="Added image cropper" />
+    <MESSAGE value="=" />
+    <MESSAGE value="Update blog articles and sitemap for new posts on job interview preparation and CV tips. Adjust date in blog post." />
+    <MESSAGE value="Removed unused privacy link from navbar" />
+    <MESSAGE value="Fixed issue with blog layout" />
+    <MESSAGE value="Added new Button component and refactored CvBuilder to use it." />
+    <MESSAGE value="Update blog article styles to include hover effect" />
+    <MESSAGE value="Added ads.txt" />
+    <MESSAGE value="Added Google ads" />
+    <MESSAGE value="Refactor navbar and add footer ad component" />
+    <MESSAGE value="Added cookie banner" />
+    <MESSAGE value="Refactor CookieBanner.tsx: Improve readability by adding a dark overlay and adjusting z-index" />
+    <MESSAGE value="Refactor FooterAd component to include route parameter and reload ads on page reload" />
+    <MESSAGE value="Add margin-top to FooterAd component for better spacing" />
+    <MESSAGE value="Refactor Navbar and FooterAd components, add router integration" />
+    <MESSAGE value="Add Nginx configuration for static file serving and CORS settings" />
+    <MESSAGE value="Refactor FooterAd component to ensure ads are pushed after DOM renders, add route parameter for dynamic reloading" />
+    <MESSAGE value="Adding ssr" />
+    <MESSAGE value="Almost working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Almost working" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/inertia/pages/home.tsx</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/inertia/pages/about-us/page.tsx</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
