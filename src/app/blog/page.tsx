@@ -1,4 +1,4 @@
-import getAllBlogMarkdownFiles from "@/app/utils/getandParseMarkup";
+import { getAllBlogMarkdownFiles } from "@/app/utils/getandParseMarkup";
 import AuthorAndDate from "@/app/components/posts/authorAndDate";
 import type { BlogType } from "@/app/types/blog";
 
@@ -7,7 +7,7 @@ export default async function BlogPage() {
   const articles: BlogType[] = await getAllBlogMarkdownFiles();
 
   return (
-    <div className="mt-10 max-w-[800px] w-full mx-auto flex flex-col space-y-6 px-4">
+    <>
       {articles.map(({ author, title, slug, excerpt, date }) => (
         <article
           key={slug}
@@ -20,6 +20,6 @@ export default async function BlogPage() {
           <p className="mt-2 text-gray-700 dark:text-white">{excerpt}</p>
         </article>
       ))}
-    </div>
+    </>
   );
 }

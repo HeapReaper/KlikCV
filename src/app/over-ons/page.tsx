@@ -1,7 +1,15 @@
-export default function AboutPage() {
+import BottomAd from "@/app/components/ads/bottom";
+import {getAndParse} from "@/app/utils/getandParseMarkup";
+import ShowParsed from "@/app/components/core/showParsed";
+
+export default async function AboutPage() {
+  const article: string = await getAndParse('about-us.md');
+
   return (
-    <div className="mt-10 max-w-[800px] w-full mx-auto flex flex-col space-y-6 px-4">
-      Over
-    </div>
+    <>
+      <ShowParsed html={article} />
+
+      <BottomAd />
+    </>
   )
 }

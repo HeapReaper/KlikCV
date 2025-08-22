@@ -69,6 +69,7 @@ export default function RootLayout({
         />
         <title></title>
       </head>
+
       <body
         className={`
         ${geistSans.variable} ${geistMono.variable} antialiased
@@ -78,8 +79,9 @@ export default function RootLayout({
       >
         <Navbar />
 
-        {children}
-
+        <div className="mt-10 min-h-screen max-w-[800px] w-full mx-auto flex flex-col space-y-6 px-4">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>
