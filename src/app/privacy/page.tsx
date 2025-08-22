@@ -1,17 +1,7 @@
-import BottomAd from "@/components/ads/bottom";
-import {getAndParse} from "@/utils/getandParseMarkup";
-import ShowParsed from "@/components/core/showParsed";
-
-export default async function PrivacyPage() {
-  const article: string = await getAndParse('privacy.md');
-
+export default function PrivacyPage() {
   return (
-    <>
-      <div className="max-w-[800px]">
-        <ShowParsed html={article} />
-
-        <BottomAd />
-      </div>
-    </>
+    <div className="mt-10 max-w-[800px] w-full mx-auto flex flex-col space-y-6 px-4">
+      Over
+    </div>
   )
 }

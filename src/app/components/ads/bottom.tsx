@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 
 type Consent = "personalized" | "non-personalized" | null;
 
-export default function BottomAd() {
+interface FooterAdProps {
+  route: string;
+}
+
+export default function FooterAd({ route }: FooterAdProps) {
   const [consent, setConsent] = useState<Consent>(null);
 
-  // Read cookie on mount
   useEffect(() => {
     const cookieMatch = document.cookie.match(/(^| )cookieAccepted=([^;]+)/);
     if (cookieMatch) {
@@ -16,7 +19,6 @@ export default function BottomAd() {
     }
   }, []);
 
-  // Push AdSense ad once consent is determined
   useEffect(() => {
     if (!consent) return;
 
@@ -35,13 +37,14 @@ export default function BottomAd() {
     };
 
     requestAnimationFrame(pushAd);
-  }, [consent]);
+  }, [consent, route]);
 
   if (!consent) return null;
 
   return (
     <div className="mt-2">
       <ins
+        key={route}
         className="adsbygoogle"
         style={{ display: "block" }}
         data-ad-format="fluid"
