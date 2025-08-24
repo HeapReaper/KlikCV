@@ -3,7 +3,7 @@ import path from "path";
 import { marked } from "marked";
 import DOMPurify from "isomorphic-dompurify";
 import frontMatter from "front-matter";
-import type { BlogType } from "@/app/types/blog";
+import type { BlogType } from "@/types/blog";
 
 export async function getAndParse(filePath: string): Promise<string> {
   const absPath = path.join(process.cwd(), "src", "app", "content", filePath);

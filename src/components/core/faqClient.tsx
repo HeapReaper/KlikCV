@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { FaqType } from "@/app/types/faq";
+import type { FaqType } from "@/types/faq";
 
 interface FAQClientProps {
   faqs: FaqType[];

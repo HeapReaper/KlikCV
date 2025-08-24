@@ -1,6 +1,6 @@
-import { getAllBlogMarkdownFiles } from "@/app/utils/getandParseMarkup";
-import type { BlogType } from "@/app/types/blog";
-import ShowParsed from "@/app/components/core/showParsed";
+import { getAllBlogMarkdownFiles } from "@/utils/getandParseMarkup";
+import type { BlogType } from "@/types/blog";
+import ShowParsed from "@/components/core/showParsed";
 
 interface BlogPageProps {
   params: { slug: string };
