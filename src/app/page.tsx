@@ -1,5 +1,5 @@
 import Link from "next/link";
-import MakeCvButton from "@/app/components/buttons/makeCvButton";
+import MakeCvButton from "@/components/buttons/makeCvButton";
 
 export default function Home() {
   return (

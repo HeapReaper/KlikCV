@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { getCookie, setCookie } from "../../utils/cookies";
+import { getCookie, setCookie } from "@/utils/cookies";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
@@ -49,13 +49,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-orange-500 hover:text-orange-600">
+            <Link href="/public" className="text-xl font-bold text-orange-500 hover:text-orange-600">
               KlikCV
             </Link>
           </div>
 
           <div className="hidden md:flex space-x-4 items-center dark:text-white">
-            <Link href="/" className={isActive("/")}>
+            <Link href="/public" className={isActive("/")}>
               Home
             </Link>
             <Link href="/cv/bouw" className={isActive("/cv/bouw")}>
@@ -119,7 +119,7 @@ export default function Navbar() {
           className="absolute top-16 left-0 w-full bg-white dark:text-white dark:bg-gray-950 px-4 pb-4 md:hidden z-50"
         >
           <Link
-            href="/"
+            href="/public"
             className={`block py-2 ${isActive("/")}`}
             onClick={() => setMenuOpen(false)}
           >
