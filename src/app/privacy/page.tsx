@@ -7,9 +7,11 @@ export default async function PrivacyPage() {
 
   return (
     <>
-      <ShowParsed html={article} />
+      <div className="max-w-[800px]">
+        <ShowParsed html={article} />
 
-      <BottomAd />
+        <BottomAd />
+      </div>
     </>
   )
 }

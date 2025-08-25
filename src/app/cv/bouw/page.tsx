@@ -1,31 +1,30 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { useCv } from '@/hooks/useCvState';
 import { useCropper } from '@/hooks/useCropper';
 import { exportToPdf } from '@/utils/exporttoPdf';
 
-const FullName = dynamic(() => import('@/components/inputs/fullName'), { ssr: false });
-const Email = dynamic(() => import('@/components/inputs/email'), { ssr: false });
-const Phone = dynamic(() => import('@/components/inputs/phone'), { ssr: false });
-const City = dynamic(() => import('@/components/inputs/city'), { ssr: false });
-const Birthdate = dynamic(() => import('@/components/inputs/birthdate'), { ssr: false });
-const AboutMeDescription = dynamic(() => import('@/components/inputs/aboutMeDescription'), { ssr: false });
-const ColorPicker = dynamic(() => import('@/components/inputs/color'), { ssr: false });
-const FontFamilySelect = dynamic(() => import('@/components/selects/fontSelect'), { ssr: false });
-const AddButton = dynamic(() => import('@/components/buttons/add'), { ssr: false });
-const RemoveButton = dynamic(() => import('@/components/buttons/remove'), { ssr: false });
-const LanguageSelect = dynamic(() => import('@/components/selects/languageSelect'), { ssr: false });
-const LanguageLevelSelect = dynamic(() => import('@/components/selects/languageLevelSelect'), { ssr: false });
-const MonthSelect = dynamic(() => import('@/components/selects/monthSelect'), { ssr: false });
-const YearSelect = dynamic(() => import('@/components/selects/yearSelect'), { ssr: false });
-const RichTextEditor = dynamic(() => import('@/components/editors/editorMin'), { ssr: false });
-const CheckBox = dynamic(() => import('@/components/inputs/checkbox'), { ssr: false });
-const TextInput = dynamic(() => import('@/components/inputs/text'), { ssr: false });
-const SkillLevelSelect = dynamic(() => import('@/components/selects/levelSelect'), { ssr: false });
-const TemplateSelect = dynamic(() => import('@/components/selects/templateSelect'), { ssr: false });
-const FileInput = dynamic(() => import('@/components/inputs/file'), { ssr: false });
-const Button = dynamic(() => import('@/components/buttons/button'), { ssr: false });
+import FullName from '@/components/inputs/fullName';
+import Email from '@/components/inputs/email';
+import Phone from '@/components/inputs/phone';
+import City from '@/components/inputs/city';
+import Birthdate from '@/components/inputs/birthdate';
+import AboutMeDescription from '@/components/inputs/aboutMeDescription';
+import ColorPicker from '@/components/inputs/color';
+import FontFamilySelect from '@/components/selects/fontSelect';
+import AddButton from '@/components/buttons/add';
+import RemoveButton from '@/components/buttons/remove';
+import LanguageSelect from '@/components/selects/languageSelect';
+import LanguageLevelSelect from '@/components/selects/languageLevelSelect';
+import MonthSelect from '@/components/selects/monthSelect';
+import YearSelect from '@/components/selects/yearSelect';
+import RichTextEditor from '@/components/editors/editorMin';
+import CheckBox from '@/components/inputs/checkbox';
+import TextInput from '@/components/inputs/text';
+import SkillLevelSelect from '@/components/selects/levelSelect';
+import TemplateSelect from '@/components/selects/templateSelect';
+import FileInput from '@/components/inputs/file';
+import Button from '@/components/buttons/button';
 
 import 'croppie/croppie.css';
 import {saveToLocalStorage} from "@/utils/localStorage";
@@ -497,8 +496,8 @@ export default function CvBuilder() {
       {/* Builder Preview */}
       <div className="flex justify-center border-2 border-orange-500 dark:border-gray-950 rounded-xl -s">
         <div id="pdf" className="bg-white" style={{ width: '210mm', minHeight: '297mm', padding: `${SelectedTemplate.settings.padding}mm` }}>
-          {SelectedTemplate.Component && (
-            <SelectedTemplate.Component
+          {SelectedTemplate.component && (
+            <SelectedTemplate.component
               name={cvData.name}
               email={cvData.email}
               phone={cvData.phone}

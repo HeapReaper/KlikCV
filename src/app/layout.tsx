@@ -61,6 +61,7 @@ export default function RootLayout({
               `,
           }}
         />
+
         {/* Google Ads */}
         <script
           async
@@ -72,14 +73,14 @@ export default function RootLayout({
 
       <body
         className={`
-        ${geistSans.variable} ${geistMono.variable} antialiased
-        bg-white text-gray-950
-        dark:bg-gray-950 dark:text-white
-      `}
+          ${geistSans.variable} ${geistMono.variable} antialiased
+          bg-white text-gray-950
+          dark:bg-gray-950 dark:text-white
+        `}
       >
         <Navbar />
 
-        <div className="mt-10 min-h-screen max-w-[800px] w-full mx-auto flex flex-col space-y-6 px-4">
+        <div className="mt-10 min-h-screen w-full mx-auto flex flex-col space-y-6 px-4 items-center">
           {children}
         </div>
         <Footer />
