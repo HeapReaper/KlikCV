@@ -4,7 +4,7 @@ import MakeCvButton from "@/components/buttons/makeCvButton";
 export default function Home() {
   return (
     <>
-      <div className="grow pb-4 space-y-4">
+      <div className="pb-4 space-y-4">
         <h1 className="text-5xl font-bold text-center text-orange-500">
           Bouw jouw gratis CV in enkele minuten
         </h1>
@@ -94,16 +94,13 @@ export default function Home() {
           Veelgestelde vragen
         </h1>
 
-        {/*
-        <FAQ setAmount={4} />
-        */}
         <p className="text-sm mt-2 dark:text-white">
           Voor alle vragen{" "}
-          {/* @ts-ignore */}
           <Link href="/faq" className="underline decoration-orange-500">
             klik hier
           </Link>
         </p>
+
       </div>
     </>
   );
