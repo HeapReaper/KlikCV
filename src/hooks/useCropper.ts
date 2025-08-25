@@ -1,16 +1,22 @@
-import { useRef, useEffect, useState } from 'preact/hooks';
-// @ts-ignore
-import Croppie from 'croppie';
+'use client';
+
+import { useRef, useEffect, useState } from 'react';
 import 'croppie/croppie.css';
+
+let Croppie: any = null;
+
+if (typeof window !== 'undefined') {
+  Croppie = require('croppie');
+}
 
 export function useCropper(initialImage: string | null = null) {
   const cropContainerRef = useRef<HTMLDivElement>(null);
-  const croppieInstance = useRef<Croppie | null>(null);
+  const croppieInstance = useRef<any>(null);
   const [image, setImage] = useState<string | null>(initialImage);
   const [showCropper, setShowCropper] = useState(false);
 
   useEffect(() => {
-    if (showCropper && cropContainerRef.current && image) {
+    if (showCropper && cropContainerRef.current && image && Croppie) {
       croppieInstance.current?.destroy();
 
       croppieInstance.current = new Croppie(cropContainerRef.current, {

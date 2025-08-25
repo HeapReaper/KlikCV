@@ -1,28 +1,25 @@
-import { useState, useEffect } from 'preact/hooks';
+'use client';
+
+import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
-import { getCookie, setCookie } from '../utils/cookies';
-import { loadFromLocalStorage } from '../utils/localStorage';
-import { getTemplates } from '../utils/getTemplates';
+import { getCookie, setCookie } from '@/utils/cookies';
+import { loadFromLocalStorage } from '@/utils/localStorage';
+import { getTemplates } from '@/utils/getTemplates';
+import { CvBuilderType } from '@/types/templates';
 
 const COOKIE_NAME = 'cv-builder-data';
 
-export const useCvState = (initialState: any) => {
-  // Read
-  const [state, setState] = useState(() => {
+export const useCvState = (initialState: CvBuilderType) => {
+  const [state, setState] = useState<CvBuilderType>(() => {
     try {
       const storedData = Cookies.get(COOKIE_NAME);
-      if (storedData) {
-        const parsed = JSON.parse(storedData);
-        return { ...initialState, ...parsed };
-      }
-      return initialState;
+      return storedData ? { ...initialState, ...JSON.parse(storedData) } : initialState;
     } catch (e) {
       console.error('Failed to parse stored data from cookies:', e);
       return initialState;
     }
   });
 
-  // Write
   useEffect(() => {
     try {
       Cookies.set(COOKIE_NAME, JSON.stringify(state), { expires: 365 });
@@ -31,24 +28,25 @@ export const useCvState = (initialState: any) => {
     }
   }, [state]);
 
-  return [state, setState];
+  return [state, setState] as const;
 };
 
 export const useCv = () => {
-  const [cvData, setCvData] = useCvState({
-    primaryColor: 'F97316',
-    secondaryColor: 'F97316',
-    fontFamily: 'font-sans',
-    template: 'Luna',
-    fullName: '',
-    email: '',
+  const initialCvData: CvBuilderType = {
+    // Personal info
+    name: '',
     phone: '',
+    website: '',
+    linkedIn: '',
+    github: '',
     city: '',
+    email: '',
     birthdate: '',
+    // About me
     preferredFunction: '',
+    profilePicture: null,
     aboutMeDescription: '',
-    languages: [{ language: '', level: '' }],
-    skills: [{ skill: '', level: '' }],
+    // Work experiences
     workExperiences: [
       {
         jobTitle: '',
@@ -56,12 +54,13 @@ export const useCv = () => {
         place: '',
         startMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
         startYear: new Date().getFullYear(),
-        endMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
+        endMonth: '',
         endYear: new Date().getFullYear(),
         current: false,
         description: '',
       },
     ],
+    // Educations
     educations: [
       {
         name: '',
@@ -69,75 +68,119 @@ export const useCv = () => {
         place: '',
         startMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
         startYear: new Date().getFullYear(),
-        endMonth: new Date().toLocaleString('nl-NL', { month: 'long' }),
+        endMonth: '',
         endYear: new Date().getFullYear(),
         current: false,
         description: '',
       },
     ],
+    // Certificates
     certifications: [
       {
         name: '',
-        month: new Date().toLocaleString('nl-NL', { month: 'long' }),
+        month: '',
         year: new Date().getFullYear(),
         current: false,
         description: '',
-      }
+      },
     ],
-    hobbies: [
-      {
-        name: '',
-      }
-    ],
+    // Theme
+    primaryColor: 'F97316',
+    secondaryColor: 'F97316',
+    fontFamily: 'font-sans',
+    template: 'Luna',
+    // Skills
+    skills: [{ skill: '', level: '' }],
+    // Languages
+    languages: [{ language: '', level: '' }],
+    // Hobbies
+    hobbies: [{ name: '' }],
+  };
+
+  const [cvData, setCvData] = useCvState(initialCvData);
+  const [templates, setTemplates] = useState<Record<string, any>>(getTemplates(false));
+  const SelectedTemplate = templates[cvData.template];
+
+  useEffect(() => {
+    const t = getTemplates(false);
+    setTemplates(t);
+  }, []);
+
+  // Section collapsed states
+  type CollapsedSections = {
+    theme: boolean;
+    personalInfo: boolean;
+    aboutMe: boolean;
+    education: boolean;
+    workExperience: boolean;
+    certifications: boolean;
+    skills: boolean;
+    languages: boolean;
+    hobbies: boolean;
+  };
+
+  const defaultCollapsed: CollapsedSections = {
+    theme: false,
+    personalInfo: false,
+    aboutMe: false,
+    education: false,
+    workExperience: false,
+    certifications: false,
+    skills: false,
+    languages: false,
+    hobbies: false,
+  };
+
+  const [collapsedSections, setCollapsedSections] = useState<CollapsedSections>(() => {
+    try {
+      const cookie = getCookie('collapsedSections');
+      return cookie ? { ...defaultCollapsed, ...JSON.parse(cookie) } : defaultCollapsed;
+    } catch (e) {
+      console.warn('Invalid collapsedSections cookie, using defaults.', e);
+      return defaultCollapsed;
+    }
   });
 
-  const templateComponents = getTemplates()
-  const SelectedTemplate = templateComponents[cvData.template];
-
-  const [collapsedSections, setCollapsedSections] = useState(() => {
-    const cookie = getCookie('collapsedSections');
-    return cookie ? JSON.parse(cookie) : {
-      theme: false,
-      personalInfo: false,
-      aboutMe: false,
-      education: false,
-      workExperience: false,
-      certifications: false,
-      skills: false,
-      languages: false,
-    };
-  });
-
-  const toggleSection = (section: string) => {
+  const toggleSection = (section: keyof CollapsedSections) => {
     const updated = { ...collapsedSections, [section]: !collapsedSections[section] };
     setCollapsedSections(updated);
     setCookie('collapsedSections', JSON.stringify(updated));
   };
 
-  const updateCvData = (field: string, value: any) => {
-    setCvData((prev: any) => ({ ...prev, [field]: value }));
+  const updateCvData = <K extends keyof CvBuilderType>(field: K, value: CvBuilderType[K]) => {
+    setCvData(prev => ({ ...prev, [field]: value }));
   };
 
-  const updateListItem = (listName: string, index: number, field: string, value: any) => {
-    setCvData((prev: any) => ({
+  const updateListItem = <
+    K extends keyof CvBuilderType,
+    T extends CvBuilderType[K] extends Array<infer U> ? U : never
+  >(
+    listName: K,
+    index: number,
+    field: keyof T,
+    value: T[keyof T]
+  ) => {
+    setCvData(prev => ({
       ...prev,
-      [listName]: prev[listName].map((item: any, i: number) =>
+      [listName]: (prev[listName] as T[]).map((item, i) =>
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         i === index ? { ...item, [field]: value } : item
       ),
     }));
   };
 
-  const addListItem = (listName: string, newItem: any) => {
-    setCvData((prev: any) => ({
+  const addListItem = <K extends keyof CvBuilderType>(listName: K, newItem: unknown) => {
+    setCvData(prev => ({
       ...prev,
-      [listName]: [...prev[listName], newItem],
+      [listName]: [...(prev[listName] as unknown[]), newItem],
     }));
   };
 
-  const removeListItem = (listName: string, index: number) => {
-    setCvData((prev: any) => ({
+  const removeListItem = <K extends keyof CvBuilderType>(listName: K, index: number) => {
+    setCvData(prev => ({
       ...prev,
-      [listName]: prev[listName].filter((_: any, i: number) => i !== index),
+      [listName]: (prev[listName] as unknown[]).filter((_, i) => i !== index),
     }));
   };
 

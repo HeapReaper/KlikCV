@@ -1,5 +1,5 @@
-import type { EditorType } from '../../types/Input';
-import RichTextEditor from '../../components/editors/EditorMin.tsx';
+import type { EditorType } from '@/types/input';
+import RichTextEditor from '@/components/editors/editorMin';
 
 export default function AboutMeDescription({ value, onChange }: EditorType) {
   return (

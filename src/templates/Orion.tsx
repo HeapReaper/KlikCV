@@ -1,6 +1,6 @@
-import type { CvBuilderType } from '../types/Templates';
-import { fontMap} from '../config/fonts';
-import { formatDate } from '../utils/formatDate';
+import type { CvBuilderType } from '@/types/templates';
+import { fontMap} from '@/config/fonts';
+import { formatDate } from '@/utils/formatDate';
 
 export const settings = {
   padding: '0' as const,
