@@ -11,3 +11,5 @@ export function getTemplates(onlyNames = false) {
 
   return templates;
 }
+
+console.log(getTemplates())

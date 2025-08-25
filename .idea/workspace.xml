@@ -4,69 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Working privacy, blog, about-us">
-      <change afterPath="$PROJECT_DIR$/src/components/buttons/add.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/buttons/remove.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/editors/editorMin.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputs/aboutMeDescription.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputs/birthdate.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputs/checkbox.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputs/city.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputs/color.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputs/email.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputs/file.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputs/fullName.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputs/message.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputs/phone.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputs/subject.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputs/text.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/selects/fontSelect.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/selects/languageLevelSelect.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/selects/languageSelect.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/selects/levelSelect.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/selects/monthSelect.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/selects/templateSelect.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/selects/yearSelect.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config/fonts.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useCropper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useCvState.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/Luna.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/Nova.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/Orion.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/input.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/templates.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/exporttoPdf.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/getTemplates.ts" afterDir="false" />
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Updated port">
+      <change afterPath="$PROJECT_DIR$/test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/ads/bottom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ads/bottom.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/buttons/add.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/buttons/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/buttons/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/buttons/makeCvButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/buttons/makeCvButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/buttons/remove.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/core/faqClient.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/faqClient.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/core/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/core/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/core/showParsed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/showParsed.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/posts/authorAndDate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/posts/authorAndDate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/over-ons/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/over-ons/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/privacy/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/privacy/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/types/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/blog.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/types/button.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/button.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/types/faq.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/faq.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/utils/cookies.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/cookies.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/utils/formatDate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/formatDate.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/utils/getAndParseFaqs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getAndParseFaqs.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/utils/getTemplates.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/utils/getandParseMarkup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getandParseMarkup.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/utils/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/localStorage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/editors/editorMin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/editors/editorMin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useCvState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useCvState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/getTemplates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getTemplates.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,6 +260,8 @@
       <workItem from="1755987804030" duration="904000" />
       <workItem from="1756019327866" duration="61000" />
       <workItem from="1756032945895" duration="137000" />
+      <workItem from="1756115413002" duration="7000" />
+      <workItem from="1756115796961" duration="2627000" />
     </task>
     <task id="LOCAL-00124" summary="Updated text Nova">
       <option name="closed" value="true" />

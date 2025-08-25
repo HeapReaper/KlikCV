@@ -12,11 +12,11 @@ interface RichTextEditorProps {
 }
 
 export default function RichTextEditor({
-                                         value,
-                                         onChange,
-                                         actions = ['bold', 'italic', 'underline', 'link', 'strikethrough'],
-                                         className = '',
-                                       }: RichTextEditorProps) {
+  value,
+  onChange,
+  actions = ['bold', 'italic', 'underline', 'link', 'strikethrough'],
+  className = '',
+}: RichTextEditorProps) {
   const editorRef = useRef<HTMLDivElement>(null);
   const initialized = useRef(false);
 
@@ -66,12 +66,12 @@ export default function RichTextEditor({
       <style>
         {`
           /* Override Pell editor styles */
-          .pell-content { background-color: pink; }
+          .pell-content { background-color: f0f0f0; }
           .pell-actionbar { background-color: #f0f0f0; }
           .pell-button { color: black; }
 
           /* Dark mode overrides */
-          html.dark .pell-content { background-color: #1a1a1a; color: white; }
+          html.dark .pell-content { background-color: #1a1a1a; color: black; }
           html.dark .pell-actionbar { background-color: #2a2a2a; border-bottom: 1px solid #f97316; }
           html.dark .pell-button { color: white; }
           html.dark .pell-button:hover { background-color: #f97316; color: black; }

@@ -11,7 +11,7 @@ export default async function BlogPage() {
       {articles.map(({ author, title, slug, excerpt, date }) => (
         <article
           key={slug}
-          className="border-2 p-2 rounded-xl pb-4 border-orange-500 w-full"
+          className="border-2 p-2 rounded-xl pb-4 border-orange-500 w-full max-w-[800px] "
         >
           <h2 className="text-2xl font-semibold text-orange-500 hover:text-orange-600 underline cursor-pointer">
             <a href={`/blog/${slug}`}>{title}</a>

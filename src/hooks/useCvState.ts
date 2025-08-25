@@ -98,18 +98,13 @@ export const useCv = () => {
   };
 
   const [cvData, setCvData] = useCvState(initialCvData);
-  const [templates, setTemplates] = useState<Record<string, any>>({});
+  const [templates, setTemplates] = useState<Record<string, any>>(getTemplates(false));
+  const SelectedTemplate = templates[cvData.template];
 
   useEffect(() => {
-    async function loadTemplates() {
-      const t = await getTemplates();
-      setTemplates(t);
-    }
-    loadTemplates();
+    const t = getTemplates(false);
+    setTemplates(t);
   }, []);
-
-
-  const { component: SelectedTemplate, settings } = templates[cvData.template] || {};
 
   // Section collapsed states
   type CollapsedSections = {
