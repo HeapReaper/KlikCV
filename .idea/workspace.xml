@@ -4,15 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Working cv builder">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Fixed Dockerfile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/ads/bottom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ads/bottom.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/buttons/add.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/buttons/add.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/buttons/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/buttons/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/buttons/makeCvButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/buttons/makeCvButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/buttons/remove.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/buttons/remove.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/core/faqClient.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/faqClient.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/core/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/core/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/posts/authorAndDate.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/content/about-us.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/about-us.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/content/blog/how-to-make-a-good-cv.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/how-to-make-a-good-cv.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/content/blog/how-to-make-a-good-job-apply-letter.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/how-to-make-a-good-job-apply-letter.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/content/blog/prepare-for-job-interview.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/prepare-for-job-interview.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/content/blog/why-i-created-this.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/why-i-created-this.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/content/faq/can-i-add-my-linkedin.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/faq/can-i-add-my-linkedin.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/content/privacy.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/privacy.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/types/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/blog.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/types/button.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/button.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/types/faq.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/faq.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/utils/cookies.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/cookies.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/utils/formatDate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/formatDate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/utils/getAndParseFaqs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getAndParseFaqs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/utils/getTemplates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getTemplates.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/utils/getandParseMarkup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getandParseMarkup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/utils/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/localStorage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/selects/languageLevelSelect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/selects/languageSelect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/selects/levelSelect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/selects/monthSelect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/selects/templateSelect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/selects/yearSelect.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +59,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="staging" />
+        <entry key="$PROJECT_DIR$" value="move-to-nextjs" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,7 +105,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;move-to-nextjs&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
@@ -98,8 +127,8 @@
       <recent name="$PROJECT_DIR$/public/icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src/app/content/faq" />
       <recent name="$PROJECT_DIR$/src/app/content" />
       <recent name="$PROJECT_DIR$" />
@@ -259,14 +288,6 @@
       <workItem from="1756032945895" duration="137000" />
       <workItem from="1756115413002" duration="7000" />
       <workItem from="1756115796961" duration="4737000" />
-    </task>
-    <task id="LOCAL-00125" summary="Updated language levels to real levels (A1, B2 etc)">
-      <option name="closed" value="true" />
-      <created>1755545299820</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1755545299820</updated>
     </task>
     <task id="LOCAL-00126" summary="Updated h1 to be orange">
       <option name="closed" value="true" />
@@ -652,7 +673,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756122820962</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="Fixed Dockerfile">
+      <option name="closed" value="true" />
+      <created>1756209362585</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1756209362585</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -673,7 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="A" />
     <MESSAGE value="- Removed unused images&#10;- Updated CVBuilder component to include a toggle for the hobbies section&#10;- Enhanced styling in Luna template for dark mode compatibility" />
     <MESSAGE value="Added formatDate" />
     <MESSAGE value="Added image cropper" />
@@ -698,21 +726,7 @@
     <MESSAGE value="Working NextJS" />
     <MESSAGE value="Working privacy, blog, about-us" />
     <MESSAGE value="Working cv builder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working cv builder" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/inertia/pages/home.tsx</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/inertia/pages/about-us/page.tsx</url>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Fixed Dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Dockerfile" />
   </component>
 </project>

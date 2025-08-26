@@ -1,6 +1,6 @@
-import getAllBlogMarkdownFiles from "@/app/utils/getandParseMarkup";
-import AuthorAndDate from "@/app/components/posts/authorAndDate";
-import type { BlogType } from "@/app/types/blog";
+import getAllBlogMarkdownFiles from "@/utils/getandParseMarkup";
+import AuthorAndDate from "@/components/posts/authorAndDate";
+import type { BlogType } from "@/types/blog";
 
 export default async function BlogPage() {
   // ⬅️ serverside ophalen, geen useState/useEffect nodig

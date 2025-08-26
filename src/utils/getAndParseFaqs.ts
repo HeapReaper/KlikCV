@@ -3,10 +3,10 @@ import path from "path";
 import { marked } from "marked";
 import DOMPurify from "isomorphic-dompurify";
 import frontMatter from "front-matter";
-import type { FaqType } from "@/app/types/faq";
+import type { FaqType } from "@/types/faq";
 
 export default async function getAndParseFaqs(): Promise<FaqType[]> {
-  const faqDir = path.join(process.cwd(), "src", "app", "content", "faq");
+  const faqDir = path.join(process.cwd(), "src", "content", "faq");
   const filenames = fs.readdirSync(faqDir);
 
   const files: FaqType[] = [];

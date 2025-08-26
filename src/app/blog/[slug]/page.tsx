@@ -1,5 +1,5 @@
-import getAllBlogMarkdownFiles from "@/app/utils/getandParseMarkup";
-import type { BlogType } from "@/app/types/blog";
+import getAllBlogMarkdownFiles from "@/utils/getandParseMarkup";
+import type { BlogType } from "@/types/blog";
 import DOMPurify from "isomorphic-dompurify";
 
 interface BlogPageProps {
