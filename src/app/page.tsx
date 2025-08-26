@@ -6,7 +6,7 @@ import getAndParseFaqs from "@/utils/getAndParseFaqs";
 
 export default async function Home() {
   const allFaqs: FaqType[] = await getAndParseFaqs();
-  const faqs: FaqType[] = allFaqs.slice(0, 3);
+  const faqs: FaqType[] = allFaqs.slice(0, 4);
 
   return (
     <>
@@ -101,7 +101,6 @@ export default async function Home() {
         </h1>
 
         <FAQClient faqs={faqs} />
-
 
         <p className="text-sm mt-2 dark:text-white">
           Voor alle vragen{" "}

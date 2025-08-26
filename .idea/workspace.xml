@@ -4,31 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Added ads.txt">
-      <change afterPath="$PROJECT_DIR$/src/content/faq/can-i-edit-my-cv.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/faq/can-i-make-multiple-cvs.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/faq/do-i-need-to-a-account.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/faq/do-i-need-to-have-an-selfie.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/faq/does-klikcv-support-multiple-languages.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/faq/how-does-this-free-cv-maker-work.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/faq/how-does-this-website-get-paid.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/faq/how-long-may-my-cv-be.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/faq/is-my-data-safe.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/faq/tips-to-improve-cv.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/faq/what-are-the-most-common-mistakes.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/faq/what-if-the-best-format-to-store-cv.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/faq/what-info-needs-to-be-in-my-cv.md" afterDir="false" />
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Fixed path, added FAQ's">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/content/about-us.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/about-us.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/content/blog/how-to-make-a-good-cv.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/how-to-make-a-good-cv.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/content/blog/how-to-make-a-good-job-apply-letter.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/how-to-make-a-good-job-apply-letter.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/content/blog/prepare-for-job-interview.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/prepare-for-job-interview.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/content/blog/why-i-created-this.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/why-i-created-this.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/content/faq/can-i-add-my-linkedin.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/faq/can-i-add-my-linkedin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/content/privacy.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/privacy.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/getAndParseFaqs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getAndParseFaqs.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/getandParseMarkup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getandParseMarkup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/faq/does-klikcv-support-multiple-languages.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/faq/does-klikcv-support-multiple-languages.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,15 +257,7 @@
       <workItem from="1756115796961" duration="4737000" />
       <workItem from="1756211993952" duration="533000" />
       <workItem from="1756212692967" duration="2316000" />
-      <workItem from="1756230223348" duration="2430000" />
-    </task>
-    <task id="LOCAL-00128" summary="Added darkmode">
-      <option name="closed" value="true" />
-      <created>1755548663477</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1755548663477</updated>
+      <workItem from="1756230223348" duration="3313000" />
     </task>
     <task id="LOCAL-00129" summary="Updated Orion template to remove unused props and streamline CSS application.">
       <option name="closed" value="true" />
@@ -671,7 +643,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756230351998</updated>
     </task>
-    <option name="localTasksCounter" value="177" />
+    <task id="LOCAL-00177" summary="Fixed path, added FAQ's">
+      <option name="closed" value="true" />
+      <created>1756235641056</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1756235641056</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,7 +672,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added formatDate" />
     <MESSAGE value="Added image cropper" />
     <MESSAGE value="=" />
     <MESSAGE value="Update blog articles and sitemap for new posts on job interview preparation and CV tips. Adjust date in blog post." />
@@ -717,7 +696,8 @@
     <MESSAGE value="Fixed Dockerfile" />
     <MESSAGE value="Fixed Package" />
     <MESSAGE value="Added ads.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ads.txt" />
+    <MESSAGE value="Fixed path, added FAQ's" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed path, added FAQ's" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

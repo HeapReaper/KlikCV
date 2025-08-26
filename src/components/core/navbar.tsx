@@ -67,9 +67,6 @@ export default function Navbar() {
             <Link href="/over-ons" className={isActive("/over-ons")}>
               Over ons
             </Link>
-            <Link href="/privacy" className={isActive("/privacy")}>
-              Privacy
-            </Link>
           </div>
 
           <div className="flex items-center space-x-4 dark:text-white">
