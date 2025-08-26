@@ -6,13 +6,13 @@ import frontMatter from "front-matter";
 import type { BlogType } from "@/types/blog";
 
 export async function getAndParse(filePath: string): Promise<string> {
-  const absPath = path.join(process.cwd(), "src", "app", "content", filePath);
+  const absPath = path.join(process.cwd(), "src", "content", filePath);
   const markdown = fs.readFileSync(absPath, "utf-8");
   return DOMPurify.sanitize(await marked.parse(markdown));
 }
 
 export async function getAllBlogMarkdownFiles(): Promise<BlogType[]> {
-  const blogDir = path.join(process.cwd(), "src", "app", "content", "blog");
+  const blogDir = path.join(process.cwd(), "src", "content", "blog");
   const filenames = fs.readdirSync(blogDir);
 
   const files: BlogType[] = [];

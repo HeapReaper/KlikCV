@@ -1,7 +1,13 @@
 import Link from "next/link";
 import MakeCvButton from "@/components/buttons/makeCvButton";
+import FAQClient from "@/components/core/faqClient";
+import type {FaqType} from "@/types/faq";
+import getAndParseFaqs from "@/utils/getAndParseFaqs";
 
-export default function Home() {
+export default async function Home() {
+  const allFaqs: FaqType[] = await getAndParseFaqs();
+  const faqs: FaqType[] = allFaqs.slice(0, 3);
+
   return (
     <>
       <div className="pb-4 space-y-4">
@@ -93,6 +99,9 @@ export default function Home() {
         <h1 className="text-5xl font-bold text-orange-500 mb-8">
           Veelgestelde vragen
         </h1>
+
+        <FAQClient faqs={faqs} />
+
 
         <p className="text-sm mt-2 dark:text-white">
           Voor alle vragen{" "}
