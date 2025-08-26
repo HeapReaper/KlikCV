@@ -1,6 +1,0 @@
-# Allow all search engines
-User-agent: *
-Disallow:
-
-# Sitemap location
-Sitemap: https://klikcv.nl/sitemap.xml
