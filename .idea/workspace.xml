@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Add FAQ for multiple languages support and update faq count">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Refactor blog page to truncate excerpts and update FAQ task tracking">
+      <change afterPath="$PROJECT_DIR$/public/robot.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/sitemap.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,25 +66,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "staging",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/aerobytes/WebstormProjects/KlikCV/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/home/aerobytes/WebstormProjects/KlikCV2/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;staging&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/aerobytes/WebstormProjects/KlikCV/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/aerobytes/WebstormProjects/KlikCV2/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
@@ -255,15 +257,9 @@
       <workItem from="1756115796961" duration="4737000" />
       <workItem from="1756211993952" duration="533000" />
       <workItem from="1756212692967" duration="2316000" />
-      <workItem from="1756230223348" duration="3603000" />
-    </task>
-    <task id="LOCAL-00130" summary="Added overflow to template preview">
-      <option name="closed" value="true" />
-      <created>1755549046350</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1755549046350</updated>
+      <workItem from="1756230223348" duration="3767000" />
+      <workItem from="1756238508658" duration="23000" />
+      <workItem from="1756238544011" duration="193000" />
     </task>
     <task id="LOCAL-00131" summary="Fixed some darkmode incompatibility with frontend">
       <option name="closed" value="true" />
@@ -649,7 +645,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756238088694</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="Refactor blog page to truncate excerpts and update FAQ task tracking">
+      <option name="closed" value="true" />
+      <created>1756238325165</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1756238325165</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -670,7 +674,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update blog articles and sitemap for new posts on job interview preparation and CV tips. Adjust date in blog post." />
     <MESSAGE value="Removed unused privacy link from navbar" />
     <MESSAGE value="Fixed issue with blog layout" />
     <MESSAGE value="Added new Button component and refactored CvBuilder to use it." />
@@ -695,14 +698,14 @@
     <MESSAGE value="Fixed path, added FAQ's" />
     <MESSAGE value="Refactored navbar by removing unused privacy link and updated task tracking" />
     <MESSAGE value="Add FAQ for multiple languages support and update faq count" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add FAQ for multiple languages support and update faq count" />
+    <MESSAGE value="Refactor blog page to truncate excerpts and update FAQ task tracking" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor blog page to truncate excerpts and update FAQ task tracking" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/app/faq/page.tsx</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
