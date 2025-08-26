@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Fixed path, added FAQ's">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Add FAQ for multiple languages support and update faq count">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/faq/does-klikcv-support-multiple-languages.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/faq/does-klikcv-support-multiple-languages.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,15 +255,7 @@
       <workItem from="1756115796961" duration="4737000" />
       <workItem from="1756211993952" duration="533000" />
       <workItem from="1756212692967" duration="2316000" />
-      <workItem from="1756230223348" duration="3313000" />
-    </task>
-    <task id="LOCAL-00129" summary="Updated Orion template to remove unused props and streamline CSS application.">
-      <option name="closed" value="true" />
-      <created>1755548726096</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1755548726096</updated>
+      <workItem from="1756230223348" duration="3603000" />
     </task>
     <task id="LOCAL-00130" summary="Added overflow to template preview">
       <option name="closed" value="true" />
@@ -651,7 +641,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756235641056</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="Add FAQ for multiple languages support and update faq count">
+      <option name="closed" value="true" />
+      <created>1756238088694</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1756238088694</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,8 +670,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added image cropper" />
-    <MESSAGE value="=" />
     <MESSAGE value="Update blog articles and sitemap for new posts on job interview preparation and CV tips. Adjust date in blog post." />
     <MESSAGE value="Removed unused privacy link from navbar" />
     <MESSAGE value="Fixed issue with blog layout" />
@@ -697,7 +693,9 @@
     <MESSAGE value="Fixed Package" />
     <MESSAGE value="Added ads.txt" />
     <MESSAGE value="Fixed path, added FAQ's" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed path, added FAQ's" />
+    <MESSAGE value="Refactored navbar by removing unused privacy link and updated task tracking" />
+    <MESSAGE value="Add FAQ for multiple languages support and update faq count" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add FAQ for multiple languages support and update faq count" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

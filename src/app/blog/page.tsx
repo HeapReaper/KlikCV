@@ -3,7 +3,6 @@ import AuthorAndDate from "@/components/posts/authorAndDate";
 import type { BlogType } from "@/types/blog";
 
 export default async function BlogPage() {
-  // ⬅️ serverside ophalen, geen useState/useEffect nodig
   const articles: BlogType[] = await getAllBlogMarkdownFiles();
 
   return (
@@ -17,7 +16,7 @@ export default async function BlogPage() {
             <a href={`/blog/${slug}`}>{title}</a>
           </h2>
           <AuthorAndDate author={author} date={date} />
-          <p className="mt-2 text-gray-700 dark:text-white">{excerpt}</p>
+          <p className="mt-2 text-gray-700 dark:text-white">{excerpt.slice(0, 60)}...</p>
         </article>
       ))}
     </>
