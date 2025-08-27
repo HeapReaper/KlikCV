@@ -3,6 +3,7 @@ import MakeCvButton from "@/components/buttons/makeCvButton";
 import FAQClient from "@/components/core/faqClient";
 import type {FaqType} from "@/types/faq";
 import getAndParseFaqs from "@/utils/getAndParseFaqs";
+import Image from "next/image";
 
 export default async function Home() {
   const allFaqs: FaqType[] = await getAndParseFaqs();
@@ -30,9 +31,11 @@ export default async function Home() {
         <div className="mt-10 relative max-w-4xl mx-auto w-full">
           <div className="flex gap-4 overflow-x-auto pb-4 px-2 scrollbar-thin scrollbar-thumb-orange-700 scrollbar-track-orange-200 w-full">
             <div className="flex-shrink-0 flex-none min-w-[60%] sm:min-w-[48%] md:min-w-[280px] lg:min-w-[320px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
-              <img
+              <Image
                 src="/Luna.png"
                 alt="Luna template"
+                height={320}
+                width={228}
                 className="rounded mb-4 mx-auto h-80 w-auto object-contain"
               />
               <h3 className="font-bold text-xl">
@@ -41,9 +44,11 @@ export default async function Home() {
             </div>
 
             <div className="flex-shrink-0 flex-none min-w-[60%] sm:min-w-[48%] md:min-w-[280px] lg:min-w-[320px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
-              <img
+              <Image
                 src="/Nova.png"
                 alt="Nova template"
+                height={320}
+                width={228}
                 className="rounded mb-4 mx-auto h-80 w-auto object-contain"
               />
               <h3 className="font-bold text-xl">
@@ -52,9 +57,11 @@ export default async function Home() {
             </div>
 
             <div className="flex-shrink-0 flex-none min-w-[60%] sm:min-w-[48%] md:min-w-[280px] lg:min-w-[320px] rounded-xl p-4 text-orange-500 text-center border-2 border-solid border-orange-500">
-              <img
+              <Image
                 src="/Orion.png"
                 alt="Orion template"
+                height={320}
+                width={228}
                 className="rounded mb-4 mx-auto h-80 w-auto object-contain"
               />
               <h3 className="font-bold text-xl">

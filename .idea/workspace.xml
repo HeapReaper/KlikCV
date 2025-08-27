@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Add sitemap.xml and robot.txt for search engine optimization">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Refactor pages to include bottom ad component">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/over-ons/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/over-ons/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,15 +259,7 @@
       <workItem from="1756230223348" duration="3767000" />
       <workItem from="1756238508658" duration="23000" />
       <workItem from="1756238544011" duration="267000" />
-      <workItem from="1756277303115" duration="185000" />
-    </task>
-    <task id="LOCAL-00132" summary="Fixed automatic template loader">
-      <option name="closed" value="true" />
-      <created>1755587121406</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1755587121406</updated>
+      <workItem from="1756277303115" duration="351000" />
     </task>
     <task id="LOCAL-00133" summary="Fixed active nav">
       <option name="closed" value="true" />
@@ -656,7 +645,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756238802423</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="Refactor pages to include bottom ad component">
+      <option name="closed" value="true" />
+      <created>1756277512186</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1756277512186</updated>
+    </task>
+    <option name="localTasksCounter" value="182" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -677,7 +674,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed issue with blog layout" />
     <MESSAGE value="Added new Button component and refactored CvBuilder to use it." />
     <MESSAGE value="Update blog article styles to include hover effect" />
     <MESSAGE value="Added Google ads" />
@@ -702,7 +698,8 @@
     <MESSAGE value="Add FAQ for multiple languages support and update faq count" />
     <MESSAGE value="Refactor blog page to truncate excerpts and update FAQ task tracking" />
     <MESSAGE value="Add sitemap.xml and robot.txt for search engine optimization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add sitemap.xml and robot.txt for search engine optimization" />
+    <MESSAGE value="Refactor pages to include bottom ad component" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor pages to include bottom ad component" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
