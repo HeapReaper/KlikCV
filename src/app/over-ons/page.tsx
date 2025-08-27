@@ -10,7 +10,9 @@ export default async function AboutPage() {
       <div className="max-w-[800px]">
         <ShowParsed html={article} />
 
-        <BottomAd />
+        <div className="mt-3">
+          <BottomAd />
+        </div>
       </div>
     </>
   )

@@ -1,6 +1,7 @@
 import { getAllBlogMarkdownFiles } from "@/utils/getandParseMarkup";
 import AuthorAndDate from "@/components/posts/authorAndDate";
 import type { BlogType } from "@/types/blog";
+import BottomAd from "@/components/ads/bottom";
 
 export default async function BlogPage() {
   const articles: BlogType[] = await getAllBlogMarkdownFiles();
@@ -19,6 +20,10 @@ export default async function BlogPage() {
           <p className="mt-2 text-gray-700 dark:text-white">{excerpt.slice(0, 60)}...</p>
         </article>
       ))}
+
+      <div className="mt-3">
+        <BottomAd />
+      </div>
     </>
   );
 }

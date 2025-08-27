@@ -28,6 +28,7 @@ import Button from '@/components/buttons/button';
 
 import 'croppie/croppie.css';
 import {saveToLocalStorage} from "@/utils/localStorage";
+import BottomAd from "@/components/ads/bottom";
 
 export default function CvBuilder() {
   const {
@@ -518,6 +519,10 @@ export default function CvBuilder() {
             />
           )}
         </div>
+      </div>
+
+      <div className="mt-3">
+        <BottomAd />
       </div>
     </div>
   );
