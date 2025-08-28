@@ -4,6 +4,7 @@ import FAQClient from "@/components/core/faqClient";
 import type {FaqType} from "@/types/faq";
 import getAndParseFaqs from "@/utils/getAndParseFaqs";
 import Image from "next/image";
+import BottomAd from "@/components/ads/bottom";
 
 export default async function Home() {
   const allFaqs: FaqType[] = await getAndParseFaqs();
@@ -115,7 +116,10 @@ export default async function Home() {
             klik hier
           </Link>
         </p>
+      </div>
 
+      <div className="mt-3">
+        <BottomAd />
       </div>
     </>
   );
