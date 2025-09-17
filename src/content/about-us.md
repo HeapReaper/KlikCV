@@ -11,3 +11,5 @@ Onze missie is om jou te helpen je carrièrekansen te vergroten door een profess
 KlikCV is dan ook gratis, omdat we vinden dat een goed cv geen luxe mag zijn, maar een recht voor iedereen.
 
 Maak vandaag nog je gratis cv en zet de eerste stap naar jouw droombaan!
+
+Vragen? Mail naar contact@klikcv.nl.
