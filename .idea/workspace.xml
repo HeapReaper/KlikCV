@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Fixed layout issue">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Updated about us">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/sitemap.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,23 +264,7 @@
       <workItem from="1756401960746" duration="74000" />
       <workItem from="1756402113918" duration="1000" />
       <workItem from="1756834194283" duration="186000" />
-      <workItem from="1758094726914" duration="791000" />
-    </task>
-    <task id="LOCAL-00136" summary="Updated bun lockfile">
-      <option name="closed" value="true" />
-      <created>1755589675341</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1755589675341</updated>
-    </task>
-    <task id="LOCAL-00137" summary="Updated button background color">
-      <option name="closed" value="true" />
-      <created>1755590473967</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1755590473968</updated>
+      <workItem from="1758094726914" duration="1684000" />
     </task>
     <task id="LOCAL-00138" summary="Fixed nav">
       <option name="closed" value="true" />
@@ -659,7 +642,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758094861418</updated>
     </task>
-    <option name="localTasksCounter" value="185" />
+    <task id="LOCAL-00185" summary="Removed font-bold from isActive navbar">
+      <option name="closed" value="true" />
+      <created>1758095568490</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1758095568490</updated>
+    </task>
+    <task id="LOCAL-00186" summary="Updated about us">
+      <option name="closed" value="true" />
+      <created>1758096428060</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1758096428060</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -680,8 +679,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added Google ads" />
-    <MESSAGE value="Refactor navbar and add footer ad component" />
     <MESSAGE value="Added cookie banner" />
     <MESSAGE value="Refactor CookieBanner.tsx: Improve readability by adding a dark overlay and adjusting z-index" />
     <MESSAGE value="Refactor FooterAd component to include route parameter and reload ads on page reload" />
@@ -705,7 +702,9 @@
     <MESSAGE value="Refactor pages to include bottom ad component" />
     <MESSAGE value="Added add to homepage" />
     <MESSAGE value="Fixed layout issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed layout issue" />
+    <MESSAGE value="Removed font-bold from isActive navbar" />
+    <MESSAGE value="Updated about us" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated about us" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
