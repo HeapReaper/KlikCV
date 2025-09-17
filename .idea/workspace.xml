@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Added add to homepage">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Fixed layout issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/navbar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,23 +265,7 @@
       <workItem from="1756401960746" duration="74000" />
       <workItem from="1756402113918" duration="1000" />
       <workItem from="1756834194283" duration="186000" />
-      <workItem from="1758094726914" duration="115000" />
-    </task>
-    <task id="LOCAL-00134" summary="Updated styling scrollbars">
-      <option name="closed" value="true" />
-      <created>1755588730548</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1755588730548</updated>
-    </task>
-    <task id="LOCAL-00135" summary="Added animations">
-      <option name="closed" value="true" />
-      <created>1755589465071</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1755589465071</updated>
+      <workItem from="1758094726914" duration="791000" />
     </task>
     <task id="LOCAL-00136" summary="Updated bun lockfile">
       <option name="closed" value="true" />
@@ -658,7 +643,23 @@
       <option name="project" value="LOCAL" />
       <updated>1756383106232</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="Fixed layout issue">
+      <option name="closed" value="true" />
+      <created>1758094855491</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1758094855491</updated>
+    </task>
+    <task id="LOCAL-00184" summary="Fixed layout issue">
+      <option name="closed" value="true" />
+      <created>1758094861418</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1758094861418</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,7 +680,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update blog article styles to include hover effect" />
     <MESSAGE value="Added Google ads" />
     <MESSAGE value="Refactor navbar and add footer ad component" />
     <MESSAGE value="Added cookie banner" />
@@ -704,7 +704,8 @@
     <MESSAGE value="Add sitemap.xml and robot.txt for search engine optimization" />
     <MESSAGE value="Refactor pages to include bottom ad component" />
     <MESSAGE value="Added add to homepage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added add to homepage" />
+    <MESSAGE value="Fixed layout issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed layout issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

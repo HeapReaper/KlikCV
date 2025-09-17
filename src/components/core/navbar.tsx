@@ -40,7 +40,7 @@ export default function Navbar() {
     if (!currentPath) return "text-gray-700 dark:text-white hover:text-orange-600";
 
     return currentPath === path
-      ? "text-orange-600 font-semibold"
+      ? "text-orange-600"
       : "text-gray-700 hover:text-orange-600 dark:text-white";
   };
 

@@ -236,7 +236,7 @@ export default function CvBuilder() {
 
                     </div>
                     <div>
-                      <p className="font-medium text-gray-700 dark:text-white">Omschrijving</p>
+                      <p className="font-medium text-white dark:text-white">Omschrijving</p>
                       <RichTextEditor value={education.description} onChange={val => updateListItem('educations', index, 'description', val)} />
                     </div>
                   </div>
@@ -292,7 +292,7 @@ export default function CvBuilder() {
                     </div>
 
                     <div>
-                      <p className="font-medium text-gray-700 dark:text-white">Omschrijving</p>
+                      <p className="font-medium text-white dark:text-white">Omschrijving</p>
                       <RichTextEditor value={experience.description} onChange={val => updateListItem('workExperiences', index, 'description', val)} />
                     </div>
                   </div>
@@ -377,7 +377,7 @@ export default function CvBuilder() {
 
                     {/* Description */}
                     <div>
-                      <p className="font-medium text-gray-700 dark:text-white">Omschrijving</p>
+                      <p className="font-medium text-white dark:text-white">Omschrijving</p>
                       <RichTextEditor
                         value={cert.description}
                         onChange={val =>
