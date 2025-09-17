@@ -401,7 +401,7 @@ export default function CvBuilder() {
             </button>
 
             {collapsedSections.skills && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {cvData.skills.map((skill: any, index: number) => (
                   <div key={index} className="p-2 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                     <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
@@ -425,7 +425,7 @@ export default function CvBuilder() {
             </button>
 
             {collapsedSections.languages && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {cvData.languages.map((lang: any, index: number) => (
                   <div key={index} className="p-2 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                     <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
@@ -465,24 +465,34 @@ export default function CvBuilder() {
             </button>
 
             {collapsedSections.hobbies && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {cvData.hobbies.map((hobby: any, index: number) => (
-                  <div key={index} className="p-2 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
-                    <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
-                      <AddButton onClick={() => addListItem('hobbies', { language: '', level: '' })} />
-                      <RemoveButton onClick={() => removeListItem('hobbies', index)} />
+                  <div
+                    key={index}
+                    className="p-2 relative flex flex-col rounded-2xl border-2 border-orange-500"
+                  >
+                    <div className="absolute flex gap-2 -top-4 right-1">
+                      <AddButton
+                        onClick={() => addListItem('hobbies', { name: '' })}
+                      />
+                      <RemoveButton
+                        onClick={() => removeListItem('hobbies', index)}
+                      />
                     </div>
                     <TextInput
-                      id="hobbies[]"
+                      id={`hobbies[${index}]`}
                       label="Naam"
                       placeholder="Hobby naam"
                       value={hobby.name}
-                      onChange={value => updateListItem('hobbies', index, 'name', value)}
+                      onChange={value =>
+                        updateListItem('hobbies', index, 'name', value)
+                      }
                     />
                   </div>
                 ))}
               </div>
             )}
+
           </div>
 
           <Button
