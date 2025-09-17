@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Updated sitemap">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" afterDir="false" />
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Fixed layout">
+      <change beforePath="$PROJECT_DIR$/src/components/core/showParsed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/showParsed.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,15 +264,7 @@
       <workItem from="1756402113918" duration="1000" />
       <workItem from="1756834194283" duration="186000" />
       <workItem from="1758094726914" duration="1847000" />
-      <workItem from="1758097408729" duration="330000" />
-    </task>
-    <task id="LOCAL-00139" summary="Fixed Luna">
-      <option name="closed" value="true" />
-      <created>1755591446412</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1755591446412</updated>
+      <workItem from="1758097408729" duration="444000" />
     </task>
     <task id="LOCAL-00140" summary="Added Nova template">
       <option name="closed" value="true" />
@@ -659,7 +650,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758096480282</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="Fixed layout">
+      <option name="closed" value="true" />
+      <created>1758097762279</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1758097762280</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -680,7 +679,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor CookieBanner.tsx: Improve readability by adding a dark overlay and adjusting z-index" />
     <MESSAGE value="Refactor FooterAd component to include route parameter and reload ads on page reload" />
     <MESSAGE value="Add margin-top to FooterAd component for better spacing" />
     <MESSAGE value="Refactor Navbar and FooterAd components, add router integration" />
@@ -705,7 +703,8 @@
     <MESSAGE value="Removed font-bold from isActive navbar" />
     <MESSAGE value="Updated about us" />
     <MESSAGE value="Updated sitemap" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated sitemap" />
+    <MESSAGE value="Fixed layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed layout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

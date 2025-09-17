@@ -14,6 +14,7 @@ export default function ShowParsed(html: { html: string ; }) {
           prose-h1:text-orange-500 prose-h2:text-orange-500
           prose-h3:text-orange-500 prose-strong:dark:text-white
           dark:text-white
+          prose-a:text-white
         "
       dangerouslySetInnerHTML={{
         __html: DOMPurify.sanitize(html.html || ""),
