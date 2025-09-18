@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Fixed layout">
-      <change beforePath="$PROJECT_DIR$/src/components/core/showParsed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/showParsed.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/api/generate-pdf/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/core/Spinner.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/buttons/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/exporttoPdf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/exporttoPdf.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
