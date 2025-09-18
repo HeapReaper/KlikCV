@@ -17,6 +17,9 @@ COPY package*.json bun.lockb* ./
 RUN bun install --frozen-lockfile
 
 COPY . .
+
+RUN bunx puppeteer install chrome
+
 RUN bun run build
 
 
