@@ -531,9 +531,9 @@ export default function CvBuilder() {
         </div>
       </div>
 
-      <div className="mt-3">
-        <BottomAd />
-      </div>
+      {/*<div className="mt-3">*/}
+      {/*  <BottomAd />*/}
+      {/*</div>*/}
     </div>
   );
 }

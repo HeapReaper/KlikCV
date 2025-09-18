@@ -21,9 +21,9 @@ export default async function BlogPage() {
         </article>
       ))}
 
-      <div className="mt-3">
-        <BottomAd />
-      </div>
+      {/*<div className="mt-3">*/}
+      {/*  <BottomAd />*/}
+      {/*</div>*/}
     </>
   );
 }
