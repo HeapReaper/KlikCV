@@ -52,7 +52,6 @@ export default function CvBuilder() {
     getCroppedImage,
   } = useCropper();
 
-
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-4">
       {/* Builder Form */}

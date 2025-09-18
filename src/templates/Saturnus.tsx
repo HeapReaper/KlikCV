@@ -6,7 +6,7 @@ export const settings = {
   padding: "0" as const,
 };
 
-export default function Orion({
+export default function Saturnus({
   name,
   email,
   phone,
@@ -30,13 +30,16 @@ export default function Orion({
       <main className="mx-auto max-w-5xl bg-white">
         <div className="grid md:grid-cols-[200px_1fr]">
           <aside
-            className="text-white ps-3 pe-3 flex flex-col items-center gap-4"
-            style={{ backgroundColor: primaryColor }}
+            className="text-black flex flex-col items-center gap-4"
           >
+            <div className="h-10 rounded-b-full absolute w-50" style={{ backgroundColor: primaryColor }}>
+            </div>
+
             <img
               src={profilePicture || "https://placehold.co/30x30"}
               alt="Profielfoto"
-              className="h-24 w-24 mt-12 rounded-full object-cover ring-4 ring-white/20"
+              className="h-24 w-24 mt-12 rounded-full object-cover border-4"
+              style={{ borderColor: primaryColor }}
             />
 
             <div className="font-semibold leading-tight text-center">
@@ -55,7 +58,7 @@ export default function Orion({
                 </h3>
                 <ul className="space-y-1.5">
                   <li>
-                    <div className="text-white/80">
+                    <div className="text-black/80">
                       Telefoonnummer
                     </div>
                     <div className="font-medium">
@@ -63,7 +66,7 @@ export default function Orion({
                     </div>
                   </li>
                   <li>
-                    <div className="text-white/80">
+                    <div className="text-black/80">
                       E-mailadres
                     </div>
                     <div className="font-medium">
@@ -71,7 +74,7 @@ export default function Orion({
                     </div>
                   </li>
                   <li>
-                    <div className="text-white/80">
+                    <div className="text-black/80">
                       Woonplaats
                     </div>
                     <div className="font-medium">
@@ -79,7 +82,7 @@ export default function Orion({
                     </div>
                   </li>
                   <li>
-                    <div className="text-white/80">
+                    <div className="text-black/80">
                       Geboortedatum
                     </div>
                     <div className="font-medium">

@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Updated Dockerfile">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Updated path chromium">
+      <change afterPath="$PROJECT_DIR$/src/templates/Saturnus.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/generate-pdf/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/generate-pdf/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/Orion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/Orion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/getTemplates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getTemplates.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="staging" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,6 +55,9 @@
     &quot;repository&quot;: &quot;KlikCV&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/templates/Saturnus.tsx" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -71,7 +78,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;staging&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;add-template&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
@@ -266,22 +273,7 @@
       <workItem from="1756834194283" duration="186000" />
       <workItem from="1758094726914" duration="1847000" />
       <workItem from="1758097408729" duration="444000" />
-    </task>
-    <task id="LOCAL-00145" summary="Refactored Luna, Orion, and Nova templates with improved formatting and updated image sources.">
-      <option name="closed" value="true" />
-      <created>1755610645578</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1755610645578</updated>
-    </task>
-    <task id="LOCAL-00146" summary="Add blog articles on job interview preparation, application letter writing, and CV making">
-      <option name="closed" value="true" />
-      <created>1755612399105</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1755612399105</updated>
+      <workItem from="1758196208970" duration="1435000" />
     </task>
     <task id="LOCAL-00147" summary="- Removed unused images&#10;- Updated CVBuilder component to include a toggle for the hobbies section&#10;- Enhanced styling in Luna template for dark mode compatibility">
       <option name="closed" value="true" />
@@ -659,7 +651,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758183774327</updated>
     </task>
-    <option name="localTasksCounter" value="194" />
+    <task id="LOCAL-00194" summary="Updated path chromium">
+      <option name="closed" value="true" />
+      <created>1758184216479</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1758184216479</updated>
+    </task>
+    <task id="LOCAL-00195" summary="Updated path chromium">
+      <option name="closed" value="true" />
+      <created>1758184225262</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1758184225263</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -680,7 +688,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding ssr" />
     <MESSAGE value="Almost working" />
     <MESSAGE value="Working NextJS" />
     <MESSAGE value="Working privacy, blog, about-us" />
@@ -705,7 +712,8 @@
     <MESSAGE value="Fixed bug" />
     <MESSAGE value="Added chromium for puppeteer in Dockerfile" />
     <MESSAGE value="Updated Dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Dockerfile" />
+    <MESSAGE value="Updated path chromium" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated path chromium" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -713,6 +721,10 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/app/faq/page.tsx</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/utils/getTemplates.ts</url>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

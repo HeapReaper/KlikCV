@@ -1,12 +1,14 @@
-import Luna, { settings as lunaSettings } from '@/templates/Luna';
-import Nova, { settings as novaSettings } from '@/templates/Nova';
-import Orion, { settings as orionSettings } from '@/templates/Orion';
+import Luna, { settings as lunaSettings } from "@/templates/Luna";
+import Nova, { settings as novaSettings } from "@/templates/Nova";
+import Orion, { settings as orionSettings } from "@/templates/Orion";
+import Saturnus, { settings as saturnusSettings } from "@/templates/Saturnus";
 
 export function getTemplates(onlyNames = false) {
   const templates: Record<string, any> = {
-    Luna: onlyNames ? 'Luna' : { component: Luna, settings: lunaSettings },
-    Nova: onlyNames ? 'Nova' : { component: Nova, settings: novaSettings },
-    Orion: onlyNames ? 'Orion' : { component: Orion, settings: orionSettings },
+    Luna: onlyNames ? "Luna" : { component: Luna, settings: lunaSettings },
+    Nova: onlyNames ? "Nova" : { component: Nova, settings: novaSettings },
+    Orion: onlyNames ? "Orion" : { component: Orion, settings: orionSettings },
+    Saturnus: onlyNames ? "Saturnus" : { component: Saturnus, settings: saturnusSettings },
   };
 
   return templates;
