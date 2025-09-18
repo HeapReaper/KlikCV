@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Updated path chromium">
-      <change afterPath="$PROJECT_DIR$/src/templates/Saturnus.tsx" afterDir="false" />
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Added Saturnus template">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/Orion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/Orion.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/getTemplates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getTemplates.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/selects/languageLevelSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/selects/languageLevelSelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/selects/templateSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/selects/templateSelect.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,15 +270,7 @@
       <workItem from="1756834194283" duration="186000" />
       <workItem from="1758094726914" duration="1847000" />
       <workItem from="1758097408729" duration="444000" />
-      <workItem from="1758196208970" duration="1435000" />
-    </task>
-    <task id="LOCAL-00147" summary="- Removed unused images&#10;- Updated CVBuilder component to include a toggle for the hobbies section&#10;- Enhanced styling in Luna template for dark mode compatibility">
-      <option name="closed" value="true" />
-      <created>1755628014953</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1755628014953</updated>
+      <workItem from="1758196208970" duration="1591000" />
     </task>
     <task id="LOCAL-00148" summary="Added formatDate">
       <option name="closed" value="true" />
@@ -667,7 +656,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758184225263</updated>
     </task>
-    <option name="localTasksCounter" value="196" />
+    <task id="LOCAL-00196" summary="Added Saturnus template">
+      <option name="closed" value="true" />
+      <created>1758197659354</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1758197659355</updated>
+    </task>
+    <option name="localTasksCounter" value="197" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -688,7 +685,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Almost working" />
     <MESSAGE value="Working NextJS" />
     <MESSAGE value="Working privacy, blog, about-us" />
     <MESSAGE value="Working cv builder" />
@@ -713,7 +709,8 @@
     <MESSAGE value="Added chromium for puppeteer in Dockerfile" />
     <MESSAGE value="Updated Dockerfile" />
     <MESSAGE value="Updated path chromium" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated path chromium" />
+    <MESSAGE value="Added Saturnus template" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Saturnus template" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
