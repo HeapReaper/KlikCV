@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Fixed layout">
-      <change afterPath="$PROJECT_DIR$/src/app/api/generate-pdf/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/Spinner.tsx" afterDir="false" />
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Added Puppeteer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/buttons/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/buttons/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/exporttoPdf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/exporttoPdf.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/generate-pdf/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/generate-pdf/route.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,22 +266,6 @@
       <workItem from="1756834194283" duration="186000" />
       <workItem from="1758094726914" duration="1847000" />
       <workItem from="1758097408729" duration="444000" />
-    </task>
-    <task id="LOCAL-00140" summary="Added Nova template">
-      <option name="closed" value="true" />
-      <created>1755596923829</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1755596923829</updated>
-    </task>
-    <task id="LOCAL-00141" summary="Added hobbies, improved Orion template">
-      <option name="closed" value="true" />
-      <created>1755601411011</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1755601411011</updated>
     </task>
     <task id="LOCAL-00142" summary="Added testing">
       <option name="closed" value="true" />
@@ -662,7 +643,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758097762280</updated>
     </task>
-    <option name="localTasksCounter" value="189" />
+    <task id="LOCAL-00189" summary="Added SSR">
+      <option name="closed" value="true" />
+      <created>1758181828642</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1758181828642</updated>
+    </task>
+    <task id="LOCAL-00190" summary="Added Puppeteer">
+      <option name="closed" value="true" />
+      <created>1758182033741</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1758182033741</updated>
+    </task>
+    <option name="localTasksCounter" value="191" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -683,8 +680,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor FooterAd component to include route parameter and reload ads on page reload" />
-    <MESSAGE value="Add margin-top to FooterAd component for better spacing" />
     <MESSAGE value="Refactor Navbar and FooterAd components, add router integration" />
     <MESSAGE value="Add Nginx configuration for static file serving and CORS settings" />
     <MESSAGE value="Refactor FooterAd component to ensure ads are pushed after DOM renders, add route parameter for dynamic reloading" />
@@ -708,7 +703,9 @@
     <MESSAGE value="Updated about us" />
     <MESSAGE value="Updated sitemap" />
     <MESSAGE value="Fixed layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed layout" />
+    <MESSAGE value="Added SSR" />
+    <MESSAGE value="Added Puppeteer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Puppeteer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
