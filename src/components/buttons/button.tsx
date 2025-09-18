@@ -3,7 +3,7 @@
 import type { ButtonType } from "@/types/button";
 import { useState } from "react";
 
-export default function Button({ id, label, type, onClick }: ButtonType) {
+export default function Button({ id, label, type, onClickAction }: ButtonType) {
   const [loading, setLoading] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ export default function Button({ id, label, type, onClick }: ButtonType) {
       className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-xl transform transition-transform duration-150 active:scale-95 flex items-center gap-3"
       onClick={() => {
         setLoading(true);
-        onClick?.();
+        onClickAction?.();
       }}
     >
       {loading && (

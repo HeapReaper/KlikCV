@@ -499,7 +499,7 @@ export default function CvBuilder() {
             id="generatePDF"
             label="Download als PDF"
             type="button"
-            onClick={() => exportToPdf('pdf')}
+            onClickAction={() => exportToPdf()}
           />
         </form>
       </div>
