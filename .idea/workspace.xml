@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Added chromium for puppeteer in Dockerfile">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Updated Dockerfile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/generate-pdf/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/generate-pdf/route.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,14 +266,6 @@
       <workItem from="1756834194283" duration="186000" />
       <workItem from="1758094726914" duration="1847000" />
       <workItem from="1758097408729" duration="444000" />
-    </task>
-    <task id="LOCAL-00144" summary="Fixed Orion template and added to frontend">
-      <option name="closed" value="true" />
-      <created>1755608236734</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1755608236734</updated>
     </task>
     <task id="LOCAL-00145" summary="Refactored Luna, Orion, and Nova templates with improved formatting and updated image sources.">
       <option name="closed" value="true" />
@@ -659,7 +651,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758183188842</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL-00193" summary="Updated Dockerfile">
+      <option name="closed" value="true" />
+      <created>1758183774327</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1758183774327</updated>
+    </task>
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -680,7 +680,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor FooterAd component to ensure ads are pushed after DOM renders, add route parameter for dynamic reloading" />
     <MESSAGE value="Adding ssr" />
     <MESSAGE value="Almost working" />
     <MESSAGE value="Working NextJS" />
@@ -705,7 +704,8 @@
     <MESSAGE value="Added Puppeteer" />
     <MESSAGE value="Fixed bug" />
     <MESSAGE value="Added chromium for puppeteer in Dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added chromium for puppeteer in Dockerfile" />
+    <MESSAGE value="Updated Dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Dockerfile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
