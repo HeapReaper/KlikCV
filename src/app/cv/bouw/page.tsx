@@ -204,7 +204,9 @@ export default function CvBuilder() {
                   <div key={index} className="p-2 relative space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                     <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
                       <AddButton onClick={() => addListItem('educations', { name: '', institution: '', place: '', startMonth: '', startYear: '', endMonth: '', endYear: '', current: false, description: '' })} />
-                      <RemoveButton onClick={() => removeListItem('educations', index)} />
+                      {cvData.educations.length > 1 && (
+                        <RemoveButton onClick={() => removeListItem('educations', index)} />
+                      )}
                     </div>
                     <TextInput id="title" label="Opleiding" placeholder="Naam" value={education.name} onChange={value => updateListItem('educations', index, 'name', value)} />
 
@@ -259,7 +261,9 @@ export default function CvBuilder() {
                   <div key={index} className="p-2 relative space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                     <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
                       <AddButton onClick={() => addListItem('workExperiences', { jobTitle: '', employer: '', place: '', startMonth: '', startYear: '', endMonth: '', endYear: '', current: false, description: '' })} />
-                      <RemoveButton onClick={() => removeListItem('workExperiences', index)} />
+                      {cvData.workExperiences.length > 1 && (
+                        <RemoveButton onClick={() => removeListItem('workExperiences', index)} />
+                      )}
                     </div>
 
                     <TextInput id={`function-${index}`} label="Functie" placeholder="Functie" value={experience.jobTitle} onChange={value => updateListItem('workExperiences', index, 'jobTitle', value)} />
@@ -329,7 +333,10 @@ export default function CvBuilder() {
                           })
                         }
                       />
-                      <RemoveButton onClick={() => removeListItem('certifications', index)} />
+
+                      {cvData.certifications.length > 1 && (
+                        <RemoveButton onClick={() => removeListItem('certifications', index)} />
+                      )}
                     </div>
 
                     {/* Certification Name */}
@@ -406,7 +413,9 @@ export default function CvBuilder() {
                   <div key={index} className="p-2 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                     <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
                       <AddButton onClick={() => addListItem('skills', { skill: '', level: '' })} />
-                      <RemoveButton onClick={() => removeListItem('skills', index)} />
+                      {cvData.skills.length > 1 && (
+                        <RemoveButton onClick={() => removeListItem('skills', index)} />
+                      )}
                     </div>
                     <TextInput id="skill[]" label="Naam" placeholder="Project management" value={skill.skill} onChange={value => updateListItem('skills', index, 'skill', value)} />
                     <SkillLevelSelect value={skill.level} onChange={value => updateListItem('skills', index, 'level', value)} />
@@ -430,7 +439,9 @@ export default function CvBuilder() {
                   <div key={index} className="p-2 relative flex space-y-4 space-x-4 rounded-2xl border-2 border-orange-500">
                     <div className="absolute flex gap-2 -top-4 right-1 space-x-2">
                       <AddButton onClick={() => addListItem('languages', { language: '', level: '' })} />
-                      <RemoveButton onClick={() => removeListItem('languages', index)} />
+                      {cvData.languages.length > 1 && (
+                        <RemoveButton onClick={() => removeListItem('languages', index)} />
+                      )}
                     </div>
                     <LanguageSelect value={lang.language} onChange={value => updateListItem('languages', index, 'language', value)} />
                     <LanguageLevelSelect value={lang.level} onChange={value => updateListItem('languages', index, 'level', value)} />
@@ -475,9 +486,12 @@ export default function CvBuilder() {
                       <AddButton
                         onClick={() => addListItem('hobbies', { name: '' })}
                       />
-                      <RemoveButton
-                        onClick={() => removeListItem('hobbies', index)}
-                      />
+
+                      {cvData.hobbies.length > 1 && (
+                        <RemoveButton
+                          onClick={() => removeListItem('hobbies', index)}
+                        />
+                      )}
                     </div>
                     <TextInput
                       id={`hobbies[${index}]`}
