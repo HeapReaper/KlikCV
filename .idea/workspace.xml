@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Updated Dockerfile">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Disabled ads">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cv/bouw/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/over-ons/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/over-ons/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +73,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;staging&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
@@ -85,6 +86,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\aerob\\WebstormProjects\\KlikCV\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -269,14 +271,13 @@
       <workItem from="1756834194283" duration="186000" />
       <workItem from="1758094726914" duration="1847000" />
       <workItem from="1758097408729" duration="444000" />
-    </task>
-    <task id="LOCAL-00145" summary="Refactored Luna, Orion, and Nova templates with improved formatting and updated image sources.">
-      <option name="closed" value="true" />
-      <created>1755610645578</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1755610645578</updated>
+      <workItem from="1758218297144" duration="8000" />
+      <workItem from="1759484522515" duration="40000" />
+      <workItem from="1759485683534" duration="10000" />
+      <workItem from="1759660749890" duration="11000" />
+      <workItem from="1762185943696" duration="27000" />
+      <workItem from="1762786371486" duration="172000" />
+      <workItem from="1762801496359" duration="284000" />
     </task>
     <task id="LOCAL-00146" summary="Add blog articles on job interview preparation, application letter writing, and CV making">
       <option name="closed" value="true" />
@@ -662,7 +663,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758183774327</updated>
     </task>
-    <option name="localTasksCounter" value="194" />
+    <task id="LOCAL-00194" summary="Disabled ads">
+      <option name="closed" value="true" />
+      <created>1758198256980</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1758198256981</updated>
+    </task>
+    <option name="localTasksCounter" value="195" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -683,7 +692,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding ssr" />
     <MESSAGE value="Almost working" />
     <MESSAGE value="Working NextJS" />
     <MESSAGE value="Working privacy, blog, about-us" />
@@ -708,7 +716,8 @@
     <MESSAGE value="Fixed bug" />
     <MESSAGE value="Added chromium for puppeteer in Dockerfile" />
     <MESSAGE value="Updated Dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Dockerfile" />
+    <MESSAGE value="Disabled ads" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disabled ads" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

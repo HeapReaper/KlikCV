@@ -5,6 +5,7 @@ import type {FaqType} from "@/types/faq";
 import getAndParseFaqs from "@/utils/getAndParseFaqs";
 import Image from "next/image";
 import BottomAd from "@/components/ads/bottom";
+import { FaDiscord } from "react-icons/fa";
 
 export default async function Home() {
   const allFaqs: FaqType[] = await getAndParseFaqs();
@@ -20,8 +21,17 @@ export default async function Home() {
           Vul jouw gegevens in, selecteer een template en download jouw CV direct.
         </p>
 
-        <div className="flex items-center justify-center space-x-4">
+        <div className="flex flex-col items-center justify-center space-y-4">
           <MakeCvButton />
+
+          <Link
+            href="https://discord.gg/HyGNHZCeTQ"
+            target="_blank"
+            className="flex items-center justify-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
+          >
+            <FaDiscord className="text-xl" />
+            <span>Discord</span>
+          </Link>
         </div>
       </div>
 
