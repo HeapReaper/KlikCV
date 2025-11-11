@@ -114,56 +114,57 @@ export default function Nova({
           />
         </section>
 
+        {workExperiences.length > 0 && workExperiences[0].jobTitle !== '' && (
+          <section>
+            <h2
+              className="text-xl font-semibold border-b pb-1 mb-3"
+              style={{ borderColor: secondaryColor, color: primaryColor }}
+            >
+              Werkervaring
+            </h2>
+            {workExperiences.map((exp, i) => (
+              <div key={i} className="mb-4">
+                <h3 className="text-lg font-medium">{exp.jobTitle || "Functie"}</h3>
+                <p className="text-sm text-gray-600">{exp.employer}</p>
+                <p className="text-xs text-gray-500">
+                  {`${exp.startMonth.slice(0, 3)}-${exp.startYear}`} → {exp.current ? "Now" : `${exp.endMonth?.slice(0, 3)}-${exp.endYear}`} ({exp.place})
+                </p>
+                {exp.description && (
+                  <div
+                    className="text-sm mt-2"
+                    dangerouslySetInnerHTML={{ __html: exp.description }}
+                  />
+                )}
+              </div>
+            ))}
+          </section>
+        )}
 
-        <section>
-          <h2
-            className="text-xl font-semibold border-b pb-1 mb-3"
-            style={{ borderColor: secondaryColor, color: primaryColor }}
-          >
-            Werkervaring
-          </h2>
-          {workExperiences.map((exp, i) => (
-            <div key={i} className="mb-4">
-              <h3 className="text-lg font-medium">{exp.jobTitle || "Functie"}</h3>
-              <p className="text-sm text-gray-600">{exp.employer}</p>
-              <p className="text-xs text-gray-500">
-                {`${exp.startMonth.slice(0, 3)}-${exp.startYear}`} → {exp.current ? "Now" : `${exp.endMonth?.slice(0, 3)}-${exp.endYear}`} ({exp.place})
-              </p>
-              {exp.description && (
-                <div
-                  className="text-sm mt-2"
-                  dangerouslySetInnerHTML={{ __html: exp.description }}
-                />
-              )}
-            </div>
-          ))}
-        </section>
-
-
-        <section>
-          <h2
-            className="text-xl font-semibold border-b pb-1 mb-3"
-            style={{ borderColor: secondaryColor, color: primaryColor }}
-          >
-            Opleiding
-          </h2>
-          {educations.map((edu, i) => (
-            <div key={i} className="mb-4">
-              <h3 className="text-lg font-medium">{edu.name}</h3>
-              <p className="text-sm text-gray-600">{edu.institution}</p>
-              <p className="text-xs text-gray-500">
-                {`${edu.startMonth.slice(0, 3)}-${edu.startYear}`} → {edu.current ? "Now" : `${edu.endMonth?.slice(0, 3)}-${edu.endYear}`} ({edu.place})
-              </p>
-              {edu.description && (
-                <div
-                  className="text-sm mt-2"
-                  dangerouslySetInnerHTML={{ __html: edu.description }}
-                />
-              )}
-            </div>
-          ))}
-        </section>
-
+        {educations.length > 0 && educations[0].name !== '' && (
+          <section>
+            <h2
+              className="text-xl font-semibold border-b pb-1 mb-3"
+              style={{ borderColor: secondaryColor, color: primaryColor }}
+            >
+              Opleiding
+            </h2>
+            {educations.map((edu, i) => (
+              <div key={i} className="mb-4">
+                <h3 className="text-lg font-medium">{edu.name}</h3>
+                <p className="text-sm text-gray-600">{edu.institution}</p>
+                <p className="text-xs text-gray-500">
+                  {`${edu.startMonth.slice(0, 3)}-${edu.startYear}`} → {edu.current ? "Now" : `${edu.endMonth?.slice(0, 3)}-${edu.endYear}`} ({edu.place})
+                </p>
+                {edu.description && (
+                  <div
+                    className="text-sm mt-2"
+                    dangerouslySetInnerHTML={{ __html: edu.description }}
+                  />
+                )}
+              </div>
+            ))}
+          </section>
+        )}
 
         {certifications.length > 0 && certifications[0].name !== '' && (
           <section>

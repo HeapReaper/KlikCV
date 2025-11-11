@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Disabled ads">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Added Discord invite button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/Luna.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/Luna.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/Nova.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/Nova.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/Orion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/Orion.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +76,7 @@
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;staging&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
@@ -277,15 +278,9 @@
       <workItem from="1759660749890" duration="11000" />
       <workItem from="1762185943696" duration="27000" />
       <workItem from="1762786371486" duration="172000" />
-      <workItem from="1762801496359" duration="284000" />
-    </task>
-    <task id="LOCAL-00146" summary="Add blog articles on job interview preparation, application letter writing, and CV making">
-      <option name="closed" value="true" />
-      <created>1755612399105</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1755612399105</updated>
+      <workItem from="1762801496359" duration="437000" />
+      <workItem from="1762802271432" duration="55000" />
+      <workItem from="1762851689720" duration="400000" />
     </task>
     <task id="LOCAL-00147" summary="- Removed unused images&#10;- Updated CVBuilder component to include a toggle for the hobbies section&#10;- Enhanced styling in Luna template for dark mode compatibility">
       <option name="closed" value="true" />
@@ -671,7 +666,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758198256981</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="Added Discord invite button">
+      <option name="closed" value="true" />
+      <created>1762801887449</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1762801887449</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,7 +695,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Almost working" />
     <MESSAGE value="Working NextJS" />
     <MESSAGE value="Working privacy, blog, about-us" />
     <MESSAGE value="Working cv builder" />
@@ -717,7 +719,8 @@
     <MESSAGE value="Added chromium for puppeteer in Dockerfile" />
     <MESSAGE value="Updated Dockerfile" />
     <MESSAGE value="Disabled ads" />
-    <option name="LAST_COMMIT_MESSAGE" value="Disabled ads" />
+    <MESSAGE value="Added Discord invite button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Discord invite button" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
