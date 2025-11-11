@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Made edu and workexp. disapear if first entry is empty">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Removed ESLint">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -279,14 +277,6 @@
       <workItem from="1762185943696" duration="27000" />
       <workItem from="1762786371486" duration="172000" />
       <workItem from="1762801496359" duration="284000" />
-    </task>
-    <task id="LOCAL-00147" summary="- Removed unused images&#10;- Updated CVBuilder component to include a toggle for the hobbies section&#10;- Enhanced styling in Luna template for dark mode compatibility">
-      <option name="closed" value="true" />
-      <created>1755628014953</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1755628014953</updated>
     </task>
     <task id="LOCAL-00148" summary="Added formatDate">
       <option name="closed" value="true" />
@@ -672,7 +662,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762852192729</updated>
     </task>
-    <option name="localTasksCounter" value="196" />
+    <task id="LOCAL-00196" summary="Removed ESLint">
+      <option name="closed" value="true" />
+      <created>1762852682985</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1762852682985</updated>
+    </task>
+    <option name="localTasksCounter" value="197" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -693,7 +691,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Working NextJS" />
     <MESSAGE value="Working privacy, blog, about-us" />
     <MESSAGE value="Working cv builder" />
     <MESSAGE value="Fixed Dockerfile" />
@@ -718,7 +715,8 @@
     <MESSAGE value="Updated Dockerfile" />
     <MESSAGE value="Disabled ads" />
     <MESSAGE value="Made edu and workexp. disapear if first entry is empty" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made edu and workexp. disapear if first entry is empty" />
+    <MESSAGE value="Removed ESLint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed ESLint" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
