@@ -159,63 +159,59 @@ export default function Orion({
             </header>
 
             <div className="mt-4 space-y-4 text-sm">
-              {educations.length > 0 && educations[0].name !== '' && (
-                <section>
-                  <h3 className="text-xl font-semibold text-black">
-                    Opleidingen
-                  </h3>
-                  <div className="mt-4 grid gap-6">
-                    {educations.map((edu, index) => (
-                      <article key={index} className="border-l-4  pl-4" style={{ borderColor: secondaryColor}}>
-                        <div className="flex items-center justify-between text-black">
-                          <h4 className="font-semibold">
-                            {edu.name || 'Bachelor of Computer Science'}
-                          </h4>
-                          <span className="text-gray-500">
-                            ({`${edu.startYear}-${edu.current ? 'Huidig' : edu.endYear}`})
-                          </span>
-                        </div>
-                        <p className="text-gray-600">
-                          {edu.institution || 'Uni Amsterdam'}
+              <section>
+                <h3 className="text-xl font-semibold text-black">
+                  Opleidingen
+                </h3>
+                <div className="mt-4 grid gap-6">
+                  {educations.map((edu, index) => (
+                    <article key={index} className="border-l-4  pl-4" style={{ borderColor: secondaryColor}}>
+                      <div className="flex items-center justify-between text-black">
+                        <h4 className="font-semibold">
+                          {edu.name || 'Bachelor of Computer Science'}
+                        </h4>
+                        <span className="text-gray-500">
+                          ({`${edu.startYear}-${edu.current ? 'Huidig' : edu.endYear}`})
+                        </span>
+                      </div>
+                      <p className="text-gray-600">
+                        {edu.institution || 'Uni Amsterdam'}
+                      </p>
+                      <ul className="list-disc list-inside text-gray-700 mt-2">
+                        <p dangerouslySetInnerHTML={{ __html: edu.description }}>
                         </p>
-                        <ul className="list-disc list-inside text-gray-700 mt-2">
-                          <p dangerouslySetInnerHTML={{ __html: edu.description }}>
-                          </p>
-                        </ul>
-                      </article>
-                    ))}
-                  </div>
-                </section>
-              )}
+                      </ul>
+                    </article>
+                  ))}
+                </div>
+              </section>
 
-              {workExperiences.length > 0 && workExperiences[0].jobTitle !== '' && (
-                <section>
-                  <h3 className="text-xl font-semibold text-black">
-                    Werkervaring
-                  </h3>
-                  <div className="mt-4 grid gap-6">
-                    {workExperiences.map((exp, index) => (
-                      <article key={index} className="border-l-4 pl-4" style={{ borderColor: secondaryColor}}>
-                        <div className="flex items-center justify-between">
-                          <h4 className="font-semibold text-black">
-                            {exp.jobTitle || 'Developer'}
-                          </h4>
-                          <span className="text-gray-500">
-                            ({`${exp.startYear}-${exp.current ? 'Huidig' : exp.endYear}`})
-                          </span>
-                        </div>
-                        <p className="text-gray-600">
-                          {exp.employer || 'Example Tech'}
-                        </p>
-                        <p className="text-gray-600"
-                           dangerouslySetInnerHTML={{ __html: exp.description }}
-                        >
-                        </p>
-                      </article>
-                    ))}
-                  </div>
-                </section>
-              )}
+              <section>
+                <h3 className="text-xl font-semibold text-black">
+                  Werkervaring
+                </h3>
+                <div className="mt-4 grid gap-6">
+                  {workExperiences.map((exp, index) => (
+                    <article key={index} className="border-l-4 pl-4" style={{ borderColor: secondaryColor}}>
+                      <div className="flex items-center justify-between">
+                        <h4 className="font-semibold text-black">
+                          {exp.jobTitle || 'Developer'}
+                        </h4>
+                        <span className="text-gray-500">
+                          ({`${exp.startYear}-${exp.current ? 'Huidig' : exp.endYear}`})
+                        </span>
+                      </div>
+                      <p className="text-gray-600">
+                        {exp.employer || 'Example Tech'}
+                      </p>
+                      <p className="text-gray-600"
+                         dangerouslySetInnerHTML={{ __html: exp.description }}
+                      >
+                      </p>
+                    </article>
+                  ))}
+                </div>
+              </section>
 
               {certifications.length > 0 && certifications[0].name !== '' && (
                 <section>
