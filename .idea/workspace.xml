@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Fixed? lockfile">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11-11-2025_11_13_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11-11-2025_11_13__Changes_.xml" beforeDir="false" />
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Updated footer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/Luna.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/Luna.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/Nova.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/Nova.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/Orion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/Orion.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,15 +280,7 @@
       <workItem from="1762786371486" duration="172000" />
       <workItem from="1762801496359" duration="284000" />
       <workItem from="1762862364986" duration="100000" />
-      <workItem from="1763480985808" duration="175000" />
-    </task>
-    <task id="LOCAL-00149" summary="Added image cropper">
-      <option name="closed" value="true" />
-      <created>1755686718071</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1755686718071</updated>
+      <workItem from="1763480985808" duration="567000" />
     </task>
     <task id="LOCAL-00150" summary="Added image cropper">
       <option name="closed" value="true" />
@@ -674,7 +666,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762856038484</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="Updated footer">
+      <option name="closed" value="true" />
+      <created>1763481171484</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1763481171484</updated>
+    </task>
+    <option name="localTasksCounter" value="199" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,7 +695,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Working cv builder" />
     <MESSAGE value="Fixed Dockerfile" />
     <MESSAGE value="Fixed Package" />
     <MESSAGE value="Added ads.txt" />
@@ -720,7 +719,8 @@
     <MESSAGE value="Made edu and workexp. disapear if first entry is empty" />
     <MESSAGE value="Removed ESLint" />
     <MESSAGE value="Fixed? lockfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed? lockfile" />
+    <MESSAGE value="Updated footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated footer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

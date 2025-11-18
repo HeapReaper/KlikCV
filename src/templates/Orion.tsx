@@ -27,10 +27,10 @@ export default function Orion({
 }: CvBuilderType) {
   return (
     <div style={{fontFamily: fontMap[fontFamily]}} className="">
-      <main className="mx-auto max-w-5xl bg-white">
+      <main className="mx-auto max-w-5xl bg-white text-black">
         <div className="grid md:grid-cols-[200px_1fr]">
           <aside
-            className="text-white ps-3 pe-3 flex flex-col items-center gap-4"
+            className="text-black ps-3 pe-3 flex flex-col items-center gap-4"
             style={{ backgroundColor: primaryColor }}
           >
             <img
@@ -43,7 +43,7 @@ export default function Orion({
               <div className="text-2xl">
                 {name || 'John Doe'}
               </div>
-              <div className="text-white/90">
+              <div className="text-black/90">
                 {preferredFunction || 'Web developer'}
               </div>
             </div>
@@ -55,7 +55,7 @@ export default function Orion({
                 </h3>
                 <ul className="space-y-1.5">
                   <li>
-                    <div className="text-white/80">
+                    <div className="text-black/80">
                       Telefoonnummer
                     </div>
                     <div className="font-medium">
@@ -63,7 +63,7 @@ export default function Orion({
                     </div>
                   </li>
                   <li>
-                    <div className="text-white/80">
+                    <div className="text-black/80">
                       E-mailadres
                     </div>
                     <div className="font-medium">
@@ -71,7 +71,7 @@ export default function Orion({
                     </div>
                   </li>
                   <li>
-                    <div className="text-white/80">
+                    <div className="text-black/80">
                       Woonplaats
                     </div>
                     <div className="font-medium">
@@ -79,7 +79,7 @@ export default function Orion({
                     </div>
                   </li>
                   <li>
-                    <div className="text-white/80">
+                    <div className="text-black/80">
                       Geboortedatum
                     </div>
                     <div className="font-medium">
@@ -144,8 +144,7 @@ export default function Orion({
           <section className="p-3">
             <header className="flex items-start justify-between gap-6">
               <div>
-                <h1 className="text-3xl font-semibold">Cv</h1>
-                <p className=" font-semibold text-4xl -mt-1" style={{ color: primaryColor }}>
+                <p className=" font-semibold text-black text-4xl -mt-1" style={{ color: primaryColor }}>
                   Curriculum Vitae
                 </p>
                 <h2 className="sr-only">
@@ -159,59 +158,63 @@ export default function Orion({
             </header>
 
             <div className="mt-4 space-y-4 text-sm">
-              <section>
-                <h3 className="text-xl font-semibold text-black">
-                  Opleidingen
-                </h3>
-                <div className="mt-4 grid gap-6">
-                  {educations.map((edu, index) => (
-                    <article key={index} className="border-l-4  pl-4" style={{ borderColor: secondaryColor}}>
-                      <div className="flex items-center justify-between text-black">
-                        <h4 className="font-semibold">
-                          {edu.name || 'Bachelor of Computer Science'}
-                        </h4>
-                        <span className="text-gray-500">
+              {educations.length > 0 && educations[0].name !== '' && (
+                <section>
+                  <h3 className="text-xl font-semibold text-black">
+                    Opleidingen
+                  </h3>
+                  <div className="mt-4 grid gap-6">
+                    {educations.map((edu, index) => (
+                      <article key={index} className="border-l-4  pl-4" style={{ borderColor: secondaryColor}}>
+                        <div className="flex items-center justify-between text-black">
+                          <h4 className="font-semibold">
+                            {edu.name || 'Bachelor of Computer Science'}
+                          </h4>
+                          <span className="text-gray-500">
                           ({`${edu.startYear}-${edu.current ? 'Huidig' : edu.endYear}`})
                         </span>
-                      </div>
-                      <p className="text-gray-600">
-                        {edu.institution || 'Uni Amsterdam'}
-                      </p>
-                      <ul className="list-disc list-inside text-gray-700 mt-2">
-                        <p dangerouslySetInnerHTML={{ __html: edu.description }}>
+                        </div>
+                        <p className="text-gray-600">
+                          {edu.institution || 'Uni Amsterdam'}
                         </p>
-                      </ul>
-                    </article>
-                  ))}
-                </div>
-              </section>
+                        <ul className="list-disc list-inside text-gray-700 mt-2">
+                          <p dangerouslySetInnerHTML={{ __html: edu.description }}>
+                          </p>
+                        </ul>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              )}
 
-              <section>
-                <h3 className="text-xl font-semibold text-black">
-                  Werkervaring
-                </h3>
-                <div className="mt-4 grid gap-6">
-                  {workExperiences.map((exp, index) => (
-                    <article key={index} className="border-l-4 pl-4" style={{ borderColor: secondaryColor}}>
-                      <div className="flex items-center justify-between">
-                        <h4 className="font-semibold text-black">
-                          {exp.jobTitle || 'Developer'}
-                        </h4>
-                        <span className="text-gray-500">
+              {workExperiences.length > 0 && workExperiences[0].jobTitle !== ""  && (
+                <section>
+                  <h3 className="text-xl font-semibold text-black">
+                    Werkervaring
+                  </h3>
+                  <div className="mt-4 grid gap-6">
+                    {workExperiences.map((exp, index) => (
+                      <article key={index} className="border-l-4 pl-4" style={{ borderColor: secondaryColor}}>
+                        <div className="flex items-center justify-between">
+                          <h4 className="font-semibold text-black">
+                            {exp.jobTitle || 'Developer'}
+                          </h4>
+                          <span className="text-gray-500">
                           ({`${exp.startYear}-${exp.current ? 'Huidig' : exp.endYear}`})
                         </span>
-                      </div>
-                      <p className="text-gray-600">
-                        {exp.employer || 'Example Tech'}
-                      </p>
-                      <p className="text-gray-600"
-                         dangerouslySetInnerHTML={{ __html: exp.description }}
-                      >
-                      </p>
-                    </article>
-                  ))}
-                </div>
-              </section>
+                        </div>
+                        <p className="text-gray-600">
+                          {exp.employer || 'Example Tech'}
+                        </p>
+                        <p className="text-gray-600"
+                           dangerouslySetInnerHTML={{ __html: exp.description }}
+                        >
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              )}
 
               {certifications.length > 0 && certifications[0].name !== '' && (
                 <section>

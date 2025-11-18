@@ -129,76 +129,77 @@ export default function Luna({
             </div>
           </section>
 
+          {educations.length > 0 && educations[0].name !== '' && (
+            <section>
+              <h2 className="text-2xl font-semibold text-black dark:text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Opleiding</h2>
+              {educations.map((edu, index: number) => (
+                <article className="mb-5" key={index}>
+                  <h3 className="text-xl text-black dark:text-black mb-1">{edu.name || 'BSc Computer Science'}</h3>
+                  <h3 className="text-lg mb-1 dark:text-black" style={{ color: primaryColor }}>
+                    {edu.institution || 'Universiteit van Amsterdam'}
+                  </h3>
+                  <p className="flex items-center space-x-2 text-sm dark:text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                         className="size-4 mr-1" style={{ color: primaryColor }}>
+                      <path
+                        d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"/>
+                      <path fill="evenodd"
+                            d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
+                            clipRule="evenodd"/>
+                    </svg>
+                    {edu.startMonth.slice(0, 3)}-{edu.startYear} - {edu.current ? 'Huidig' : `${edu.endMonth?.slice(0, 3)}-${edu.endYear}`}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                         className="size-4 mr ml-1" style={{ color: primaryColor }}>
+                      <path fillRule="evenodd"
+                            d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                            clipRule="evenodd"/>
+                    </svg>
+                    {edu.place}
+                  </p>
+                  {edu.description && (
+                    <div className="prose prose-sm text-gray-800 mt-2" dangerouslySetInnerHTML={{ __html: edu.description }}/>
+                  )}
+                </article>
+              ))}
+            </section>
+          )}
 
-          <section>
-            <h2 className="text-2xl font-semibold text-black dark:text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Opleiding</h2>
-            {educations.map((edu, index: number) => (
-              <article className="mb-5" key={index}>
-                <h3 className="text-xl text-black dark:text-black mb-1">{edu.name || 'BSc Computer Science'}</h3>
-                <h3 className="text-lg mb-1 dark:text-black" style={{ color: primaryColor }}>
-                  {edu.institution || 'Universiteit van Amsterdam'}
-                </h3>
-                <p className="flex items-center space-x-2 text-sm dark:text-black">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                       className="size-4 mr-1" style={{ color: primaryColor }}>
-                    <path
-                      d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"/>
-                    <path fill="evenodd"
-                          d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
-                          clipRule="evenodd"/>
-                  </svg>
-                  {edu.startMonth.slice(0, 3)}-{edu.startYear} - {edu.current ? 'Huidig' : `${edu.endMonth?.slice(0, 3)}-${edu.endYear}`}
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                       className="size-4 mr ml-1" style={{ color: primaryColor }}>
-                    <path fillRule="evenodd"
-                          d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                          clipRule="evenodd"/>
-                  </svg>
-                  {edu.place}
-                </p>
-                {edu.description && (
-                  <div className="prose prose-sm text-gray-800 mt-2" dangerouslySetInnerHTML={{ __html: edu.description }}/>
-                )}
-              </article>
-            ))}
-          </section>
-
-
-          <section>
-            <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Werkervaring</h2>
-            {workExperiences.map((exp, index) => (
-              <article key={index} aria-labelledby={`functie${index}-heading`} className="mb-5">
-                <h3 id={`functie${index}-heading`} className="text-xl text-black mb-1">
-                  {exp.jobTitle || "Functie"}
-                </h3>
-                <h3 className="text-lg mb-1 dark:text-black" style={{ color: primaryColor }}>
-                  {exp.employer || "Werkgever"}
-                </h3>
-                <p className="flex items-center space-x-2 text-gray-700 text-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                       className="size-4 mr-1" style={{ color: primaryColor }}>
-                    <path
-                      d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"/>
-                    <path fillRule="evenodd"
-                          d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
-                          clipRule="evenodd"/>
-                  </svg>
-                  {`${exp.startMonth.slice(0, 3)}-${exp.startYear}`} - {exp.current ? 'Huidig' : `${exp.endMonth?.slice(0, 3)}-${exp.endYear}`}
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                       className="size-4 mr ml-1" style={{ color: primaryColor }}>
-                    <path fillRule="evenodd"
-                          d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                          clipRule="evenodd"/>
-                  </svg>
-                  {exp.place}
-                </p>
-                {exp.description && (
-                  <div className="prose prose-sm text-gray-800 mt-2" dangerouslySetInnerHTML={{ __html: exp.description }}/>
-                )}
-              </article>
-            ))}
-          </section>
-
+          {workExperiences.length > 0 && workExperiences[0].jobTitle !== ""  && (
+            <section>
+              <h2 className="text-2xl font-semibold text-black border-b-4 pb-1 mb-3" style={{ borderColor: secondaryColor }}>Werkervaring</h2>
+              {workExperiences.map((exp, index) => (
+                <article key={index} aria-labelledby={`functie${index}-heading`} className="mb-5">
+                  <h3 id={`functie${index}-heading`} className="text-xl text-black mb-1">
+                    {exp.jobTitle || "Functie"}
+                  </h3>
+                  <h3 className="text-lg mb-1 dark:text-black" style={{ color: primaryColor }}>
+                    {exp.employer || "Werkgever"}
+                  </h3>
+                  <p className="flex items-center space-x-2 text-gray-700 text-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                         className="size-4 mr-1" style={{ color: primaryColor }}>
+                      <path
+                        d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"/>
+                      <path fillRule="evenodd"
+                            d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
+                            clipRule="evenodd"/>
+                    </svg>
+                    {`${exp.startMonth.slice(0, 3)}-${exp.startYear}`} - {exp.current ? 'Huidig' : `${exp.endMonth?.slice(0, 3)}-${exp.endYear}`}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                         className="size-4 mr ml-1" style={{ color: primaryColor }}>
+                      <path fillRule="evenodd"
+                            d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                            clipRule="evenodd"/>
+                    </svg>
+                    {exp.place}
+                  </p>
+                  {exp.description && (
+                    <div className="prose prose-sm text-gray-800 mt-2" dangerouslySetInnerHTML={{ __html: exp.description }}/>
+                  )}
+                </article>
+              ))}
+            </section>
+          )}
 
           {certifications.length > 0 && certifications[0].name !== '' && (
             <section>
