@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Removed ESLint">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Fixed? lockfile">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11-11-2025_11_13_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11-11-2025_11_13__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/footer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +76,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;staging&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#94 on staging&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
@@ -277,14 +279,8 @@
       <workItem from="1762185943696" duration="27000" />
       <workItem from="1762786371486" duration="172000" />
       <workItem from="1762801496359" duration="284000" />
-    </task>
-    <task id="LOCAL-00148" summary="Added formatDate">
-      <option name="closed" value="true" />
-      <created>1755628409444</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1755628409444</updated>
+      <workItem from="1762862364986" duration="100000" />
+      <workItem from="1763480985808" duration="175000" />
     </task>
     <task id="LOCAL-00149" summary="Added image cropper">
       <option name="closed" value="true" />
@@ -670,7 +666,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762852682985</updated>
     </task>
-    <option name="localTasksCounter" value="197" />
+    <task id="LOCAL-00197" summary="Fixed? lockfile">
+      <option name="closed" value="true" />
+      <created>1762856038484</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1762856038484</updated>
+    </task>
+    <option name="localTasksCounter" value="198" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -691,7 +695,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Working privacy, blog, about-us" />
     <MESSAGE value="Working cv builder" />
     <MESSAGE value="Fixed Dockerfile" />
     <MESSAGE value="Fixed Package" />
@@ -716,7 +719,8 @@
     <MESSAGE value="Disabled ads" />
     <MESSAGE value="Made edu and workexp. disapear if first entry is empty" />
     <MESSAGE value="Removed ESLint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed ESLint" />
+    <MESSAGE value="Fixed? lockfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed? lockfile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
