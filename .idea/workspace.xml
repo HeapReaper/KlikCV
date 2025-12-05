@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Updated footer">
+    <list default="true" id="616e2453-544b-46e1-8d03-5a384d8f8d92" name="Changes" comment="Made education and workexperience disapear if nothing filled in">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/Luna.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/Luna.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/Nova.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/Nova.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/Orion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/Orion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="staging" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,7 +76,8 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#94 on staging&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;add-reorder&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
@@ -280,15 +281,11 @@
       <workItem from="1762786371486" duration="172000" />
       <workItem from="1762801496359" duration="284000" />
       <workItem from="1762862364986" duration="100000" />
-      <workItem from="1763480985808" duration="567000" />
-    </task>
-    <task id="LOCAL-00150" summary="Added image cropper">
-      <option name="closed" value="true" />
-      <created>1755687430704</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1755687430704</updated>
+      <workItem from="1763480985808" duration="719000" />
+      <workItem from="1763488377580" duration="356000" />
+      <workItem from="1764773448014" duration="1062000" />
+      <workItem from="1764788702524" duration="30000" />
+      <workItem from="1764922425279" duration="760000" />
     </task>
     <task id="LOCAL-00151" summary="Update blog articles and sitemap for new posts on job interview preparation and CV tips. Adjust date in blog post.">
       <option name="closed" value="true" />
@@ -674,7 +671,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763481171484</updated>
     </task>
-    <option name="localTasksCounter" value="199" />
+    <task id="LOCAL-00199" summary="Made education and workexperience disapear if nothing filled in">
+      <option name="closed" value="true" />
+      <created>1763481577073</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1763481577073</updated>
+    </task>
+    <option name="localTasksCounter" value="200" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,7 +700,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed Dockerfile" />
     <MESSAGE value="Fixed Package" />
     <MESSAGE value="Added ads.txt" />
     <MESSAGE value="Fixed path, added FAQ's" />
@@ -720,7 +724,8 @@
     <MESSAGE value="Removed ESLint" />
     <MESSAGE value="Fixed? lockfile" />
     <MESSAGE value="Updated footer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated footer" />
+    <MESSAGE value="Made education and workexperience disapear if nothing filled in" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made education and workexperience disapear if nothing filled in" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
